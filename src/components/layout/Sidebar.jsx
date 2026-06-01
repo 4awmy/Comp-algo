@@ -127,6 +127,19 @@ function LectureItem({ lecture }) {
               <span>Visualizations</span>
             </NavLink>
           )}
+
+          {/* Table of Contents (Topics) - Only show if active & open */}
+          {isActive && open && lecture.topics && (
+            <div className={styles.tocSection}>
+              <div className={styles.tocLabel}>Topics</div>
+              {lecture.topics.map((topic, i) => (
+                <div key={i} className={styles.tocItem}>
+                  <span className={styles.tocDot}>•</span>
+                  <span>{topic}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -197,7 +210,7 @@ export default function Sidebar({ open, onClose }) {
           <span className={styles.footerIcon}>🤖</span>
           <div>
             <div className={styles.footerTitle}>AI Tutor</div>
-            <div className={styles.footerSub}>Coming soon</div>
+            <div className={styles.footerSub}>Active Now</div>
           </div>
         </div>
       </div>

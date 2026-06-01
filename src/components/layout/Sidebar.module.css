@@ -313,6 +313,44 @@
   padding: 1px 5px;
 }
 
+/* ── Table of Contents ── */
+.tocSection {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-subtle);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.tocLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+
+.tocItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 3px 0;
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.tocDot {
+  color: var(--accent-purple);
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ── Footer ── */
 .sidebarFooter {
   padding: 10px 12px 16px;

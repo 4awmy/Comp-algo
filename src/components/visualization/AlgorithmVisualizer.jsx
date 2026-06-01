@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import styles from './AlgorithmVisualizer.module.css'
 
 // ── PSEUDOCODE DEFINITIONS ──────────────────────────────────────
@@ -119,6 +119,31 @@ const PSEUDOCODE = {
     "for each edge (u, v) in sorted order:",
     "  if find(u) != find(v):",
     "    union(u, v), add (u, v) to MST"
+  ],
+  comparisonCountingSort: [
+    "for i = 0 to n - 1 do Count[i] = 0",
+    "for i = 0 to n - 2 do",
+    "  for j = i + 1 to n - 1 do",
+    "    if A[i] < A[j] Count[j]++",
+    "    else Count[i]++",
+    "for i = 0 to n - 1 do S[Count[i]] = A[i]",
+    "return S"
+  ],
+  horspoolSearch: [
+    "Construct ShiftTable(P)",
+    "i = m - 1",
+    "while i <= n - 1 do",
+    "  k = 0",
+    "  while k <= m - 1 and P[m - 1 - k] == T[i - k] do k++",
+    "  if k == m return i - m + 1",
+    "  else i = i + ShiftTable[T[i]]",
+    "return -1"
+  ],
+  hashing: [
+    "Index = hash(Key)",
+    "if Collision:",
+    "  Chaining: append to list at Index",
+    "  Linear Probing: check (Index + i) % TableSize"
   ]
 }
 
@@ -1380,6 +1405,205 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
       })
       setSteps(newSteps)
     }
+    else if (algorithm === 'comparisonCountingSort') {
+      const arr = [62, 31, 84, 96, 19, 47]
+      const n = arr.length
+      const count = Array(n).fill(0)
+      const sorted = Array(n).fill(null)
+      setArray(arr)
+
+      newSteps.push({
+        arr: [...arr],
+        count: [...count],
+        sorted: [...sorted],
+        i: '-', j: '-',
+        line: 0,
+        desc: "Initialize counts to 0. Array to sort: [62, 31, 84, 96, 19, 47]",
+        vars: { i: '-', j: '-', valI: '-', valJ: '-', comparison: '-', action: 'Init' }
+      })
+
+      for (let i = 0; i < n - 1; i++) {
+        for (let j = i + 1; j < n; j++) {
+          const comp = arr[i] < arr[j]
+          newSteps.push({
+            arr: [...arr],
+            count: [...count],
+            sorted: [...sorted],
+            i, j,
+            comparing: [i, j],
+            line: 3,
+            desc: `Compare A[${i}] (${arr[i]}) and A[${j}] (${arr[j]}).`,
+            vars: { i, j, valI: arr[i], valJ: arr[j], comparison: `${arr[i]} < ${arr[j]}`, action: comp ? `Count[${j}]++` : `Count[${i}]++` }
+          })
+          if (comp) {
+            count[j]++
+          } else {
+            count[i]++
+          }
+          newSteps.push({
+            arr: [...arr],
+            count: [...count],
+            sorted: [...sorted],
+            i, j,
+            line: 4,
+            desc: `Updated counts: ${JSON.stringify(count)}`,
+            vars: { i, j, valI: arr[i], valJ: arr[j], comparison: '-', action: 'Update Count' }
+          })
+        }
+      }
+
+      for (let i = 0; i < n; i++) {
+        const finalPos = count[i]
+        sorted[finalPos] = arr[i]
+        newSteps.push({
+          arr: [...arr],
+          count: [...count],
+          sorted: [...sorted],
+          i,
+          active: [i],
+          activeSorted: [finalPos],
+          line: 5,
+          desc: `Place A[${i}] (${arr[i]}) at Sorted index Count[${i}] = ${finalPos}.`,
+          vars: { i, j: '-', valI: arr[i], valJ: '-', comparison: '-', action: `S[${finalPos}] = ${arr[i]}` }
+        })
+      }
+      setSteps(newSteps)
+    }
+    else if (algorithm === 'horspoolSearch') {
+      const text = "STING_IN_A_STRING_MATCH"
+      const pattern = targetKey || "STRING"
+      const n = text.length
+      const m = pattern.length
+
+      // Shift Table
+      const shiftTable = {}
+      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+      for (const char of alphabet) {
+        shiftTable[char] = m
+      }
+      for (let j = 0; j < m - 1; j++) {
+        shiftTable[pattern[j]] = m - 1 - j
+      }
+
+      newSteps.push({
+        text, pattern, shiftTable: { ...shiftTable },
+        i: m - 1, k: 0,
+        line: 0,
+        desc: `Horspool Search for "${pattern}" in "${text}". Shift Table constructed.`,
+        vars: { i: m - 1, k: 0, charT: text[m - 1], charP: pattern[m - 1], action: 'Start' }
+      })
+
+      let i = m - 1
+      while (i <= n - 1) {
+        let k = 0
+        while (k <= m - 1 && pattern[m - 1 - k] === text[i - k]) {
+          newSteps.push({
+            text, pattern, i, k,
+            comparing: [i - k],
+            line: 4,
+            desc: `Compare T[${i - k}] ('${text[i - k]}') with P[${m - 1 - k}] ('${pattern[m - 1 - k]}') - Match!`,
+            vars: { i, k, charT: text[i - k], charP: pattern[m - 1 - k], action: 'Compare' }
+          })
+          k++
+        }
+
+        if (k === m) {
+          newSteps.push({
+            text, pattern, i, k: m,
+            matched: Array.from({ length: m }, (_, idx) => i - m + 1 + idx),
+            line: 5,
+            desc: `Pattern found starting at index ${i - m + 1}!`,
+            vars: { i, k: m, charT: '-', charP: '-', action: 'Found!' }
+          })
+          break
+        } else {
+          const charAtLast = text[i]
+          const shiftVal = shiftTable[charAtLast] || m
+          newSteps.push({
+            text, pattern, i, k,
+            comparing: [i - k],
+            line: 4,
+            desc: `Mismatch at T[${i - k}]. Look at T[${i}] ('${text[i]}') in shift table: ${shiftVal}.`,
+            vars: { i, k, charT: text[i - k], charP: pattern[m - 1 - k], action: 'Mismatch' }
+          })
+          
+          const oldI = i
+          i += shiftVal
+          newSteps.push({
+            text, pattern, i: i < n ? i : oldI, k: 0,
+            line: 6,
+            desc: `Shift pattern forward by ${shiftVal} positions.`,
+            vars: { i: i < n ? i : oldI, k: 0, charT: '-', charP: '-', action: `Shift ${shiftVal}` }
+          })
+        }
+      }
+      setSteps(newSteps)
+    }
+    else if (algorithm === 'hashing') {
+      const mode = targetKey === 'chaining' ? 'chaining' : 'probing'
+      const size = 7
+      const keys = [12, 19, 5, 26, 13]
+      
+      const table = Array(size).fill(null).map(() => mode === 'chaining' ? [] : null)
+      
+      newSteps.push({
+        table: table.map(row => Array.isArray(row) ? [...row] : row),
+        mode,
+        line: 0,
+        desc: `Initialize empty ${mode} hash table of size ${size}. Keys: ${keys.join(', ')}`,
+        vars: { key: '-', hash: '-', index: '-', action: 'Init' }
+      })
+
+      keys.forEach(key => {
+        const hash = key % size
+        newSteps.push({
+          table: table.map(row => Array.isArray(row) ? [...row] : row),
+          mode,
+          activeKey: key,
+          line: 0,
+          desc: `Insert key ${key}. Hash = ${key} % ${size} = ${hash}.`,
+          vars: { key, hash, index: '-', action: 'Compute Hash' }
+        })
+
+        if (mode === 'chaining') {
+          table[hash].push(key)
+          newSteps.push({
+            table: table.map(row => Array.isArray(row) ? [...row] : row),
+            mode,
+            activeIdx: hash,
+            line: 2,
+            desc: `Append ${key} to list at index ${hash}.`,
+            vars: { key, hash, index: hash, action: 'Chain' }
+          })
+        } else {
+          let idx = hash
+          let collisions = 0
+          while (table[idx] !== null) {
+            newSteps.push({
+              table: table.map(row => Array.isArray(row) ? [...row] : row),
+              mode,
+              activeIdx: idx,
+              colliding: true,
+              line: 3,
+              desc: `Slot ${idx} occupied. Collision!`,
+              vars: { key, hash, index: idx, action: 'Collision' }
+            })
+            idx = (idx + 1) % size
+            collisions++
+          }
+          table[idx] = key
+          newSteps.push({
+            table: table.map(row => Array.isArray(row) ? [...row] : row),
+            mode,
+            activeIdx: idx,
+            line: 3,
+            desc: `Found empty slot at ${idx}. Insert ${key}.`,
+            vars: { key, hash, index: idx, action: 'Insert' }
+          })
+        }
+      })
+      setSteps(newSteps)
+    }
   }, [algorithm, targetKey])
 
   const currentStep = steps[currentStepIdx] || { arr: [], desc: "" }
@@ -1440,6 +1664,12 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
         return ['Step', 'Vertices in T', 'Min Edge', 'Weight']
       case 'kruskals':
         return ['Step', 'Edge', 'Weight', 'Action', 'Disjoint Sets']
+      case 'comparisonCountingSort':
+        return ['Step', 'i', 'j', 'Comparison (A[i] < A[j])', 'Action', 'Counts']
+      case 'horspoolSearch':
+        return ['Step', 'i (align)', 'k (match)', 'Comparison (T[i-k] == P[m-1-k])', 'Action']
+      case 'hashing':
+        return ['Step', 'Key', 'Hash', 'Target Slot', 'Action']
       default:
         return []
     }
@@ -1482,6 +1712,12 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
         return [idx, v.inT, v.minEdge, v.weight]
       case 'kruskals':
         return [idx, v.edge, v.weight, v.action, v.sets]
+      case 'comparisonCountingSort':
+        return [idx, v.i, v.j, v.comparison, v.action, JSON.stringify(step.count)]
+      case 'horspoolSearch':
+        return [idx, v.i, v.k, v.charT + ' == ' + v.charP, v.action]
+      case 'hashing':
+        return [idx, v.key, v.hash, v.index, v.action]
       default:
         return []
     }
@@ -1490,6 +1726,140 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
   return (
     <div className={styles.container}>
       <div className={styles.visualizerArea}>
+        {/* Render Comparison Counting Sort */}
+        {algorithm === 'comparisonCountingSort' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%', alignItems: 'center' }}>
+            <div className={styles.arrayContainer}>
+              {currentStep.arr?.map((val, idx) => (
+                <div key={idx} className={styles.barWrap}>
+                  <div 
+                    className={`${styles.bar} ${currentStep.comparing?.includes(idx) ? styles.barComparing : currentStep.active?.includes(idx) ? styles.barSorted : styles.barNormal}`}
+                    style={{ height: `${val}px` }}
+                  >
+                    <span className={styles.barVal}>{val}</span>
+                  </div>
+                  <span className={styles.barIdx}>{idx}</span>
+                </div>
+              ))}
+            </div>
+            
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+              <span style={{ fontSize: '11px', fontWeight: '750', color: 'var(--text-muted)' }}>Counts:</span>
+              {currentStep.count?.map((c, idx) => (
+                <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                  <div style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '4px', fontSize: '12px', fontWeight: '750', color: 'var(--accent-purple)' }}>
+                    {c}
+                  </div>
+                  <span style={{ fontSize: '9px', color: 'var(--text-muted)' }}>i={idx}</span>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+              <span style={{ fontSize: '11px', fontWeight: '750', color: 'var(--text-muted)' }}>Sorted:</span>
+              {currentStep.sorted?.map((val, idx) => (
+                <div key={idx} style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: currentStep.activeSorted?.includes(idx) ? 'rgba(16, 185, 129, 0.2)' : 'var(--bg-surface)', border: '1px solid', borderColor: currentStep.activeSorted?.includes(idx) ? '#10b981' : 'var(--border-subtle)', borderRadius: '4px', fontSize: '13px', fontWeight: '750' }}>
+                  {val !== null ? val : '-'}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Render Horspool Search Visualizer */}
+        {algorithm === 'horspoolSearch' && (
+          <div className={styles.stringContainer}>
+            <div className={styles.textString}>
+              <span className={styles.rowLabel}>Text:</span>
+              {currentStep.text?.split('').map((char, idx) => {
+                let matchClass = ''
+                if (currentStep.comparing?.includes(idx)) matchClass = styles.charComparing
+                if (currentStep.matched?.includes(idx)) matchClass = styles.charMatched
+                return (
+                  <span key={idx} className={`${styles.charBox} ${matchClass}`}>
+                    {char}
+                    <span className={styles.charIdx}>{idx}</span>
+                  </span>
+                )
+              })}
+            </div>
+            
+            <div 
+              className={styles.patternString}
+              style={{ marginLeft: `${(currentStep.i - currentStep.pattern?.length + 1) * 36 + 65}px`, transition: 'margin-left 0.3s ease' }}
+            >
+              <span className={styles.rowLabelPattern}>Pattern:</span>
+              {currentStep.pattern?.split('').map((char, idx) => {
+                let matchClass = ''
+                // Check if this character of pattern is currently being compared
+                const patternIdxBeingCompared = currentStep.pattern.length - 1 - currentStep.k
+                if (idx === patternIdxBeingCompared && currentStep.comparing?.length > 0) matchClass = styles.charComparing
+                if (idx > patternIdxBeingCompared) matchClass = styles.charMatched
+                if (currentStep.k === currentStep.pattern.length) matchClass = styles.charMatched
+
+                return (
+                  <span key={idx} className={`${styles.charBoxPattern} ${matchClass}`}>
+                    {char}
+                  </span>
+                )
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Render Hashing (Probing & Chaining) */}
+        {algorithm === 'hashing' && (
+          <div style={{ display: 'flex', gap: '40px', width: '100%', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <h5 style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '4px' }}>Hash Table ({currentStep.mode})</h5>
+              {currentStep.table?.map((val, idx) => {
+                let slotStyle = { border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }
+                if (idx === currentStep.activeIdx) {
+                  if (currentStep.colliding) {
+                    slotStyle = { border: '1px solid #ef4444', background: 'rgba(239, 68, 68, 0.1)' }
+                  } else {
+                    slotStyle = { border: '1px solid var(--accent-cyan)', background: 'rgba(6, 182, 212, 0.1)' }
+                  }
+                }
+                
+                return (
+                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div 
+                      style={{
+                        display: 'flex',
+                        padding: '6px 12px',
+                        borderRadius: '4px',
+                        fontSize: '12px',
+                        fontFamily: 'var(--font-code)',
+                        width: '120px',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        ...slotStyle
+                      }}
+                    >
+                      <span style={{ color: 'var(--text-muted)', fontSize: '10px' }}>[{idx}]</span>
+                      {currentStep.mode === 'probing' && (
+                        <span style={{ fontWeight: '750', color: val ? 'var(--text-primary)' : 'rgba(255,255,255,0.05)' }}>{val || '-'}</span>
+                      )}
+                    </div>
+                    {currentStep.mode === 'chaining' && (
+                      <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                        {val.map((item, iIdx) => (
+                          <div key={iIdx} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <div style={{ background: 'var(--accent-purple)', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontSize: '11px', fontWeight: '750', fontFamily: 'var(--font-code)' }}>{item}</div>
+                            {iIdx < val.length - 1 && <span style={{ color: 'var(--text-muted)' }}>→</span>}
+                          </div>
+                        ))}
+                        {val.length === 0 && <span style={{ color: 'rgba(255,255,255,0.05)', fontSize: '11px' }}>null</span>}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Render Array for Sorting, Binary Search, and Quick Sort */}
         {(algorithm.includes('Sort') || algorithm === 'binarySearch') && (
           <div className={styles.arrayContainer}>

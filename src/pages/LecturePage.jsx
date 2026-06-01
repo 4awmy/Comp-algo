@@ -1,21 +1,16 @@
 /* eslint-disable */
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams, Link, useSearchParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getLectureById, LECTURES } from '../data/lectures'
 import { chatWithTutor } from '../services/geminiService'
-import AlgorithmVisualizer from '../components/visualization/AlgorithmVisualizer'
-import Lecture4BruteForce from '../components/lectures/Lecture4BruteForce'
-import Lecture5BruteForce2 from '../components/lectures/Lecture5BruteForce2'
-import Lecture6DecreaseConquer from '../components/lectures/Lecture6DecreaseConquer'
 
 // Portal Redesign Imports
 import useLectureSync from '../hooks/useLectureSync'
 import { LECTURE_MAPPINGS } from '../data/mappings'
-import SplitPane from '../components/ui/SplitPane'
-import PseudocodePane from '../components/lectures/PseudocodePane'
 import ExampleDrawer from '../components/lectures/ExampleDrawer'
+import LessonBlock from '../components/lectures/LessonBlock'
 import AITutorBubble from '../components/chat/AITutorBubble'
 
 import styles from './LecturePage.module.css'
@@ -292,22 +287,18 @@ export default function LecturePage() {
   const [lectureData, setLectureData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('visuals') // 'visuals' | 'tutor'
-  const [viewMode, setViewMode] = useState('portal') // 'article' | 'portal'
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   // Portal Sync Hook
   const {
     activeCodeLine,
     activeSlide,
-    splitPosition,
     handleLineClick,
     handleSlideChange,
-    handleSplitResize
   } = useLectureSync(0)
 
   // Reset on lecture change
   useEffect(() => {
-    setViewMode('portal')
     setIsDrawerOpen(false)
   }, [id])
 
@@ -435,247 +426,125 @@ export default function LecturePage() {
     }
   }
 
-  const renderInteractiveArticle = () => {
-    switch (id) {
-      case '04': return <Lecture4BruteForce />
-      case '05': return <Lecture5BruteForce2 />
-      case '06': return <Lecture6DecreaseConquer />
-      default:
-        return (
-          <div style={{ padding: '8px 4px', maxWidth: '850px', margin: '0 auto' }}>
-            <header style={{ marginBottom: '32px' }}>
-              <div style={{
-                display: 'inline-block',
-                padding: '4px 12px',
-                borderRadius: 'var(--radius-full)',
-                fontSize: '10px',
-                fontWeight: '700',
-                background: 'rgba(13, 44, 84, 0.1)',
-                color: 'var(--accent-blue)',
-                marginBottom: '12px'
-              }}>
-                {lectureMeta.week}
-              </div>
-              <h1 style={{ fontSize: 'var(--text-3xl)', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '8px' }}>
-                {lectureMeta.title}
-              </h1>
-              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', lineHeight: '1.5' }}>
-                Dr. Moheeb &bull; AAST Course Materials
-              </p>
-            </header>
+  // Removed VisualsContainer
 
-            {slides.map((slide, idx) => (
-              <div key={idx} style={{ marginBottom: '32px', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: '24px' }}>
-                <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--accent-blue)', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '8px', marginBottom: '12px' }}>
-                  Slide {slide.slideNumber}: {slide.title || 'Untitled'}
-                </h3>
-                <div style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: '1.6' }}>
-                  {slide.embedVisualizer ? (
-                    <div style={{ marginTop: '12px', marginBottom: '12px' }}>
-                      <AlgorithmVisualizer 
-                        algorithm={slide.embedVisualizer} 
-                        targetKey={slide.embedVisualizer === 'stringMatching' ? 'CAD' : '56'} 
-                      />
-                    </div>
-                  ) : slide.images && slide.images.length > 0 ? (
-                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
-                      <img src={getImageUrl(slide.images[0])} alt={`Slide ${slide.slideNumber}`} style={{ maxWidth: '100%', maxHeight: '320px', objectFit: 'contain', borderRadius: 'var(--radius-sm)' }} />
-                    </div>
-                  ) : (
-                    <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                      {slide.content?.map((bullet, bIdx) => (
-                        <li key={bIdx} style={{ marginBottom: '6px' }}>{bullet}</li>
-                      ))}
-                    </ul>
-                  )}
-                  {slide.notes && (
-                    <div style={{ marginTop: '12px', padding: '10px', background: 'var(--bg-elevated)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--accent-purple)', fontSize: '12px' }}>
-                      <strong style={{ color: 'var(--accent-blue)', display: 'block', marginBottom: '4px' }}>Speaker Notes & Context:</strong>
-                      <div>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{slide.notes}</ReactMarkdown>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        )
-    }
-  }
-
-  const VisualsContainer = () => {
-    const mapping = LECTURE_MAPPINGS[id]?.codeToVisual[activeCodeLine]
-    
-    if (mapping?.type === 'visualizer') {
+  const renderInterspersedView = () => {
+    // If we have sections or blocks, use them (Interspersed Lesson Flow)
+    if (lectureData?.sections || lectureData?.blocks) {
+      const blocks = lectureData.blocks || lectureData.sections?.flatMap(s => s.blocks || []) || []
       return (
-        <div style={{ padding: '20px', height: '100%', overflowY: 'auto' }}>
-          <AlgorithmVisualizer 
-            algorithm={mapping.algorithm} 
-            targetKey={mapping.algorithm === 'stringMatching' ? 'CAD' : '56'} 
-          />
+        <div className={styles.interspersedContainer}>
+          {blocks.map((block, idx) => (
+            <LessonBlock 
+              key={idx}
+              block={block}
+              activeCodeLine={activeCodeLine}
+              onLineClick={onPseudocodeLineClick}
+              getImageUrl={getImageUrl}
+            />
+          ))}
+          {/* Numerical Example Button for Flow */}
+          <div style={{ padding: '40px 0', borderTop: '1px solid var(--border-subtle)', textAlign: 'center' }}>
+            <button 
+              className="btn btn-outline" 
+              style={{ padding: '12px 24px' }}
+              onClick={() => setIsDrawerOpen(true)}
+            >
+              🔍 View Detailed Numerical Example
+            </button>
+          </div>
         </div>
       )
     }
 
+    // Fallback for traditional slide-based lectures
     return (
-      <div className={styles.slideContainer}>
-        {slides.length === 0 ? (
-          <div className={styles.noNotes}>No slides found in this lecture.</div>
-        ) : (
-          <div className={styles.slideCard}>
+      <div className={styles.interspersedContainer}>
+        <header style={{ marginBottom: '40px', textAlign: 'center' }}>
+          <h1 style={{ fontSize: 'var(--text-3xl)', fontWeight: '800', marginBottom: '8px' }}>
+            {lectureMeta.title}
+          </h1>
+          <p style={{ color: 'var(--text-muted)' }}>{lectureMeta.week} &bull; Vertical Lesson Flow</p>
+        </header>
+
+        {slides.map((slide, idx) => (
+          <div key={idx} className={styles.slideBlock}>
             <div className={styles.slideHeader}>
               <h2 className={styles.slideTitle}>
-                {currentSlide?.title || `Slide ${currentSlide?.slideNumber}`}
+                {slide.title || `Slide ${slide.slideNumber}`}
               </h2>
-              <span className={styles.slideNumBadge}>
-                Slide {activeSlide + 1} of {slides.length}
-              </span>
-            </div>
-
-            <div className={styles.slideBody} style={{ overflowY: 'auto' }}>
-              {currentSlide?.embedVisualizer ? (
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <AlgorithmVisualizer 
-                    algorithm={currentSlide.embedVisualizer} 
-                    targetKey={currentSlide.embedVisualizer === 'stringMatching' ? 'CAD' : '56'} 
-                  />
-                </div>
-              ) : currentSlide?.images && currentSlide.images.length > 0 ? (
-                <div className={styles.slideImageWrap}>
-                  <img 
-                    src={getImageUrl(currentSlide.images[0])} 
-                    alt={`Slide ${activeSlide + 1}`} 
-                    className={styles.slideImage} 
-                  />
-                </div>
-              ) : (
-                <ul className={styles.bulletList}>
-                  {currentSlide?.content?.map((bullet, idx) => (
-                    <li key={idx} className={styles.bulletItem}>{bullet}</li>
-                  ))}
-                </ul>
-              )}
+              <span className={styles.slideNumBadge}>Slide {slide.slideNumber}</span>
             </div>
             
-            {currentSlide?.notes && (
-              <div className={styles.notesOverlay}>
+            <div className={styles.slideBody} style={{ overflow: 'visible', minHeight: 'auto' }}>
+              {slide.embedVisualizer ? (
+                <LessonBlock 
+                  block={{
+                    type: 'visual',
+                    algorithm: slide.embedVisualizer,
+                    targetKey: slide.embedVisualizer === 'stringMatching' ? 'CAD' : '56'
+                  }}
+                />
+              ) : slide.images && slide.images.length > 0 ? (
+                <LessonBlock 
+                  block={{
+                    type: 'visual',
+                    images: slide.images
+                  }}
+                  getImageUrl={getImageUrl}
+                />
+              ) : (
+                <LessonBlock 
+                  block={{
+                    type: 'text',
+                    content: slide.content?.map(b => `- ${b}`).join('\n')
+                  }}
+                />
+              )}
+            </div>
+
+            {slide.notes && (
+              <div className={styles.notesOverlay} style={{ position: 'static', marginTop: '20px', background: 'var(--bg-elevated)' }}>
                 <h4 className={styles.ocrHeader}>Speaker Notes</h4>
                 <div className={styles.notesBody}>
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{currentSlide.notes}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{slide.notes}</ReactMarkdown>
                 </div>
               </div>
             )}
           </div>
-        )}
+        ))}
+
+        <div className={styles.controlsBar} style={{ position: 'sticky', bottom: 0, margin: '0 -20px -40px', zIndex: 5, borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0' }}>
+          <div className={styles.navBtnGroup}>
+             {prevLecture && <Link to={`/lecture/${prevLecture.id}`} className="btn btn-outline">◀ Previous Lecture</Link>}
+             {nextLecture && <Link to={`/lecture/${nextLecture.id}`} className="btn btn-primary">Next Lecture ▶</Link>}
+          </div>
+        </div>
       </div>
     )
   }
 
-  const PortalView = () => (
-    <SplitPane
-      position={splitPosition}
-      onPositionChange={handleSplitResize}
-      leftPane={
-        <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-          <PseudocodePane 
-            pseudocode={LECTURE_PSEUDOCODE[id] || ["// No pseudocode available for this lecture", "// Please use the Textbook Lesson view"]} 
-            activeLine={activeCodeLine}
-            onLineClick={onPseudocodeLineClick}
-          />
-          <div style={{ padding: '16px', borderTop: '1px solid var(--border-subtle)' }}>
-            <button 
-              className="btn btn-outline" 
-              style={{ width: '100%', fontSize: '12px' }}
-              onClick={() => setIsDrawerOpen(true)}
-            >
-              🔍 View Numerical Example
-            </button>
-          </div>
-        </div>
-      }
-      rightPane={
-        <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
-            <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ flex: 1, overflow: 'hidden' }}>
-                <VisualsContainer />
-              </div>
-              <div className={styles.controlsBar}>
-                <div className={styles.navBtnGroup}>
-                  <button onClick={prevSlide} disabled={activeSlide === 0} className="btn btn-outline">◀ Prev</button>
-                  <button onClick={nextSlide} disabled={activeSlide === slides.length - 1} className="btn btn-primary">Next ▶</button>
-                </div>
-                <div className={styles.navBtnGroup}>
-                  {prevLecture && <Link to={`/lecture/${prevLecture.id}`} className="btn btn-outline">◀ Lec</Link>}
-                  {nextLecture && <Link to={`/lecture/${nextLecture.id}`} className="btn btn-outline">Lec ▶</Link>}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      }
-    />
-  )
-
   return (
     <div className={styles.container} onKeyDown={handleKeyDown} tabIndex="0">
-      {/* Header Mode Switcher */}
+      {/* Sticky Header with Title */}
       <div style={{
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
-        padding: '10px 20px',
+        padding: '12px 20px',
         background: 'var(--bg-surface)',
         borderBottom: '1px solid var(--border-subtle)',
-        zIndex: 10
+        zIndex: 10,
+        position: 'sticky',
+        top: 0
       }}>
-        <div style={{ display: 'flex', background: 'var(--bg-elevated)', padding: '3px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
-          <button
-            onClick={() => setViewMode('portal')}
-            className="btn"
-            style={{ 
-              fontSize: '10px', 
-              padding: '5px 10px', 
-              border: 'none', 
-              borderRadius: 'var(--radius-sm)',
-              cursor: 'pointer',
-              background: viewMode === 'portal' ? 'var(--accent-blue)' : 'transparent', 
-              color: viewMode === 'portal' ? '#fff' : 'var(--text-secondary)',
-              fontWeight: '700'
-            }}
-          >
-            ⚡ Interactive Portal
-          </button>
-          <button
-            onClick={() => setViewMode('article')}
-            className="btn"
-            style={{ 
-              fontSize: '10px', 
-              padding: '5px 10px', 
-              border: 'none', 
-              borderRadius: 'var(--radius-sm)',
-              cursor: 'pointer',
-              background: viewMode === 'article' ? 'var(--accent-blue)' : 'transparent', 
-              color: viewMode === 'article' ? '#fff' : 'var(--text-secondary)',
-              fontWeight: '700'
-            }}
-          >
-            📖 Textbook Lesson
-          </button>
-        </div>
-        
-        <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--text-muted)' }}>
+        <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
           {lectureMeta.title}
         </div>
       </div>
 
-      <div style={{ flex: 1, overflow: 'hidden' }}>
-        {viewMode === 'portal' ? <PortalView /> : (
-          <div style={{ height: '100%', overflowY: 'auto', padding: '20px' }}>
-            {renderInteractiveArticle()}
-          </div>
-        )}
+      <div style={{ flex: 1, overflowY: 'auto' }}>
+        {renderInterspersedView()}
       </div>
 
       <ExampleDrawer 
