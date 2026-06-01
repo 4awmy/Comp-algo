@@ -1,0 +1,430 @@
+{
+  "id": "lec02",
+  "number": 2,
+  "week": 2,
+  "title": "Analysis Fundamentals",
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Computing Algorithms\u000bLecture 2:\u000bFundamentals of the Analysis of Algorithm Efficiency part 1",
+      "content": [
+        "By: Dr. Mohamed Moheeb"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec02/slide01_img0.jpg"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 2,
+      "title": "Agenda",
+      "content": [
+        "The Analysis Framework",
+        "Asymptotic Notations and basic efficiency Classes"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 3,
+      "title": "The Analysis Framework",
+      "content": [],
+      "ocrContent": "[OCR ERROR: 'NoneType' object has no attribute 'strip' ]",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec02/slide03_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 4,
+      "title": "The Analysis Framework",
+      "content": [
+        "The algorithm is measured using two types of efficiency",
+        "Time efficiency (time complexity)",
+        "Space efficiency (space complexity)",
+        "Note: In the early days of computers, space complexity was a major concern as much as time, but nowadays it is not as large, as hardware capabilities are available."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 5,
+      "title": "Input’s size effect on complexity",
+      "content": [
+        "There is no doubt that the input size influences the time or space complexity of an algorithm.",
+        "Example:",
+        "Sorting an array of 10 elements will take less time and space than sorting an array of 1000 elements.",
+        "Searching for an element in an array of 10 elements will take less time and space than searching in an array of 50 elements.",
+        "Since the input size of the algorithm is an important aspect of measuring complexity, this leads to another question: how to measure an input’s size."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 6,
+      "title": "Measuring an input’s size",
+      "content": [
+        "The input size depends on the nature of the algorithm being implemented.",
+        "Example :",
+        "Finding max in array -> input size is the array size",
+        "Matrix multiplication -> is the number of elements in the two matrices",
+        "Binary number addition -> number of bits being added",
+        "Graph-related algorithm ->  is determined by the size of vertices or vertices and edges, if the adjacency list is used.",
+        "Therefore, it is logical to investigate an algorithm’s efficiency as a function of some parameter n, indicating the algorithm’s input size"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 7,
+      "title": "Units for Measuring Running Time",
+      "content": [
+        "Please give an example of how to measure the algorithm in terms of time.",
+        "One obvious way is to use milliseconds or seconds.",
+        "One drawback is that the speed of the implementation will depend on how powerful the computer used is"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 8,
+      "title": "Units for Measuring Running Time",
+      "content": [
+        "Another way is to count the number of times each of the algorithm’s operations is executed.",
+        "This approach is both excessively difficult and usually unnecessary.",
+        "The best approach is to count the most important operation of the algorithm with is called the  basic operation .",
+        "It is not hard to identify that the  basic operation  of an algorithm is usually the most time-consuming operation in the algorithm’s innermost loop."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 9,
+      "title": "Basic operation",
+      "content": [
+        "The basic operations are arithmetic operations arranged in order of time-consuming:",
+        "Division/modules / or %",
+        "Multiplication *",
+        "Addition +",
+        "Subtraction -",
+        "Comparison  <, >, ==, != , <=, >="
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 10,
+      "title": "Basic Operation Example 1",
+      "content": [
+        "for  i   0 to n-1 do",
+        "x   x+4",
+        "1 basic operation"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 11,
+      "title": "Basic Operation Example 2",
+      "content": [
+        "for  i   0 to n-1 do",
+        "x   x+4",
+        "y   x*4",
+        "z   z+2",
+        "1 basic operations"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 12,
+      "title": "Basic Operation Example 3",
+      "content": [
+        "Function (A[0….n-1])",
+        "for  i   0 to n-1 do",
+        "s 0",
+        "if  A[ i ] > 15",
+        "x   A[ i ]-2",
+        "s  s + A[ i ]",
+        "return s",
+        "1 basic operation"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 13,
+      "title": "Basic Operation Example 4",
+      "content": [
+        "for  i   0 to n-1 do",
+        "for j  0 to n-1 do",
+        "x  x+1 *2 % 10",
+        "2 basic operation"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 14,
+      "title": "Order of Growth",
+      "content": [
+        "Order of growth describes how an algorithm’s running time increases as the input size n becomes large. (It ignores small details and focuses only on long‑term behavior.)",
+        "It ignores constants and lower‑order terms, focusing only on the dominant part of the running time. (Because for large inputs, only the highest‑growing term matters.)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 15,
+      "title": "Order of Growth Example",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 16,
+      "title": "Order of Growth",
+      "content": [
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec02/slide16_img0.png"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 17,
+      "title": "Best, Average, Worst Case",
+      "content": [
+        "There are many algorithms for which running time depends not only on the input size but also on the specifics of a particular input",
+        "example searching algorithm:",
+        "Best-case: finding the key from the first search",
+        "Worst-case: finding the key in the last element of the array or not finding the key at all.",
+        "Average-case: needs to be proven."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 18,
+      "title": "Average-Case",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 19,
+      "title": "Asymptotic Notations and Basic Efficiency Classes",
+      "content": [],
+      "ocrContent": "hhb : 11m 9Q.10-3(x)",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec02/slide19_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 20,
+      "title": "Informal definition",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 21,
+      "title": "Informal definition",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 22,
+      "title": "Informal definition",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 23,
+      "title": "Formal definition",
+      "content": [
+        "Asymptotic (change through time) notation analysis focuses on the essential, large‑scale behavior, not the exact small‑scale details.",
+        "O(n)  → asymptotically linear",
+        "O(n²)  → asymptotically quadratic",
+        "O(log n)  → asymptotically logarithmic"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 24,
+      "title": "Big O",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 25,
+      "title": "Big O",
+      "content": [
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 26,
+      "title": "Big Ω",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 27,
+      "title": "Big Ω",
+      "content": [
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec02/slide27_img0.png"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 28,
+      "title": "Big θ",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 29,
+      "title": "Big θ",
+      "content": [
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 30,
+      "title": "Basic asymptotic efficiency class",
+      "content": [
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 31,
+      "title": "Example",
+      "content": [
+        "false",
+        "true",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    }
+  ],
+  "_stats": {
+    "total_slides": 31,
+    "text_light_slides": 2,
+    "ocr_success": 2,
+    "ocr_errors": 0
+  }
+}

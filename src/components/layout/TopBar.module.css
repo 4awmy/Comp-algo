@@ -1,0 +1,133 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-offset, var(--sidebar-width));
+  right: 0;
+  height: var(--topbar-height);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 30;
+  transition: left var(--transition-slow);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.right {
+  flex-shrink: 0;
+}
+
+/* ── Menu Button ── */
+.menuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.menuBtn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+}
+
+.crumbGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.crumbSep {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  margin: 0 2px;
+}
+
+.crumbLink {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  white-space: nowrap;
+}
+
+.crumbLink:hover {
+  color: var(--text-secondary);
+}
+
+.crumbCurrent {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+/* ── Course Badge ── */
+.courseBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.courseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.8);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    left: 0 !important;
+  }
+
+  .courseBadge {
+    display: none;
+  }
+
+  .crumbCurrent {
+    max-width: 120px;
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "sheet05",
+  "lectureId": "lec05",
+  "week": 5,
+  "title": "Brute Force II",
+  "problems": [
+    {
+      "question": "3. Let $x_1 < x_2 < \\cdots < x_n$ be real numbers representing coordinates of $n$ villages located along a straight road. A post office needs to be built in one of these villages.\na. Design an efficient algorithm to find the post-office location minimizing the average distance between the villages and the post office.\nb. Design an efficient algorithm to find the post-office location minimizing the maximum distance from a village to the post office.",
+      "answer": "",
+      "number": 1,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Align the search pattern P at the current shift index i of the main text T."
+        },
+        {
+          "step": 2,
+          "text": "Perform character-by-character comparisons from index j = 0 to m-1."
+        },
+        {
+          "step": 3,
+          "text": "If a mismatch occurs, increment the shift index i by 1 and repeat the search space."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "What is the time-efficiency class of the brute-force algorithm for the k-dimensional closest-pair problem?",
+      "answer": "",
+      "number": 2,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Align the search pattern P at the current shift index i of the main text T."
+        },
+        {
+          "step": 2,
+          "text": "Perform character-by-character comparisons from index j = 0 to m-1."
+        },
+        {
+          "step": 3,
+          "text": "If a mismatch occurs, increment the shift index i by 1 and repeat the search space."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "The image displays a table listing items with their weights and values, along with a given capacity W=6. This setup suggests a problem related to the knapsack problem, likely asking to find the optimal selection of items to maximize total value without exceeding the capacity. Based on the provided data, what is the maximum value that can be obtained given a capacity of W=6?",
+      "answer": "",
+      "number": 3,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Align the search pattern P at the current shift index i of the main text T."
+        },
+        {
+          "step": 2,
+          "text": "Perform character-by-character comparisons from index j = 0 to m-1."
+        },
+        {
+          "step": 3,
+          "text": "If a mismatch occurs, increment the shift index i by 1 and repeat the search space."
+        }
+      ],
+      "hasVisualization": false
+    }
+  ]
+}

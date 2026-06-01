@@ -1,0 +1,830 @@
+{
+  "id": "lec01",
+  "number": 1,
+  "week": 1,
+  "title": "Introduction",
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Computing Algorithms\u000bLecture 1",
+      "content": [
+        "By: Dr. Mohamed Moheeb"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec01/slide01_img0.jpg"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 2,
+      "title": "Agenda",
+      "content": [
+        "The Course plan",
+        "What is an algorithm",
+        "Important Problem types",
+        "Fundamental Data Structures"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 3,
+      "title": "Course Plan",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec01/slide03_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 4,
+      "title": "Course Content",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 5,
+      "title": "Course Book",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 6,
+      "title": "Course Grades",
+      "content": [
+        "Week 5: 5% (quiz)",
+        "Week 7: 20% (exam) & 5%(assignment)",
+        "Week 10: 5% (quiz)",
+        "Week 12: 15% (project)",
+        "Prefinal: 10% (assignment)",
+        "Final: 40% (exam)",
+        "Note: Each student who exceeds 20% in course attendance will receive a warning; at 25%, the course will be withdrawn. Every student should attend according to their schedule, and if you are absent, you are responsible for following up on what you missed."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 7,
+      "title": "Fundamentals of algorithms",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec01/slide07_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 8,
+      "title": "What is an algorithm",
+      "content": [
+        "An algorithm is a sequence of unambiguous instructions for solving a problem, i.e., for obtaining a required output for any legitimate input in a finite amount of time",
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec01/slide08_img0.png"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 9,
+      "title": "What makes a good algorithm ?",
+      "content": [
+        "Let’s take  an example of how to find  the greatest common divisor (GCD using two different algorithms",
+        "The GCD of 60 and 24 is 12, which is the largest number that both input numbers are divisible by."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 10,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "Given that inputs for the Euclid( m,n ) are m=60 and n=24",
+        "is not equal to 0, then the Condition for the while loop is true.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "Iteration 1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 11,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "r= 60 % 24 = 12",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "r= 12",
+        "Iteration 1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 12,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "m= n = 24",
+        "Variables",
+        "n= 24",
+        "m=24",
+        "r= 12",
+        "Iteration 1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 13,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "n=r= 12",
+        "Variables",
+        "n= 12",
+        "m=24",
+        "r= 12",
+        "Iteration 1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 14,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "Since n is still  ≠ 0,  the condition  is true",
+        "Variables",
+        "n= 12",
+        "m=24",
+        "r= 12",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 15,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "r= 24 % 12 = 0",
+        "Variables",
+        "n= 12",
+        "m=24",
+        "r= 0",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 16,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "m= n = 12",
+        "Variables",
+        "n= 12",
+        "m=12",
+        "r= 0",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 17,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "n=r= 0",
+        "Variables",
+        "n= 0",
+        "m=12",
+        "r= 0",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 18,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "Since n  =0 , the condition is false",
+        "Variables",
+        "n= 0",
+        "m=12",
+        "r= 0"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 19,
+      "title": "Euclid’s Algorithm",
+      "content": [
+        "The function returns m=12 which is the GCD.",
+        "Variables",
+        "n= 0",
+        "m=12",
+        "r= 0"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 20,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "The inputs are also m=60 and n =24",
+        "t=min{60,24}=24",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 24"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 21,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "m/ t =60/24,  where the quotient is 2 and the remainder is 12",
+        "Since the remainder is not equal to 0, then we go to step 4.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 24",
+        "Iteration 1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 22,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "t is equal to t-1 = 24 -1 =23",
+        "Go to step 2 again",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 23",
+        "Iteration 1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 23,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "m/ t =60/23,  where the quotient is 2, and the remainder is 14",
+        "Since the remainder is not equal to 0, we go to step 4.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 23",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 24,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "t is equal to t-1 = 23 -1 =22",
+        "Go to step 2 again",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 22",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 25,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "m/ t =60/23,  where the quotient is 2 and the remainder is 14",
+        "Since the remainder is not equal to 0, we go to step 4.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 23",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 26,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "t is equal to t-1 = 23 -1 =22",
+        "Go to step 2 again",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 22",
+        "Iteration 2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 27,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "m/ t =60/22,  where the quotient is 2 and the remainder is 16",
+        "Since the remainder is not equal to 0, we go to step 4.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 22",
+        "Iteration 3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 28,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "t is equal to t-1 = 22 -1 =21",
+        "Go to step 2 again",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 21",
+        "Iteration 3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 29,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "m/ t =60/21,  where the quotient is 2 and the remainder is 18",
+        "Since the remainder is not equal to 0, then we go to step 4.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 21",
+        "Iteration 4"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 30,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "t is equal to t-1 = 21 -1 =20",
+        "Go to step 2 again",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 20",
+        "Iteration 4"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 31,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "m/ t =60/20,  where the quotient is 3, and the remainder is 0",
+        "Since the remainder is equal to 0, we go to step 3.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 20",
+        "Iteration 5"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 32,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "n/ t =24/20,  where the quotient is 1 and the remainder is 4",
+        "Since the remainder is not equal to 0, we go to step 4.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 20",
+        "Iteration 5"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 33,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "t is equal to t-1 = 20 -1 =19",
+        "Go to step 2 again",
+        "Skipping the remaining iterations till reaching iteration 13",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 19",
+        "Iteration 5"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 34,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "m/ t =60/12,  where the quotient is 5, and the remainder is 0",
+        "Since the remainder is equal to 0, we go to step 3.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 12",
+        "Iteration 13"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 35,
+      "title": "Consecutive integer checking algorithm",
+      "content": [
+        "n/ t =24/12,  where the quotient is 2 and the remainder is 0",
+        "Since the remainder is equal to 0, then we return t=12 and stop.",
+        "Variables",
+        "n= 24",
+        "m=60",
+        "t= 12",
+        "Iteration 13"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 36,
+      "title": "Which algorithm is better ?",
+      "content": [
+        "Both get the final answer correctly, but Euclid's algorithm is much faster.",
+        "Conclusion:",
+        "The strategy or technique used for designing an algorithm affects how good the algorithm is( Euclid’s algorithm uses decrease and conquer, while consecutive integer checking uses brute force)",
+        "The input values for the algorithm affect the number of iterations to be executed; a better algorithm can reduce the number of iterations without affecting the output of the algorithm. (time complexity)."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 37,
+      "title": "Fundamentals of Algorithmic Problem Solving",
+      "content": [
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 38,
+      "title": "Important problem types",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec01/slide38_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 39,
+      "title": "Sorting",
+      "content": [
+        "The sorting problem is to rearrange the items of a given list in nondecreasing order",
+        "https://github.com/CarolinaDCode/sorting_algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 40,
+      "title": "Searching",
+      "content": [
+        "The searching problem deals with finding a given value, called a search key, in a given set",
+        "https://sushrutkuchik.wordpress.com/2020/05/24/searching-algorithms-visualized/"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 41,
+      "title": "String processing",
+      "content": [
+        "are essential for manipulating and analyzing text data.",
+        "Examples:",
+        "String Manipulation, like reversing or concatenating",
+        "String matching to find a substring in a string",
+        "Longest Common Subsequence (LCS) used in DNA sequences"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 42,
+      "title": "Graph problems",
+      "content": [
+        "Graphs can be used for modeling a wide variety of applications, including networks or traffic",
+        "https://stemlounge.com/animated-algorithms-for-the-traveling-salesman-problem/"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 43,
+      "title": "Combinatorial problems",
+      "content": [
+        "These are problems that ask, explicitly or implicitly, to find a combinatorial object such as a permutation, a combination, or a subset that satisfies certain constraints.",
+        "Example: permutation for  of A,B,C",
+        "A,B,C",
+        "A,C,B",
+        "B,A,C",
+        "B,C,A",
+        "C,A,B",
+        "C,B,A"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 44,
+      "title": "Geometric problems",
+      "content": [
+        "Deal with geometric objects such as points, lines, and polygons",
+        "Example:",
+        "Closest pair problem",
+        "Convex-hull problem",
+        "https://www.geeksforgeeks.org/dsa/closest-pair-of-points-using-divide-and-conquer-algorithm/"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 45,
+      "title": "Numerical problems",
+      "content": [
+        "are problems that involve mathematical objects of continuous nature: solving equations and systems of equations, computing definite integrals.",
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 46,
+      "title": "Fundamental Data Structures",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec01/slide46_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 47,
+      "title": "Fundamental Data Structure",
+      "content": [
+        "In essence, the data structure is the foundation of the algorithm.",
+        "A well-chosen data structure enables elegant, efficient solutions.",
+        "A poor choice can render even the most logically sound algorithm impractical."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 48,
+      "title": "Linear Data Structures",
+      "content": [
+        "Arrays: an index indicates the value and a 1D or 2D array",
+        "Linked list: each element is called a node and is connected to the others using a pointer,",
+        "Stack: is like a linked list, where the top of the stack is the only visible part, and you either insert to the top (push) or return and delete the top (pop). (LIFO)",
+        "Queue: is also similar to the linked list, where the elements are deleted from one end, the front of the queue (dequeue), and new elements are inserted at the end of the queue (enqueue). (FIFO)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 49,
+      "title": "Graphs",
+      "content": [
+        "Graphs consist of several nodes (vertices) that are connected to each other through a link (edges).",
+        "There are two types of graphs:",
+        "Undirected graph",
+        "Directed graph (digraph)",
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 50,
+      "title": "Graph Representations",
+      "content": [
+        "The graph can be represented using:",
+        "Adjacency matrix",
+        "Adjacency lists",
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 51,
+      "title": "Weighted Graphs",
+      "content": [
+        "is a graph (or digraph) with numbers assigned to its edges. These numbers are called weights or costs",
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 52,
+      "title": "Tree",
+      "content": [
+        "A rooted tree in which all the children of each vertex are ordered (ordered tree)",
+        "The height of a tree is the length of the longest simple path from the root to a leaf",
+        "https://www.geeksforgeeks.org/dsa/introduction-to-tree-data-structure/"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    }
+  ],
+  "_stats": {
+    "total_slides": 52,
+    "text_light_slides": 4,
+    "ocr_success": 4,
+    "ocr_errors": 0
+  }
+}

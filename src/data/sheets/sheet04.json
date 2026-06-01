@@ -1,0 +1,48 @@
+{
+  "id": "sheet04",
+  "lectureId": "lec04",
+  "week": 4,
+  "title": "Brute Force",
+  "problems": [
+    {
+      "question": "Determine the number of character comparisons made by the brute-force algorithm in searching for the pattern GANDHI in the text THERE_IS_MORE_TO_LIFE_THAN_INCREASING_ITS_SPEED\nAssume that the length of the text—it is 47 characters long—is known before the search starts.",
+      "answer": "",
+      "number": 1,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Understand the brute-force search space by analyzing all possible permutations or combinations."
+        },
+        {
+          "step": 2,
+          "text": "Implement nested loops to compare elements systematically (e.g., Selection Sort or Bubble Sort passes)."
+        },
+        {
+          "step": 3,
+          "text": "Analyze the worst-case number of comparisons, which is typically quadratic: O(n²)."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "5. How many comparisons (both successful and unsuccessful) will be made by the brute-force algorithm in searching for each of the following patterns in the binary text of one thousand zeros?\na. 00001\nb. 10000\nc. 01010",
+      "answer": "",
+      "number": 2,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Understand the brute-force search space by analyzing all possible permutations or combinations."
+        },
+        {
+          "step": 2,
+          "text": "Implement nested loops to compare elements systematically (e.g., Selection Sort or Bubble Sort passes)."
+        },
+        {
+          "step": 3,
+          "text": "Analyze the worst-case number of comparisons, which is typically quadratic: O(n²)."
+        }
+      ],
+      "hasVisualization": false
+    }
+  ]
+}

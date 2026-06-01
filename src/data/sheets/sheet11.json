@@ -1,0 +1,68 @@
+{
+  "id": "sheet11",
+  "lectureId": "lec11",
+  "week": 11,
+  "title": "Space & Time Trade-offs",
+  "problems": [
+    {
+      "number": 1,
+      "question": "",
+      "answer": "Apply the counting sort on C,O,M,P,U,T,I,N,G and is it stable and in-place.",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Determine the trade-off: use extra memory space to decrease the overall running time of the algorithm."
+        },
+        {
+          "step": 2,
+          "text": "For Hashing: map keys to indices using a hash function and handle collisions with chaining or open addressing."
+        },
+        {
+          "step": 3,
+          "text": "For Counting Sort: use a frequency array to count occurrences, achieving O(n) time with O(k) space."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 2,
+      "question": "",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Determine the trade-off: use extra memory space to decrease the overall running time of the algorithm."
+        },
+        {
+          "step": 2,
+          "text": "For Hashing: map keys to indices using a hash function and handle collisions with chaining or open addressing."
+        },
+        {
+          "step": 3,
+          "text": "For Counting Sort: use a frequency array to count occurrences, achieving O(n) time with O(k) space."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 3,
+      "question": "",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Determine the trade-off: use extra memory space to decrease the overall running time of the algorithm."
+        },
+        {
+          "step": 2,
+          "text": "For Hashing: map keys to indices using a hash function and handle collisions with chaining or open addressing."
+        },
+        {
+          "step": 3,
+          "text": "For Counting Sort: use a frequency array to count occurrences, achieving O(n) time with O(k) space."
+        }
+      ],
+      "hasVisualization": false
+    }
+  ]
+}

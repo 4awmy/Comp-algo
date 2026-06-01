@@ -1,0 +1,2010 @@
+{
+  "id": "lec04",
+  "number": 4,
+  "week": 4,
+  "title": "Brute Force",
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Computing Algorithms\u000bLecture 4:\u000bBrute force part 1",
+      "content": [
+        "By: Dr. Mohamed Moheeb"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec04/slide01_img0.jpg"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 2,
+      "title": "Agenda",
+      "content": [
+        "Introduction",
+        "Selection and Bubble sort",
+        "Sequential search and brute-force string matching"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 3,
+      "title": "Introduction",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec04/slide03_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 4,
+      "title": "What is a Brute force strategy",
+      "content": [
+        "Brute force  is a straightforward approach to solving a problem, usually directly based on the problem statement and definitions of the concepts involved.",
+        "The algorithm tries  all possible solutions  until it finds the correct one.",
+        "It is based directly on the problem’s definition, without using optimization, heuristics, or shortcuts"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 5,
+      "title": "Key Characteristics of Brute-Force Algorithms",
+      "content": [
+        "Simple to design — they follow directly from the problem statement.",
+        "Exhaustive — check every candidate solution.",
+        "Guaranteed correctness — if a solution exists, brute force will find it.",
+        "Often inefficient — can be slow for large input sizes because the number of possibilities grows quickly."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 6,
+      "title": "Examples",
+      "content": [
+        "Password cracking: Trying every possible combination until the correct password is found.",
+        "Searching: Linear search checks each element of a list until the target is found.",
+        "Combinatorial problems: Generating all permutations or subsets to find an optimal one (e.g., traveling salesman problem)."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 7,
+      "title": "When Brute Force Is Useful",
+      "content": [
+        "When the input size is small.",
+        "When no faster algorithm is known.",
+        "As a simple baseline to compare more advanced algorithms."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 8,
+      "title": "Selection and Bubble sort",
+      "content": [],
+      "ocrContent": "[OCR ERROR: 'NoneType' object has no attribute 'strip' ]",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec04/slide08_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 9,
+      "title": "Selection sort",
+      "content": [
+        "Let’s trace the selection sort on this given array  of size n=5",
+        "First the for loop  i =0  till it reach n-2 or in this case 3",
+        "Variables",
+        "i =0",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 10,
+      "title": "Selection sort",
+      "content": [
+        "min is assigned the value of  i =0",
+        "Variables",
+        "i =0",
+        "min=0",
+        "i , min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 11,
+      "title": "Selection sort",
+      "content": [
+        "Starting the inner loop where j will start from j=i+1 or j=0+1=1 till it reaches n-1 or 4",
+        "Variables",
+        "i =0",
+        "min=0",
+        "j=1",
+        "j",
+        "i , min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 12,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[1]< A[0] = 21<14 which is false",
+        "Variables",
+        "i =0",
+        "min=0",
+        "j=1",
+        "j",
+        "i , min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 13,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1 where j =2, which still didn’t reach more than n-1 or 4",
+        "Variables",
+        "i =0",
+        "min=0",
+        "j=2",
+        "j",
+        "i , min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 14,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[2]< A[0] = 1<14, which is true, then we change the min value to 2",
+        "Variables",
+        "i =0",
+        "min=2",
+        "j=2",
+        "j,min",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 15,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1, where j =3, which still didn’t reach more than n-1 or 4",
+        "Variables",
+        "i =0",
+        "min=2",
+        "j=3",
+        "j",
+        "i",
+        "min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 16,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[3]< A[2] = 12<1 which is false",
+        "Variables",
+        "i =0",
+        "min=2",
+        "j=3",
+        "j",
+        "i",
+        "min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 17,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1, where j =4, which still didn’t reach more than n-1 or 4",
+        "Variables",
+        "i =0",
+        "min=2",
+        "j=4",
+        "j",
+        "i",
+        "min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 18,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[4]< A[2] = 14<1 which is false",
+        "Variables",
+        "i =0",
+        "min=2",
+        "j=4",
+        "j",
+        "i",
+        "min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 19,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1, where j =5, which reached more than n-1 or 4",
+        "Variables",
+        "i =0",
+        "min=2",
+        "j=5",
+        "j",
+        "i",
+        "min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 20,
+      "title": "Selection sort",
+      "content": [
+        "The innermost loop is finished now we move to swap A[ i ] and A[min] which will swap A[0] and A[2] or 14 with 1",
+        "Variables",
+        "i =0",
+        "min=2",
+        "j=5",
+        "14",
+        "1",
+        "j",
+        "i",
+        "min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 21,
+      "title": "Selection sort",
+      "content": [
+        "The outer loop increases  i  by 1, it will be equal to 1, and still didn’t reach more than n-2 or 3",
+        "Variables",
+        "i =1",
+        "min=2",
+        "j=5",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 22,
+      "title": "Selection sort",
+      "content": [
+        "min is assigned the value of  i =1",
+        "Variables",
+        "i =1",
+        "min=1",
+        "i , min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 23,
+      "title": "Selection sort",
+      "content": [
+        "The inner loop index j will be reset to i+1 which will be equal to j=2 till it reaches more than n-1 or 4",
+        "Variables",
+        "i =1",
+        "min=1",
+        "j=2",
+        "j",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 24,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[2]< A[1] = 14<21, which is true, so the new value of min is 2",
+        "Variables",
+        "i =1",
+        "min=2",
+        "j=2",
+        "j,min",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 25,
+      "title": "Selection sort",
+      "content": [
+        "The outer loop increases  i  by 1, it will be equal to 1, and it still didn’t reach more than n-2 or 3",
+        "Variables",
+        "i =1",
+        "min=2",
+        "j=3",
+        "min",
+        "i",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 26,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[3]< A[2] = 12<14, which is true, so the new value of min is 3",
+        "Variables",
+        "i =1",
+        "min=3",
+        "j=3",
+        "i",
+        "j,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 27,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1, where j =4, which didn't reach more than n-1 or 4",
+        "Variables",
+        "i =1",
+        "min=3",
+        "j=4",
+        "min",
+        "i",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 28,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[4]< A[3] = 14<12 which is false.",
+        "Variables",
+        "i =1",
+        "min=3",
+        "j=4",
+        "min",
+        "i",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 29,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1, where j =5, which reaches more than n-1 or 4",
+        "Variables",
+        "i =1",
+        "min=3",
+        "j=5",
+        "min",
+        "i",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 30,
+      "title": "Selection sort",
+      "content": [
+        "The innermost loop is finished now we move to swap A[ i ] and A[min] which will swap A[1] and A[3] or 21 with 12",
+        "Variables",
+        "i =1",
+        "min=3",
+        "j=5",
+        "21",
+        "12",
+        "min",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 31,
+      "title": "Selection sort",
+      "content": [
+        "The outer loop increases  i  by 1, it will be equal to 2, and it still didn’t reach more than n-2 or 3",
+        "Variables",
+        "i =2",
+        "min=3",
+        "j=5",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 32,
+      "title": "Selection sort",
+      "content": [
+        "Reset the value of min is equal to  i =2",
+        "Variables",
+        "i =2",
+        "min=2",
+        "j=5",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 33,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and reset the value of j to i+1, equal to 3 till it reaches more than n-1 or 4",
+        "Variables",
+        "i =2",
+        "min=2",
+        "j= 3",
+        "j",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 34,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[3]< A[2] = 21<14 which is false.",
+        "Variables",
+        "i =2",
+        "min=2",
+        "j=3",
+        "j",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 35,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1, where j =4, which still didn’t reach more than n-1 or 4",
+        "Variables",
+        "i =2",
+        "min=2",
+        "j=4",
+        "j",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 36,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[4]< A[2] = 14<14 which is false.",
+        "Variables",
+        "i =2",
+        "min=2",
+        "j=4",
+        "j",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 37,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the inner loop and increment the variable j by 1, where j =5, which  reached more than n-1 or 4",
+        "Variables",
+        "i =2",
+        "min=2",
+        "j=5",
+        "j",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 38,
+      "title": "Selection sort",
+      "content": [
+        "The innermost loop is finished now we move to swap A[ i ] and A[min] which will swap A[2] and A[2] where no change is required",
+        "Variables",
+        "i =2",
+        "min=2",
+        "j=5",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 39,
+      "title": "Selection sort",
+      "content": [
+        "We go back to the outermost loop, where we reach the final iteration, where  i =3 till it reach more than n-2 or 3",
+        "Variables",
+        "i =3",
+        "min=2",
+        "j=5",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 40,
+      "title": "Selection sort",
+      "content": [
+        "The min value is reset to be equal to  i  or 3",
+        "Variables",
+        "i =3",
+        "min=3",
+        "j=5",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 41,
+      "title": "Selection sort",
+      "content": [
+        "The value for j is reset to be equal to i+1 or 4 till it reaches more than n-1 or 4",
+        "Variables",
+        "i =3",
+        "min=3",
+        "j=4",
+        "j",
+        "i,min"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 42,
+      "title": "Selection sort",
+      "content": [
+        "Check the condition for A[j] < A[min] or A[4]< A[3] = 21<14, which is true, so the new value of min is 4.",
+        "Variables",
+        "i =3",
+        "min=4",
+        "j=4",
+        "j,min",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 43,
+      "title": "Selection sort",
+      "content": [
+        "The value of j is increased by 1 to be equal to 5 which is more than n-1 or 4",
+        "Variables",
+        "i =3",
+        "min=4",
+        "j=5",
+        "min",
+        "i",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 44,
+      "title": "Selection sort",
+      "content": [
+        "The innermost loop is finished now we move to swap A[ i ] and A[min] which will swap A[3] and A[4] or 21 with 14.",
+        "Variables",
+        "i =3",
+        "min=4",
+        "j=5",
+        "21",
+        "14",
+        "min",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 45,
+      "title": "Selection sort",
+      "content": [
+        "the value of i is increased by 1, equal to 4, which is more than n-2 or 3, and the outermost loop stops",
+        "The array is now sorted",
+        "Variables",
+        "i =4",
+        "min=4",
+        "j=5",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 46,
+      "title": "Selection sort (Time analysis)",
+      "content": [
+        "1 basic operation"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 47,
+      "title": "Bubble sort",
+      "content": [
+        "Now, let’s trace the bubble sort on the same array",
+        "Starting from outermost loop where  i =0 till  it reach more than n-2 or 3",
+        "Variables",
+        "i =0"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 48,
+      "title": "Bubble sort",
+      "content": [
+        "Next, we move to inner loop where j=0 till it reach n-2-i or n-2-0= n-2 or 3.",
+        "This algorithm differs from the selection sort as it swaps two adjacent numbers when the lower index is greater in value.",
+        "Variables",
+        "i =0",
+        "j=0"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 49,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j] which is equal  A[1]<A[0] or 21<14 which is false",
+        "Variables",
+        "i =0",
+        "j=0",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 50,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =1.till it reaches a value greater than n-2-0 or 5-2-0=3",
+        "Variables",
+        "i =0",
+        "j=1",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 51,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j] which is equal  A[2]<A[1] or 1<21 which is true then we swap A[2] with A[1] or 21 and 1",
+        "Variables",
+        "i =0",
+        "j=1",
+        "j+1",
+        "j",
+        "1",
+        "21"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 52,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =2.till it reaches a value greater than n-2-0 or 5-2-0=3",
+        "Variables",
+        "i =0",
+        "j=2",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 53,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j] which is equal  A[3]<A[2] or 1<21 which is true then we swap A[3] with A[2] or 21 and 12",
+        "Variables",
+        "i =0",
+        "j=2",
+        "j+1",
+        "j",
+        "12",
+        "21"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 54,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =3.till it reaches a value greater than n-2-0 or 5-2-0=3",
+        "Variables",
+        "i =0",
+        "j=3",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 55,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j] which is equal  A[4]<A[3] or 1<21 which is true then we swap A[4] with A[3] or 14 and 21",
+        "Variables",
+        "i =0",
+        "j=3",
+        "j+1",
+        "j",
+        "14",
+        "21"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 56,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =4.which is more than n-2-0 or 5-2-0=3.",
+        "Variables",
+        "i =0",
+        "j=4"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 57,
+      "title": "Bubble sort",
+      "content": [
+        "We go back to the outer loop and increase the value of  i  by 1, which will be equal to 1 till it reaches more than n-2 or 3.",
+        "Variables",
+        "i =1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 58,
+      "title": "Bubble sort",
+      "content": [
+        "In the inner loop, j will start from 0 till it till it reaches a value greater than n-2-i or 5-2-1=2",
+        "Variables",
+        "i =1",
+        "j=0",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 59,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j] which is equal  A[1]<A[0] or 1<14 which is true then we swap A[1] with A[0] or 14 and 1",
+        "Variables",
+        "i =1",
+        "j=0",
+        "j+1",
+        "j",
+        "1",
+        "14"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 60,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =1.which is less than n-2-i or 5-2-1=2.",
+        "Variables",
+        "i =1",
+        "j=1",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 61,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j] which is equal  A[2]<A[1] or 12<14 which is true then we swap A[2] with A[1] or 12 and 14",
+        "Variables",
+        "i =1",
+        "j=1",
+        "j+1",
+        "j",
+        "12",
+        "14"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 62,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =2.which is equal to n-2-0 or 5-2-1=2.",
+        "Variables",
+        "i =1",
+        "j=2",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 63,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j] which is equal  A[3]<A[2] or 14<14 which is false, so no swap is going to be performed",
+        "Variables",
+        "i =1",
+        "j=2",
+        "j+1",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 64,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =3.which is more than n-2-i or 5-2-1=2.",
+        "Variables",
+        "i =1",
+        "j=3",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 65,
+      "title": "Bubble sort",
+      "content": [
+        "We go back to the outer loop and increase the value of  i  by 1, which will be equal to 2 till it is greater than n-2 or 3.",
+        "Variables",
+        "i =2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 66,
+      "title": "Bubble sort",
+      "content": [
+        "In the inner loop, j will start from 0 till it till it reaches a value greater than n-2-i or 5-2-2=1",
+        ".",
+        "Variables",
+        "i =2",
+        "j=0",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 67,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j], which is equal  A[1]<A[0] or 12<1 which is false, so no swap is going to be performed",
+        "Variables",
+        "i =2",
+        "j=2",
+        "j+1",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 68,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =1.which is equal to n-2-i or 5-2-2=1.",
+        "Variables",
+        "i =2",
+        "j=1",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 69,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j], which is equal  A[2]<A[1] or 14<12 which is false, so no swap is going to be performed",
+        "Variables",
+        "i =2",
+        "j=1",
+        "j+1",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 70,
+      "title": "Bubble sort",
+      "content": [
+        "Increase the value of j by 1 then j =2.which is more than n-2-i or 5-2-2=1.",
+        "Variables",
+        "i =2",
+        "j=2",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 71,
+      "title": "Bubble sort",
+      "content": [
+        "We go back to the outer loop and increase the value of  i  by 1, which will be equal to 3 till it is greater than n-2 or 3.",
+        "Variables",
+        "i =3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 72,
+      "title": "Bubble sort",
+      "content": [
+        "In the inner loop, j will start from 0 till it till it reaches a value greater than or equal to n-2-i or 5-2-3=0",
+        ".",
+        "Variables",
+        "i =3",
+        "j=0",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 73,
+      "title": "Bubble sort",
+      "content": [
+        "Check if A[j+1]<A[j], which is equal  A[1]<A[0] or 12<1 which is false, so no swap needed",
+        "Variables",
+        "i =3",
+        "j=0",
+        "j+1",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 74,
+      "title": "Bubble sort",
+      "content": [
+        "The value j is increased by 1, where j=1, which is more than n-2-i or 5-2-3=0.",
+        ".",
+        "Variables",
+        "i =3",
+        "j=0",
+        "j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 75,
+      "title": "Bubble sort",
+      "content": [
+        "We go back to the outer loop and increase the value of  i  by 1, which will be equal to 4 till it reaches more than n-2 or 3.",
+        "The outer loop stops",
+        "The array is sorted",
+        "Variables",
+        "i =4"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 76,
+      "title": "Bubble sort (time analysis)",
+      "content": [
+        "1 basic operation"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 77,
+      "title": "Sequential search and String matching",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec04/slide77_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 78,
+      "title": "Sequential Search",
+      "content": [
+        "Given that the key we are looking for is equal to 6 in the given array",
+        "The first step is to append the key to the end of the list",
+        "Variables",
+        "k=6"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 79,
+      "title": "Sequential Search",
+      "content": [
+        "Create an index  i  which starts from 0",
+        "Variables",
+        "k=6",
+        "i=0",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 80,
+      "title": "Sequential Search",
+      "content": [
+        "Check if the value of A[ i ]=A[0]=1 is not equal to k; which is true",
+        "Variables",
+        "k=6",
+        "i=0",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 81,
+      "title": "Sequential Search",
+      "content": [
+        "Increment the value of  i  by 1, it will be equal 1",
+        "Variables",
+        "k=6",
+        "i =1",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 82,
+      "title": "Sequential Search",
+      "content": [
+        "Check if the value of A[i]=A[1]=16 is not equal to k=6; which is true",
+        "Variables",
+        "k=6",
+        "i =1",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 83,
+      "title": "Sequential Search",
+      "content": [
+        "Increment the value of  i  by 1, it will be equal 2",
+        "Variables",
+        "k=6",
+        "i =2",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 84,
+      "title": "Sequential Search",
+      "content": [
+        "Check if the value of A[i]=A[2]=6 is not equal to k=6; which is false, and that we found the key.",
+        "Variables",
+        "k=6",
+        "i =2",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 85,
+      "title": "Sequential Search",
+      "content": [
+        "Then we move to the if condition that checks if  i  is less than n. Since this is true, it returns the index  i =2 where the key 6 is found.",
+        "Variables",
+        "k=6",
+        "i =2",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 86,
+      "title": "Sequential search (time analysis)",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 87,
+      "title": "Brute Force String Match",
+      "content": [
+        "T= ‘better’ and p=‘er’",
+        "Where n is the length of Text equal 6",
+        "m is the length of the pattern, equal 2",
+        "The outer loop starts from  i =0 till n-m which is 6-2=4",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =0"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 88,
+      "title": "Brute Force String Match",
+      "content": [
+        "The j is equal to 0.",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =0",
+        "j=0"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 89,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  0 < 2. which is true for the second part P[ i ]=T[ i+j ] p[0]=T[0+0] or ‘b’=‘e’ which is false.",
+        "We skip the while loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =0",
+        "j=0",
+        "j",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 90,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check if condition j=m or 0=2 which is false",
+        "We go to outer for loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =0",
+        "j=0",
+        "j",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 91,
+      "title": "Brute Force String Match",
+      "content": [
+        "Increment the value of  i  by 1 till n-m, which is 6-2=4",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =1",
+        "j=0",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 92,
+      "title": "Brute Force String Match",
+      "content": [
+        "The j is equal to 0.",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =1",
+        "j=0",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 93,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  0 < 2. which is true for the second part P[ i ]=T[ i+j ] p[0]=T[i+0] or ‘e’=‘e’ which is true.",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =1",
+        "j=0",
+        "j",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 94,
+      "title": "Brute Force String Match",
+      "content": [
+        "Increment the j value by 1",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =1",
+        "j=1",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 95,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  0 < 2. which is true for the second part P[ i ]=T[ i+j ] p[0]=T[1+1] or ‘t’=‘r’ which is false.",
+        "we exit the for loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =1",
+        "j=1",
+        "j",
+        "i",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 96,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check if condition j=m or 1=2 which is false",
+        "We go to the outer for-loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =1",
+        "j=1",
+        "j",
+        "i",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 97,
+      "title": "Brute Force String Match",
+      "content": [
+        "Increment the value of  i  by 1 till n-m, which is 6-2=4",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =2",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 98,
+      "title": "Brute Force String Match",
+      "content": [
+        "j is equal to 0.",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =2",
+        "j=0",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 99,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  0 < 2. which is true for the second part P[ i ]=T[ i+j ] p[0]=T[2+0] or ‘t’=‘e’ which is false.",
+        "We exit the for loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =2",
+        "j=0",
+        "j",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 100,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check if condition j=m or 0=2 which is false",
+        "We go to outer for loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =2",
+        "j=0",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 101,
+      "title": "Brute Force String Match",
+      "content": [
+        "Increment the value of  i  by 1 till n-m, which is 6-2=4",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =3",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 102,
+      "title": "Brute Force String Match",
+      "content": [
+        "j is equal to 0.",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =3",
+        "j=0",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 103,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  0 < 2. which is true for the second part P[ i ]=T[ i+j ] p[0]=T[3+0] or ‘t’=‘e’ which is false.",
+        "We exit the for loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =3",
+        "j=0",
+        "j",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 104,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check if condition j=m or 0=2 which is false",
+        "We go to outer for loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =3",
+        "j=0",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 105,
+      "title": "Brute Force String Match",
+      "content": [
+        "Increment the value of  i  by 1 till n-m, which is 6-2=4",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 106,
+      "title": "Brute Force String Match",
+      "content": [
+        "j is equal to 0.",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j=0",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 107,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  0 < 2. which is true for the second part P[ i ]=T[ i+j ] p[0]=T[4+0] or ‘e’=‘e’ which is true.",
+        "We enter the while loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j=0",
+        "j",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 108,
+      "title": "Brute Force String Match",
+      "content": [
+        "Increment the j value by 1",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j=1",
+        "j",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 109,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  1 < 2. which is true for the second part P[ i ]=T[ i+j ] p[0]=T[4+1] or ‘r’=‘r’ which is true.",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j=1",
+        "j",
+        "i",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 110,
+      "title": "Brute Force String Match",
+      "content": [
+        "Increment the j value by 1",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j=2",
+        "j",
+        "i",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 111,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check the condition for the while loop first, j<m  2 < 2. which is false and we exit the loop",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j=2",
+        "j",
+        "i",
+        "i+j"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 112,
+      "title": "Brute Force String Match",
+      "content": [
+        "Check if condition j=m or 2=2 which is  ture",
+        "So we return the index  i  = 2",
+        "Variables",
+        "i =0",
+        "j=0",
+        "Variables",
+        "m=2",
+        "n=6",
+        "i =4",
+        "j=2",
+        "i"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 113,
+      "title": "Brute Force String Match (Time analysis)",
+      "content": [
+        "Standard mathematical analysis for this algorithm can be considered  impractical  because the actual number of basic operations depends entirely on the specific content of the  two input parameters  (the text and the pattern).",
+        "So we can take the probability of matching one character in the English language is 1/26, which is actually very low, so the average case can be approximated as θ(n) or more accurately θ( n+m ). n is the number of mismatches, and m is the number of matches of the pattern with the text.",
+        "The worst case, which is a rare occurrence, for example, a pattern of ‘ aaab ’ and text of all a’s (‘ aaaaaaa …….’). In this case, it will be almost O( n.m )"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    }
+  ],
+  "_stats": {
+    "total_slides": 113,
+    "text_light_slides": 3,
+    "ocr_success": 3,
+    "ocr_errors": 0
+  }
+}

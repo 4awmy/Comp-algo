@@ -1,0 +1,239 @@
+{
+  "id": "lec07",
+  "number": 7,
+  "week": 7,
+  "title": "Decrease & Conquer II",
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Computing Algorithms\u000bLecture 7:\u000bDecrease and Conquer part 2",
+      "content": [
+        "By: Dr. Mohamed Moheeb"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec07/slide01_img0.jpg"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 2,
+      "title": "Agenda",
+      "content": [
+        "Generating permutation",
+        "Generating subsets",
+        "Binary search",
+        "Russian peasant multiplication",
+        "Josephus problem"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 3,
+      "title": "Generating Permutation",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec07/slide03_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 4,
+      "title": "Minimal-change Requirement",
+      "content": [
+        "Let’s make a permutation of 3 using this algorithm",
+        "It starts with the first element and then swaps the next element from left to right or right to left till the whole permutation is created."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 5,
+      "title": "Johnson Trotter",
+      "content": [],
+      "ocrContent": "321 231 213.",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec07/slide05_img0.png"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 6,
+      "title": "Lexicographic permutation",
+      "content": [
+        "123 132",
+        "213  231",
+        "312  321"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 7,
+      "title": "Permutation",
+      "content": [
+        "Permutation problem is an expensive problem, as explained before, it costs O(n!) To create the permutation of size n",
+        "By using the decrease and conquer, this cost can be reduced; it will still be O(n!), but the actual execution time is lower because the algorithm generates each new permutation using a single  swap  rather than rebuilding the entire sequence."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 8,
+      "title": "Generating Subset",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec07/slide08_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 9,
+      "title": "Bottum-up algorithm",
+      "content": [
+        "It starts with an empty set and one by one adds a new element to all the generated subsets until this point."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 10,
+      "title": "Binary Representation",
+      "content": [
+        "This is the simplest way to create a list of binary numbers till the value n",
+        "Then you replace the occurrence of the value of 1 by the equivalent element"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec07/slide10_img0.png"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 11,
+      "title": "Binary Reflect Gray code",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 12,
+      "title": "Generating subset",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 13,
+      "title": "Binary Search",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec07/slide13_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 14,
+      "title": "Binary search",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 15,
+      "title": "Binary Search",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 16,
+      "title": "Russian peasant Multiplication",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec07/slide16_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 17,
+      "title": "Russian peasant Multiplication",
+      "content": [
+        "Algorithm for multiplying two positive integers called multiplication `a la russe or the Russian peasant method. Which is also divided by a constant factor",
+        "Let n and m be positive integers whose product we want to compute, and let us measure the instance size by the value of n.",
+        "if n is even, an instance of half the size has to deal with n/2",
+        "we have an obvious formula relating the solution to the problem’s larger instance to the solution to the smaller one  (n . m = n/2 . 2m)",
+        "For odd numbers ( n . m= n−1/ 2 . 2m +m)."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 18,
+      "title": "Russian peasant Multiplication",
+      "content": [
+        "This algorithm works in the same manner as the binary search, which makes it have the same time complexity"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    }
+  ],
+  "_stats": {
+    "total_slides": 18,
+    "text_light_slides": 5,
+    "ocr_success": 5,
+    "ocr_errors": 0
+  }
+}

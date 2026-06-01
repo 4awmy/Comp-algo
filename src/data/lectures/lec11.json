@@ -1,0 +1,367 @@
+{
+  "id": "lec11",
+  "number": 11,
+  "week": 11,
+  "title": "Space & Time Trade-offs",
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Computing Algorithms\u000bLecture 11:\u000bSpace and Time Trade-off",
+      "content": [
+        "By: Dr. Mohamed Moheeb"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide01_img0.jpg"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 2,
+      "title": "Agenda",
+      "content": [
+        "Introduction",
+        "Count Sorting",
+        "Horspool’s algorithm",
+        "Hashing"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 3,
+      "title": "Introduction",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide03_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 4,
+      "title": "Introduction",
+      "content": [
+        "Most algorithms can be optimized in one of two directions:  Time  (how long it takes to finish) or  Space  (how much RAM or disk space it uses). Improving one usually makes the other worse",
+        "You can speed up an algorithm by storing \"pre-calculated\" results in memory, so the computer doesn't have to calculate them again later (e.g., using a lookup table or a cache).",
+        "You can save memory by calculating data on-the-fly only when it is needed. This keeps your memory footprint small but requires the CPU to work harder and take more time every time that data is accessed."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 5,
+      "title": "Count Sorting",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide05_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 6,
+      "title": "Count Sorting",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 7,
+      "title": "Count Sorting",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 8,
+      "title": "Horspool’s Algorithm",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide08_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 9,
+      "title": "Horspool’s algorithm",
+      "content": [
+        "Before looking at the text, the algorithm analyzes the  pattern  and creates a shift table. This table tells the algorithm exactly how many positions to jump ahead based on the character in the text that aligns with the  last  character of your pattern",
+        "The algorithm aligns the pattern with the start of the text but, crucially, it compares characters from  right to left",
+        "When a mismatch occurs (or even after a match is found), the algorithm doesn't just move one step. It looks at the character in the text that was aligned with the pattern's tail, checks your shift table, and \"slides\" the pattern forward by that amount."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 10,
+      "title": "Horspool’s algorithm",
+      "content": [
+        "The rule for constructing the shifting table"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide10_img0.png"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 11,
+      "title": "Horspool’s algorithm",
+      "content": [
+        "Consider, as an example, searching for the pattern BARBER in some text"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide11_img0.png"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 12,
+      "title": "Horspool’s algorithm",
+      "content": [
+        "Horspool’s algorithm",
+        "Step 1  For a given pattern of length m and the alphabet used in both the pattern and text, construct the shift table as described above.",
+        "Step 2  Align the pattern against the beginning of the text.",
+        "Step 3  Repeat the following until either a matching substring is found or the pattern reaches beyond the last character of the text.",
+        "Starting with the last character in the pattern, compare the corresponding characters in the pattern and text until either all m characters are matched (then stop) or a mismatching pair is encountered.",
+        "In the latter case, retrieve the entry t(c)from the c’s column of the shift table where c is the text’s character currently aligned against the last character of the pattern, and shift the pattern by t(c) characters to the right along the text."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 13,
+      "title": "Horspool’s algorithm",
+      "content": [],
+      "ocrContent": "shift to 4 2 6 6 1 6",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide13_img0.png"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 14,
+      "title": "Horspool’s algorithm",
+      "content": [
+        "The best case is same as brute force is  ϴ (n)",
+        "The worst case is O( n.m )",
+        "Why ?",
+        "Please solve this problem the pattern is ‘ baaaa ’ and text is ‘ aaaaaaaaaaaaaaaaaa ’"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 15,
+      "title": "Hashing",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide15_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 16,
+      "title": "Hashing",
+      "content": [
+        "The Problem: Direct addressing is impossible when the universe of keys  is significantly larger than the available memory slots.",
+        "A technique that maps a large set of keys into a smaller, fixed-size array called a Hash Table.",
+        "Objective: To achieve constant time O(1) for Search, Insert, and Delete operations on average."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 17,
+      "title": "Hash function",
+      "content": [
+        "Definition: A mathematical function h(K) that transforms a key K into an integer index  i  within the range [0, m-1].",
+        "The Mapping: h: K to {0, 1, ……, m-1\\}.",
+        "Since |K| > m, two different keys K1 and K2 will eventually map to the same index. This is known as a Collision, which the system must resolve."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 18,
+      "title": "Designing a \"Good\" Hash Function",
+      "content": [
+        "Determinism: The same input must always produce the same hash value.",
+        "Efficiency: The function must be O(1) and computationally inexpensive.",
+        "Uniformity: It should distribute keys evenly across all slots to minimize clustering and collisions.",
+        "Common Techniques:",
+        "Division Method: h(K) = K mod m (Best when m is a prime number not close to a power of 2)."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 19,
+      "title": "Open Hashing (Separate Chaining)",
+      "content": [
+        "The hash table is an array of pointers. Each slot (bucket) points to a linked list of all records that hash to that same index",
+        "Advantages:",
+        "The table never truly \"fills up\" (limited only by system memory).",
+        "Simple to implement and handles deletions gracefully.",
+        "Disadvantage:",
+        "Extra memory overhead for pointers and potential O(n) performance if one list becomes too long."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 20,
+      "title": "Open Hashing example",
+      "content": [
+        "Each list contains all the keys hashed to its cell. Consider, as an example, the following list of words: A, FOOL, AND, HIS, MONEY, ARE, SOON, PARTED.",
+        "Hash function we will add the positions of a word’s letters in the alphabet and compute the sum’s remainder after division by 13",
+        "Example:",
+        "FOOL—is installed in the ninth cell since (6 + 15+15+12)mod13=9"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 21,
+      "title": "Open hashing",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 22,
+      "title": "Closed Hashing",
+      "content": [
+        "All elements are stored within the hash table itself. No links or pointers are used outside the array.",
+        "If h(K) is occupied, the algorithm systematically probes for the next available \"open\" slot.",
+        "Strategies:",
+        "Linear Probing: Checking slots sequentially (i+1, i+2 ………)."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 23,
+      "title": "Closed Hashing",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 24,
+      "title": "The Load Factor (α)",
+      "content": [
+        "The ratio of the number of occupied slots n to the total table size m:  α  =n/m",
+        "Significance: It measures the performance health of the table.",
+        "Thresholds:",
+        "Open Addressing,  α  must be < 1.Performance degrades sharply as  α   to 1.",
+        "Rehashing: When  α  exceeds a threshold (typically 0.7 or 0.8), the table size is usually doubled to a new prime, and all keys are re-inserted."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec11/slide24_img0.gif",
+        "public/images/lectures/lec11/slide24_img1.gif"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 25,
+      "title": "Double Hashing",
+      "content": [
+        "too avoid the clustering issues of linear probing, use a second hash function h2(K) to determine the \"step size\" for probes.",
+        "h(K,  i ) = (h1(K) +  i  . h2(K)) mod m",
+        "Rules for h2(K):",
+        "It must never return 0 (which would result in an infinite loop).",
+        "It should be relatively prime to the table size m to ensure all slots are reachable."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 26,
+      "title": "Double Hashing example",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    }
+  ],
+  "_stats": {
+    "total_slides": 26,
+    "text_light_slides": 5,
+    "ocr_success": 5,
+    "ocr_errors": 0
+  }
+}

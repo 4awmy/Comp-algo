@@ -1,0 +1,1404 @@
+{
+  "id": "lec09",
+  "number": 9,
+  "week": 9,
+  "title": "Divide & Conquer",
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Computing Algorithms\u000bLecture 9:\u000bDivide and Conquer",
+      "content": [
+        "By: Dr. Mohamed Moheeb"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec09/slide01_img0.jpg"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 2,
+      "title": "Agenda",
+      "content": [
+        "Introduction",
+        "Merge sort",
+        "Quick sort",
+        "Binary tree traversal"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 3,
+      "title": "Introduction",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec09/slide03_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 4,
+      "title": "What is Divide and Conquer?",
+      "content": [
+        "Divide and Conquer is an algorithm design paradigm based on multi-branched recursion.",
+        "It works by breaking down a problem into three distinct steps:",
+        "Divide: Break the given problem into smaller sub-problems of the same type.",
+        "Conquer: Recursively solve these sub-problems. (If the sub-problem is small enough, solve it directly as a base case).",
+        "Combine: Appropriately combine the answers of the sub-problems to get the exact solution to the original problem."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 5,
+      "title": "Merge sort",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec09/slide05_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 6,
+      "title": "Merge sort",
+      "content": [
+        "Merge Sort continuously cuts the array in half until it cannot be divided further (arrays of 1 element).",
+        "Then, it repeatedly merges the sub-lists to produce new sorted sub-lists until there is only one sorted list remaining."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 7,
+      "title": "Merge sort",
+      "content": [
+        "Let’s trace Merge Sort on a given array of size n=5.",
+        "Initial Array: [ 38, 27, 43, 3, 9 ]",
+        "The first condition check if the size of array is equal to 1 or not",
+        "The array will be divided into two parts from A[0…1] in new array B= [38,27]",
+        "The second part is from A[2…..4] in new array C=[43,3,9]",
+        "Note that the array B has index starting from 0 till 2-1 and C has  an index staring from 0 till 3-1",
+        "The  mergesort () function is called again with array B ( this is the divide process)",
+        "Another note this is a recursive function so when we finish the  mergesort (B) we will continue with  mergesort (C) second part of the array"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 8,
+      "title": "Merge sort",
+      "content": [
+        "Let’s consider applying the merge on array  B= [38,27]",
+        "First let’s check if the size is greater than 1 which is equal 2",
+        "we divide it into two parts B and C to avoid confusion let call it B1 and C1",
+        "B1=[38] and C1=[27]",
+        "We are going to call  mergesort (B1)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 9,
+      "title": "Merge sort",
+      "content": [
+        "Let’s consider applying the merge on array  B1=[38]",
+        "First let’s check if the size is greater than 1 which is equal 1 we return to the pervious call."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 10,
+      "title": "Merge sort",
+      "content": [
+        "We are back to the call where we called merge sort on  B= [38,27]",
+        "Where we have two arrays B1=[38] and C1=[27]",
+        "We are going to call  mergesort (C1)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 11,
+      "title": "Merge sort",
+      "content": [
+        "Let’s consider applying the merge on array C 1=[27]",
+        "First let’s check if the size is greater than 1 which is equal 1 we return to the pervious call."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 12,
+      "title": "Merge sort",
+      "content": [
+        "We are back to the call where we called merge sort on  B= [38,27]",
+        "Where we have two arrays B1=[38] and C1=[27]",
+        "We now finished the calls for  mergesort () for both C1 and  B1 (divide)",
+        "We are going to call Merge(B,C,A) or in this call Merge(B1,C1,B)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 13,
+      "title": "Merge sort",
+      "content": [
+        "In this function p is the size of array B and q is the size of array C and A size is  p+q",
+        "The index  i  is for B array, j is for C array and k is for A array.",
+        "in this call B is B1, C is C1 and A is B",
+        "To avoid confusion let’s call the arrays B1 and C1 and A",
+        "Where we have two arrays B1=[38] and C1=[27]",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 14,
+      "title": "Merge sort",
+      "content": [
+        "The while condition check if any index of I or j exceeds the  the  size of p and q",
+        "Where  i  is less than 1 and j is less than q",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 15,
+      "title": "Merge sort",
+      "content": [
+        "B1=[38] and C1=[27]",
+        "Let check the condition if B[0] < C[0] or 38<27 which is false we move to the else part",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 16,
+      "title": "Merge sort",
+      "content": [
+        "B1=[38] and C1=[27]",
+        "A[0]= 27 and then we increment j index by 1",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 17,
+      "title": "Merge sort",
+      "content": [
+        "B1=[38] and C1=[27]   A=[27,  ]",
+        "then we increment k index by 1",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 18,
+      "title": "Merge sort",
+      "content": [
+        "Recheck the condition the j is equal to q so we move to next step after the while loop",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 19,
+      "title": "Merge sort",
+      "content": [
+        "This part is to copy the remaining elements from either array B or C to array A",
+        "If  i  is equal to p this means that the remaining elements is in array C and else the remaining elements are in array B",
+        "In in our case now,  i  is not equal to p so we move to the else part",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 20,
+      "title": "Merge sort",
+      "content": [
+        "B1=[38] and C1=[27]   A=[27,  ]",
+        "We copy elements from Array B1 starting from index  i =0 till p-1=0 to the remaining parts of array A staring form k=1 till the end of array p+q-1=1+1-1=1 So A[1..1]=B1[0…0]",
+        "final array A=[27,38]",
+        "In latest stages it will be clearer",
+        "Note A=B=[27,38]",
+        "We now finished Merge of B is the last line in the  mergesort (B) function  where do we go now ?",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 21,
+      "title": "Merge sort",
+      "content": [
+        "Initial Array: A= [ 38, 27, 43, 3, 9 ]",
+        "new array B= [27,38]",
+        "Now it is C turn = [43,3,9]"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 22,
+      "title": "Merge sort",
+      "content": [
+        "C = [43,3,9]and its size is larger than 1",
+        "Let’s divide it into two arrays B and C or let’s call them B2 and C2",
+        "B2=[43]",
+        "C2=[3,9]",
+        "Let’s call the  mergesort (B2)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 23,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] and its size is equal to 1",
+        "We return to the pervious recursive call"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 24,
+      "title": "Merge sort",
+      "content": [
+        "C = [43,3,9]  B2=[43] C2=[3,9]",
+        "It the turn to call the  mergesort (C2)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 25,
+      "title": "Merge sort",
+      "content": [
+        "C2 = [3,9]and its size is larger than 1",
+        "Let’s divide it into two arrays B and C or let’s call them B3 and C3",
+        "B3=[3]",
+        "C3=[9]",
+        "Let’s call the  mergesort (B3)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 26,
+      "title": "Merge sort",
+      "content": [
+        "B3=[3] and its size is equal to 1",
+        "We return to the pervious recursive call"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 27,
+      "title": "Merge sort",
+      "content": [
+        "C2 = [3,9]  B3=[3] C3=[9]",
+        "Let’s call the  mergesort (C3)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 28,
+      "title": "Merge sort",
+      "content": [
+        "C3=[9] and its size is equal to 1",
+        "We return to the pervious recursive call"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 29,
+      "title": "Merge sort",
+      "content": [
+        "C2 = [3,9]  B3=[3] C3=[9]",
+        "We reached the Merge part which means that we finished the divide part and we need to conquer using merge(B3,C3,C2)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 30,
+      "title": "Merge sort",
+      "content": [
+        "in this call B is B3, C is C3and A is C2",
+        "To avoid confusion let’s call the arrays B3 and C3 and A",
+        "Where we have two arrays B3=[3] and C3=[9]",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 31,
+      "title": "Merge sort",
+      "content": [
+        "The while condition check if any index of I or j exceeds the  the  size of p and q",
+        "Where  i  is less than 1 and j is less than q",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 32,
+      "title": "Merge sort",
+      "content": [
+        "B3=[3] and C3=[9]",
+        "Let check the condition if B[0] < C[0] or 3<9 which is true.",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 33,
+      "title": "Merge sort",
+      "content": [
+        "B3=[3] and C1=[9]",
+        "A[0]= 3 and then we increment  i  index by 1",
+        "Variables",
+        "i =1",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 34,
+      "title": "Merge sort",
+      "content": [
+        "B1=[3] and C1=[9]   A=[3,  ]",
+        "then we increment k index by 1",
+        "Variables",
+        "i =1",
+        "j=0",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 35,
+      "title": "Merge sort",
+      "content": [
+        "Recheck the condition the  i  is equal to p so we move to next step after the while loop",
+        "Variables",
+        "i =1",
+        "j=0",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 36,
+      "title": "Merge sort",
+      "content": [
+        "This part is to copy the remaining elements from either array B or C to array A",
+        "If  i  is equal to p this means that the remaining elements is in array C and else the remaining elements are in array B",
+        "In in our case now,  i  is equal to p",
+        "Variables",
+        "i =1",
+        "j=0",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 37,
+      "title": "Merge sort",
+      "content": [
+        "B3=[3] and C3=[9]   A=[3,  ]",
+        "We copy elements from Array C3 starting from index j=0 till q-1=0 to the remaining parts of array A staring form k=1 till the end of array p+q-1=1+1-1=1 So A[1..1]=C3[0…0]",
+        "final array A=[3,9]",
+        "In latest stages it will be clearer",
+        "Note A=C3=[3,9]",
+        "We now finished Merge of C2.",
+        "Variables",
+        "i =1",
+        "j=0",
+        "k=1",
+        "p=1",
+        "q=1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 38,
+      "title": "Merge sort",
+      "content": [
+        "C = [43,3,9]  B2=[43] C2=[3,9]",
+        "Now after finishing C2 merge we are back to this recursive call",
+        "Now it time to merge B2 and C2 to produce the sorted C",
+        "We call Merge(B2,C2,C)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 39,
+      "title": "Merge sort",
+      "content": [
+        "in this call B is B2, C is C2 and A is C",
+        "To avoid confusion let’s call the arrays B3 and C3 and A",
+        "Where we have two arrays B2=[43] and C3=[3,9]",
+        "Let’s move a let bit faster follow the arrow",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 40,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9]",
+        "i <p (0<1) and j<p (0<2) true",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 41,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3,  , ]",
+        "A[0]=C[0] =3",
+        "j+1=1",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=0",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 42,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3,  , ]",
+        "k+1=1",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 43,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3,  , ]",
+        "i <p (0<1) and j<p (1<2) true",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 44,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3,  , ]",
+        "B[0]<=C[1] or 43<=9 which is false",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 45,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3, 9 , ]",
+        "A[1]=C[1]=9",
+        "j+1=2",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 46,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3, 9 , ]",
+        "k+1=2",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 47,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3, 9 , ]",
+        "i <p (0<1) and j<p (2<2) false",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 48,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3, 9 , ]",
+        "i =p  is false",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 49,
+      "title": "Merge sort",
+      "content": [
+        "B2=[43] C2=[3,9] A=[3, 9 , 43 ]",
+        "Copy from B2[ i ….p-1] to A[k….p+q-1]",
+        "A[2..2]=B2[0…0]",
+        "Now we finished the merge of C which is equal to A in this function call",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=1",
+        "p=1",
+        "q=2"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 50,
+      "title": "Merge sort",
+      "content": [
+        "We are back to this call function where B= [27,38] and new C is equal to [3,9,43]",
+        "We call for the last time Merge(B,C,A)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 51,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43]",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 52,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ ,   ,   ,  ,  ]",
+        "i  < p (0<2) and j<q (0<3) true",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 53,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ ,   ,   ,  ,  ]",
+        "B[0]<=C[0] (27<3) false",
+        "Variables",
+        "i =0",
+        "j=0",
+        "k=0",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 54,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3,   ,   ,  ,  ]",
+        "A[0]=C[0]=3",
+        "j+1=1",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=0",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 55,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3,   ,   ,  ,  ]",
+        "k+1=1",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 56,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3,   ,   ,  ,  ]",
+        "i  < p (0<2) and j<q (1<3) true",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 57,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3,   ,   ,  ,  ]",
+        "B[0]<=C[1] (27<9) false",
+        "Variables",
+        "i =0",
+        "j=1",
+        "k=1",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 58,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  ,   ,  ,  ]",
+        "A[1]=C[1]=9",
+        "j+1=2",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=1",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 59,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  ,   ,  ,  ]",
+        "k+1=2",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=2",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 60,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  ,   ,  ,  ]",
+        "i  < p (0<2) and j<q (2<3) true",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=2",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 61,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  ,   ,  ,  ]",
+        "B[0]<=C[2] (27<43)  true",
+        "Variables",
+        "i =0",
+        "j=2",
+        "k=2",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 62,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  ,  ]",
+        "A[2]=B[0]=27",
+        "i+1=1",
+        "Variables",
+        "i =1",
+        "j=2",
+        "k=2",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 63,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  ,  ]",
+        "A[2]=B[0]=27",
+        "k+1=3",
+        "Variables",
+        "i =1",
+        "j=2",
+        "k=3",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 64,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  ,  ]",
+        "i  < p (1<2) and j<q (2<3) true",
+        "Variables",
+        "i =1",
+        "j=2",
+        "k=3",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 65,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  ,  ]",
+        "B[1]<=C[2] (38<43)  true",
+        "Variables",
+        "i =1",
+        "j=2",
+        "k=3",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 66,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  38,  ]",
+        "A[3]=B[1]=38",
+        "i+1=2",
+        "Variables",
+        "i =2",
+        "j=2",
+        "k=3",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 67,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  38,  ]",
+        "k+1=4",
+        "Variables",
+        "i =2",
+        "j=2",
+        "k=4",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 68,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  38,  ]",
+        "k+1=4",
+        "Variables",
+        "i =2",
+        "j=2",
+        "k=4",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 69,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  38,  ]",
+        "i  < p (2<2) and j<q (2<3) false",
+        "Variables",
+        "i =2",
+        "j=2",
+        "k=4",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 70,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  38,  ]",
+        "i =p (2=2)  ture",
+        "Variables",
+        "i =2",
+        "j=2",
+        "k=4",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 71,
+      "title": "Merge sort",
+      "content": [
+        "B= [27,38] C=[3,9,43] A=[ 3, 9  , 27  ,  38,  43]",
+        "Copy C[2….2] to A[4…..4]",
+        "Now the Array is sorted",
+        "Variables",
+        "i =2",
+        "j=2",
+        "k=4",
+        "p=2",
+        "q=3"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 72,
+      "title": "Merge sort (recap)",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 73,
+      "title": "Merge sort time Analysis",
+      "content": [
+        "In the divide part the main array of size n is divided into two equal arrays",
+        "In the conquer array you almost makes n comparisons in total so the recurrent relationship can be written as follows",
+        "T(n)=2T(n/2) +n T(1)=1",
+        "After solving it the T(n)= n + n log(n) which is  θ ( nlogn )",
+        "This is faster than other sorting algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 74,
+      "title": "Quick Sort",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec09/slide74_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 75,
+      "title": "Quick Sort",
+      "content": [
+        "It is very similar to  merge sort",
+        "It depends on selecting an element called the pivot",
+        "The pivot is used as an anchor where all the elements smaller than should be one it left and bigger than on its right",
+        "The pivot is where the array will be divided in the next iteration.",
+        "It uses the same array but it always keep track of the start and end of each part by using two indices L and R",
+        "Now it is your turn please trace this array  [ 38, 27, 43, 3, 9 ]"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 76,
+      "title": "Quick Sort",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 77,
+      "title": "Quick sort Analysis",
+      "content": [
+        "Average Case:",
+        "T(n)= 2T(n/2) +n T(1)=1",
+        "Which leads to the same answer as merge sort  θ ( nlogn )"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 78,
+      "title": "Binary Tree Traversal",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec09/slide78_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 79,
+      "title": "Binary Tree Traversal",
+      "content": [
+        "It one of important topic in divide and conquer it is used in different application such as compliers (parse trees) and filing system",
+        "Tree traversal is the process of visiting each node in a tree data structure, exactly once, in a systematic manner",
+        "It has three different types methods:",
+        "Preorder:  the root is visited before the left and right subtrees are visited (in that order).",
+        "Inorder : the root is visited after visiting its left subtree but before visiting the right subtree.",
+        "Postorder : the root is visited after visiting the left and right subtrees (in that order)."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 80,
+      "title": "Binary Tree Traversal",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 81,
+      "title": "Binary Tree Traversal time analysis",
+      "content": [
+        "All three traversals visit nodes of a binary tree recursively, i.e., by visiting the tree’s root and its left and right subtrees until they visit all of the nodes.",
+        "Since they have to cover all the nodes its time complexity is  θ (n)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    }
+  ],
+  "_stats": {
+    "total_slides": 81,
+    "text_light_slides": 4,
+    "ocr_success": 4,
+    "ocr_errors": 0
+  }
+}

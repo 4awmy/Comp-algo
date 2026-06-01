@@ -1,0 +1,128 @@
+{
+  "id": "sheet09",
+  "lectureId": "lec09",
+  "week": 9,
+  "title": "Divide & Conquer",
+  "problems": [
+    {
+      "number": 1,
+      "question": "",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+        },
+        {
+          "step": 2,
+          "text": "Recursively solve each sub-problem independently."
+        },
+        {
+          "step": 3,
+          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 2,
+      "question": "",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+        },
+        {
+          "step": 2,
+          "text": "Recursively solve each sub-problem independently."
+        },
+        {
+          "step": 3,
+          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 3,
+      "question": "",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+        },
+        {
+          "step": 2,
+          "text": "Recursively solve each sub-problem independently."
+        },
+        {
+          "step": 3,
+          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 4,
+      "question": "",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+        },
+        {
+          "step": 2,
+          "text": "Recursively solve each sub-problem independently."
+        },
+        {
+          "step": 3,
+          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 5,
+      "question": "",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+        },
+        {
+          "step": 2,
+          "text": "Recursively solve each sub-problem independently."
+        },
+        {
+          "step": 3,
+          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 6,
+      "question": "Q6",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+        },
+        {
+          "step": 2,
+          "text": "Recursively solve each sub-problem independently."
+        },
+        {
+          "step": 3,
+          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+        }
+      ],
+      "hasVisualization": false
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "sheet02",
+  "lectureId": "lec02",
+  "week": 2,
+  "title": "Analysis Fundamentals",
+  "problems": [
+    {
+      "question": "ALGORITHM Mystery(n)\n//Input: A nonnegative integer n\nS ← 0\nfor i ← 1 to n do\nS ← S + i * i\nreturn S",
+      "answer": "",
+      "number": 1,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Identify the basic operation of the algorithm (e.g. comparisons, assignments)."
+        },
+        {
+          "step": 2,
+          "text": "Set up a summation representing the execution count of the basic operation based on input size n."
+        },
+        {
+          "step": 3,
+          "text": "Solve the summation using standard arithmetic or geometric series formulas."
+        },
+        {
+          "step": 4,
+          "text": "Determine the asymptotic growth class (O, Θ, Ω) using limits or definitions."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "ALGORITHM Secret(A[0..n-1])\n//Input: An array A[0..n-1] of n real numbers\nminval ← A[0]; maxval ← A[0]\nfor i ← 1 to n - 1 do\n  if A[i] < minval\n    minval ← A[i]\n  if A[i] > maxval\n    maxval ← A[i]\nreturn maxval - minval",
+      "answer": "",
+      "number": 2,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Identify the basic operation of the algorithm (e.g. comparisons, assignments)."
+        },
+        {
+          "step": 2,
+          "text": "Set up a summation representing the execution count of the basic operation based on input size n."
+        },
+        {
+          "step": 3,
+          "text": "Solve the summation using standard arithmetic or geometric series formulas."
+        },
+        {
+          "step": 4,
+          "text": "Determine the asymptotic growth class (O, Θ, Ω) using limits or definitions."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "ALGORITHM Enigma(A[0..n − 1, 0..n − 1])\n//Input: A matrix A[0..n − 1, 0..n − 1] of real numbers\nfor i ← 0 to n − 2 do\nfor j ← i + 1 to n − 1 do\nif A[i, j] ≠ A[j, i]\nreturn false\nreturn true",
+      "answer": "",
+      "number": 3,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Identify the basic operation of the algorithm (e.g. comparisons, assignments)."
+        },
+        {
+          "step": 2,
+          "text": "Set up a summation representing the execution count of the basic operation based on input size n."
+        },
+        {
+          "step": 3,
+          "text": "Solve the summation using standard arithmetic or geometric series formulas."
+        },
+        {
+          "step": 4,
+          "text": "Determine the asymptotic growth class (O, Θ, Ω) using limits or definitions."
+        }
+      ],
+      "hasVisualization": false
+    }
+  ]
+}

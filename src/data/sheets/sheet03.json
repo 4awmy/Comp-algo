@@ -1,0 +1,152 @@
+{
+  "id": "sheet03",
+  "lectureId": "lec03",
+  "week": 3,
+  "title": "Complexity Analysis",
+  "problems": [
+    {
+      "question": "a. n(n+1)/2 ∈ O(n³)",
+      "answer": "",
+      "number": 1,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Formulate a recurrence relation representing the recursive calls (e.g., T(n) = aT(n/b) + f(n))."
+        },
+        {
+          "step": 2,
+          "text": "Determine if the Master Theorem can be applied: check if a >= 1 and b > 1."
+        },
+        {
+          "step": 3,
+          "text": "Compare the growth of the split term n^(log_b a) with the work term f(n)."
+        },
+        {
+          "step": 4,
+          "text": "Apply Case 1, 2, or 3 of the Master Theorem to find the final complexity growth rate."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "b. n(n+1)/2 ∈ O(n²)",
+      "answer": "",
+      "number": 2,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Formulate a recurrence relation representing the recursive calls (e.g., T(n) = aT(n/b) + f(n))."
+        },
+        {
+          "step": 2,
+          "text": "Determine if the Master Theorem can be applied: check if a >= 1 and b > 1."
+        },
+        {
+          "step": 3,
+          "text": "Compare the growth of the split term n^(log_b a) with the work term f(n)."
+        },
+        {
+          "step": 4,
+          "text": "Apply Case 1, 2, or 3 of the Master Theorem to find the final complexity growth rate."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "c. n(n+1)/2 ∈ Θ(n³)",
+      "answer": "",
+      "number": 3,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Formulate a recurrence relation representing the recursive calls (e.g., T(n) = aT(n/b) + f(n))."
+        },
+        {
+          "step": 2,
+          "text": "Determine if the Master Theorem can be applied: check if a >= 1 and b > 1."
+        },
+        {
+          "step": 3,
+          "text": "Compare the growth of the split term n^(log_b a) with the work term f(n)."
+        },
+        {
+          "step": 4,
+          "text": "Apply Case 1, 2, or 3 of the Master Theorem to find the final complexity growth rate."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "d. n(n+1)/2 ∈ Ω(n)",
+      "answer": "",
+      "number": 4,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Formulate a recurrence relation representing the recursive calls (e.g., T(n) = aT(n/b) + f(n))."
+        },
+        {
+          "step": 2,
+          "text": "Determine if the Master Theorem can be applied: check if a >= 1 and b > 1."
+        },
+        {
+          "step": 3,
+          "text": "Compare the growth of the split term n^(log_b a) with the work term f(n)."
+        },
+        {
+          "step": 4,
+          "text": "Apply Case 1, 2, or 3 of the Master Theorem to find the final complexity growth rate."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "Consider the following recursive algorithm.\n\nAlgorithm Min1 (A[0..n - 1])\n//Input: An array A[0..n - 1] of real numbers\nif n = 1 return A[0]\nelse temp ← Min1(A[0..n – 2])\n if temp ≤ A[n – 1] return temp\n else return A[n – 1]\n\na. What does this algorithm compute?",
+      "answer": "",
+      "number": 5,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Formulate a recurrence relation representing the recursive calls (e.g., T(n) = aT(n/b) + f(n))."
+        },
+        {
+          "step": 2,
+          "text": "Determine if the Master Theorem can be applied: check if a >= 1 and b > 1."
+        },
+        {
+          "step": 3,
+          "text": "Compare the growth of the split term n^(log_b a) with the work term f(n)."
+        },
+        {
+          "step": 4,
+          "text": "Apply Case 1, 2, or 3 of the Master Theorem to find the final complexity growth rate."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "question": "b. Set up a recurrence relation for the algorithm’s basic operation count and solve it.",
+      "answer": "",
+      "number": 6,
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Formulate a recurrence relation representing the recursive calls (e.g., T(n) = aT(n/b) + f(n))."
+        },
+        {
+          "step": 2,
+          "text": "Determine if the Master Theorem can be applied: check if a >= 1 and b > 1."
+        },
+        {
+          "step": 3,
+          "text": "Compare the growth of the split term n^(log_b a) with the work term f(n)."
+        },
+        {
+          "step": 4,
+          "text": "Apply Case 1, 2, or 3 of the Master Theorem to find the final complexity growth rate."
+        }
+      ],
+      "hasVisualization": false
+    }
+  ]
+}

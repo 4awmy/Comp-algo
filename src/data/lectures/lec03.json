@@ -1,0 +1,401 @@
+{
+  "id": "lec03",
+  "number": 3,
+  "week": 3,
+  "title": "Complexity Analysis",
+  "slides": [
+    {
+      "slideNumber": 1,
+      "title": "Computing Algorithms\u000bLecture 3:\u000bFundamentals of the Analysis of Algorithm Efficiency part 2",
+      "content": [
+        "By: Dr. Mohamed Moheeb"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec03/slide01_img0.jpg"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 2,
+      "title": "Agenda",
+      "content": [
+        "Mathematical Analysis of Non-recursive Algorithms",
+        "Mathematical Analysis of Recursive Algorithm",
+        "Empirical Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 3,
+      "title": "Mathematical Analysis of Non-recursive Algorithms",
+      "content": [],
+      "ocrContent": "[OCR ERROR: 'NoneType' object has no attribute 'strip' ]",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec03/slide03_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 4,
+      "title": "Mathematical Analysis of Non-recursive Algorithms",
+      "content": [
+        "1 comparison",
+        "First = (n-1-i+1) where  i =0 = n",
+        "Last= (n-1-i+1) where  i =n-2 = (n-1-(n-2)+1)=(n-1-n+2)=1",
+        "Size= n-2-0+1= n-1"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 5,
+      "title": "Mathematical Analysis of Recursive Algorithms",
+      "content": [],
+      "ocrContent": "[OCR ERROR: 'NoneType' object has no attribute 'strip' ]",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec03/slide05_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 6,
+      "title": "Mathematical Analysis of Recursive Algorithms",
+      "content": [
+        "For recursive algorithm depends on creating a recurrent relationship",
+        "F(n)= F(n-1) +1  (1 is the number of basic operation)",
+        "The stopping condition:",
+        "F(0) = 0 (as there is no multiplication)",
+        "1 multiplication"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 7,
+      "title": "How to solve the recurrent relationship",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 8,
+      "title": "Expand the recurrence to observe a pattern",
+      "content": [
+        "F(n)= F(n-1) +1= or we can rewrite to be a function of time T(n)= T(n-1) +1 eq.(1)",
+        "T(n-1)= T(n-2) +1 eq.(2) because every time we call the function 1 basic operation is invoked",
+        "T(n-2)= T(n-3) +1 (3)",
+        "We can substitute  T(n-1) from equation 1 by equation 2",
+        "T(n)=T(n-1) +1",
+        "T(n)=T(n-2) +1 +1 (4)",
+        "We can also substitute T(n-2) from equation 3 by equation 4",
+        "T(n)=T(n-2) +1 +1",
+        "T(n)=T(n-3) +1 +1 +1 (5)",
+        "We can check the pattern that when",
+        "T(n-1) then +1",
+        "T(n-2) then +2",
+        "T(n-3) then +3",
+        "The pattern can be written as :",
+        "T(n)=T(n-k) +k"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 9,
+      "title": "Identify the stopping condition",
+      "content": [
+        "Given that the general pattern is",
+        "T(n)=T(n-k) +k",
+        "Given that the T(n-k) will decrease till it reach the stopping condition T(0)=0",
+        "Assume that T(n-k)=T(0)=0",
+        "Since function T( value 1) = T( value 2) then the two values must be equal each other",
+        "Then value1=value2",
+        "Then n-k=0",
+        "n-k=0",
+        "Then k = n"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 10,
+      "title": "",
+      "content": [
+        "Since k=n-1",
+        "In pattern T(n)=T(n-k) +k substitute with k=n",
+        "T(n)= T(n-(n-1)) +k =T(0)+ n",
+        "Since T(0)= 0 then by substitute in pervious equation",
+        "T(n)= 0 + n",
+        "T(n)= n"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 11,
+      "title": "Example 2:",
+      "content": [
+        "T(n)= 2T(n-1) eq.(1)    T(1)=1",
+        "T(n-1)=2T(n-2)  eq.(2)",
+        "T(n-2)=2T(n-3)  eq.(3)",
+        "substitute T(n-1) with 2T(n-2)",
+        "T(n)= 2(2T(n-2)) eq. (4)",
+        "Substitute T(n-2) with 2T(n-3)",
+        "T(n)= 2(2(2T(n-3))) eq.(5)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 12,
+      "title": "Example 2:",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 13,
+      "title": "Example 2:",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 14,
+      "title": "Example 3:",
+      "content": [
+        "T(n)= T(n/2) +1 eq.(1)    T(1)=1",
+        "T(n/2)=T(n/4) +1  eq.(2)",
+        "T(n/4)=T(n/8) +1  eq.(3)",
+        "substitute T(n/2) with  T(n/4)+1",
+        "T(n)=  T(n/4) +1 +1 eq. (4)",
+        "Substitute T(n/4) with T(n/8) +1",
+        "T(n)= T(n/8) +1+1+1 eq.(5)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 15,
+      "title": "Example 3:",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 16,
+      "title": "Example 3:",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 17,
+      "title": "Example 4:",
+      "content": [
+        "T(n)= T(n-1) +n eq.(1)    T(1)=1",
+        "T(n-1)=T(n-2) +n-1  eq.(2)",
+        "T(n-2)=T(n-3) +n-2  eq.(3)",
+        "substitute T(n-1) with  T(n-2)+ n-1",
+        "T(n)=  T(n-2) +n-1 +n eq. (4)",
+        "Substitute T(n-2) with T(n-3) +n-2",
+        "T(n)= T(n-3) +n-2+n-1+n eq.(5)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 18,
+      "title": "Example 4:",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 19,
+      "title": "Example 5 (hard)",
+      "content": [
+        "T(n)=T(n/2) + n  eq.(1),  T(1)=1",
+        "T(n/2)= T(n/4) + n/2  eq.(2)",
+        "T(n/4)= T(n/8) + n/4  eq.(3)",
+        "substitute T(n/2) with  T(n/4)+ n/2",
+        "T(n)=T(n/4) +n/2 +n  eq.(4)",
+        "substitute T(n/4) with  T(n/8)+ n/4",
+        "T(n)=T(n/8) + n/4 + n/2 + n eq. (5)"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 20,
+      "title": "Example 5 (hard)",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 21,
+      "title": "Example 5 (hard)",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 22,
+      "title": "Example 5 (hard)",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 23,
+      "title": "Empirical Analysis of Algorithms",
+      "content": [],
+      "ocrContent": "It Ds Ro Uut,",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec03/slide23_img0.jpg"
+      ],
+      "isTextLight": true,
+      "isScreenshot": true
+    },
+    {
+      "slideNumber": 24,
+      "title": "What is Empirical Analysis",
+      "content": [
+        "Empirical analysis involves \"testing it in the real world.\" Rather than examining the Mathematical analysis alone, you execute the code and observe the actual outcomes."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 25,
+      "title": "Why use Empirical Analysis",
+      "content": [
+        "Sometimes math says an algorithm is fast, but \"hidden constants\" (like memory access or overhead) make it slow in practice.",
+        "Sometimes you can use Empirical Analysis to prove the mathematical analysis of the algorithm is correct.",
+        "Lastly, in some cases, mathematical analysis for algorithms has proved to be very difficult to analyze with precision and certainty."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 26,
+      "title": "Perform empirical analysis",
+      "content": [
+        "Prepare a program implementing the algorithm (or algorithms) for experimentation",
+        "Decide on characteristics of the input sample (its range, size, and so on).",
+        "Generate a sample of inputs.",
+        "Decide on the efficiency metric M to be measured and the measurement unit(an operation count vs. a time unit).",
+        "Run the algorithm (or algorithms) on the sample's inputs and record the data observed.",
+        "Analyze the data obtained."
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 27,
+      "title": "Perform empirical analysis",
+      "content": [],
+      "ocrContent": "",
+      "notes": "",
+      "images": [],
+      "isTextLight": false,
+      "isScreenshot": false
+    },
+    {
+      "slideNumber": 28,
+      "title": "Empirical Analysis Example",
+      "content": [
+        "Book: Introduction to the Design and Analysis of Algorithms"
+      ],
+      "ocrContent": "",
+      "notes": "",
+      "images": [
+        "public/images/lectures/lec03/slide28_img0.png"
+      ],
+      "isTextLight": false,
+      "isScreenshot": false
+    }
+  ],
+  "_stats": {
+    "total_slides": 28,
+    "text_light_slides": 3,
+    "ocr_success": 3,
+    "ocr_errors": 0
+  }
+}

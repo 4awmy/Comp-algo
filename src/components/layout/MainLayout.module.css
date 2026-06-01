@@ -1,0 +1,40 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-base);
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  margin-left: var(--sidebar-offset, var(--sidebar-width));
+  transition: margin-left var(--transition-slow);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding-top: var(--topbar-height);
+  overflow-y: auto;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0 !important;
+  }
+
+  .overlay {
+    display: block;
+  }
+}

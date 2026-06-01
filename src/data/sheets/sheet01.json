@@ -1,0 +1,88 @@
+{
+  "id": "sheet01",
+  "lectureId": "lec01",
+  "week": 1,
+  "title": "Introduction",
+  "problems": [
+    {
+      "number": 1,
+      "question": "What is computing algorithm?",
+      "answer": "",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Understand the input parameters and the expected output for the given problem statement."
+        },
+        {
+          "step": 2,
+          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+        },
+        {
+          "step": 3,
+          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 2,
+      "question": "Compute the following sums:",
+      "answer": "1+2+3+…….+70\n1+3+5+……+999",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Understand the input parameters and the expected output for the given problem statement."
+        },
+        {
+          "step": 2,
+          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+        },
+        {
+          "step": 3,
+          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 3,
+      "question": "Solve the following functions:",
+      "answer": "=\n=",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Understand the input parameters and the expected output for the given problem statement."
+        },
+        {
+          "step": 2,
+          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+        },
+        {
+          "step": 3,
+          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+        }
+      ],
+      "hasVisualization": false
+    },
+    {
+      "number": 4,
+      "question": "For the given data structures",
+      "answer": "Given a stack, what will be the final elements in the stack after the following operations\npush(a), push(b), push(c), pop, pop, push(d)\nGiven a queue, what will be the final elements in the queue after the following operations\nenqueue(a), enqueue(b), enqueue(c), dequeue, dequeue",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Understand the input parameters and the expected output for the given problem statement."
+        },
+        {
+          "step": 2,
+          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+        },
+        {
+          "step": 3,
+          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+        }
+      ],
+      "hasVisualization": false
+    }
+  ]
+}

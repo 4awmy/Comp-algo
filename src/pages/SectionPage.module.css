@@ -1,0 +1,217 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: var(--text-primary);
+}
+
+.header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.badge {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.meta {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* Problem Grid/List */
+.problemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.problemCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.problemCard:hover {
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+  padding: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.01);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.questionGroup {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.problemNumber {
+  font-family: var(--font-code);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.questionText {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Action Tabs inside problem */
+.cardTabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tabBtnActive {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-blue);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tabContent {
+  padding: 24px;
+  min-height: 120px;
+}
+
+/* Answer / Solution Styles */
+.solutionBox {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Step-by-Step Explanation Styles */
+.explanationTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.explanationTimeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: var(--border-default);
+}
+
+.timelineStep {
+  position: relative;
+}
+
+.stepMarker {
+  position: absolute;
+  left: -20px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 6px var(--accent-blue);
+  border: 2px solid var(--bg-surface);
+}
+
+.stepTitle {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-accent);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.stepText {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Visualizer Area */
+.visualizerWrapper {
+  background: #08080c;
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation bar */
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+  margin-top: 40px;
+}
+
+.noProblems {
+  text-align: center;
+  padding: 60px;
+  color: var(--text-muted);
+}
