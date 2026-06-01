@@ -177,18 +177,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── AI TUTOR TEASER ── */}
+      {/* ── AI TUTOR ── */}
       <section className={styles.aiSection}>
         <div className={styles.aiCard}>
           <div className={styles.aiOrb} />
           <div className={styles.aiContent}>
             <div className={styles.aiIcon}>🤖</div>
             <div className={styles.aiText}>
-              <h2 className={styles.aiTitle}>AI Tutor — Coming Soon</h2>
+              <h2 className={styles.aiTitle}>Antigravity AI Tutor — Active</h2>
               <p className={styles.aiDesc}>
                 Ask anything about Computing Algorithms. Get step-by-step
                 explanations, complexity analysis, and worked examples — powered
-                by AI, tuned to Dr. Moheeb's curriculum.
+                by Gemini AI, tuned specifically to Dr. Moheeb's curriculum.
               </p>
               <div className={styles.aiFeatures}>
                 {['Algorithm tracing', 'Complexity analysis', 'Pseudocode help', 'Exam prep Q&A'].map(f => (
@@ -200,7 +200,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className={styles.aiComing}>
-            <span className={`badge badge-amber`}>🔔 Coming Soon</span>
+            <span className={`badge badge-blue`}>✨ Powered by Gemini</span>
           </div>
         </div>
       </section>

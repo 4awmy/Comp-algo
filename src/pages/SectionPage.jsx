@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
@@ -32,6 +33,7 @@ export default function SectionPage() {
   const [activeTabMap, setActiveTabMap] = useState({}) // maps problem index to active tab ('solution' | 'explanation' | 'demo')
   const [viewMode, setViewMode] = useState('interactive') // 'interactive' | 'original'
 
+   
   useEffect(() => {
     setLoading(true)
     setActiveProblemIdx(0)

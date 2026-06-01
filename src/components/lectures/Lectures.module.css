@@ -1,0 +1,162 @@
+.pseudocodeContainer {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.pseudocodeHeader {
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pseudocodeTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.codeArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4) 0;
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  background: #fafafa;
+}
+
+.codeLine {
+  display: flex;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  padding: 0 var(--space-4);
+}
+
+.codeLine:hover {
+  background: rgba(13, 44, 84, 0.03);
+}
+
+.activeLine {
+  background: rgba(197, 160, 89, 0.15) !important;
+  border-left: 3px solid var(--accent-purple);
+  padding-left: calc(var(--space-4) - 3px);
+}
+
+.lineNumber {
+  width: 3rem;
+  flex-shrink: 0;
+  text-align: right;
+  padding-right: var(--space-4);
+  color: var(--text-muted);
+  user-select: none;
+  font-size: var(--text-xs);
+}
+
+.lineContent {
+  white-space: pre;
+  color: var(--text-primary);
+}
+
+/* ── Example Drawer ── */
+.drawerOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.drawerOverlayOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  background: var(--bg-surface);
+  z-index: 1001;
+  box-shadow: var(--shadow-xl);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawerTitle {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.closeButton {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.closeButton:hover {
+  background: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.drawerContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-6);
+}
+
+.exampleCard {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--border-subtle);
+}
+
+.exampleLabel {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+  display: block;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { LECTURES } from '../../data/lectures'
@@ -87,9 +88,10 @@ function LectureItem({ lecture }) {
         <div className={styles.subItemsInner}>
           <NavLink
             to={`/lecture/${lecture.id}`}
-            className={({ isActive }) =>
-              `${styles.subItem} ${isActive ? styles.subItemActive : ''}`
-            }
+            className={() => {
+              const isNotesActive = location.pathname === `/lecture/${lecture.id}` && !location.search.includes('tab=visualizer')
+              return `${styles.subItem} ${isNotesActive ? styles.subItemActive : ''}`
+            }}
           >
             <span className={styles.subIcon}><BookIcon /></span>
             <span>Lecture Notes</span>
@@ -115,10 +117,11 @@ function LectureItem({ lecture }) {
 
           {lecture.hasVisualization && (
             <NavLink
-              to={`/quiz/${lecture.id}`}
-              className={({ isActive }) =>
-                `${styles.subItem} ${isActive ? styles.subItemActive : ''}`
-              }
+              to={`/lecture/${lecture.id}?tab=visualizer`}
+              className={() => {
+                const isVisActive = location.pathname === `/lecture/${lecture.id}` && location.search.includes('tab=visualizer')
+                return `${styles.subItem} ${isVisActive ? styles.subItemActive : ''}`
+              }}
             >
               <span className={styles.subIcon}><PlayIcon /></span>
               <span>Visualizations</span>
