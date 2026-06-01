@@ -66,9 +66,10 @@ const LessonBlock = ({
 
       case 'svg-diagram':
         return (
-          <div className={styles.svgBlock}>
-            {block.svgContent}
-          </div>
+          <div 
+            className={styles.svgBlock}
+            dangerouslySetInnerHTML={{ __html: block.svgContent }}
+          />
         );
 
       case 'visual':
