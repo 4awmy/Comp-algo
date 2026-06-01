@@ -4,10 +4,10 @@
   left: var(--sidebar-offset, var(--sidebar-width));
   right: 0;
   height: var(--topbar-height);
-  background: rgba(10, 10, 15, 0.85);
+  background: var(--bg-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,7 +45,7 @@
 
 .menuBtn:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-elevated);
 }
 
 /* ── Breadcrumb ── */
@@ -100,11 +100,11 @@
   gap: 6px;
   padding: 5px 12px;
   border-radius: var(--radius-full);
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(13, 44, 84, 0.06);
+  border: 1px solid rgba(13, 44, 84, 0.15);
   font-size: 11.5px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-accent);
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
@@ -113,8 +113,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent-blue);
-  box-shadow: 0 0 6px rgba(59, 130, 246, 0.8);
+  background: var(--accent-purple);
+  box-shadow: 0 0 6px rgba(197, 160, 89, 0.5);
   animation: pulseGlow 2s ease-in-out infinite;
 }
 

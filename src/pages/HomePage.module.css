@@ -16,20 +16,6 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Hero background glow */
-.heroGlow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 300px;
-  background: var(--gradient-glow);
-  pointer-events: none;
-  opacity: 0.8;
-  z-index: 0;
-}
-
 .heroContent {
   position: relative;
   z-index: 10;
@@ -42,12 +28,12 @@
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-full);
   font-size: var(--text-xs);
   font-weight: 600;
-  color: var(--accent-blue);
+  color: var(--accent-purple);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 24px;
@@ -56,9 +42,9 @@
 .courseBadgeDot {
   width: 6px;
   height: 6px;
-  background: var(--accent-blue);
+  background: var(--accent-purple);
   border-radius: 50%;
-  box-shadow: 0 0 8px var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-purple);
   animation: pulse 2s infinite;
 }
 
@@ -74,14 +60,16 @@
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 16px;
-  background: linear-gradient(180deg, #fff 0%, var(--text-secondary) 100%);
+  color: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .heroSub {
   font-size: var(--text-lg);
-  color: var(--text-secondary);
+  color: #cbd5e1;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto 36px;
@@ -98,8 +86,8 @@
 }
 
 .statCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   padding: 16px 28px;
   display: flex;
@@ -112,17 +100,19 @@
 .statIcon {
   font-size: 20px;
   margin-bottom: 8px;
+  color: var(--accent-purple);
 }
 
 .statValue {
   font-size: var(--text-2xl);
   font-weight: 800;
   line-height: 1.2;
+  color: #ffffff;
 }
 
 .statLabel {
   font-size: 10px;
-  color: var(--text-muted);
+  color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 4px;
@@ -145,6 +135,7 @@
   font-size: var(--text-2xl);
   font-weight: 800;
   letter-spacing: -0.01em;
+  color: var(--text-accent);
   margin-bottom: 8px;
 }
 
@@ -163,7 +154,7 @@
 
 .lectureCard {
   background: var(--bg-surface);
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 24px;
   display: flex;
@@ -171,9 +162,16 @@
   gap: 16px;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
   animation: cardFadeIn 0.5s ease forwards;
   opacity: 0;
+}
+
+.lectureCard:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 @keyframes cardFadeIn {
@@ -185,7 +183,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
+  background: var(--gradient-main);
 }
 
 .cardHeader {
@@ -198,8 +197,8 @@
   width: 38px;
   height: 38px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  background: rgba(13, 44, 84, 0.05);
+  border: 1px solid rgba(13, 44, 84, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,6 +206,7 @@
 
 .cardIcon {
   font-size: 18px;
+  color: var(--text-accent);
 }
 
 .cardMeta {
@@ -217,8 +217,8 @@
 
 .weekBadge {
   font-size: 10px;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-weight: 700;
+  color: var(--text-purple);
   text-transform: uppercase;
 }
 
@@ -251,6 +251,7 @@
   height: 5px;
   border-radius: 50%;
   flex-shrink: 0;
+  background: var(--accent-purple);
 }
 
 .cardFooter {
@@ -270,8 +271,8 @@
 
 /* ── AI Tutor Banner ── */
 .aiBanner {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: linear-gradient(135deg, rgba(13, 44, 84, 0.04), rgba(197, 160, 89, 0.04));
+  border: 1px solid rgba(13, 44, 84, 0.12);
   border-radius: var(--radius-lg);
   padding: 40px;
   display: flex;
@@ -289,7 +290,7 @@
   font-size: var(--text-2xl);
   font-weight: 800;
   margin-bottom: 8px;
-  color: #fff;
+  color: var(--text-accent);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -303,9 +304,9 @@
 
 /* ── Footer ── */
 .footer {
-  background: #06060a;
+  background: var(--bg-elevated);
   border-top: 1px solid var(--border-subtle);
-  padding: 40px 24px;
+  padding: 45px 24px;
   text-align: center;
   font-size: var(--text-xs);
   color: var(--text-muted);
