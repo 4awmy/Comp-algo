@@ -13,9 +13,8 @@
           "content": "In algorithm design, we often face a fundamental choice: should we prioritize speed (time) or memory efficiency (space)? Most optimizations in one direction come at the cost of the other. This is known as the **Space-Time Trade-off**.\n\nThere are two main ways to use space to save time:\n1. **Input Enhancement**: Pre-processing the input to store useful information in a table (e.g., Horspool's shift table).\n2. **Pre-structuring**: Organizing data in a way that allows for faster access later (e.g., Hashing or B-Trees)."
         },
         {
-          "type": "image",
-          "src": "public/images/lectures/lec11/slide03_img0.jpg",
-          "caption": "The core concept of trading space for time."
+          "type": "svg-diagram",
+          "svgContent": "<svg viewBox='0 0 400 150' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='50' width='120' height='60' rx='8' fill='rgba(59, 130, 246, 0.1)' stroke='#3b82f6' stroke-width='2'/><text x='80' y='85' text-anchor='middle' font-family='var(--font-sans)' font-size='14' fill='var(--text-primary)' font-weight='700'>TIME</text><rect x='260' y='50' width='120' height='60' rx='8' fill='rgba(139, 92, 246, 0.1)' stroke='#8b5cf6' stroke-width='2'/><text x='320' y='85' text-anchor='middle' font-family='var(--font-sans)' font-size='14' fill='var(--text-primary)' font-weight='700'>SPACE</text><path d='M150 80 L250 80' stroke='var(--text-muted)' stroke-width='2' marker-end='url(#arrowhead)'/><path d='M250 80 L150 80' stroke='var(--text-muted)' stroke-width='2' marker-end='url(#arrowhead)'/><text x='200' y='70' text-anchor='middle' font-family='var(--font-sans)' font-size='11' fill='var(--accent-yellow)' font-weight='600'>TRADE-OFF</text></svg>"
         }
       ]
     },
@@ -34,7 +33,7 @@
         },
         {
           "type": "text",
-          "content": "### Complexity Analysis\n- **Time**: $O(n^2)$ due to the nested loops comparing every pair.\n- **Space**: $O(n)$ for the extra 'Count' and 'Sorted' arrays.\n- **Stability**: Yes, it is stable if handled correctly.\n- **In-place**: No, it requires a separate array for the result."
+          "content": "### Complexity Analysis\n- **Time**: $\\Theta(n^2)$ due to the nested loops comparing every pair.\n- **Space**: $O(n)$ for the extra 'Count' and 'Sorted' arrays.\n- **Stability**: Yes, it is stable if handled correctly.\n- **In-place**: No, it requires a separate array for the result."
         }
       ]
     },
@@ -49,6 +48,7 @@
         {
           "type": "visual",
           "algorithm": "horspoolSearch",
+          "targetKey": "BAOBAB",
           "title": "Horspool Search Tracing"
         },
         {
@@ -56,9 +56,8 @@
           "content": "### The Shift Table Rule\nFor a character $c$ in the alphabet:\n- If $c$ is not in the first $m-1$ characters of the pattern, shift by the pattern length $m$.\n- If $c$ is in the first $m-1$ characters, shift by the distance from its rightmost occurrence to the last character."
         },
         {
-          "type": "image",
-          "src": "public/images/lectures/lec11/slide10_img0.png",
-          "caption": "Shift Table Construction Rule"
+          "type": "svg-diagram",
+          "svgContent": "<svg viewBox='0 0 400 120' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='20' width='360' height='40' rx='4' fill='var(--bg-surface)' stroke='var(--border-subtle)'/><text x='30' y='45' font-family='var(--font-code)' font-size='12' fill='var(--text-primary)'>Pattern: B A R B E R</text><text x='30' y='80' font-family='var(--font-sans)' font-size='11' fill='var(--text-secondary)'>t(B) = 6-1-3 = 2  |  t(A) = 6-1-1 = 4</text><text x='30' y='100' font-family='var(--font-sans)' font-size='11' fill='var(--text-secondary)'>t(R) = 6-1-2 = 3  |  t(E) = 6-1-4 = 1</text></svg>"
         }
       ]
     },
@@ -97,9 +96,8 @@
           "content": "B-Trees are balanced search trees designed to work efficiently on secondary storage (disks). Unlike binary trees, B-Trees have multiple keys per node and many children, which minimizes the number of disk reads needed to find a value."
         },
         {
-          "type": "image",
-          "src": "public/images/lectures/lec11/slide24_img0.gif",
-          "caption": "A typical B-Tree structure showing multi-key nodes."
+          "type": "svg-diagram",
+          "svgContent": "<svg viewBox='0 0 400 180' xmlns='http://www.w3.org/2000/svg'><rect x='150' y='20' width='100' height='30' rx='4' fill='rgba(6, 182, 212, 0.1)' stroke='#06b6d4' stroke-width='2'/><text x='200' y='40' text-anchor='middle' font-family='var(--font-code)' font-size='12' fill='var(--text-primary)' font-weight='700'>[ 10 | 20 ]</text><path d='M170 50 L100 100' stroke='var(--text-muted)' stroke-width='1.5'/><path d='M200 50 L200 100' stroke='var(--text-muted)' stroke-width='1.5'/><path d='M230 50 L300 100' stroke='var(--text-muted)' stroke-width='1.5'/><rect x='50' y='100' width='80' height='25' rx='4' fill='var(--bg-surface)' stroke='var(--border-subtle)'/><text x='90' y='117' text-anchor='middle' font-family='var(--font-code)' font-size='11' fill='var(--text-secondary)'>[ 5 | 8 ]</text><rect x='160' y='100' width='80' height='25' rx='4' fill='var(--bg-surface)' stroke='var(--border-subtle)'/><text x='200' y='117' text-anchor='middle' font-family='var(--font-code)' font-size='11' fill='var(--text-secondary)'>[ 12 | 15 ]</text><rect x='270' y='100' width='80' height='25' rx='4' fill='var(--bg-surface)' stroke='var(--border-subtle)'/><text x='310' y='117' text-anchor='middle' font-family='var(--font-code)' font-size='11' fill='var(--text-secondary)'>[ 25 | 30 ]</text></svg>"
         },
         {
           "type": "text",

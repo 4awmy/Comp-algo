@@ -49,6 +49,28 @@ const LessonBlock = ({
           </div>
         );
 
+      case 'image':
+        if (block.src) {
+          return (
+            <div className={styles.imageBlock}>
+              <img 
+                src={getImageUrl(block.src)} 
+                alt={block.caption || 'Lecture Illustration'} 
+                className={styles.blockImage}
+              />
+              {block.caption && <p className={styles.imageCaption}>{block.caption}</p>}
+            </div>
+          );
+        }
+        return null;
+
+      case 'svg-diagram':
+        return (
+          <div className={styles.svgBlock}>
+            {block.svgContent}
+          </div>
+        );
+
       case 'visual':
         if (block.algorithm) {
           return (
@@ -57,20 +79,6 @@ const LessonBlock = ({
                 algorithm={block.algorithm}
                 targetKey={block.targetKey}
               />
-            </div>
-          );
-        }
-        if (block.images && block.images.length > 0) {
-          return (
-            <div className={styles.imageBlock}>
-              {block.images.map((img, idx) => (
-                <img 
-                  key={idx}
-                  src={getImageUrl(img)} 
-                  alt={block.title || `Block Visual ${idx}`} 
-                  className={styles.blockImage}
-                />
-              ))}
             </div>
           );
         }

@@ -553,12 +553,17 @@ export default function LecturePage() {
         title={`Numerical Example: ${lectureMeta.title}`}
       >
         <div style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-          <p>This drawer will contain detailed numerical examples and worked solutions for {lectureMeta.title}.</p>
+          <h4 style={{ color: 'var(--accent-blue)', marginBottom: '10px' }}>Hashing with Linear Probing</h4>
+          <p>Let's trace the insertion of keys into a hash table of size <strong>m=7</strong> using <strong>h(k) = k mod 7</strong> and Linear Probing.</p>
+          
           <div style={{ marginTop: '20px', padding: '15px', background: 'var(--bg-elevated)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
-            <h4 style={{ color: 'var(--accent-blue)', marginBottom: '10px' }}>Sample Trace</h4>
-            <pre style={{ fontSize: '12px', fontFamily: 'var(--font-code)' }}>
-              {`Input: [21, 14, 1, 12, 14]\nPass 1: [1, 14, 21, 12, 14]\nPass 2: [1, 12, 21, 14, 14]\nPass 3: [1, 12, 14, 21, 14]\nPass 4: [1, 12, 14, 14, 21]`}
-            </pre>
+            <p><strong>Keys to insert:</strong> 12, 19, 5, 26, 13</p>
+            <ul style={{ fontSize: '13px', paddingLeft: '20px', marginTop: '10px' }}>
+              <li><strong>Insert 12:</strong> 12 % 7 = 5. Slot 5 is empty. Table: <code>[-, -, -, -, -, 12, -]</code></li>
+              <li><strong>Insert 19:</strong> 19 % 7 = 5. <strong>Collision!</strong> Slot 6 is empty. Table: <code>[-, -, -, -, -, 12, 19]</code></li>
+              <li><strong>Insert 5:</strong> 5 % 7 = 5. <strong>Collision!</strong> Slot 6 occupied. Wrap to slot 0. Slot 0 is empty. Table: <code>[5, -, -, -, -, 12, 19]</code></li>
+              <li><strong>Insert 26:</strong> 26 % 7 = 5. <strong>Collision!</strong> Slots 5, 6, 0 occupied. Slot 1 is empty. Table: <code>[5, 26, -, -, -, 12, 19]</code></li>
+            </ul>
           </div>
         </div>
       </ExampleDrawer>

@@ -1539,6 +1539,116 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
       }
       setSteps(newSteps)
     }
+    else if (algorithm === 'comparisonCountingSort') {
+      const arr = [62, 31, 84, 96, 19, 47]
+      const n = arr.length
+      const counts = Array(n).fill(0)
+      const sortedArr = Array(n).fill(null)
+      
+      newSteps.push({
+        counts: [...counts],
+        sortedArr: [...sortedArr],
+        activeIdx: -1,
+        line: 0,
+        desc: `Initialize Counts array with 0s. Input: [${arr.join(', ')}]`,
+        vars: { i: '-', j: '-', action: 'Init' }
+      })
+
+      for (let i = 0; i < n - 1; i++) {
+        for (let j = i + 1; j < n; j++) {
+          let action = `Compare A[${i}](${arr[i]}) and A[${j}](${arr[j]})`
+          if (arr[i] < arr[j]) {
+            counts[j]++
+            action += `. A[j] is bigger, increment Count[${j}] to ${counts[j]}`
+          } else {
+            counts[i]++
+            action += `. A[i] is bigger, increment Count[${i}] to ${counts[i]}`
+          }
+          newSteps.push({
+            counts: [...counts],
+            sortedArr: [...sortedArr],
+            activeIdx: i,
+            activeJ: j,
+            line: 4,
+            desc: action,
+            vars: { i, j, action: 'Comparing' }
+          })
+        }
+      }
+
+      for (let i = 0; i < n; i++) {
+        sortedArr[counts[i]] = arr[i]
+        newSteps.push({
+          counts: [...counts],
+          sortedArr: [...sortedArr],
+          activeIdx: i,
+          line: 5,
+          desc: `Place A[${i}](${arr[i]}) at Sorted[Count[${i}]] (position ${counts[i]}).`,
+          vars: { i, j: '-', action: `Placing ${arr[i]}` }
+        })
+      }
+      setSteps(newSteps)
+    }
+    else if (algorithm === 'horspoolSearch') {
+      const text = "JIM_SAW_ME_IN_A_BARBERSHOP"
+      const pattern = targetKey || "BARBER"
+      const n = text.length
+      const m = pattern.length
+      
+      // Build shift table
+      const shiftTable = {}
+      for (let i = 0; i < 256; i++) shiftTable[String.fromCharCode(i)] = m
+      for (let j = 0; j < m - 1; j++) shiftTable[pattern[j]] = m - 1 - j
+
+      let i = m - 1
+      newSteps.push({
+        text, pattern, i, k: 0,
+        line: 1,
+        desc: `Align pattern at the start. Tail at text index ${i} ('${text[i]}').`,
+        vars: { i, k: 0, charT: text[i], charP: pattern[m-1], action: 'Align' }
+      })
+
+      while (i <= n - 1) {
+        let k = 0
+        while (k <= m - 1 && pattern[m - 1 - k] === text[i - k]) {
+          k++
+          newSteps.push({
+            text, pattern, i, k,
+            line: 4,
+            desc: `Character match: '${text[i-k+1]}'. Checking next character to the left...`,
+            vars: { i, k, charT: text[i-k+1], charP: pattern[m-1-k+1], action: 'Match' }
+          })
+        }
+
+        if (k === m) {
+          newSteps.push({
+            text, pattern, i, k,
+            line: 5,
+            desc: `Full match found at position ${i - m + 1}!`,
+            vars: { i, k, charT: text[i-k+1], charP: pattern[0], action: 'FOUND' }
+          })
+          break
+        } else {
+          const shiftVal = shiftTable[text[i]]
+          newSteps.push({
+            text, pattern, i, k,
+            line: 6,
+            desc: `Mismatch! '${text[i-k]}' vs '${pattern[m-1-k]}'. Shift table for tail '${text[i]}' is ${shiftVal}.`,
+            vars: { i, k, charT: text[i-k], charP: pattern[m-1-k], action: 'Shift' }
+          })
+          i += shiftVal
+          if (i < n) {
+            newSteps.push({
+              text, pattern, i, k: 0,
+              line: 1,
+              desc: `Shift pattern forward to new tail at index ${i} ('${text[i]}').`,
+              vars: { i, k: 0, charT: text[i], charP: pattern[m-1], action: 'Align' }
+            })
+          }
+        }
+      }
+      setSteps(newSteps)
+    }
     else if (algorithm === 'hashing') {
       const mode = targetKey === 'chaining' ? 'chaining' : 'probing'
       const size = 7
@@ -1713,7 +1823,7 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
       case 'kruskals':
         return [idx, v.edge, v.weight, v.action, v.sets]
       case 'comparisonCountingSort':
-        return [idx, v.i, v.j, v.comparison, v.action, JSON.stringify(step.count)]
+        return [idx, v.i, v.j, v.comparison, v.action, JSON.stringify(step.counts)]
       case 'horspoolSearch':
         return [idx, v.i, v.k, v.charT + ' == ' + v.charP, v.action]
       case 'hashing':
@@ -2046,39 +2156,157 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
           </div>
         )}
 
-        {/* Render Hashing linear probing table */}
-        {algorithm === 'hashingProbing' && (
-          <div style={{ display: 'flex', gap: '20px', width: '100%', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-              {currentStep.table?.map((val, idx) => {
-                let slotStyle = { border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }
-                if (idx === currentStep.activeIdx) {
-                  if (currentStep.colliding) {
-                    slotStyle = { border: '1px solid #ef4444', background: 'rgba(239, 68, 68, 0.15)' }
-                  } else {
-                    slotStyle = { border: '1px solid var(--accent-cyan)', background: 'rgba(6, 182, 212, 0.15)' }
+        {/* Render Hashing (Unified) */}
+        {algorithm === 'hashing' && (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: '15px' }}>
+            <div style={{ display: 'flex', gap: '30px', width: '100%', justifyContent: 'center', alignItems: 'flex-start' }}>
+              {/* Keys Queue */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--text-muted)' }}>QUEUE</span>
+                <div style={{ display: 'flex', gap: '4px' }}>
+                  {currentStep.vars?.keys?.split(',').map((k, idx) => (
+                    <div key={idx} style={{ 
+                      padding: '4px 8px', 
+                      background: 'var(--bg-surface)', 
+                      border: '1px solid var(--border-subtle)',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontFamily: 'var(--font-code)',
+                      color: k.trim() === String(currentStep.activeKey) ? 'var(--accent-cyan)' : 'var(--text-primary)',
+                      borderColor: k.trim() === String(currentStep.activeKey) ? 'var(--accent-cyan)' : 'var(--border-subtle)'
+                    }}>{k}</div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Table */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--text-muted)' }}>HASH TABLE (m={currentStep.table?.length})</span>
+                {currentStep.table?.map((val, idx) => {
+                  let slotStyle = { border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }
+                  const isActive = idx === currentStep.activeIdx
+                  if (isActive) {
+                    if (currentStep.colliding) {
+                      slotStyle = { border: '1px solid #ef4444', background: 'rgba(239, 68, 68, 0.15)' }
+                    } else {
+                      slotStyle = { border: '1px solid var(--accent-cyan)', background: 'rgba(6, 182, 212, 0.15)' }
+                    }
                   }
-                }
-                return (
-                  <div 
-                    key={idx} 
-                    style={{
+                  return (
+                    <div key={idx} style={{
                       display: 'flex',
                       padding: '4px 10px',
                       borderRadius: '4px',
                       fontSize: '11px',
                       fontFamily: 'var(--font-code)',
-                      width: '180px',
+                      width: '200px',
                       justifyContent: 'space-between',
                       alignItems: 'center',
                       ...slotStyle
-                    }}
-                  >
-                    <span style={{ color: 'var(--text-muted)' }}>Index {idx}:</span>
-                    <span style={{ fontWeight: '750', color: val ? 'var(--text-primary)' : 'transparent' }}>{val || '-'}</span>
-                  </div>
-                )
-              })}
+                    }}>
+                      <span style={{ color: 'var(--text-muted)' }}>{idx}:</span>
+                      {currentStep.mode === 'chaining' ? (
+                        <div style={{ display: 'flex', gap: '4px' }}>
+                          {val.map((item, iIdx) => (
+                            <span key={iIdx} style={{ fontWeight: '700', background: 'rgba(59, 130, 246, 0.1)', padding: '0 4px', borderRadius: '2px' }}>{item}</span>
+                          ))}
+                          {val.length === 0 && <span style={{ color: 'rgba(255,255,255,0.1)' }}>null</span>}
+                        </div>
+                      ) : (
+                        <span style={{ fontWeight: '700', color: val ? 'var(--text-primary)' : 'transparent' }}>{val || '-'}</span>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Render Comparison Counting Sort */}
+        {algorithm === 'comparisonCountingSort' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--text-muted)' }}>COUNTS</span>
+              <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+                {currentStep.counts?.map((c, idx) => (
+                  <div key={idx} style={{ 
+                    width: '35px', height: '35px', 
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: currentStep.activeIdx === idx ? 'rgba(59, 130, 246, 0.2)' : 'var(--bg-surface)',
+                    border: '1px solid',
+                    borderColor: currentStep.activeIdx === idx ? 'var(--accent-blue)' : 'var(--border-subtle)',
+                    borderRadius: '4px',
+                    fontFamily: 'var(--font-code)',
+                    fontWeight: '700'
+                  }}>{c}</div>
+                ))}
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--text-muted)' }}>SORTED ARRAY</span>
+              <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+                {currentStep.sortedArr?.map((s, idx) => (
+                  <div key={idx} style={{ 
+                    width: '35px', height: '35px', 
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: s ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-surface)',
+                    border: '1px solid',
+                    borderColor: s ? 'var(--color-success)' : 'var(--border-subtle)',
+                    borderRadius: '4px',
+                    fontFamily: 'var(--font-code)',
+                    fontWeight: '700',
+                    color: s ? 'var(--text-primary)' : 'transparent'
+                  }}>{s || '-'}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Render Horspool Search */}
+        {algorithm === 'horspoolSearch' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '25px', width: '100%', alignItems: 'center' }}>
+            {/* Text Array */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '100%' }}>
+              <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--text-muted)' }}>TEXT (n={currentStep.text?.length})</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px' }}>
+                {currentStep.text?.split('').map((char, idx) => {
+                  const isCurrentTail = idx === currentStep.i
+                  const isInMatchWindow = idx <= currentStep.i && idx > currentStep.i - currentStep.pattern?.length
+                  const isBeingCompared = isInMatchWindow && idx > currentStep.i - 1 - currentStep.k
+                  
+                  let cellStyle = { background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }
+                  if (isCurrentTail) cellStyle = { background: 'rgba(234, 179, 8, 0.2)', border: '1px solid var(--accent-yellow)' }
+                  else if (isBeingCompared) cellStyle = { background: 'rgba(59, 130, 246, 0.2)', border: '1px solid var(--accent-blue)' }
+
+                  return (
+                    <div key={idx} style={{
+                      width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '11px', fontFamily: 'var(--font-code)', fontWeight: '600',
+                      borderRadius: '2px', ...cellStyle
+                    }}>{char === ' ' ? '␣' : char}</div>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Pattern Visualization */}
+            <div style={{ position: 'relative', height: '40px', width: '100%' }}>
+              <div style={{ 
+                position: 'absolute', 
+                left: `${(currentStep.i - currentStep.pattern?.length + 1) * 24}px`,
+                display: 'flex', gap: '2px', transition: 'all 0.3s ease'
+              }}>
+                {currentStep.pattern?.split('').map((char, idx) => (
+                  <div key={idx} style={{
+                    width: '22px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '11px', fontFamily: 'var(--font-code)', fontWeight: '700',
+                    background: 'var(--bg-elevated)', border: '2px solid var(--accent-purple)',
+                    borderRadius: '2px', color: 'var(--accent-purple)'
+                  }}>{char}</div>
+                ))}
+              </div>
             </div>
           </div>
         )}
