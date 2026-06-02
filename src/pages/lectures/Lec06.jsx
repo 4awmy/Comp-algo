@@ -22,10 +22,22 @@ const Lec06 = () => {
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
               <h4>Major Variations</h4>
-              <ul>
-                <li><b>Decrease by a Constant:</b> Typically reduced by 1 (e.g., Insertion Sort).</li>
-                <li><b>Decrease by a Constant Factor:</b> Reduced by a factor, usually 2 (e.g., Binary Search).</li>
-                <li><b>Variable Size Decrease:</b> Reduction size varies between iterations (e.g., Euclid's Algorithm).</li>
+              <ul className={styles.editorialList}>
+                <li>
+                  <b>Decrease by a Constant:</b> The size of an instance is reduced by the same constant (typically 1) on each iteration.
+                  <MathBlock math="n \to n-1" />
+                  <em>Example: Insertion Sort, DFS/BFS.</em>
+                </li>
+                <li>
+                  <b>Decrease by a Constant Factor:</b> The size is reduced by the same constant factor (typically 2) on each iteration.
+                  <MathBlock math="n \to n/2" />
+                  <em>Example: Binary Search, Exponentiation by Squaring.</em>
+                </li>
+                <li>
+                  <b>Variable Size Decrease:</b> The size-reduction pattern varies from one iteration to another.
+                  <em>Example: Euclid's Algorithm for GCD.</em>
+                  <MathBlock math="\text{gcd}(m, n) = \text{gcd}(n, m \pmod n)" />
+                </li>
               </ul>
             </div>
           </div>
@@ -86,6 +98,15 @@ const Lec06 = () => {
           <p className={styles.editorialText}>
             Topological sorting is a linear ordering of vertices in a <b>Directed Acyclic Graph (DAG)</b> such that for every directed edge <MathBlock math="u \to v" />, vertex <MathBlock math="u" /> comes before <MathBlock math="v" />.
           </p>
+
+          <div className={styles.infoCard} style={{ marginBottom: '2rem' }}>
+            <h4>Real-World Applications</h4>
+            <ul className={styles.editorialList}>
+              <li><b>University Course Prerequisites:</b> You can't take <em>Computing Algorithms</em> until you've passed <em>Data Structures</em>.</li>
+              <li><b>Build Systems (e.g., Make or Gradle):</b> Compiling a software project requires compiling libraries in a specific order based on their internal dependencies.</li>
+              <li><b>Task Scheduling:</b> Ensuring that tasks with dependencies are executed in a logically valid sequence.</li>
+            </ul>
+          </div>
 
           <TopologicalSortTracer />
 
