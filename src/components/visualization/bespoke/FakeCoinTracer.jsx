@@ -13,11 +13,12 @@ const FakeCoinTracer = () => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const fakeIdx = useMemo(() => Math.floor(Math.random() * n), [n]);
+  
   const steps = useMemo(() => {
     const s = [];
     let coins = Array.from({ length: n }, (_, i) => ({ id: i, isFake: false }));
     // Randomly pick a fake coin for the simulation
-    const fakeIdx = Math.floor(Math.random() * n);
     coins[fakeIdx].isFake = true;
 
     let currentGroup = [...coins];

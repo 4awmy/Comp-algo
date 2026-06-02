@@ -16,7 +16,7 @@ import remarkGfm from 'remark-gfm';
  * @param {string} props.algorithm - Algorithm ID
  * @param {any} props.data - Optional data for the tracer
  */
-const ProblemSolver = ({ number, question, BespokeTracer, algorithm, data }) => {
+const ProblemSolver = ({ number, question, BespokeTracer, data }) => {
   return (
     <div className="card" style={{ 
       overflow: 'hidden', 

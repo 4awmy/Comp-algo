@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from 'react';
-import VisualStage from '../../ui/Premium/VisualStage';
-import styles from './Bespoke.module.css';
+import React, { useState, useMemo } from 'react'
+import MathBlock from '../../ui/Premium/MathBlock'
+import VisualStage from '../../ui/Premium/VisualStage'
+import styles from './Bespoke.module.css'
 
 const DynamicProgTracer = () => {
   const [mode, setMode] = useState('Knapsack'); // 'CoinRow' | 'Knapsack' | 'Warshall'

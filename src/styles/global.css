@@ -203,6 +203,22 @@ input:focus, textarea:focus, select:focus {
   animation: fadeIn 0.4s ease both;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* ── Button Base ── */
 .btn {
   display: inline-flex;

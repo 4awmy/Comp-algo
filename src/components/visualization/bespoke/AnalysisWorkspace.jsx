@@ -59,7 +59,9 @@ const AnalysisWorkspace = () => {
         {/* Summation Section */}
         <div className={styles.analysisCard}>
           <h4>Summation Analysis</h4>
-          <p className={styles.formulaDesc}>Evaluating $\sum_{i=1}^{n-1} i$</p>
+          <div className={styles.formulaDesc}>
+            Evaluating <MathBlock math="\sum_{i=1}^{n-1} i" />
+          </div>
           
           <div className={styles.summationVisual}>
             <div className={styles.stepsList}>

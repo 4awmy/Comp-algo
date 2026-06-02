@@ -157,7 +157,7 @@ const TopologicalSortTracer = () => {
                 <g key={node.id} opacity={method === 'SourceRemoval' && isVisited ? 0.3 : 1} style={{ transition: 'all 0.3s' }}>
                   <circle cx={node.x} cy={node.y} r="15" fill={color} stroke={border} strokeWidth="2" />
                   <text x={node.x} y={node.y} dy="4" textAnchor="middle" fontSize="10" fill="var(--text-primary)" fontWeight="700">{node.id}</text>
-                  {method === 'SourceRemoval' && !isVisited && (
+                  {method === 'SourceRemoval' && !isVisited && currentStep.inDegree && (
                     <text x={node.x + 18} y={node.y - 10} fontSize="9" fill="var(--accent-yellow)" fontWeight="bold">
                       in:{currentStep.inDegree[node.id]}
                     </text>

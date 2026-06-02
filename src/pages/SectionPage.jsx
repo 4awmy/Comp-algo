@@ -119,56 +119,72 @@ export default function SectionPage() {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-20)', marginBottom: 'var(--space-20)' }}>
-        {Array.from({ length: lectureMeta.sheetImagesCount || 0 }, (_, i) => {
-          const pageNum = i + 1;
-          const pageProblems = problems.filter(p => p.pageNumber === pageNum);
+        {lectureMeta.sheetImagesCount > 0 ? (
+          Array.from({ length: lectureMeta.sheetImagesCount }, (_, i) => {
+            const pageNum = i + 1;
+            const pageProblems = problems.filter(p => (p.pageNumber || 1) === pageNum);
 
-          return (
-            <div key={pageNum} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)' }}>
-              <div style={{ 
-                background: 'var(--bg-elevated)', 
-                border: '1px solid var(--border-default)', 
-                borderRadius: 'var(--radius-xl)', 
-                padding: 'var(--space-6)', 
-                boxShadow: 'var(--shadow-xl)',
-                overflow: 'hidden'
-              }}>
+            return (
+              <div key={pageNum} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)' }}>
                 <div style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  fontSize: '11px', 
-                  color: 'var(--text-muted)', 
-                  textTransform: 'uppercase', 
-                  letterSpacing: '0.1em', 
-                  marginBottom: 'var(--space-4)' 
+                  background: 'var(--bg-elevated)', 
+                  border: '1px solid var(--border-default)', 
+                  borderRadius: 'var(--radius-xl)', 
+                  padding: 'var(--space-6)', 
+                  boxShadow: 'var(--shadow-xl)',
+                  overflow: 'hidden'
                 }}>
-                  <span>Original Scanned Sheet — Page {pageNum}</span>
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    fontSize: '11px', 
+                    color: 'var(--text-muted)', 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '0.1em', 
+                    marginBottom: 'var(--space-4)' 
+                  }}>
+                    <span>Original Scanned Sheet — Page {pageNum}</span>
+                  </div>
+                  <img 
+                    src={getImageUrl(pageNum)} 
+                    alt={`Sheet ${id} Page ${pageNum}`} 
+                    style={{ width: '100%', borderRadius: 'var(--radius-sm)', display: 'block', objectFit: 'contain', background: 'white' }} 
+                    loading="lazy"
+                  />
                 </div>
-                <img 
-                  src={getImageUrl(pageNum)} 
-                  alt={`Sheet ${id} Page ${pageNum}`} 
-                  style={{ width: '100%', borderRadius: 'var(--radius-sm)', display: 'block', objectFit: 'contain', background: 'white' }} 
-                  loading="lazy"
-                />
-              </div>
 
-              {pageProblems.length > 0 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)', padding: '0 var(--space-4)' }}>
-                  {pageProblems.map(prob => (
-                    <ProblemSolver 
-                      key={prob.number}
-                      number={prob.number}
-                      question={prob.question}
-                      BespokeTracer={TRACER_MAP[prob.algorithm || prob.visualizationType]}
-                      algorithm={prob.algorithm || prob.visualizationType}
-                      data={prob.data}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        })}
+                {pageProblems.length > 0 && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)', padding: '0 var(--space-4)' }}>
+                    {pageProblems.map(prob => (
+                      <ProblemSolver 
+                        key={prob.number}
+                        number={prob.number}
+                        question={prob.question}
+                        BespokeTracer={TRACER_MAP[prob.algorithm || prob.visualizationType]}
+                        algorithm={prob.algorithm || prob.visualizationType}
+                        data={prob.data}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })
+        ) : (
+          /* Fallback for lectures with problems but no scanned images */
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
+            {problems.map(prob => (
+              <ProblemSolver 
+                key={prob.number}
+                number={prob.number}
+                question={prob.question}
+                BespokeTracer={TRACER_MAP[prob.algorithm || prob.visualizationType]}
+                algorithm={prob.algorithm || prob.visualizationType}
+                data={prob.data}
+              />
+            ))}
+          </div>
+        )}
 
         {problems.length === 0 && lectureMeta.sheetImagesCount === 0 && (
           <div className={styles.noProblems}>

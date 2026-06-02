@@ -115,19 +115,6 @@ function LectureItem({ lecture }) {
             </span>
           )}
 
-          {lecture.hasVisualization && (
-            <NavLink
-              to={`/lecture/${lecture.id}#visualizer`}
-              className={() => {
-                const isVisActive = location.pathname === `/lecture/${lecture.id}` && location.hash === '#visualizer'
-                return `${styles.subItem} ${isVisActive ? styles.subItemActive : ''}`
-              }}
-            >
-              <span className={styles.subIcon}><PlayIcon /></span>
-              <span>Visualizations</span>
-            </NavLink>
-          )}
-
           {/* Table of Contents (Topics) - Only show if active & open */}
           {isActive && open && lecture.topics && (
             <div className={styles.tocSection}>
@@ -209,9 +196,10 @@ export default function Sidebar({ open, onClose }) {
         <div className={styles.footerCard}>
           <span className={styles.footerIcon}>🤖</span>
           <div>
-            <div className={styles.footerTitle}>AI Tutor</div>
+            <div className={styles.footerTitle}>Antigravity AI</div>
             <div className={styles.footerSub}>Active Now</div>
           </div>
+
         </div>
       </div>
     </aside>

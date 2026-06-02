@@ -2,6 +2,7 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import InsertionSortTracer from '../../components/visualization/bespoke/InsertionSortTracer';
 import DfsTracer from '../../components/visualization/bespoke/DfsTracer';
+import TopologicalSortTracer from '../../components/visualization/bespoke/TopologicalSortTracer';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
 const Lec06 = () => {

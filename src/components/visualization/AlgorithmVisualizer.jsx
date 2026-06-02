@@ -109,6 +109,7 @@ export default function AlgorithmVisualizer({ algorithm, targetKey }) {
       const n = text.length
       const shiftTable = {}
       for (let x = 0; x < 256; x++) shiftTable[String.fromCharCode(x)] = m
+
       for (let j = 0; j < m - 1; j++) shiftTable[pattern[j]] = m - 1 - j
 
       let i = m - 1
