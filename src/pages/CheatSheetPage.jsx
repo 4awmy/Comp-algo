@@ -13,7 +13,7 @@ const ALGORITHMS = [
     stable: 'No',
     lecture: 'Lec 04',
     steps: ['1. Find min element in remaining unsorted array', '2. Swap it with first unsorted element', '3. Advance boundary of sorted array'],
-    link: '/lecture/04?tab=visualizer',
+    link: '/lecture/04#selection-sort',
   },
   {
     name: 'Bubble Sort',
@@ -25,7 +25,7 @@ const ALGORITHMS = [
     stable: 'Yes',
     lecture: 'Lec 04',
     steps: ['1. Iterate through array', '2. Compare adjacent elements', '3. Swap if they are in wrong order', '4. Repeat until no swaps needed'],
-    link: '/lecture/04?tab=visualizer',
+    link: '/lecture/04#bubble-sort',
   },
   {
     name: 'Insertion Sort',
@@ -49,7 +49,7 @@ const ALGORITHMS = [
     stable: 'Yes',
     lecture: 'Lec 09',
     steps: ['1. Divide array into two halves', '2. Recursively sort both halves', '3. Merge sorted halves back together'],
-    link: '/lecture/09?tab=visualizer',
+    link: '/lecture/09#merge-sort',
   },
   {
     name: 'Quick Sort',
@@ -61,7 +61,7 @@ const ALGORITHMS = [
     stable: 'No',
     lecture: 'Lec 09',
     steps: ['1. Pick a pivot element', '2. Partition array around pivot', '3. Recursively sort sub-arrays'],
-    link: '/lecture/09?tab=visualizer',
+    link: '/lecture/09#quick-sort',
   },
   {
     name: 'Heapsort',
@@ -73,7 +73,7 @@ const ALGORITHMS = [
     stable: 'No',
     lecture: 'Lec 10',
     steps: ['1. Build a max-heap from array', '2. Swap root with last element', '3. Restore heap property', '4. Repeat'],
-    link: '/lecture/10?tab=visualizer',
+    link: '/lecture/10#heapsort',
   },
   {
     name: 'Sequential Search',
@@ -85,7 +85,7 @@ const ALGORITHMS = [
     stable: 'N/A',
     lecture: 'Lec 04',
     steps: ['1. Start from first element', '2. Compare with target', '3. Return index if found', '4. Move to next element'],
-    link: '/lecture/04?tab=visualizer',
+    link: '/lecture/04#sequential-search',
   },
   {
     name: 'Binary Search',
@@ -97,7 +97,7 @@ const ALGORITHMS = [
     stable: 'N/A',
     lecture: 'Lec 06',
     steps: ['1. Find middle element', '2. If target == mid, return', '3. If target < mid, search left half', '4. Else search right half'],
-    link: '/lecture/06?tab=visualizer',
+    link: '/lecture/06',
   },
   {
     name: 'Brute Force String Match',
@@ -107,9 +107,9 @@ const ALGORITHMS = [
     worst: 'O(n \\cdot m)',
     space: 'O(1)',
     stable: 'N/A',
-    lecture: 'Lec 05',
+    lecture: 'Lec 04',
     steps: ['1. Align pattern with start of text', '2. Compare characters left to right', '3. If mismatch, shift pattern by 1', '4. Repeat until match or end'],
-    link: '/lecture/05?tab=visualizer',
+    link: '/lecture/04#string-matching',
   },
   {
     name: 'Depth-First Search (DFS)',

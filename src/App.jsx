@@ -5,6 +5,11 @@ import LecturePage from './pages/LecturePage'
 import SectionPage from './pages/SectionPage'
 import QuizPage from './pages/QuizPage'
 import CheatSheetPage from './pages/CheatSheetPage'
+import Lec01 from './pages/lectures/Lec01'
+import Lec02 from './pages/lectures/Lec02'
+import Lec03 from './pages/lectures/Lec03'
+import Lec04 from './pages/lectures/Lec04'
+import Lec05 from './pages/lectures/Lec05'
 import Lec06 from './pages/lectures/Lec06'
 import Lec07 from './pages/lectures/Lec07'
 import Lec09 from './pages/lectures/Lec09'
@@ -14,6 +19,11 @@ import Lec13 from './pages/lectures/Lec13'
 
 function LecturePageRoute() {
   const { id } = useParams()
+  if (id === '01') return <Lec01 />
+  if (id === '02') return <Lec02 />
+  if (id === '03') return <Lec03 />
+  if (id === '04') return <Lec04 />
+  if (id === '05') return <Lec05 />
   if (id === '06') return <Lec06 />
   if (id === '07') return <Lec07 />
   if (id === '09') return <Lec09 />

@@ -14,7 +14,7 @@ export const LECTURES = [
     week: 'Week 1',
     topics: ['What is an Algorithm?', 'Algorithm Design Techniques', 'Problem Types'],
     hasSection: true,
-    hasVisualization: false,
+    hasVisualization: true,
     sheetImagesCount: 0,
   },
   {
@@ -27,7 +27,7 @@ export const LECTURES = [
     week: 'Week 2',
     topics: ['Asymptotic Notation', 'Big-O, Omega, Theta', 'Recurrences'],
     hasSection: true,
-    hasVisualization: false,
+    hasVisualization: true,
     sheetImagesCount: 3,
   },
   {
@@ -40,7 +40,7 @@ export const LECTURES = [
     week: 'Week 3',
     topics: ['Time Complexity', 'Space Complexity', 'Master Theorem'],
     hasSection: true,
-    hasVisualization: false,
+    hasVisualization: true,
     sheetImagesCount: 2,
   },
   {
@@ -92,7 +92,7 @@ export const LECTURES = [
     week: 'Week 7',
     topics: ['Topological Sorting', 'Permutations', 'Subsets'],
     hasSection: false,   // ← No section sheet
-    hasVisualization: false,
+    hasVisualization: true,
     sheetImagesCount: 0,
   },
   // Lecture 08 is SKIPPED
@@ -119,7 +119,7 @@ export const LECTURES = [
     week: 'Week 10',
     topics: ['Heaps & Heapsort', 'AVL Trees', 'Horner\'s Rule', 'Gaussian Elimination'],
     hasSection: true,
-    hasVisualization: false,
+    hasVisualization: true,
     sheetImagesCount: 6,
   },
   {
@@ -132,7 +132,7 @@ export const LECTURES = [
     week: 'Week 11',
     topics: ['Counting Sort', 'Hashing', 'B-Trees', 'Precomputation'],
     hasSection: true,
-    hasVisualization: false,
+    hasVisualization: true,
     sheetImagesCount: 3,
   },
   {
@@ -145,7 +145,7 @@ export const LECTURES = [
     week: 'Week 13',
     topics: ['Fibonacci', 'Knapsack', 'Floyd-Warshall', 'Prim\'s', 'Kruskal\'s'],
     hasSection: false,   // ← No section sheet
-    hasVisualization: false,
+    hasVisualization: true,
     sheetImagesCount: 0,
   },
 ]

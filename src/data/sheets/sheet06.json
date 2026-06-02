@@ -6,6 +6,7 @@
   "problems": [
     {
       "number": 1,
+      "pageNumber": 1,
       "question": "Apply the DFS-based algorithm to solve the topological sorting problem for the digraphs provided in Sheet 06 (see Scanned Sheet view). Explain the general process of obtaining a topological sort using Depth-First Search.",
       "answer": "Topological sorting order is obtained by performing DFS on the digraph, keeping track of the order in which vertices are finished (popped from the recursion stack), and reversing that list. If a back-edge is detected during DFS, the digraph has a cycle and topological sort is impossible.",
       "explanation": [
@@ -27,10 +28,11 @@
         }
       ],
       "hasVisualization": true,
-      "visualizationType": "topological-sort"
+      "algorithm": "topological-sort"
     },
     {
       "number": 2,
+      "pageNumber": 1,
       "question": "Is it realistic to implement an algorithm that requires generating all permutations of a 25-element set on your computer? What about all the subsets of such a set?",
       "answer": "No, generating permutations of 25 elements is completely unrealistic (25! ≈ 1.55 × 10^25 operations). However, generating all subsets of a 25-element set (2^25 ≈ 3.36 × 10^7 operations) is highly realistic and takes less than a second on modern computers.",
       "explanation": [
@@ -55,6 +57,7 @@
     },
     {
       "number": 3,
+      "pageNumber": 1,
       "question": "Explain the general approach to generate all permutations of {1, 2, 3, 4} using the bottom-up minimal-change (Johnson-Trotter) algorithm compared to the lexicographic-order algorithm.",
       "answer": "The Johnson-Trotter algorithm generates permutations by swapping adjacent elements using mobile directions, producing minimal change (each permutation differs from its predecessor by a single swap). Lexicographical generation swaps elements systematically to generate permutations in ascending dictionary order.",
       "explanation": [
@@ -76,10 +79,11 @@
         }
       ],
       "hasVisualization": true,
-      "visualizationType": "permutations"
+      "algorithm": "permutations"
     },
     {
       "number": 4,
+      "pageNumber": 1,
       "question": "Apply LexicographicPermute to the multiset {1, 2, 2, 3}. Does it generate correctly all the permutations in lexicographic order?",
       "answer": "Yes, LexicographicPermute correctly handles multisets with duplicate elements without producing duplicate permutations. It generates exactly 12 unique permutations in ascending lexicographical order.",
       "explanation": [
@@ -104,6 +108,7 @@
     },
     {
       "number": 5,
+      "pageNumber": 1,
       "question": "Given the sorted array [3, 14, 27, 31, 39, 42, 55, 70, 74, 81, 85, 93, 98]:\na. What is the largest number of key comparisons made by binary search in searching for a key in this array?\nb. List all the keys of this array that will require the largest number of key comparisons.\nc. Find the average number of key comparisons made by binary search in a successful search.\nd. Find the average number of key comparisons made by binary search in an unsuccessful search.",
       "answer": "a. The largest number of key comparisons is 4.\nb. Keys requiring 4 comparisons: 3, 27, 39, 55, 74, 85, 98.\nc. Average comparisons for a successful search: 2.92.\nd. Average comparisons for an unsuccessful search: 3.57.",
       "explanation": [
@@ -125,10 +130,11 @@
         }
       ],
       "hasVisualization": true,
-      "visualizationType": "binary-search"
+      "algorithm": "binary-search"
     },
     {
       "number": 6,
+      "pageNumber": 1,
       "question": "a. Apply the Russian peasant multiplication algorithm to compute 26 × 47.\nb. Does it matter whether we multiply n by m or m by n from the standpoint of time efficiency?\nc. Write pseudocode for the algorithm and state its complexity class.",
       "answer": "a. 26 × 47 = 1222.\nb. Yes, halving the smaller number (26) is more efficient than halving the larger number (47) because it requires fewer halving steps.\nc. Complexity is O(log n), where n is the number being halved.",
       "explanation": [
