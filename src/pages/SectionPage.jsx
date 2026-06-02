@@ -4,23 +4,44 @@ import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getLectureById, LECTURES } from '../data/lectures'
-import AlgorithmVisualizer from '../components/visualization/AlgorithmVisualizer'
 import styles from './SectionPage.module.css'
 
-// Map section/lecture ID to visualizer settings
-const getVisualizerConfig = (lectureId) => {
-  switch (lectureId) {
-    case 'lec04':
-      return { algorithm: 'bubbleSort', title: 'Bubble Sort Visualizer' }
-    case 'lec05':
-      return { algorithm: 'stringMatching', title: 'String Matching Visualizer', targetKey: 'CAD' }
-    case 'lec06':
-      return { algorithm: 'insertionSort', title: 'Insertion Sort Visualizer' }
-    case 'lec09':
-      return { algorithm: 'selectionSort', title: 'Sorting Demo (Divide & Conquer)' }
-    default:
-      return null
-  }
+// Premium Bespoke Tracers
+import AvlTreeTracer from '../components/visualization/bespoke/AvlTreeTracer'
+import ComparisonCountingSortTracer from '../components/visualization/bespoke/ComparisonCountingSortTracer'
+import DfsTracer from '../components/visualization/bespoke/DfsTracer'
+import DynamicProgTracer from '../components/visualization/bespoke/DynamicProgTracer'
+import FakeCoinTracer from '../components/visualization/bespoke/FakeCoinTracer'
+import GreedyTracer from '../components/visualization/bespoke/GreedyTracer'
+import HashingTracer from '../components/visualization/bespoke/HashingTracer'
+import HeapsortTracer from '../components/visualization/bespoke/HeapsortTracer'
+import HornersTracer from '../components/visualization/bespoke/HornersTracer'
+import HorspoolTracer from '../components/visualization/bespoke/HorspoolTracer'
+import InsertionSortTracer from '../components/visualization/bespoke/InsertionSortTracer'
+import JosephusTracer from '../components/visualization/bespoke/JosephusTracer'
+import MergeSortTracer from '../components/visualization/bespoke/MergeSortTracer'
+import QuickSortTracer from '../components/visualization/bespoke/QuickSortTracer'
+import TopologicalSortTracer from '../components/visualization/bespoke/TopologicalSortTracer'
+import TreeTraversalTracer from '../components/visualization/bespoke/TreeTraversalTracer'
+
+const TRACER_MAP = {
+  'avlTree': AvlTreeTracer,
+  'comparisonCountingSort': ComparisonCountingSortTracer,
+  'dfs': DfsTracer,
+  'dynamicProgramming': DynamicProgTracer,
+  'fakeCoin': FakeCoinTracer,
+  'greedy': GreedyTracer,
+  'hashing': HashingTracer,
+  'heapsort': HeapsortTracer,
+  'hornersMethod': HornersTracer,
+  'horspoolSearch': HorspoolTracer,
+  'insertionSort': InsertionSortTracer,
+  'josephus': JosephusTracer,
+  'mergeSort': MergeSortTracer,
+  'quickSort': QuickSortTracer,
+  'topologicalSort': TopologicalSortTracer,
+  'topological-sort': TopologicalSortTracer,
+  'treeTraversal': TreeTraversalTracer
 }
 
 export default function SectionPage() {
@@ -97,7 +118,9 @@ export default function SectionPage() {
   const prevSection = activeLecturesWithSheets[currentIdx - 1]
   const nextSection = activeLecturesWithSheets[currentIdx + 1]
 
-  const visualizerConfig = getVisualizerConfig(`lec${id}`)
+  // Bespoke Tracer mapping
+  const algorithmId = activeProblem?.algorithm || activeProblem?.visualizationType
+  const BespokeTracer = TRACER_MAP[algorithmId]
 
   // Scanned images list
   const getImageUrl = (imgNum) => {
@@ -203,7 +226,7 @@ export default function SectionPage() {
                   >
                     🤖 Step-by-Step AI Explanation
                   </button>
-                  {visualizerConfig && (
+                  {activeProblem?.hasVisualization && BespokeTracer && (
                     <button
                       className={`${styles.tabBtn} ${getActiveTab(activeProblemIdx) === 'demo' ? styles.tabBtnActive : ''}`}
                       onClick={() => setActiveTab(activeProblemIdx, 'demo')}
@@ -247,15 +270,9 @@ export default function SectionPage() {
                     </div>
                   )}
 
-                  {getActiveTab(activeProblemIdx) === 'demo' && visualizerConfig && (
+                  {getActiveTab(activeProblemIdx) === 'demo' && BespokeTracer && (
                     <div className={styles.visualizerWrapper}>
-                      <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '16px', color: 'var(--accent-cyan)' }}>
-                        {visualizerConfig.title}
-                      </h3>
-                      <AlgorithmVisualizer 
-                        algorithm={visualizerConfig.algorithm} 
-                        targetKey={visualizerConfig.targetKey} 
-                      />
+                      <BespokeTracer />
                     </div>
                   )}
                 </div>

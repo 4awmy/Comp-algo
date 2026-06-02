@@ -158,3 +158,492 @@
   stroke: var(--color-error);
   stroke-dasharray: 5,5;
 }
+
+/* Fake Coin Tracer Styles */
+.fakeCoinContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--space-4);
+}
+
+.scaleVisualization {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.scaleBeam {
+  width: 100%;
+  height: 8px;
+  background: var(--text-secondary);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.scaleBeam::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  border: 2px solid var(--text-primary);
+}
+
+.scaleBeam.balanced { transform: rotate(0deg); }
+.scaleBeam.left-up { transform: rotate(15deg); }
+.scaleBeam.right-up { transform: rotate(-15deg); }
+.scaleBeam.weighing { 
+  animation: scaleTilt 2s infinite ease-in-out;
+}
+
+@keyframes scaleTilt {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.scalePanLeft, .scalePanRight {
+  position: absolute;
+  top: 100%;
+  width: 120px;
+  height: 60px;
+  border: 3px solid var(--text-secondary);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 44, 84, 0.05);
+}
+
+.scalePanLeft { left: 0; transform-origin: top center; transform: rotate(var(--rev-rotate, 0deg)); }
+.scalePanRight { right: 0; transform-origin: top center; transform: rotate(var(--rev-rotate, 0deg)); }
+
+/* Reverse rotate pans to keep them level */
+.left-up .scalePanLeft, .left-up .scalePanRight { --rev-rotate: -15deg; }
+.right-up .scalePanLeft, .right-up .scalePanRight { --rev-rotate: 15deg; }
+
+.panCoins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  justify-content: center;
+}
+
+.coin {
+  width: 16px;
+  height: 16px;
+  background: #fbbf24;
+  border: 1px solid #d97706;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.coin.highlighted {
+  box-shadow: 0 0 8px #fbbf24;
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.scaleBase {
+  width: 40px;
+  height: 80px;
+  background: var(--text-secondary);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+.groupInfo {
+  display: flex;
+  gap: var(--space-4);
+  width: 100%;
+  justify-content: center;
+}
+
+.groupBucket {
+  flex: 1;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 120px;
+}
+
+.panCoinsSmall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+}
+
+.coinSmall {
+  width: 8px;
+  height: 8px;
+  background: #fbbf24;
+  border-radius: 50%;
+}
+
+/* Josephus Tracer Styles */
+.josephusContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-4);
+}
+
+.josephusSvg {
+  width: 100%;
+  max-width: 300px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.personCircle {
+  transition: all 0.5s ease;
+  stroke-width: 2;
+}
+
+.personLabel {
+  font-family: var(--font-code);
+  font-size: 12px;
+  font-weight: bold;
+  text-anchor: middle;
+  fill: var(--text-primary);
+  pointer-events: none;
+}
+
+.alive {
+  fill: var(--bg-surface);
+  stroke: var(--accent-blue);
+}
+
+.eliminated {
+  fill: var(--bg-surface);
+  stroke: var(--border-subtle);
+  opacity: 0.3;
+}
+
+.current {
+  fill: rgba(13, 44, 84, 0.1);
+  stroke: var(--accent-blue);
+  stroke-width: 4;
+  r: 18;
+}
+
+.eliminating {
+  fill: rgba(239, 68, 68, 0.1);
+  stroke: var(--color-error);
+  stroke-width: 4;
+  animation: pulseElim 0.8s ease-out;
+}
+
+@keyframes pulseElim {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+.formulaBox {
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent-blue);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-6);
+  text-align: center;
+}
+
+.formulaBox .explanation {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Tree Visualization Shared Styles */
+.treeContainer {
+  width: 100%;
+  height: 300px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  position: relative;
+}
+
+.treeSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Heap Sort Specific */
+.heapTracer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+  align-items: center;
+}
+
+/* Horner's Rule Specific */
+.hornersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-4);
+}
+
+.hornerStep {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--transition-base);
+}
+
+.hornerStep.active {
+  border-color: var(--accent-blue);
+  background: rgba(13, 44, 84, 0.05);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.mathOperation {
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.resultValue {
+  font-family: var(--font-code);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--accent-blue);
+}
+
+/* AVL Tree Specific */
+.balanceFactor {
+  font-family: var(--font-code);
+  font-size: 10px;
+  fill: var(--text-muted);
+  font-weight: 400;
+}
+
+.bfHighlight {
+  fill: var(--color-error);
+  font-weight: 700;
+}
+
+.rotationEdge {
+  stroke: var(--accent-purple);
+  stroke-width: 3;
+  stroke-dasharray: 4;
+  animation: dashMove 1s linear infinite;
+}
+
+/* Horspool's Algorithm Styles */
+.horspoolContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-4);
+}
+
+.shiftTable {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: var(--space-2);
+  width: 100%;
+  background: var(--bg-elevated);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.shiftItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+}
+
+.shiftChar {
+  font-weight: 700;
+  font-family: var(--font-code);
+  color: var(--accent-blue);
+}
+
+.shiftVal {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.searchStage {
+  width: 100%;
+  overflow-x: auto;
+  padding: var(--space-8) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.textRow, .patternRow {
+  display: flex;
+  gap: 2px;
+}
+
+.charBox {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-code);
+  font-weight: 600;
+  background: var(--bg-surface);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.textChar.match {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.textChar.mismatch {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.patternChar {
+  background: var(--bg-elevated);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.patternChar.active {
+  background: var(--accent-blue);
+  color: white;
+}
+
+/* Hashing Styles */
+.hashingContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-4);
+}
+
+.hashingControls {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hashingGrid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.hashTable {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hashSlot {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  position: relative;
+}
+
+.slotIndex {
+  position: absolute;
+  left: -35px;
+  width: 30px;
+  text-align: right;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.slotContent {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.hashItem {
+  padding: 2px 8px;
+  background: var(--accent-blue);
+  color: white;
+  border-radius: var(--radius-xs);
+  font-size: var(--text-xs);
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.chainNode {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chainArrow {
+  color: var(--text-muted);
+}
+
+@keyframes dashMove {
+  from { stroke-dashoffset: 8; }
+  to { stroke-dashoffset: 0; }
+}
