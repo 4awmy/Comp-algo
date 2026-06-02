@@ -81,22 +81,28 @@ const Lec06 = () => {
           </div>
         </section>
 
-        <section className={styles.lessonSection}>
+        <section id="topological-sort" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>3. Topological Sorting</h2>
           <p className={styles.editorialText}>
             Topological sorting is a linear ordering of vertices in a <b>Directed Acyclic Graph (DAG)</b> such that for every directed edge <MathBlock math="u \to v" />, vertex <MathBlock math="u" /> comes before <MathBlock math="v" />.
           </p>
 
+          <TopologicalSortTracer />
+
           <div className={styles.methodBox}>
             <h3>Method 1: DFS-based</h3>
-            <p>Perform a DFS and note the order in which vertices become dead-ends (popped off the stack). Reversing this order yields the topological sort.</p>
-            <MathBlock math="T(n) \in \Theta(V + E)" />
+            <p className={styles.editorialText}>
+              Perform a DFS and note the order in which vertices become dead-ends (popped off the stack). Reversing this order yields the topological sort.
+            </p>
+            <MathBlock block math="T(n) \in \Theta(V + E)" />
           </div>
 
           <div className={styles.methodBox}>
             <h3>Method 2: Source Removal</h3>
-            <p>Repeatedly identify and remove a "source" (a vertex with in-degree 0) from the graph and add it to the sorted list.</p>
-            <MathBlock math="T(n) \in \Theta(V + E)" />
+            <p className={styles.editorialText}>
+              Repeatedly identify and remove a "source" (a vertex with in-degree 0) from the graph and add it to the sorted list.
+            </p>
+            <MathBlock block math="T(n) \in \Theta(V + E)" />
           </div>
         </section>
       </div>
