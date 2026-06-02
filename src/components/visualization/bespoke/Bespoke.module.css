@@ -1,0 +1,160 @@
+.tracerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+  align-items: center;
+}
+
+.arrayContainer {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  min-height: 120px;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+
+.element {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--transition-spring);
+}
+
+.bar {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  transition: all var(--transition-spring);
+}
+
+.label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-family: var(--font-code);
+}
+
+/* Sorting States */
+.sorted .bar {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.active .bar {
+  background: rgba(13, 44, 84, 0.1);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: 0 0 15px rgba(13, 44, 84, 0.2);
+  transform: translateY(-5px);
+}
+
+.comparing .bar {
+  background: rgba(197, 160, 89, 0.1);
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+}
+
+.unsorted .bar {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.stepInfo {
+  text-align: center;
+  max-width: 600px;
+}
+
+.description {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Graph / SVG Styles */
+.graphContainer {
+  width: 100%;
+  height: 400px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.node {
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.nodeCircle {
+  fill: var(--bg-surface);
+  stroke: var(--border-default);
+  stroke-width: 2;
+  transition: all var(--transition-base);
+}
+
+.nodeText {
+  font-family: var(--font-code);
+  font-size: 14px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: var(--text-primary);
+  pointer-events: none;
+}
+
+.edge {
+  stroke: var(--border-subtle);
+  stroke-width: 2;
+  transition: all var(--transition-base);
+}
+
+/* Graph States */
+.nodeActive .nodeCircle {
+  fill: rgba(13, 44, 84, 0.1);
+  stroke: var(--accent-blue);
+  stroke-width: 4;
+}
+
+.nodeVisited .nodeCircle {
+  fill: rgba(16, 185, 129, 0.1);
+  stroke: var(--color-success);
+}
+
+.nodeQueued .nodeCircle {
+  fill: rgba(197, 160, 89, 0.1);
+  stroke: var(--accent-purple);
+}
+
+.edgeDiscovery {
+  stroke: var(--accent-blue);
+  stroke-width: 3;
+}
+
+.edgeBack {
+  stroke: var(--color-error);
+  stroke-dasharray: 5,5;
+}

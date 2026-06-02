@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
+import MathBlock from '../components/ui/Premium/MathBlock'
 import styles from './CheatSheetPage.module.css'
 
 const ALGORITHMS = [
   {
     name: 'Selection Sort',
     category: 'Sorting (Brute Force)',
-    best: 'O(n²)',
-    avg: 'O(n²)',
-    worst: 'O(n²)',
+    best: 'O(n^2)',
+    avg: 'O(n^2)',
+    worst: 'O(n^2)',
     space: 'O(1)',
     stable: 'No',
     lecture: 'Lec 04',
@@ -18,8 +19,8 @@ const ALGORITHMS = [
     name: 'Bubble Sort',
     category: 'Sorting (Brute Force)',
     best: 'O(n)',
-    avg: 'O(n²)',
-    worst: 'O(n²)',
+    avg: 'O(n^2)',
+    worst: 'O(n^2)',
     space: 'O(1)',
     stable: 'Yes',
     lecture: 'Lec 04',
@@ -29,21 +30,21 @@ const ALGORITHMS = [
   {
     name: 'Insertion Sort',
     category: 'Sorting (Decrease & Conquer)',
-    best: 'O(n)',
-    avg: 'O(n²)',
-    worst: 'O(n²)',
-    space: 'O(1)',
+    best: '\\Theta(n)',
+    avg: '\\Theta(n^2)',
+    worst: '\\Theta(n^2)',
+    space: '\\Theta(1)',
     stable: 'Yes',
     lecture: 'Lec 06',
-    steps: ['1. Start with second element', '2. Compare with elements before it', '3. Shift greater elements right', '4. Insert element in correct position'],
-    link: '/lecture/06?tab=visualizer',
+    steps: ['1. Solve sub-problem of size n-1', '2. Find correct position for n-th element', '3. Shift greater elements right', '4. Insert element in sorted part'],
+    link: '/lecture/06#insertion-sort',
   },
   {
     name: 'Merge Sort',
     category: 'Sorting (Divide & Conquer)',
-    best: 'O(n log n)',
-    avg: 'O(n log n)',
-    worst: 'O(n log n)',
+    best: 'O(n \\log n)',
+    avg: 'O(n \\log n)',
+    worst: 'O(n \\log n)',
     space: 'O(n)',
     stable: 'Yes',
     lecture: 'Lec 09',
@@ -53,10 +54,10 @@ const ALGORITHMS = [
   {
     name: 'Quick Sort',
     category: 'Sorting (Divide & Conquer)',
-    best: 'O(n log n)',
-    avg: 'O(n log n)',
-    worst: 'O(n²)',
-    space: 'O(log n)',
+    best: 'O(n \\log n)',
+    avg: 'O(n \\log n)',
+    worst: 'O(n^2)',
+    space: 'O(\\log n)',
     stable: 'No',
     lecture: 'Lec 09',
     steps: ['1. Pick a pivot element', '2. Partition array around pivot', '3. Recursively sort sub-arrays'],
@@ -65,9 +66,9 @@ const ALGORITHMS = [
   {
     name: 'Heapsort',
     category: 'Sorting (Transform & Conquer)',
-    best: 'O(n log n)',
-    avg: 'O(n log n)',
-    worst: 'O(n log n)',
+    best: 'O(n \\log n)',
+    avg: 'O(n \\log n)',
+    worst: 'O(n \\log n)',
     space: 'O(1)',
     stable: 'No',
     lecture: 'Lec 10',
@@ -90,8 +91,8 @@ const ALGORITHMS = [
     name: 'Binary Search',
     category: 'Search (Decrease & Conquer)',
     best: 'O(1)',
-    avg: 'O(log n)',
-    worst: 'O(log n)',
+    avg: 'O(\\log n)',
+    worst: 'O(\\log n)',
     space: 'O(1)',
     stable: 'N/A',
     lecture: 'Lec 06',
@@ -103,7 +104,7 @@ const ALGORITHMS = [
     category: 'String Matching',
     best: 'O(m)',
     avg: 'O(n + m)',
-    worst: 'O(n · m)',
+    worst: 'O(n \\cdot m)',
     space: 'O(1)',
     stable: 'N/A',
     lecture: 'Lec 05',
@@ -111,16 +112,28 @@ const ALGORITHMS = [
     link: '/lecture/05?tab=visualizer',
   },
   {
-    name: 'DFS / BFS Graph Traversal',
+    name: 'Depth-First Search (DFS)',
     category: 'Graph Algorithms',
-    best: 'O(V + E)',
-    avg: 'O(V + E)',
-    worst: 'O(V + E)',
-    space: 'O(V)',
+    best: '\\Theta(V + E)',
+    avg: '\\Theta(V + E)',
+    worst: '\\Theta(V + E)',
+    space: '\\Theta(V)',
     stable: 'N/A',
     lecture: 'Lec 06',
-    steps: ['1. Start at source node', '2. Visit unvisited neighbors (DFS: deep, BFS: wide)', '3. Mark visited', '4. Repeat until all connected nodes visited'],
-    link: '/lecture/06?tab=visualizer',
+    steps: ['1. Start at source node', '2. Use a Stack (often recursion)', '3. Visit unvisited neighbor and move deeper', '4. Backtrack if no unvisited neighbors'],
+    link: '/lecture/06#dfs',
+  },
+  {
+    name: 'Breadth-First Search (BFS)',
+    category: 'Graph Algorithms',
+    best: '\\Theta(V + E)',
+    avg: '\\Theta(V + E)',
+    worst: '\\Theta(V + E)',
+    space: '\\Theta(V)',
+    stable: 'N/A',
+    lecture: 'Lec 06',
+    steps: ['1. Start at source node', '2. Use a Queue', '3. Dequeue and visit all unvisited neighbors', '4. Repeat until queue empty'],
+    link: '/lecture/06#bfs',
   }
 ]
 
@@ -128,10 +141,10 @@ export default function CheatSheetPage() {
   
   // Helper to color complexity cells
   const getComplexityClass = (compStr) => {
-    const clean = compStr.toLowerCase().replace(/\s/g, '').replace('²', '2')
-    if (clean.includes('o(1)')) return styles.complexityO1
+    const clean = compStr.toLowerCase().replace(/[\s\\{}]/g, '').replace('theta', '').replace('^', '').replace('cdot', '')
+    if (clean.includes('(1)')) return styles.complexityO1
     if (clean.includes('logn')) return styles.complexityOlogn
-    if (clean.includes('o(n)') || clean.includes('v+e')) return styles.complexityOn
+    if (clean.includes('(n)') || clean.includes('v+e')) return styles.complexityOn
     if (clean.includes('nlogn') || clean.includes('n+m')) return styles.complexityOnlogn
     if (clean.includes('n2') || clean.includes('nm')) return styles.complexityOn2
     return ''
@@ -157,25 +170,25 @@ export default function CheatSheetPage() {
               <div className={styles.row}>
                 <span className={styles.rowLabel}>Best Case:</span>
                 <span className={`${styles.rowValue} ${getComplexityClass(algo.best)}`}>
-                  {algo.best}
+                  <MathBlock math={algo.best} />
                 </span>
               </div>
               <div className={styles.row}>
                 <span className={styles.rowLabel}>Average Case:</span>
                 <span className={`${styles.rowValue} ${getComplexityClass(algo.avg)}`}>
-                  {algo.avg}
+                  <MathBlock math={algo.avg} />
                 </span>
               </div>
               <div className={styles.row}>
                 <span className={styles.rowLabel}>Worst Case:</span>
                 <span className={`${styles.rowValue} ${getComplexityClass(algo.worst)}`}>
-                  {algo.worst}
+                  <MathBlock math={algo.worst} />
                 </span>
               </div>
               <div className={styles.row}>
                 <span className={styles.rowLabel}>Auxiliary Space:</span>
                 <span className={`${styles.rowValue} ${getComplexityClass(algo.space)}`}>
-                  {algo.space}
+                  <MathBlock math={algo.space} />
                 </span>
               </div>
             </div>

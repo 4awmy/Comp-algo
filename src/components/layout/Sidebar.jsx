@@ -117,9 +117,11 @@ function LectureItem({ lecture }) {
 
           {lecture.hasVisualization && (
             <NavLink
-              to={`/lecture/${lecture.id}?tab=visualizer`}
+              to={lecture.id === '06' ? `/lecture/${lecture.id}#insertion-sort` : `/lecture/${lecture.id}?tab=visualizer`}
               className={() => {
-                const isVisActive = location.pathname === `/lecture/${lecture.id}` && location.search.includes('tab=visualizer')
+                const isVisActive = lecture.id === '06' 
+                  ? location.pathname === `/lecture/${lecture.id}` && location.hash.includes('insertion-sort')
+                  : location.pathname === `/lecture/${lecture.id}` && location.search.includes('tab=visualizer')
                 return `${styles.subItem} ${isVisActive ? styles.subItemActive : ''}`
               }}
             >
