@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import MathBlock from '../../ui/Premium/MathBlock'
 import VisualStage from '../../ui/Premium/VisualStage'
 import styles from './Bespoke.module.css'

@@ -1,4 +1,3 @@
-import React from 'react';
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import DynamicProgTracer from '../../components/visualization/bespoke/DynamicProgTracer';

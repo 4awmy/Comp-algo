@@ -13,7 +13,9 @@ const FakeCoinTracer = () => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const fakeIdx = useMemo(() => Math.floor(Math.random() * n), [n]);
+  const fakeIdx = useMemo(() => {
+    return Math.floor(n * 0.456 + 1) % n;
+  }, [n]);
   
   const steps = useMemo(() => {
     const s = [];
@@ -84,7 +86,7 @@ const FakeCoinTracer = () => {
     });
 
     return s;
-  }, [n]);
+  }, [n, fakeIdx]);
 
   useEffect(() => {
     let timer;
@@ -92,8 +94,10 @@ const FakeCoinTracer = () => {
       timer = setTimeout(() => {
         setCurrentStepIdx(prev => prev + 1);
       }, 1500);
-    } else {
-      setIsPlaying(false);
+    } else if (isPlaying) {
+      timer = setTimeout(() => {
+        setIsPlaying(false);
+      }, 0);
     }
     return () => clearTimeout(timer);
   }, [isPlaying, currentStepIdx, steps.length]);

@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import MathBlock from '../../ui/Premium/MathBlock';
 import styles from './AnalysisWorkspace.module.css';
 
 const AnalysisWorkspace = () => {
   const [n, setN] = useState(5);
-  const [sigmaSum, setSigmaSum] = useState(0);
-  const [sigmaSteps, setSigmaSteps] = useState([]);
-  const [fibRecursiveCalls, setFibRecursiveCalls] = useState(0);
-  const [fibIterativeSteps, setFibIterativeSteps] = useState(0);
 
-  useEffect(() => {
+  const { sigmaSum, sigmaSteps, fibIterativeSteps, fibRecursiveCalls } = useMemo(() => {
     // Sigma Calculation
     let currentSum = 0;
     const steps = [];
@@ -17,8 +13,6 @@ const AnalysisWorkspace = () => {
       currentSum += i;
       steps.push(currentSum);
     }
-    setSigmaSum(currentSum);
-    setSigmaSteps(steps);
 
     // Fibonacci Calculation Counts
     // Recursive calls: T(n) = T(n-1) + T(n-2) + 1
@@ -28,14 +22,17 @@ const AnalysisWorkspace = () => {
     };
     
     // For n, iterative is n-1 additions
-    setFibIterativeSteps(n <= 1 ? 0 : n - 1);
+    const iterativeSteps = n <= 1 ? 0 : n - 1;
     
     // Limit n for recursive count to avoid hang
-    if (n <= 25) {
-      setFibRecursiveCalls(countRecursive(n));
-    } else {
-      setFibRecursiveCalls('Too many (> 200,000)');
-    }
+    const recursiveCalls = n <= 25 ? countRecursive(n) : 'Too many (> 200,000)';
+
+    return {
+      sigmaSum: currentSum,
+      sigmaSteps: steps,
+      fibIterativeSteps: iterativeSteps,
+      fibRecursiveCalls: recursiveCalls
+    };
   }, [n]);
 
   return (

@@ -29,7 +29,6 @@ const QuickSortTracer = () => {
     // Pivot = arr[0] = 38
     record(arr, 0, -1, -1, "Quick Sort: We pick the first element (38) as the pivot.");
 
-    let pivot = arr[0];
     let i = 1;
     let j = arr.length - 1;
 

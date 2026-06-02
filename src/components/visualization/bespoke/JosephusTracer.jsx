@@ -78,8 +78,10 @@ const JosephusTracer = () => {
       timer = setTimeout(() => {
         setCurrentStepIdx(prev => prev + 1);
       }, 800);
-    } else {
-      setIsPlaying(false);
+    } else if (isPlaying) {
+      timer = setTimeout(() => {
+        setIsPlaying(false);
+      }, 0);
     }
     return () => clearTimeout(timer);
   }, [isPlaying, currentStepIdx, steps.length]);

@@ -1,5 +1,10 @@
+import React from 'react';
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import VisualStage from '../../ui/Premium/VisualStage';
+import ComplexityCounterTracer from '../../components/visualization/bespoke/ComplexityCounterTracer';
+import GrowthChartTracer from '../../components/visualization/bespoke/GrowthChartTracer';
+import AsymptoticNotationTracer from '../../components/visualization/bespoke/AsymptoticNotationTracer';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
 const Lec02 = () => {
@@ -8,121 +13,120 @@ const Lec02 = () => {
       <LessonHero 
         tag="Lecture 02"
         title="Analysis Fundamentals"
-        subtitle="Establishing the theoretical framework for measuring algorithm efficiency."
+        subtitle="Mastering the tools to measure algorithm efficiency and performance."
       />
 
       <div className={styles.contentWrapper}>
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
-            To compare algorithms objectively, we need a framework that is independent of specific hardware or software implementations. We measure efficiency in two dimensions: <b>Time Efficiency</b> (how fast the algorithm runs) and <b>Space Efficiency</b> (how much extra memory it uses).
+            To design better algorithms, we must first learn how to <b>measure</b> them. Analysis of algorithms focuses on two primary resources: <b>Time</b> and <b>Space</b>. We don't measure time in seconds, but in the number of <b>Basic Operations</b> executed relative to the input size <MathBlock math="n" />.
           </p>
-
+          
           <div className={styles.infoCard}>
             <h4>The Analysis Framework</h4>
-            <p className={styles.editorialText}>
-              In the early days of computing, space was as much a concern as time. Today, while space remains important for massive datasets, time efficiency is typically the primary focus of algorithmic analysis.
-            </p>
+            <ul className={styles.editorialList}>
+              <li><b>Input Size (n):</b> The number of items the algorithm processes.</li>
+              <li><b>Basic Operation:</b> The operation in the algorithm's innermost loop that contributes the most to the total running time.</li>
+              <li><b>Growth Rate:</b> How the number of operations increases as <MathBlock math="n" /> grows.</li>
+            </ul>
           </div>
         </section>
 
-        <section id="input-size" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>1. Measuring Input Size</h2>
+        <section id="basic-operations" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>1. Counting Basic Operations</h2>
           <p className={styles.editorialText}>
-            Efficiency is almost always a function of the input size, denoted as <MathBlock math="n" />. The way we measure <MathBlock math="n" /> depends on the problem:
+            The first step in analysis is identifying and counting the basic operations. These are usually comparisons or arithmetic operations in the deepest part of the loop.
           </p>
 
-          <ul className={styles.editorialList}>
-            <li><b>Arrays/Lists:</b> The number of elements in the array.</li>
-            <li><b>Polynomials:</b> The degree of the polynomial.</li>
-            <li><b>Matrices:</b> The number of rows and columns (or total elements).</li>
-            <li><b>Graphs:</b> The number of vertices <MathBlock math="|V|" /> and edges <MathBlock math="|E|" />.</li>
-            <li><b>Numbers:</b> The number of bits in their binary representation.</li>
-          </ul>
-        </section>
+          <ComplexityCounterTracer />
 
-        <section id="basic-operation" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>2. The Basic Operation</h2>
-          <p className={styles.editorialText}>
-            Instead of measuring time in seconds (which depends on the computer's speed), we count the number of times the algorithm's <b>basic operation</b> is executed. This is typically the most time-consuming operation in the algorithm's innermost loop.
-          </p>
-
-          <div className={styles.statsBar}>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Search/Sort</span>
-              <p>Key Comparison</p>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Math</span>
-              <p>Multiplication / Division</p>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Graph</span>
-              <p>Edge Traversal</p>
-            </div>
+          <div className={styles.gridTwoCol}>
+             <div className={styles.infoCard}>
+                <h4>Simple Loop</h4>
+                <pre style={{fontSize: '12px', background: 'var(--bg-elevated)'}}>
+{`for i ← 0 to n-1 do
+  x ← x + 4`}
+                </pre>
+                <p className="mt-2 text-xs">Total operations: <MathBlock math="n" /></p>
+             </div>
+             <div className={styles.infoCard}>
+                <h4>Nested Loop</h4>
+                <pre style={{fontSize: '12px', background: 'var(--bg-elevated)'}}>
+{`for i ← 0 to n-1 do
+  for j ← 0 to n-1 do
+    x ← x + 1`}
+                </pre>
+                <p className="mt-2 text-xs">Total operations: <MathBlock math="n^2" /></p>
+             </div>
           </div>
-
-          <MathBlock 
-            block 
-            math="T(n) \approx c \cdot C(n)" 
-            caption="Total running time is roughly the cost of one basic operation (c) times the number of times it is executed (C(n))."
-          />
         </section>
 
-        <section id="case-analysis" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>3. Best, Worst, and Average Case</h2>
+        <section id="growth-rates" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>2. Orders of Growth</h2>
           <p className={styles.editorialText}>
-            For many algorithms, the running time depends not just on the <em>size</em> of the input, but on the <em>specific values</em> in the input.
+            We categorize algorithms into <b>Efficiency Classes</b> based on their growth rates. Small differences in constant factors don't matter as much as the overall class (e.g., linear vs. quadratic) when <MathBlock math="n" /> is large.
+          </p>
+
+          <GrowthChartTracer />
+
+          <div className={styles.infoCard}>
+             <h4 className="mb-4">Common Efficiency Classes</h4>
+             <div className="overflow-x-auto">
+               <table className="table table-xs w-full">
+                 <thead>
+                   <tr>
+                     <th>Class</th>
+                     <th>Name</th>
+                     <th>Growth Velocity</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr><td><MathBlock math="1" /></td><td>Constant</td><td className="text-green-400">🟢 No change</td></tr>
+                   <tr><td><MathBlock math="\log n" /></td><td>Logarithmic</td><td className="text-yellow-400">🟡 Extremely slow growth</td></tr>
+                   <tr><td><MathBlock math="n" /></td><td>Linear</td><td className="text-orange-400">🟠 Steady growth</td></tr>
+                   <tr><td><MathBlock math="n^2" /></td><td>Quadratic</td><td className="text-red-400">🔴 Fast growth</td></tr>
+                   <tr><td><MathBlock math="2^n" /></td><td>Exponential</td><td className="text-red-600 font-bold">⚫ Explosive growth</td></tr>
+                 </tbody>
+               </table>
+             </div>
+          </div>
+        </section>
+
+        <section id="asymptotic" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>3. Asymptotic Notation</h2>
+          <p className={styles.editorialText}>
+            To formalize growth rates, we use <b>Asymptotic Notation</b>. This provides a way to bound the algorithm's performance from above, below, and tightly.
           </p>
 
           <div className={styles.gridThreeCol}>
-            <div className={styles.infoCard}>
-              <h3>Worst Case</h3>
-              <p>The maximum number of steps over all inputs of size <MathBlock math="n" />. This provides a guaranteed upper bound.</p>
-            </div>
-            <div className={styles.infoCard}>
-              <h3>Best Case</h3>
-              <p>The minimum number of steps. Rarely useful on its own but helps define boundaries.</p>
-            </div>
-            <div className={styles.infoCard}>
-              <h3>Average Case</h3>
-              <p>The expected number of steps over all possible inputs, often requiring probabilistic analysis.</p>
-            </div>
+             <div className={styles.infoCard}>
+                <h4 className="text-red-400">Big-O ($O$)</h4>
+                <p className="text-xs"><b>Upper Bound:</b> The algorithm is at most this slow. "Worst Case" guarantee.</p>
+             </div>
+             <div className={styles.infoCard}>
+                <h4 className="text-green-400">Big-Omega ($\Omega$)</h4>
+                <p className="text-xs"><b>Lower Bound:</b> The algorithm is at least this fast. "Best Case" guarantee.</p>
+             </div>
+             <div className={styles.infoCard}>
+                <h4 className="text-purple-400">Big-Theta ($\Theta$)</h4>
+                <p className="text-xs"><b>Tight Bound:</b> The algorithm grows exactly at this rate.</p>
+             </div>
           </div>
+
+          <AsymptoticNotationTracer />
         </section>
 
-        <section id="asymptotic-notation" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>4. Asymptotic Notations</h2>
+        <section id="cases" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>4. Best, Worst, and Average Cases</h2>
           <p className={styles.editorialText}>
-            We use asymptotic notation to describe the <b>order of growth</b> of an algorithm's complexity, ignoring constant factors and lower-order terms.
+            For some algorithms, the number of operations depends not just on <MathBlock math="n" />, but on the specific <b>type</b> of input.
           </p>
-
-          <div className={styles.comparisonGrid}>
-            <div className={styles.comparisonCard}>
-              <h3>Big O (<MathBlock math="O" />)</h3>
-              <p><b>Upper Bound:</b> <MathBlock math="t(n) \in O(g(n))" /> if <MathBlock math="t(n) \leq c \cdot g(n)" /> for all <MathBlock math="n \geq n_0" />.</p>
-            </div>
-            <div className={styles.comparisonCard}>
-              <h3>Big Omega (<MathBlock math="\Omega" />)</h3>
-              <p><b>Lower Bound:</b> <MathBlock math="t(n) \in \Omega(g(n))" /> if <MathBlock math="t(n) \geq c \cdot g(n)" /> for all <MathBlock math="n \geq n_0" />.</p>
-            </div>
-            <div className={styles.comparisonCard}>
-              <h3>Big Theta (<MathBlock math="\Theta" />)</h3>
-              <p><b>Tight Bound:</b> <MathBlock math="t(n) \in \Theta(g(n))" /> if it is both <MathBlock math="O(g(n))" /> and <MathBlock math="\Omega(g(n))" />.</p>
-            </div>
-          </div>
-
-          <div className={styles.methodBox}>
-            <h3>Basic Efficiency Classes</h3>
-            <ul className={styles.editorialList}>
-              <li><MathBlock math="1" />: Constant</li>
-              <li><MathBlock math="\log n" />: Logarithmic</li>
-              <li><MathBlock math="n" />: Linear</li>
-              <li><MathBlock math="n \log n" />: Linearithmic</li>
-              <li><MathBlock math="n^2" />: Quadratic</li>
-              <li><MathBlock math="n^3" />: Cubic</li>
-              <li><MathBlock math="2^n" />: Exponential</li>
-              <li><MathBlock math="n!" />: Factorial</li>
-            </ul>
+          <div className={styles.editorialList}>
+             <ul>
+                <li><b>Worst Case:</b> Maximum operations for any input of size n.</li>
+                <li><b>Best Case:</b> Minimum operations for any input of size n.</li>
+                <li><b>Average Case:</b> Expected performance over random inputs.</li>
+             </ul>
           </div>
         </section>
       </div>

@@ -2,7 +2,6 @@ import { useState, useMemo, useEffect } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const TSP_CITIES = ['A', 'B', 'C', 'D'];
 const TSP_DISTANCES = {
   'A-B': 2, 'A-C': 5, 'A-D': 7,
   'B-C': 8, 'B-D': 3,
@@ -166,18 +165,15 @@ const ExhaustiveSearchTracer = () => {
   const steps = mode === 'TSP' ? tspSteps : knapsackSteps;
 
   useEffect(() => {
-    setCurrentStepIdx(0);
-    setIsPlaying(false);
-  }, [mode]);
-
-  useEffect(() => {
     let timer;
     if (isPlaying && currentStepIdx < steps.length - 1) {
       timer = setTimeout(() => {
         setCurrentStepIdx(prev => prev + 1);
       }, 800);
-    } else {
-      setIsPlaying(false);
+    } else if (isPlaying) {
+      timer = setTimeout(() => {
+        setIsPlaying(false);
+      }, 0);
     }
     return () => clearTimeout(timer);
   }, [isPlaying, currentStepIdx, steps.length]);
@@ -189,7 +185,11 @@ const ExhaustiveSearchTracer = () => {
       <select 
         className="select select-bordered select-sm"
         value={mode}
-        onChange={(e) => setMode(e.target.value)}
+        onChange={(e) => {
+          setMode(e.target.value);
+          setCurrentStepIdx(0);
+          setIsPlaying(false);
+        }}
       >
         <option value="TSP">TSP (Permutations)</option>
         <option value="Knapsack">Knapsack (Subsets)</option>

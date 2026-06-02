@@ -87,7 +87,7 @@ const HeapsortTracer = () => {
   const step = steps[currentStepIdx];
 
   // Tree layout helper
-  const getCoordinates = (idx, total) => {
+  const getCoordinates = (idx) => {
     const level = Math.floor(Math.log2(idx + 1));
     const posInLevel = idx - (Math.pow(2, level) - 1);
     const nodesInLevel = Math.pow(2, level);
@@ -115,15 +115,15 @@ const HeapsortTracer = () => {
             {step.arr.map((_, i) => {
               const left = 2 * i + 1;
               const right = 2 * i + 2;
-              const coords = getCoordinates(i, step.arr.length);
+              const coords = getCoordinates(i);
               
               return (
                 <g key={`edges-${i}`}>
                   {left < step.arr.length && (
                     <line 
                       x1={coords.x} y1={coords.y} 
-                      x2={getCoordinates(left, step.arr.length).x} 
-                      y2={getCoordinates(left, step.arr.length).y} 
+                      x2={getCoordinates(left).x} 
+                      y2={getCoordinates(left).y} 
                       className={styles.edge} 
                       style={{ strokeOpacity: left >= step.sortedIdx ? 0.2 : 1 }}
                     />
@@ -131,8 +131,8 @@ const HeapsortTracer = () => {
                   {right < step.arr.length && (
                     <line 
                       x1={coords.x} y1={coords.y} 
-                      x2={getCoordinates(right, step.arr.length).x} 
-                      y2={getCoordinates(right, step.arr.length).y} 
+                      x2={getCoordinates(right).x} 
+                      y2={getCoordinates(right).y} 
                       className={styles.edge}
                       style={{ strokeOpacity: right >= step.sortedIdx ? 0.2 : 1 }}
                     />
@@ -143,7 +143,7 @@ const HeapsortTracer = () => {
             
             {/* Nodes */}
             {step.arr.map((val, i) => {
-              const coords = getCoordinates(i, step.arr.length);
+              const coords = getCoordinates(i);
               let state = styles.node;
               if (step.activeIdxs.includes(i)) state = `${styles.node} ${styles.nodeActive}`;
               else if (step.comparingIdxs.includes(i)) state = `${styles.node} ${styles.nodeQueued}`;

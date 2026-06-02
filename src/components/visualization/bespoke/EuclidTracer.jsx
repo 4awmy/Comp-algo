@@ -29,7 +29,6 @@ const EuclidTracer = () => {
         description: `Compute the remainder of ${m} divided by ${n}.`
       });
 
-      const oldM = m;
       const oldN = n;
       m = n;
       n = r;

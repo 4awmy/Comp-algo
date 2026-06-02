@@ -9,18 +9,18 @@ const PATTERN = "BARBER";
  * HorspoolTracer - Visualizes Horspool's String Matching Algorithm.
  * Shows Shift Table construction and Search process.
  */
+const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_".split("");
+
 const HorspoolTracer = () => {
   const [view, setView] = useState('search'); // 'table' or 'search'
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
-
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_".split("");
 
   const shiftTable = useMemo(() => {
     const table = {};
     const m = PATTERN.length;
     
     // Default shift is m
-    alphabet.forEach(char => {
+    ALPHABET.forEach(char => {
       table[char] = m;
     });
 
@@ -114,7 +114,7 @@ const HorspoolTracer = () => {
         {view === 'table' ? (
           <div className={styles.horspoolContainer}>
             <div className={styles.shiftTable}>
-              {alphabet.filter(c => PATTERN.includes(c) || c === 'O').map(char => (
+              {ALPHABET.filter(c => PATTERN.includes(c) || c === 'O').map(char => (
                 <div key={char} className={styles.shiftItem}>
                   <span className={styles.shiftChar}>{char === 'O' ? 'Other' : char}</span>
                   <span className={styles.shiftVal}>{char === 'O' ? PATTERN.length : shiftTable[char]}</span>
