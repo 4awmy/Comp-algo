@@ -3,6 +3,7 @@ import MathBlock from '../../components/ui/Premium/MathBlock';
 import SelectionSortTracer from '../../components/visualization/bespoke/SelectionSortTracer';
 import BubbleSortTracer from '../../components/visualization/bespoke/BubbleSortTracer';
 import StringMatchTracer from '../../components/visualization/bespoke/StringMatchTracer';
+import { PillarsInfographic, MindsetVisual, SweetSpotMatrix } from '../../components/visualization/bespoke/BruteForceConcepts';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
 const Lec04 = () => {
@@ -17,46 +18,46 @@ const Lec04 = () => {
       <div className={styles.contentWrapper}>
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
-            <b>Brute force</b> is a straightforward approach to solving a problem, usually directly based on the problem statement and definitions of the concepts involved. While often criticized for its inefficiency, it remains an essential tool in a programmer's arsenal due to its simplicity and guaranteed correctness.
+            <b>Brute force</b> is a straightforward approach to solving a problem, usually directly based on the problem statement and definitions of the concepts involved. It is the "just do it" philosophy of algorithm design—ignoring cleverness in favor of a guaranteed, albeit often slow, result.
           </p>
 
-          <div className={styles.gridTwoCol}>
-            <div className={styles.infoCard}>
-              <h4>Key Characteristics</h4>
-              <ul className={styles.editorialList}>
-                <li><b>Direct:</b> Directly follows the problem statement.</li>
-                <li><b>Exhaustive:</b> Often checks every candidate solution.</li>
-                <li><b>Reliable:</b> Guaranteed to find a solution if it exists.</li>
-                <li><b>Baseline:</b> Serves as a performance benchmark for optimized algorithms.</li>
-              </ul>
-            </div>
-            <div className={styles.infoCard}>
-              <h4>When to use Brute Force</h4>
-              <p className={styles.editorialText}>
-                Brute force is surprisingly useful when the input size is small, when no faster algorithm is known, or when the cost of designing a more complex algorithm outweighs the performance gain.
-              </p>
-            </div>
-          </div>
+          <PillarsInfographic />
+
+          <p className={styles.editorialText}>
+            The brute-force mindset is applicable to a wide variety of problems. Whether it's cracking a combination lock by trying every possible number or scanning a 2D grid pixel-by-pixel, the principle remains: <i>exhaustive coverage ensures success.</i>
+          </p>
+          
+          <MindsetVisual />
+        </section>
+
+        <section className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>When to use Brute Force?</h2>
+          <p className={styles.editorialText}>
+            While often criticized for its <MathBlock math="\Theta(2^n)" /> or <MathBlock math="\Theta(n!)" /> behavior in combinatorial problems, brute force is not always a bad choice. In fact, there is a specific "Sweet Spot" where it is the superior engineering decision.
+          </p>
+          
+          <SweetSpotMatrix />
+
+          <p className={styles.editorialText}>
+            If the input size is small (e.g., <MathBlock math="n < 20" />), even an exponential algorithm will run in milliseconds. In such cases, the simplicity of brute force leads to fewer bugs and faster development time.
+          </p>
         </section>
 
         <section id="selection-sort" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>Selection Sort</h2>
           <p className={styles.editorialText}>
-            Selection Sort is the quintessential brute-force sorting algorithm. It works by repeatedly finding the minimum element from the unsorted part and putting it at the beginning.
+            Selection Sort is the quintessential brute-force sorting algorithm. It scans the entire unsorted list to find the minimum element, then "selects" it to be moved to its final sorted position.
           </p>
 
           <div className={styles.comparisonGrid}>
             <div className={styles.comparisonCard}>
-              <h3>Algorithm Logic</h3>
-              <p>1. Start from the first element.</p>
-              <p>2. Scan the rest of the array to find the smallest element.</p>
-              <p>3. Swap the smallest element with the first element.</p>
-              <p>4. Repeat for the remaining unsorted part.</p>
+              <h3>Exhaustive Search</h3>
+              <p>For each position, we must look at <b>every</b> remaining element to be absolutely sure we found the minimum.</p>
             </div>
             <div className={styles.comparisonCard}>
-              <h3>Complexity Analysis</h3>
-              <p>Comparisons: <MathBlock math="C(n) = \sum_{i=0}^{n-2} \sum_{j=i+1}^{n-1} 1 = \frac{n(n-1)}{2} \approx \frac{n^2}{2} \in \Theta(n^2)" /></p>
-              <p>Key Swaps: <MathBlock math="\Theta(n)" /> (exactly <MathBlock math="n-1" /> swaps).</p>
+              <h3>Complexity</h3>
+              <p>Comparisons: <MathBlock math="\Theta(n^2)" /></p>
+              <p>Swaps: <MathBlock math="\Theta(n)" /></p>
             </div>
           </div>
 
@@ -66,79 +67,55 @@ const Lec04 = () => {
         <section id="bubble-sort" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>Bubble Sort</h2>
           <p className={styles.editorialText}>
-            Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The largest elements "bubble up" to the end of the array in each pass.
+            Bubble Sort takes a slightly different brute-force path. Instead of finding the minimum globally, it performs local comparisons between adjacent elements. In each pass, the largest element "bubbles up" to its correct spot at the end.
           </p>
 
           <div className={styles.infoCard}>
-            <h4>Efficiency Note</h4>
+            <h4>The "Sorted Wall"</h4>
             <p className={styles.editorialText}>
-              Like Selection Sort, Bubble Sort has a <MathBlock math="\Theta(n^2)" /> time complexity. However, it is generally slower in practice due to the large number of swaps required. A common optimization is to stop early if a pass through the array results in no swaps.
+              In each pass, we can reduce our search space because the end of the array becomes sorted. We visually represent this as a "Sorted Wall" that grows from right to left.
             </p>
           </div>
 
           <BubbleSortTracer />
         </section>
 
-        <section id="sequential-search" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>Sequential Search</h2>
+        <section id="string-matching" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>Brute-force String Matching</h2>
           <p className={styles.editorialText}>
-            The simplest way to search for a key in a list is to compare it with every element until a match is found or the end of the list is reached.
+            The simplest way to find a pattern in a text is to slide the pattern along the text like a <b>ruler</b>. At each position, we check if the characters match. If a mismatch occurs, we shift the ruler by exactly one position and start over.
           </p>
+
+          <StringMatchTracer />
 
           <div className={styles.statsBar}>
             <div className={styles.statItem}>
               <span className={styles.statLabel}>Best Case</span>
-              <p><MathBlock math="C_{best}(n) = 1" /></p>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Average Case</span>
-              <p><MathBlock math="C_{avg}(n) \approx \frac{n}{2}" /></p>
+              <p><MathBlock math="\Theta(m)" /></p>
             </div>
             <div className={styles.statItem}>
               <span className={styles.statLabel}>Worst Case</span>
-              <p><MathBlock math="C_{worst}(n) = n" /></p>
+              <p><MathBlock math="O(n \cdot m)" /></p>
             </div>
           </div>
-
-          <p className={styles.editorialText}>
-            An interesting optimization is to use a <b>sentinel</b>: append the search key to the end of the list. This eliminates the need to check for the end of the list in every iteration of the loop.
-          </p>
-        </section>
-
-        <section id="string-matching" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>Brute-force String Matching</h2>
-          <p className={styles.editorialText}>
-            Given a text of <MathBlock math="n" /> characters and a pattern of <MathBlock math="m" /> characters, we want to find the first occurrence of the pattern in the text. The brute-force approach aligns the pattern with the start of the text and moves it one position at a time.
-          </p>
-
-          <div className={styles.infoCard}>
-            <h4>Complexity</h4>
-            <p className={styles.editorialText}>
-              In the worst case, the algorithm performs <MathBlock math="m(n-m+1)" /> comparisons, which is <MathBlock math="O(nm)" />. However, for natural language texts, the average performance is much closer to <MathBlock math="\Theta(n+m)" />.
-            </p>
-          </div>
-
-          <StringMatchTracer />
         </section>
 
         <section id="summary" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>Strengths and Weaknesses</h2>
+          <h2 className={styles.sectionTitle}>The Brute Force Legacy</h2>
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
-              <h4>Strengths</h4>
+              <h4>Why it stays relevant</h4>
               <ul className={styles.editorialList}>
-                <li>Applicable to a very wide range of problems.</li>
-                <li>Yields reasonable algorithms for many important problems (e.g., matrix multiplication).</li>
-                <li>Simplicity makes it less prone to implementation errors.</li>
+                <li><b>Generality:</b> It works for almost any problem.</li>
+                <li><b>Correctness:</b> Hard to implement wrong due to simplicity.</li>
+                <li><b>Benchmarks:</b> Provides a baseline to measure "clever" algorithms.</li>
               </ul>
             </div>
             <div className={styles.infoCard}>
-              <h4>Weaknesses</h4>
-              <ul className={styles.editorialList}>
-                <li>Rarely yields efficient algorithms.</li>
-                <li>Some brute-force algorithms are unacceptably slow (e.g., traveling salesman).</li>
-                <li>Not as "intellectually satisfying" as more sophisticated techniques.</li>
-              </ul>
+              <h4>The Hidden Cost</h4>
+              <p className={styles.editorialText}>
+                The cost isn't just time; it's the missed opportunity for insight. Brute force ignores the internal structure of a problem that might allow for a much faster logarithmic or linear solution.
+              </p>
             </div>
           </div>
         </section>

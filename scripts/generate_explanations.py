@@ -9,6 +9,7 @@ Uses the new google-genai SDK.
 Rate limiting: 4-second sleep between API calls (15 RPM free tier).
 """
 
+import os
 import re
 import json
 import time

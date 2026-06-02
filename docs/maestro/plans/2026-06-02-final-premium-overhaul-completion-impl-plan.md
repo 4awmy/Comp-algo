@@ -56,10 +56,11 @@ Phase 6: Global Audit & Deployment
     - `src/components/visualization/bespoke/SieveTracer.jsx`
 
 ### Phase 3: Lec 03
-- **Objective**: Premium math analysis features.
+- **Objective**: Premium math analysis features with extensive visual demos.
 - **Files to Create**:
     - `src/pages/lectures/Lec03.jsx`
-    - `src/components/visualization/bespoke/AnalysisWorkspace.jsx`
+    - `src/components/visualization/bespoke/AnalysisWorkspace.jsx` (already created, needs enhancement)
+    - `src/components/visualization/bespoke/MathVisualizers.jsx`: A suite of smaller interactive components for Stacked Triangles, Growth Rate Race, Recursive Call Stacks, Equation Expansion, Halving Bar Charts, and Empirical Dashboards.
 
 ### Phase 4: Lec 04
 - **Objective**: Core sorting and searching visuals.

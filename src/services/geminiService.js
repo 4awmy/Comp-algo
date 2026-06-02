@@ -3,7 +3,7 @@
 // Uses fetch to avoid large Node SDK dependencies in the browser build.
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
-const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 /**
  * Sends a message to the AI Tutor with context about the current lecture/slide.
@@ -19,6 +19,30 @@ const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models
  * @param {Array} history - Previous messages: [{ sender: 'user'|'bot', text: string }]
  */
 export async function chatWithTutor(context, userMessage, history = []) {
+  // 1. Try local dev proxy endpoint (which executes the local authenticated gemini CLI)
+  try {
+    const localResponse = await fetch('/api/tutor', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ context, userMessage, history })
+    });
+
+    if (localResponse.ok) {
+      const contentType = localResponse.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        const data = await localResponse.json();
+        if (data && data.text) {
+          return data.text;
+        }
+      }
+    }
+  } catch (localError) {
+    console.warn("Local tutor proxy not available, falling back to direct API:", localError);
+  }
+
+  // 2. Direct API Fallback (used in production static build or when local proxy fails)
   // Build system prompt
   const systemPrompt = `You are "Antigravity Tutor", an expert AI computer science teaching assistant for Dr. Moheeb's "Computing Algorithms" course at the Arab Academy for Science and Technology (AAST).
 Your goal is to help students understand the lecture slides and algorithm concepts in a friendly, encouraging, and highly educational manner.
@@ -92,3 +116,4 @@ Instructions:
     throw error;
   }
 }
+

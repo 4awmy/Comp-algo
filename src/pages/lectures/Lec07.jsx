@@ -2,6 +2,15 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import FakeCoinTracer from '../../components/visualization/bespoke/FakeCoinTracer';
 import JosephusTracer from '../../components/visualization/bespoke/JosephusTracer';
+import { 
+  JohnsonTrotterTracer,
+  LexicographicTracer,
+  BottomUpSubsetTracer,
+  GrayCodeTracer,
+  BinarySearchRace, 
+  RussianPeasantTracer, 
+  JosephusCircle 
+} from '../../components/visualization/bespoke/DecreaseConquerIIConcepts';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
 const Lec07 = () => {
@@ -29,85 +38,113 @@ const Lec07 = () => {
           </div>
         </section>
 
-        <section id="combinatorial-generation" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>1. Combinatorial Generation</h2>
+        <section id="permutations" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>1. Generating Permutations</h2>
           <p className={styles.editorialText}>
-            Generating permutations and subsets are fundamental tasks in combinatorial computing. While often expensive ($O(n!)$ or $O(2^n)$), decrease-and-conquer allows us to generate each new instance from the previous one with <b>minimal changes</b>.
+            Generating permutations is a fundamental task in combinatorial computing. The <b>minimal-change</b> requirement ensures that each new permutation is created by swapping exactly two adjacent elements.
           </p>
+
+          <JohnsonTrotterTracer />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.methodBox}>
-              <h3>Johnson-Trotter Algorithm</h3>
-              <p>Generates permutations such that each differs from its predecessor by a single swap of adjacent elements. It assigns a <em>direction</em> to each element.</p>
-              <MathBlock math="n! \text{ steps, but each is } O(1)" />
+              <h3>Minimal-Change Algorithm</h3>
+              <p>Each permutation differs from its predecessor by a single swap of adjacent elements. The Johnson-Trotter algorithm is the most famous implementation of this property.</p>
+              <MathBlock math="n! \text{ permutations, } O(1) \text{ per change}" />
             </div>
             <div className={styles.methodBox}>
-              <h3>Binary-Reflected Gray Code</h3>
-              <p>Generates all $2^n$ subsets of an $n$-element set such that each subset differs from the previous one by exactly one element (bit flip).</p>
-              <MathBlock math="G(n) = [0G(n-1), 1G(n-1)^R]" />
+              <h3>Lexicographic Generation</h3>
+              <p>Dictionary order generation. While logical, it often requires multiple swaps to move from one permutation to the next.</p>
+              <LexicographicTracer />
+            </div>
+          </div>
+        </section>
+
+        <section id="subsets" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>2. Generating Subsets</h2>
+          <p className={styles.editorialText}>
+            The bottom-up approach generates subsets of size $n$ by taking all subsets of size $n-1$ and duplicating them, adding the new $n$-th element to each duplicate.
+          </p>
+
+          <BottomUpSubsetTracer />
+
+          <div className={styles.infoCard}>
+            <h4>Binary Reflected Gray Code</h4>
+            <p className={styles.editorialText}>
+              A Gray code is a sequence of bit strings where each differs from the predecessor by exactly one bit. This corresponds to adding or removing exactly one element from a subset.
+            </p>
+            <GrayCodeTracer />
+            <MathBlock block math="G(n) = [0G(n-1), 1G(n-1)^R]" />
+          </div>
+        </section>
+
+        <section id="binary-search" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>3. Binary Search</h2>
+          <p className={styles.editorialText}>
+            Binary Search is the ultimate example of <b>decrease-by-a-constant-factor</b> ($n/2$). By comparing the target with the middle element, we can discard half of the remaining array in each step.
+          </p>
+
+          <BinarySearchRace />
+
+          <div className={styles.statsBar}>
+            <div className={styles.statItem}>
+              <span className={styles.statLabel}>Linear Search</span>
+              <MathBlock math="\Theta(n)" />
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statLabel}>Binary Search</span>
+              <MathBlock math="\Theta(\log n)" />
             </div>
           </div>
         </section>
 
         <section id="fake-coin" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>2. Decrease-by-a-Factor: The Fake Coin Problem</h2>
+          <h2 className={styles.sectionTitle}>4. The Fake Coin Problem</h2>
           <p className={styles.editorialText}>
-            Given $n$ identical-looking coins where one is lighter (fake), identify the fake coin using a balance scale. While a binary split ($n/2$) works, dividing into <b>three groups</b> ($n/3$) is actually more efficient.
+            Given $n$ coins where one is lighter, identifying it using a balance scale. Dividing into <b>three groups</b> ($n/3$) is more efficient than binary splitting.
           </p>
-
-          <div className={styles.statsBar}>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Binary Split</span>
-              <MathBlock math="\lceil \log_2 n \rceil" />
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Ternary Split</span>
-              <MathBlock math="\lceil \log_3 n \rceil" />
-            </div>
-          </div>
 
           <FakeCoinTracer />
 
           <p className={styles.editorialText}>
-            By weighing two groups of size $\lfloor n/3 \rfloor$, we either find the fake in one of the pans or know it must be in the third (unweighed) group. This reduces the problem size by a factor of 3 in each step.
+            Ternary splitting reduces the search space more aggressively than binary splitting, yielding $\lceil \log_3 n \rceil$ weighings.
           </p>
         </section>
 
         <section id="russian-peasant" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>3. Russian Peasant Multiplication</h2>
+          <h2 className={styles.sectionTitle}>5. Russian Peasant Multiplication</h2>
           <p className={styles.editorialText}>
-            An ancient method for multiplying two integers $n$ and $m$ that only requires halving, doubling, and addition. It is a classic decrease-by-a-factor algorithm.
+            An ancient method for multiplying two integers $n$ and $m$ using only halving, doubling, and addition.
           </p>
+
+          <RussianPeasantTracer />
 
           <div className={styles.infoCard}>
-            <MathBlock block math="n \cdot m = \begin{cases} (n/2) \cdot (2m) & \text{if } n \text{ is even} \\ ((n-1)/2) \cdot (2m) + m & \text{if } n \text{ is odd} \end{cases}" />
+            <p className={styles.editorialText}>
+              The method works because it essentially performs binary multiplication. We halve $n$ and double $m$, keeping the $m$ values where $n$ is odd.
+            </p>
+            <MathBlock math="T(n) \in \Theta(\log n)" />
           </div>
-
-          <p className={styles.editorialText}>
-            Even if we don't know the multiplication table, we can compute any product by repeatedly halving $n$ and doubling $m$, then summing the $m$ values where the corresponding $n$ was odd.
-          </p>
         </section>
 
         <section id="josephus" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>4. The Josephus Problem</h2>
+          <h2 className={styles.sectionTitle}>6. The Josephus Problem</h2>
           <p className={styles.editorialText}>
-            $n$ people stand in a circle and are eliminated every $k$-th person (here $k=2$). We want to find the position of the last survivor.
+            Eliminating every second person in a circle until one remains. The solution has a beautiful property linked to binary representation.
           </p>
 
-          <JosephusTracer />
+          <JosephusCircle />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.comparisonCard}>
-              <h3>Recurrence Relation</h3>
-              <MathBlock block math="J(2n) = 2J(n) - 1" />
-              <MathBlock block math="J(2n+1) = 2J(n) + 1" />
+               <h3>Interactive Tracer</h3>
+               <p className={styles.editorialText}>Explore the exact step-by-step elimination sequence for any n in the simulator below.</p>
+               <JosephusTracer />
             </div>
             <div className={styles.comparisonCard}>
-              <h3>Binary Solution</h3>
-              <p>Represent $n$ in binary. A single <b>left cyclic shift</b> of $n$'s binary representation gives the winning position $J(n)$.</p>
-              <MathBlock math="n = 1010_2 (10) \to 0101_2 (5) \text{? No, shift MSB to end.}" />
-              <MathBlock math="1010_2 \to 0101_2 \text{ (shift)} \to 0101_2 + 1 \dots" />
-              <p>Actually: $n = 2^m + l \implies J(n) = 2l + 1$.</p>
+              <h3>Surprising Solution</h3>
+              <p className={styles.editorialText}>If $n = 2^m + l$, the winning position is $2l + 1$. This corresponds to moving the most significant bit of $n$'s binary representation to the end.</p>
+              <MathBlock math="J(n) = 2l + 1" />
             </div>
           </div>
         </section>
@@ -117,3 +154,4 @@ const Lec07 = () => {
 };
 
 export default Lec07;
+

@@ -30,6 +30,25 @@ import StringMatchTracer from '../components/visualization/bespoke/StringMatchTr
 import TopologicalSortTracer from '../components/visualization/bespoke/TopologicalSortTracer'
 import TreeTraversalTracer from '../components/visualization/bespoke/TreeTraversalTracer'
 
+// Practice Sheet Specific Visuals
+import { 
+  TopologicalSortDFS, 
+  CombinatorialComplexity, 
+  PermutationGeneration, 
+  BinarySearchTreeTracing, 
+  RussianPeasantMultiplication 
+} from '../components/visualization/bespoke/DecreaseConquerPractice';
+
+import {
+  TransformationParadigmDemo,
+  PresortingPracticeDemo,
+  DataStructureSpeedTest,
+  UnbalancedBSTSim,
+  AVLBalanceExplorer,
+  HeapPropertyValidator,
+  HeapSortFullProcess
+} from '../components/visualization/bespoke/TransformConquerPractice';
+
 const TRACER_MAP = {
   'analysisWorkspace': AnalysisWorkspace,
   'avlTree': AvlTreeTracer,
@@ -44,7 +63,7 @@ const TRACER_MAP = {
   'hashing': HashingTracer,
   'heapsort': HeapsortTracer,
   'hornersMethod': HornersTracer,
-  'horspoolSearch': HorspoolTracer,
+  'horspoolSearch': HornersTracer,
   'insertionSort': InsertionSortTracer,
   'josephus': JosephusTracer,
   'mergeSort': MergeSortTracer,
@@ -54,7 +73,23 @@ const TRACER_MAP = {
   'stringMatching': StringMatchTracer,
   'topologicalSort': TopologicalSortTracer,
   'topological-sort': TopologicalSortTracer,
-  'treeTraversal': TreeTraversalTracer
+  'treeTraversal': TreeTraversalTracer,
+  
+  // Practice Sheet 6 & 11 Extras
+  'dfsTopologicalSort': TopologicalSortDFS,
+  'combinatorialComplexity': CombinatorialComplexity,
+  'permutationGeneration': PermutationGeneration,
+  'binarySearchTracing': BinarySearchTreeTracing,
+  'russianPeasant': RussianPeasantMultiplication,
+
+  // Practice Sheet 10 Extras
+  'transformationParadigm': TransformationParadigmDemo,
+  'presortingDemo': PresortingPracticeDemo,
+  'dsComparison': DataStructureSpeedTest,
+  'unbalancedBst': UnbalancedBSTSim,
+  'avlBalanceExplorer': AVLBalanceExplorer,
+  'heapValidator': HeapPropertyValidator,
+  'heapSortProcess': HeapSortFullProcess
 }
 
 export default function SectionPage() {

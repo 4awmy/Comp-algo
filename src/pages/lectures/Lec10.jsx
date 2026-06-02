@@ -3,6 +3,28 @@ import MathBlock from '../../components/ui/Premium/MathBlock';
 import HeapsortTracer from '../../components/visualization/bespoke/HeapsortTracer';
 import HornersTracer from '../../components/visualization/bespoke/HornersTracer';
 import AvlTreeTracer from '../../components/visualization/bespoke/AvlTreeTracer';
+import { 
+  TransformationPipeline, 
+  PresortingVisual, 
+  UniquenessMatrix,
+  SortScanVisual,
+  BstGrowthTracer,
+  BstComparisonTable,
+  BstBalanceScale,
+  AvlBalanceMeter,
+  AvlSelfCorrection,
+  BespokeAvlRotations,
+  TwoThreeTreeNode,
+  TwoThreeInsertion,
+  HeapIntroduction,
+  HeapProperties,
+  HeapArrayMap,
+  BottomUpHeapifyTracer,
+  TopDownHeapTracer,
+  HeapMaxDeletion,
+  HeapSortFactory,
+  HeapSortTimeline
+} from '../../components/visualization/bespoke/TransformConquerConcepts';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
 const Lec10 = () => {
@@ -16,10 +38,13 @@ const Lec10 = () => {
 
       <div className={styles.contentWrapper}>
         <section className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>Transform and Conquer Paradigm</h2>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
-            The <b>transform-and-conquer</b> paradigm is a two-stage procedure for solving problems. In the first stage, the problem's instance is <b>transformed</b> into a form that is easier to solve. In the second stage, the problem is <b>conquered</b> (solved) in its new representation.
+            The <b>transform-and-conquer</b> paradigm is a two-stage procedure. In the first stage, the problem's instance is <b>transformed</b> into a form that is easier to solve. In the second stage, the problem is <b>conquered</b> (solved) in its new representation.
           </p>
           
+          <TransformationPipeline />
+
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
               <h4>Three Main Variations</h4>
@@ -28,12 +53,18 @@ const Lec10 = () => {
                   <b>Instance Simplification:</b> Transformation to a simpler instance of the same problem (e.g., Presorting).
                 </li>
                 <li>
-                  <b>Representation Change:</b> Transformation to a different representation of the same instance (e.g., Heaps, AVL Trees, Horner's Rule).
+                  <b>Representation Change:</b> Transformation to a different representation (e.g., Heaps, AVL Trees).
                 </li>
                 <li>
-                  <b>Problem Reduction:</b> Transformation to an instance of a different problem for which an algorithm is already known.
+                  <b>Problem Reduction:</b> Transformation to an instance of a different problem.
                 </li>
               </ul>
+            </div>
+            <div className={styles.infoCard}>
+               <h4>Real-world Metaphor</h4>
+               <p className={styles.editorialText}>
+                 Think of organizing a library: finding a book is a nightmare on messy shelves, but trivial once the books are sorted alphabetically.
+               </p>
             </div>
           </div>
         </section>
@@ -44,14 +75,20 @@ const Lec10 = () => {
             Many questions about a list are easier to answer if the list is sorted. Presorting involves sorting the list first, then performing the desired operation.
           </p>
 
+          <PresortingVisual />
+
           <div className={styles.methodBox}>
-            <h3>Example: Element Uniqueness</h3>
+            <h3>Case Study: Element Uniqueness</h3>
             <p className={styles.editorialText}>
-              To check if all elements in an array are unique:
+              To check if all elements in an array are unique, compare the brute force quadratic approach with the optimized sorted scan.
             </p>
+            <div className={styles.gridTwoCol}>
+              <UniquenessMatrix />
+              <SortScanVisual />
+            </div>
             <ul className={styles.editorialList}>
               <li><b>Brute Force:</b> Compare all pairs. <MathBlock math="\Theta(n^2)" /></li>
-              <li><b>Presorting:</b> Sort the array, then check adjacent elements. <MathBlock math="\Theta(n \log n) + \Theta(n) = \Theta(n \log n)" /></li>
+              <li><b>Presorting:</b> Sort, then scan neighbors. <MathBlock math="\Theta(n \log n) + \Theta(n) = \Theta(n \log n)" /></li>
             </ul>
           </div>
         </section>
@@ -59,23 +96,45 @@ const Lec10 = () => {
         <section id="avl-trees" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>2. Representation Change: Balanced Search Trees</h2>
           <p className={styles.editorialText}>
-            A standard Binary Search Tree (BST) can become skewed, leading to <MathBlock math="\Theta(n)" /> performance. Balanced trees like <b>AVL Trees</b> ensure the height remains <MathBlock math="\Theta(\log n)" />.
+            A standard Binary Search Tree (BST) can become skewed, leading to linear <MathBlock math="\Theta(n)" /> performance. Balanced trees like <b>AVL Trees</b> and <b>2-3 Trees</b> ensure the height remains logarithmic.
           </p>
 
-          <div className={styles.statsBar}>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Search/Insert/Delete</span>
-              <MathBlock math="\Theta(\log n)" />
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Balance Factor (BF)</span>
-              <MathBlock math="h_L - h_R \in \{-1, 0, 1\}" />
-            </div>
+          <BstBalanceScale />
+
+          <div className={styles.gridTwoCol}>
+             <div className={styles.infoCard}>
+                <h4>The Balance Factor (BF)</h4>
+                <MathBlock math="BF = h_L - h_R \in \{-1, 0, 1\}" />
+                <p className={styles.editorialText}>If $|BF| {'>'} 1$, the tree is imbalanced. We monitor this like a traffic light.</p>
+                <AvlBalanceMeter />
+             </div>
+             <div className={styles.infoCard}>
+                <h4>Search/Insert/Delete</h4>
+                <MathBlock math="\Theta(\log n)" />
+                <p className={styles.editorialText}>Guaranteed logarithmic time even in the worst case.</p>
+                <BstComparisonTable />
+             </div>
           </div>
 
+          <h3 className={styles.blockTitle}>AVL Insertion & Growth</h3>
+          <BstGrowthTracer />
+
+          <h3 className={styles.blockTitle}>AVL Self-Correction (Rotations)</h3>
           <p className={styles.editorialText}>
-            When a balance factor becomes <MathBlock math="\pm 2" />, a rotation is required. There are four types of rotations: Single (LL, RR) and Double (LR, RL).
+            When an imbalance is detected, the tree applies a rotation to restore its structural integrity.
           </p>
+          <AvlSelfCorrection />
+          <p className={styles.editorialText} style={{ marginTop: '2rem' }}>
+            There are four primary rotation cases depending on where the imbalance occurs: LL, RR, LR, or RL.
+          </p>
+          <BespokeAvlRotations />
+
+          <h3 className={styles.blockTitle}>2-3 Trees: Multi-way Search</h3>
+          <p className={styles.editorialText}>
+            Unlike binary trees, 2-3 trees allow nodes to hold one or two keys, maintaining perfect balance by growing upwards.
+          </p>
+          <TwoThreeTreeNode />
+          <TwoThreeInsertion />
 
           <AvlTreeTracer />
         </section>
@@ -83,16 +142,34 @@ const Lec10 = () => {
         <section id="heapsort" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>3. Representation Change: Heapsort</h2>
           <p className={styles.editorialText}>
-            A <b>Heap</b> is a complete binary tree where each node satisfies the <em>parental dominance</em> property: the key in each node is greater than or equal to the keys in its children.
+            A <b>Heap</b> is a complete binary tree where each node satisfies the heap property (Max-Heap: parent ≥ children). We represent this tree using a simple array mapping.
           </p>
 
-          <div className={styles.infoCard} style={{ marginBottom: '2rem' }}>
-            <h4>Algorithm Stages</h4>
-            <ol className={styles.editorialList}>
-              <li><b>Stage 1 (Heap Construction):</b> Transform the unordered array into a Max-Heap using a bottom-up approach (<MathBlock math="\Theta(n)" />).</li>
-              <li><b>Stage 2 (Maximum Deletions):</b> Repeatedly extract the root (maximum) and re-heapify the remaining elements (<MathBlock math="\Theta(n \log n)" />).</li>
-            </ol>
+          <HeapProperties />
+          <HeapIntroduction />
+          <HeapArrayMap />
+
+          <div className={styles.gridTwoCol}>
+            <div className={styles.infoCard}>
+              <h4>Algorithm Stages</h4>
+              <HeapSortFactory />
+              <ol className={styles.editorialList}>
+                <li><b>Stage 1:</b> Transform the array into a Max-Heap.</li>
+                <li><b>Stage 2:</b> Repeatedly extract the root and re-heapify.</li>
+              </ol>
+            </div>
+            <div className={styles.infoCard}>
+               <h4>Heap Construction</h4>
+               <BottomUpHeapifyTracer />
+               <TopDownHeapTracer />
+            </div>
           </div>
+
+          <h3 className={styles.blockTitle}>The Deletion Cycle</h3>
+          <HeapMaxDeletion />
+          
+          <h3 className={styles.blockTitle}>Performance Timeline</h3>
+          <HeapSortTimeline />
 
           <HeapsortTracer />
         </section>
@@ -100,13 +177,13 @@ const Lec10 = () => {
         <section id="horners-rule" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>4. Representation Change: Horner's Rule</h2>
           <p className={styles.editorialText}>
-            Evaluating a polynomial of degree <MathBlock math="n" /> at a point <MathBlock math="x" /> can be done more efficiently by changing its representation.
+            Evaluating a polynomial of degree <MathBlock math="n" /> can be done more efficiently by changing its representation to a nested form.
           </p>
 
           <MathBlock 
             block 
             math="P(x) = (\dots((a_n x + a_{n-1})x + a_{n-2})x + \dots + a_1)x + a_0" 
-            caption="Horner's Rule: Reduces the number of multiplications from O(n^2) or O(n) to exactly n."
+            caption="Horner's Rule: Reduces multiplications from O(n^2) to exactly n."
           />
 
           <HornersTracer />

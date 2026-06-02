@@ -271,3 +271,50 @@
   transform: translateY(-4px);
   border-color: var(--accent-purple);
 }
+
+.recurrenceGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  gap: 0;
+  margin: var(--space-8) 0;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.columnHeader {
+  padding: var(--space-4);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.gridCell {
+  padding: var(--space-6);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.gridCell:last-child {
+  border-right: none;
+}
+
+.equationText {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.patternHighlight {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
