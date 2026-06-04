@@ -7,7 +7,7 @@ const INITIAL_ARRAY = [62, 31, 84, 96, 19, 47];
 /**
  * ComparisonCountingSortTracer - Visualizes Comparison Counting Sort.
  */
-const ComparisonCountingSortTracer = () => {
+const ComparisonCountingSortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
 
   const steps = useMemo(() => {
@@ -73,7 +73,7 @@ const ComparisonCountingSortTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Comparison Counting Sort"
       description={step.description}
       actions={actions}

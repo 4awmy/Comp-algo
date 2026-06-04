@@ -3,7 +3,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const SortingSearchingTracer = () => {
+const SortingSearchingTracer = ({ style }) => {
   const [algo, setAlgo] = useState('BubbleSort'); // 'BubbleSort' | 'LinearSearch'
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -64,7 +64,7 @@ const SortingSearchingTracer = () => {
   const current = steps[currentStepIdx] || steps[0];
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title={algo === 'BubbleSort' ? 'Bubble Sort Stepper' : 'Linear Search Stepper'}
       description={current.desc}
       actions={

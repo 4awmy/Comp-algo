@@ -1,6 +1,6 @@
 import styles from './Bespoke.module.css';
 
-export const PillarsInfographic = () => {
+export const PillarsInfographic = ({ style }) => {
   const pillars = [
     { icon: '💡', title: 'Simple', text: 'Directly follows the problem definition without complex optimizations.' },
     { icon: '🔍', title: 'Exhaustive', text: 'Systematically explores the entire search space to leave no stone unturned.' },
@@ -9,7 +9,7 @@ export const PillarsInfographic = () => {
   ];
 
   return (
-    <div className={styles.pillarsGrid}>
+    <div className={styles.pillarsGrid} style={style}>
       {pillars.map((p, i) => (
         <div key={i} className={styles.pillar}>
           <div className={styles.pillarIcon}>{p.icon}</div>
@@ -21,9 +21,9 @@ export const PillarsInfographic = () => {
   );
 };
 
-export const MindsetVisual = () => {
+export const MindsetVisual = ({ style }) => {
   return (
-    <div className={styles.mindsetComparison}>
+    <div className={styles.mindsetComparison} style={style}>
       <div className={styles.mindsetBox}>
         <div className={styles.pillarTitle}>Combinatorial Search</div>
         <div className={styles.combinationLock}>
@@ -46,9 +46,9 @@ export const MindsetVisual = () => {
   );
 };
 
-export const SweetSpotMatrix = () => {
+export const SweetSpotMatrix = ({ style }) => {
   return (
-    <div className={styles.sweetSpotMatrix}>
+    <div className={styles.sweetSpotMatrix} style={style}>
       <div />
       <div className={styles.matrixLabelX}>Small Input</div>
       <div className={styles.matrixLabelX}>Large Input</div>

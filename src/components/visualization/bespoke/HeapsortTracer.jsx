@@ -8,7 +8,7 @@ const INITIAL_ARRAY = [2, 9, 7, 6, 5, 8];
  * HeapsortTracer - Visualizes Stage 1 (Build Heap) and Stage 2 (Sort).
  * Shows both the binary tree representation and the array storage.
  */
-const HeapsortTracer = () => {
+const HeapsortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -106,7 +106,7 @@ const HeapsortTracer = () => {
   );
 
   return (
-    <VisualStage title="Heapsort: Transform & Conquer" description={step.description} actions={actions}>
+    <VisualStage style={style} title="Heapsort: Transform & Conquer" description={step.description} actions={actions}>
       <div className={styles.heapTracer}>
         {/* Tree View */}
         <div className={styles.treeContainer}>

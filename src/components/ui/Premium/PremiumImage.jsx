@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './PremiumImage.module.css';
 import LightboxPortal from './LightboxPortal';
 
-const PremiumImage = ({ src, alt, caption, className = '' }) => {
+const PremiumImage = ({ src, alt, caption, className = '', style }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(true);
@@ -15,7 +15,7 @@ const PremiumImage = ({ src, alt, caption, className = '' }) => {
 
   return (
     <>
-      <figure className={`${styles.figure} ${className}`}>
+      <figure className={`${styles.figure} ${className}`} style={style}>
         <div 
           className={styles.imageContainer} 
           onClick={handleOpen}
@@ -35,8 +35,8 @@ const PremiumImage = ({ src, alt, caption, className = '' }) => {
       </figure>
 
       {isOpen && (
-        <LightboxPortal 
-          src={src} 
+        <LightboxPortal
+          src={finalSrc}
           alt={alt} 
           caption={caption} 
           onClose={handleClose} 

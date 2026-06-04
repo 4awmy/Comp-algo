@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import MathBlock from '../../ui/Premium/MathBlock';
 import styles from './Bespoke.module.css';
 
-export const TNMatrixVisual = () => {
+export const TNMatrixVisual = ({ style }) => {
   const n = 6;
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <h4 className={styles.conceptTitle}>Deriving T(n) for Exhaustive Search</h4>
       <p className={styles.conceptText}>
         The number of comparisons in the closest-pair problem corresponds to the number of pairs in a set of size <i>n</i>. This is equivalent to filling the upper-right triangle of an <i>n x n</i> matrix.
@@ -34,7 +34,7 @@ export const TNMatrixVisual = () => {
   );
 };
 
-export const KeyringMetaphor = () => {
+export const KeyringMetaphor = ({ style }) => {
   const [activeKey, setActiveKey] = useState(-1);
   const [successKey, setSuccessKey] = useState(7);
   const [isSearching, setIsSearching] = useState(false);
@@ -52,7 +52,7 @@ export const KeyringMetaphor = () => {
   }, [isSearching, activeKey]);
 
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <h4 className={styles.conceptTitle}>The Keyring Metaphor</h4>
       <p className={styles.conceptText}>
         Brute force is like trying every key on a keyring until one opens the lock. It's guaranteed to work, but the time taken depends on the number of keys.
@@ -77,14 +77,14 @@ export const KeyringMetaphor = () => {
   );
 };
 
-export const NPHardSpeedometer = () => {
+export const NPHardSpeedometer = ({ style }) => {
   const [n, setN] = useState(5);
   const complexity = Math.pow(2, n);
   const maxComplexity = Math.pow(2, 25);
   const angle = (n / 25) * 180 - 90;
 
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <h4 className={styles.conceptTitle}>The NP-Hard Speedometer</h4>
       <p className={styles.conceptText}>
         Exponential growth <MathBlock math="2^n" /> starts slow but quickly becomes astronomical. At <MathBlock math="n=20" />, most brute-force solvers begin to stall.
@@ -123,7 +123,7 @@ export const NPHardSpeedometer = () => {
 
 const ExhaustiveSearchConcepts = () => {
   return (
-    <div className={styles.conceptsGrid}>
+    <div className={styles.conceptsGrid} style={style}>
       <TNMatrixVisual />
       <KeyringMetaphor />
       <NPHardSpeedometer />

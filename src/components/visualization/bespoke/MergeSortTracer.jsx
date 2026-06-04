@@ -7,7 +7,7 @@ const INITIAL_ARRAY = [38, 27, 43, 3, 9, 82, 10];
 /**
  * MergeSortTracer - A multi-row "Divide & Merge" visualizer.
  */
-const MergeSortTracer = () => {
+const MergeSortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -124,7 +124,7 @@ const MergeSortTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Merge Sort Tree" 
       description={step.description}
       actions={actions}

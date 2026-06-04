@@ -21,7 +21,7 @@ const GRAPH_DATA = {
   ]
 };
 
-const GreedyTracer = () => {
+const GreedyTracer = ({ style }) => {
   const [algo, setAlgo] = useState('Prim'); // 'Prim' | 'Kruskal' | 'Dijkstra'
   const [step, setStep] = useState(0);
 
@@ -139,7 +139,7 @@ const GreedyTracer = () => {
   const current = steps[step] || steps[0];
 
   return (
-    <VisualStage
+    <VisualStage style={style}
       title={`Greedy: ${algo === 'Prim' ? 'Prim\'s MST' : algo === 'Kruskal' ? 'Kruskal\'s MST' : 'Dijkstra\'s'}`}
       description={current.desc}
       actions={

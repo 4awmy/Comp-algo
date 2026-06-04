@@ -19,7 +19,7 @@ const GRAPH_DATA = {
   ]
 };
 
-const TopologicalSortTracer = () => {
+const TopologicalSortTracer = ({ style }) => {
   const [method, setMode] = useState('SourceRemoval'); // 'DFS' | 'SourceRemoval'
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
 
@@ -100,7 +100,7 @@ const TopologicalSortTracer = () => {
   const currentStep = steps[currentStepIdx] || steps[0];
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title={`Topological Sort: ${method === 'SourceRemoval' ? 'Source Removal' : 'DFS-based'}`}
       description={currentStep.desc}
       actions={

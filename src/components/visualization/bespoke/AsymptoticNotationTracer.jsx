@@ -3,7 +3,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const AsymptoticNotationTracer = () => {
+const AsymptoticNotationTracer = ({ style }) => {
   const [n, setN] = useState(10);
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -29,7 +29,7 @@ const AsymptoticNotationTracer = () => {
   const current = steps[currentStepIdx] || steps[0];
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Best, Worst Case & Notations"
       description={current.desc}
       actions={

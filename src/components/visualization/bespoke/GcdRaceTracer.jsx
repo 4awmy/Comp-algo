@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const GcdRaceTracer = () => {
+const GcdRaceTracer = ({ style }) => {
   const [m, setM] = useState(60);
   const [n, setN] = useState(24);
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
@@ -49,7 +49,7 @@ const GcdRaceTracer = () => {
   const current = steps[currentStepIdx] || steps[0];
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="GCD Algorithm Race: Euclid vs. Brute Force"
       description={`Step ${currentStepIdx + 1}: ${current.euclid.action === 'Done' && current.brute.action === 'Found' ? 'Both finished.' : 'Comparing iterations.'}`}
       actions={

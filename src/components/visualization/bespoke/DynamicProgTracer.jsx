@@ -3,7 +3,7 @@ import MathBlock from '../../ui/Premium/MathBlock'
 import VisualStage from '../../ui/Premium/VisualStage'
 import styles from './Bespoke.module.css'
 
-const DynamicProgTracer = () => {
+const DynamicProgTracer = ({ style }) => {
   const [mode, setMode] = useState('Knapsack'); // 'CoinRow' | 'Knapsack' | 'Warshall'
   const [step, setStep] = useState(0);
 
@@ -87,7 +87,7 @@ const DynamicProgTracer = () => {
   const current = steps[step] || steps[0];
 
   return (
-    <VisualStage
+    <VisualStage style={style}
       title={`Dynamic Programming: ${mode === 'CoinRow' ? 'Coin Row' : mode === 'Knapsack' ? '0/1 Knapsack' : 'Warshall\'s'}`}
       description={current.desc}
       actions={

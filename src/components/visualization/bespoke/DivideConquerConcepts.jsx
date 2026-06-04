@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Bespoke.module.css';
 
-export const ParadigmMetaphor = () => {
+export const ParadigmMetaphor = ({ style }) => {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const ParadigmMetaphor = () => {
   };
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
       <div className={styles.metaphorLabel}>{getLabel()}</div>
       <div className={styles.puzzleStage}>
         {step === 0 && (
@@ -87,9 +87,9 @@ export const ParadigmMetaphor = () => {
   );
 };
 
-export const MergeSortRecursiveTree = () => {
+export const MergeSortRecursiveTree = ({ style }) => {
   return (
-    <div className={styles.treeContainer}>
+    <div className={styles.treeContainer} style={style}>
        <h4 className={styles.conceptTitle}>The Full Recursion Tree</h4>
        <svg viewBox="0 0 400 240" className={styles.recursiveTree}>
           {/* Level 0 */}
@@ -148,7 +148,7 @@ export const MergeSortRecursiveTree = () => {
   );
 };
 
-export const MergeSortDivideVisual = () => {
+export const MergeSortDivideVisual = ({ style }) => {
   const [step, setStep] = useState(0);
 
   const steps = [
@@ -182,7 +182,7 @@ export const MergeSortDivideVisual = () => {
   }, []);
 
   return (
-    <div className={styles.divideConquerSync}>
+    <div className={styles.divideConquerSync} style={style}>
       <div className={styles.syncGrid}>
         <div className={styles.syncPane}>
           <div className={styles.paneHeader}>Recursion Stack</div>
@@ -214,7 +214,7 @@ export const MergeSortDivideVisual = () => {
   );
 };
 
-export const MergeOperationVisual = () => {
+export const MergeOperationVisual = ({ style }) => {
   const [frame, setFrame] = useState(0);
 
   const frames = [
@@ -235,7 +235,7 @@ export const MergeOperationVisual = () => {
   const f = frames[frame];
 
   return (
-    <div className={styles.mergeVisualContainer}>
+    <div className={styles.mergeVisualContainer} style={style}>
       <h4 className={styles.conceptTitle}>Merge Operation (Pointer Trace)</h4>
       <div className={styles.mergePointersRow}>
         <div className={styles.mergeArrayWrapper}>
@@ -279,9 +279,9 @@ export const MergeOperationVisual = () => {
   );
 };
 
-export const PivotMetaphor = () => {
+export const PivotMetaphor = ({ style }) => {
   return (
-    <div className={styles.pivotMetaphor}>
+    <div className={styles.pivotMetaphor} style={style}>
       <div className={styles.pivotKing}>
         <div className={styles.crown}>👑</div>
         <div className={styles.pivotValue}>Pivot</div>
@@ -312,9 +312,9 @@ export const PivotMetaphor = () => {
   );
 };
 
-export const QuickSortWorstCase = () => {
+export const QuickSortWorstCase = ({ style }) => {
   return (
-    <div className={styles.gridTwoCol}>
+    <div className={styles.gridTwoCol} style={style}>
        <div className={styles.caseBox}>
           <h4 className={styles.conceptTitle}>Average Case (Balanced)</h4>
           <p className={styles.conceptText}>Pivot near median. Problem size halves each time.</p>
@@ -351,7 +351,7 @@ export const QuickSortWorstCase = () => {
   );
 };
 
-export const TraversalMetaphor = () => {
+export const TraversalMetaphor = ({ style }) => {
   const [activeNode, setActiveNode] = useState(null);
   const [order, setOrder] = useState('preorder');
   const [dotPos, setDotPos] = useState({ x: 100, y: 20 });
@@ -386,7 +386,7 @@ export const TraversalMetaphor = () => {
   }, [order]);
 
   return (
-    <div className={styles.traversalContainer}>
+    <div className={styles.traversalContainer} style={style}>
       <div className={styles.traversalControls}>
         {['preorder', 'inorder', 'postorder'].map(o => (
           <button 

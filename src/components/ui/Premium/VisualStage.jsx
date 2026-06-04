@@ -8,9 +8,9 @@ import styles from './Premium.module.css';
  * @param {React.ReactNode} children - The actual visualizer component.
  * @param {React.ReactNode} actions - Optional toolbar/actions (e.g., Play/Pause).
  */
-const VisualStage = ({ title, description, children, actions }) => {
+const VisualStage = ({ title, description, children, actions, style, className = '' }) => {
   return (
-    <section className={styles.visualStage}>
+    <section className={`${styles.visualStage} ${className}`} style={style}>
       <div className={styles.visualStageHeader}>
         <h3 className={styles.visualStageTitle}>{title}</h3>
         {actions && <div className={styles.visualStageActions}>{actions}</div>}

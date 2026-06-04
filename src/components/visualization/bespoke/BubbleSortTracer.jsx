@@ -4,7 +4,7 @@ import styles from './Bespoke.module.css';
 
 const INITIAL_ARRAY = [50, 22, 11, 45, 33];
 
-const BubbleSortTracer = () => {
+const BubbleSortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -102,7 +102,7 @@ const BubbleSortTracer = () => {
   );
 
   return (
-    <VisualStage title="Bubble Sort Tracer" description={step.description} actions={actions}>
+    <VisualStage style={style} title="Bubble Sort Tracer" description={step.description} actions={actions}>
       <div className={styles.dualPane}>
         <div className={styles.codePane}>
           {code.map((line, idx) => (

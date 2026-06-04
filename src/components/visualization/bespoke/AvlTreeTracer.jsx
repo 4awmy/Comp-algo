@@ -9,7 +9,7 @@ import styles from './Bespoke.module.css';
  * 3. Double Left-Right (LR)
  * 4. Double Right-Left (RL)
  */
-const AvlTreeTracer = () => {
+const AvlTreeTracer = ({ style }) => {
   const [activeRotation, setActiveRotation] = useState('LL');
   const [showRotated, setShowRotated] = useState(false);
 
@@ -97,7 +97,7 @@ const AvlTreeTracer = () => {
   );
 
   return (
-    <VisualStage title={current.title} description={current.description} actions={actions}>
+    <VisualStage style={style} title={current.title} description={current.description} actions={actions}>
       <div className={styles.treeContainer}>
         <svg className={styles.treeSvg}>
           {/* Edges */}

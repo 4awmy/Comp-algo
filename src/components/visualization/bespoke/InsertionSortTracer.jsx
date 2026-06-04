@@ -8,7 +8,7 @@ const INITIAL_ARRAY = [45, 23, 89, 12, 56, 34, 78, 67];
  * InsertionSortTracer - A premium, standalone visualizer for Insertion Sort.
  * Optimized for Lecture 06 (Decrease-and-Conquer).
  */
-const InsertionSortTracer = () => {
+const InsertionSortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -122,7 +122,7 @@ const InsertionSortTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Insertion Sort" 
       description={step.description}
       actions={actions}

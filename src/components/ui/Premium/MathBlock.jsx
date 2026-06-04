@@ -10,10 +10,10 @@ import styles from './Premium.module.css';
  * @param {string} caption - Optional caption displayed below block-level math.
  * @param {string} className - Optional additional class names.
  */
-const MathBlock = ({ math, block = false, caption, className = '' }) => {
+const MathBlock = ({ math, block = false, caption, className = '', style }) => {
   if (block) {
     return (
-      <div className={`${styles.mathContainer} ${className}`}>
+      <div className={`${styles.mathContainer} ${className}`} style={style}>
         <BlockMath math={math} />
         {caption && <p className={styles.mathCaption}>{caption}</p>}
       </div>

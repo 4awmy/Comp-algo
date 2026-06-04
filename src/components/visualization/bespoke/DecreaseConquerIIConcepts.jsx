@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Bespoke.module.css';
 
-export const JohnsonTrotterTracer = () => {
+export const JohnsonTrotterTracer = ({ style }) => {
   const [n, setN] = useState(3);
   const [step, setStep] = useState(0);
 
@@ -22,7 +22,7 @@ export const JohnsonTrotterTracer = () => {
   };
 
   return (
-    <div className={styles.tracerContainer}>
+    <div className={styles.tracerContainer} style={style}>
       <div className={styles.tracerGrid}>
         <div className={styles.tracerCodePane}>
           <div className={styles.codeHeader}>Johnson-Trotter Algorithm</div>
@@ -65,7 +65,7 @@ export const JohnsonTrotterTracer = () => {
   );
 };
 
-export const LexicographicTracer = () => {
+export const LexicographicTracer = ({ style }) => {
   const [step, setStep] = useState(0);
   const sequence = ['1', '2', '3'];
   const steps = [
@@ -76,7 +76,7 @@ export const LexicographicTracer = () => {
   ];
 
   return (
-    <div className={styles.tracerContainer}>
+    <div className={styles.tracerContainer} style={style}>
       <div className={styles.tracerGrid}>
         <div className={styles.tracerCodePane}>
           <div className={styles.codeHeader}>Lexicographic Order</div>
@@ -111,11 +111,11 @@ export const LexicographicTracer = () => {
   );
 };
 
-export const BottomUpSubsetTracer = () => {
+export const BottomUpSubsetTracer = ({ style }) => {
   const [level, setLevel] = useState(0);
   
   return (
-    <div className={styles.treeContainer}>
+    <div className={styles.treeContainer} style={style}>
       <div className={styles.metaphorLabel}>Recursive Subset Generation</div>
       <svg viewBox="0 0 400 240" className={styles.recursiveTree}>
         {/* Level 0 */}
@@ -162,13 +162,13 @@ export const BottomUpSubsetTracer = () => {
   );
 };
 
-export const GrayCodeTracer = () => {
+export const GrayCodeTracer = ({ style }) => {
   const [n, setN] = useState(2);
   const l1 = n === 2 ? ['0', '1'] : ['00', '01', '11', '10'];
   const l2 = [...l1].reverse();
   
   return (
-    <div className={styles.tracerContainer}>
+    <div className={styles.tracerContainer} style={style}>
       <div className={styles.tracerGrid} style={{ gridTemplateColumns: '1fr 1fr' }}>
         <div className={styles.tracerCodePane}>
           <div className={styles.codeHeader}>Binary Reflected Gray Code</div>
@@ -208,7 +208,7 @@ Result = L1 ∪ L2`}
   );
 };
 
-export const BinarySearchRace = () => {
+export const BinarySearchRace = ({ style }) => {
   const [linearIdx, setLinearIdx] = useState(-1);
   const [binaryBounds, setBinaryBounds] = useState({ l: 0, r: 14 });
   const [isRunning, setIsRunning] = useState(false);
@@ -254,7 +254,7 @@ export const BinarySearchRace = () => {
   }, [isRunning]);
 
   return (
-    <div className={styles.raceContainer}>
+    <div className={styles.raceContainer} style={style}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
         <button onClick={startRace} className={styles.controlBtn}>Start Search Race (Target: 13)</button>
         <div className={styles.complexityBadge}>T(n) = T(n/2) + 1 → O(log n)</div>
@@ -293,7 +293,7 @@ export const BinarySearchRace = () => {
   );
 };
 
-export const RussianPeasantTracer = () => {
+export const RussianPeasantTracer = ({ style }) => {
   const [rows, setRows] = useState([]);
   const [n, setN] = useState(50);
   const [m, setM] = useState(65);
@@ -314,7 +314,7 @@ export const RussianPeasantTracer = () => {
   useEffect(calculate, [n, m]);
 
   return (
-    <div className={styles.peasantContainer}>
+    <div className={styles.peasantContainer} style={style}>
       <div className={styles.peasantInputs}>
         <input type="number" value={n} onChange={e => setN(parseInt(e.target.value) || 0)} className={styles.peasantInput} />
         <span>×</span>
@@ -355,7 +355,7 @@ export const RussianPeasantTracer = () => {
   );
 };
 
-export const JosephusCircle = () => {
+export const JosephusCircle = ({ style }) => {
   const [count, setCount] = useState(10);
   const [step, setStep] = useState(0);
   const [eliminated, setEliminated] = useState([]);
@@ -406,7 +406,7 @@ export const JosephusCircle = () => {
   }, [isRunning, count]);
 
   return (
-    <div className={styles.josephusContainer}>
+    <div className={styles.josephusContainer} style={style}>
       <div className={styles.josephusControls}>
          <input type="range" min="3" max="15" value={count} onChange={e => { setCount(parseInt(e.target.value)); setEliminated([]); }} />
          <button onClick={startElimination} className={styles.controlBtn}>Start Elimination Pattern</button>

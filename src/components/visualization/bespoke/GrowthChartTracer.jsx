@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const GrowthChartTracer = () => {
+const GrowthChartTracer = ({ style }) => {
   const [n, setN] = useState(20);
 
   const functions = [
@@ -28,7 +28,7 @@ const GrowthChartTracer = () => {
   const maxVal = n * n; // Cap for visualization
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Order of Growth Comparison"
       description="Adjust 'n' to see how basic efficiency classes grow relative to each other."
     >

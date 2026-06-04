@@ -27,7 +27,7 @@ const GRAPH_DATA = {
  * DfsTracer - A premium SVG-based graph tracer for DFS and BFS.
  * Supports node/edge highlighting and discovery/back-edge distinction.
  */
-const DfsTracer = () => {
+const DfsTracer = ({ style }) => {
   const [mode, setMode] = useState('DFS');
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -167,7 +167,7 @@ const DfsTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title={`${mode} Traversal`} 
       description={step.description}
       actions={actions}
