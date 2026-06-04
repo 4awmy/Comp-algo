@@ -11,7 +11,6 @@ import useLectureSync from '../hooks/useLectureSync'
 import { LECTURE_MAPPINGS } from '../data/mappings'
 import ExampleDrawer from '../components/lectures/ExampleDrawer'
 import LessonBlock from '../components/lectures/LessonBlock'
-import AITutorBubble from '../components/chat/AITutorBubble'
 
 import styles from './LecturePage.module.css'
 
@@ -567,14 +566,6 @@ export default function LecturePage() {
           </div>
         </div>
       </ExampleDrawer>
-      
-      <AITutorBubble 
-        chatMessages={chatMessages}
-        onSendMessage={handleSendChat}
-        sendingChat={sendingChat}
-        chatInput={chatInput}
-        setChatInput={setChatInput}
-      />
     </div>
   )
 }

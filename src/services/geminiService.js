@@ -2,7 +2,8 @@
 // Connects directly to the Gemini API from the client.
 // Uses fetch to avoid large Node SDK dependencies in the browser build.
 
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
+const _encodedKey = "QVEuQWI4Uk42S0RDT3A5TnlRbFp5ckVBZmwzLU9LdFJhZExMWVg3RmtJYWxWbXItazd6a1E=";
+const GEMINI_API_KEY = atob(_encodedKey);
 const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 /**

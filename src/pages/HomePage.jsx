@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { LECTURES, getSectionCount } from '../data/lectures'
+import LectureSlider from '../components/ui/Home/LectureSlider'
 import styles from './HomePage.module.css'
 
 // ── Stat Card ────────────────────────────────────────────────
@@ -170,10 +171,12 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className={styles.lectureGrid}>
-          {LECTURES.map((lecture, i) => (
-            <LectureCard key={lecture.id} lecture={lecture} index={i} />
-          ))}
+        <div className={styles.sliderWrapper}>
+          <LectureSlider>
+            {LECTURES.map((lecture, i) => (
+              <LectureCard key={lecture.id} lecture={lecture} index={i} />
+            ))}
+          </LectureSlider>
         </div>
       </section>
 

@@ -1,5 +1,7 @@
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 import MergeSortTracer from '../../components/visualization/bespoke/MergeSortTracer';
 import QuickSortTracer from '../../components/visualization/bespoke/QuickSortTracer';
 import TreeTraversalTracer from '../../components/visualization/bespoke/TreeTraversalTracer';
@@ -48,6 +50,19 @@ const Lec09 = () => {
             Merge Sort repeatedly divides an array into halves until each subarray contains one element, then merges them back in sorted order.
           </p>
 
+          <AlgorithmCard 
+            title="Merge Sort"
+            goal="Sort an array by recursively dividing it into halves and merging sorted results."
+            steps={[
+              "Divide the unsorted array into two nearly equal halves.",
+              "Recursively sort the left half and the right half.",
+              "Merge the two sorted halves into a single sorted array.",
+              "Use two pointers to compare elements from each half and pick the smaller one.",
+              "Repeat until all elements are merged back into the original array."
+            ]}
+            complexity={{ time: "\\Theta(n \\log n)", space: "O(n)" }}
+          />
+
           <div className={styles.gridTwoCol}>
              <div className={styles.infoCard}>
                 <h4>Divide Phase (Base Case)</h4>
@@ -69,23 +84,29 @@ const Lec09 = () => {
              <MergeSortDivideVisual />
           </div>
 
-          <div className={styles.statsBar}>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Time Complexity</span>
-              <MathBlock math="\Theta(n \log n)" />
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Recurrence</span>
-              <MathBlock math="T(n) = 2T(n/2) + \Theta(n)" />
-            </div>
+          <div className={styles.methodBox}>
+            <h3>The Recursive Stack Trace</h3>
+            <p className={styles.editorialText}>
+              To truly master Merge Sort, we must follow the order of recursive calls. For an array like <MathBlock math="[38, 27, 43, 3, 9]" />, the algorithm follows a depth-first path:
+            </p>
+            <ol className={styles.editorialList}>
+              <li><b>B1:</b> Split [38, 27, 43, 3, 9] into [38, 27] and [43, 3, 9].</li>
+              <li><b>C1:</b> Solve the left half [38, 27] first.</li>
+              <li><b>B2:</b> Split [38, 27] into [38] and [27].</li>
+              <li><b>C2/C3:</b> Reach base cases [38] and [27].</li>
+              <li><b>Merge:</b> Combine [38] and [27] into [27, 38].</li>
+              <li><b>Repeat:</b> Continue for the right half [43, 3, 9].</li>
+            </ol>
+          </div>
+
+          <div className={styles.infoCard}>
+            <h4>Efficiency Analysis</h4>
+            <p className={styles.editorialText}>
+              The number of comparisons in the worst case is <MathBlock math="C_{worst}(n) = n \log_2 n - n + 1" />. In practice, we often simplify this to <MathBlock math="n \log n" />.
+            </p>
           </div>
 
           <MergeOperationVisual />
-
-          <div className={styles.infoCard}>
-             <h4>Complete Trace</h4>
-             <p className={styles.editorialText}>Watch how the array is physically divided and then merged back together in the interactive tracer below.</p>
-          </div>
 
           <MergeSortTracer />
         </section>
@@ -93,8 +114,27 @@ const Lec09 = () => {
         <section id="quick-sort" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>2. Quick Sort</h2>
           <p className={styles.editorialText}>
-            Quick Sort also uses Divide and Conquer but focuses on the <b>Divide</b> step. It picks an element as a <b>pivot</b> and partitions the array around it.
+            Quick Sort also uses Divide and Conquer but focuses on the <b>Divide</b> (Partitioning) step. It picks an element as a <b>pivot</b> and partitions the array around it.
           </p>
+
+          <AlgorithmCard 
+            title="Quick Sort"
+            goal="Sort an array by partitioning it around a pivot element."
+            steps={[
+              "Choose a 'pivot' element from the array.",
+              "Partition the array: move smaller elements to the left of the pivot and larger to the right.",
+              "The pivot is now in its final sorted position.",
+              "Recursively apply the process to the left and right sub-arrays.",
+              "Combine the results (implicitly handled by partitioning in place)."
+            ]}
+            complexity={{ time: "\\Theta(n \\log n) \\text{ average}", space: "O(\\log n)" }}
+          />
+
+          <PremiumImage 
+            src="/images/lectures/lec09/slide74_img0.jpg" 
+            alt="Quick Sort Partitioning" 
+            caption="Partitioning is the heart of Quick Sort, determining the final position of the pivot."
+          />
 
           <PivotMetaphor />
 
@@ -122,6 +162,24 @@ const Lec09 = () => {
           <p className={styles.editorialText}>
             Traversing a binary tree is naturally recursive: solve for the left subtree, solve for the right subtree, and visit the root.
           </p>
+
+          <AlgorithmCard 
+            title="Binary Tree Traversal"
+            goal="Visit every node in a binary tree in a specific recursive order."
+            steps={[
+              "Preorder: Visit Root, then Left Subtree, then Right Subtree.",
+              "Inorder: Visit Left Subtree, then Root, then Right Subtree.",
+              "Postorder: Visit Left Subtree, then Right Subtree, then Root.",
+              "Apply these rules recursively to all child nodes."
+            ]}
+            complexity={{ time: "\\Theta(n)", space: "O(h)" }}
+          />
+
+          <PremiumImage 
+            src="/images/lectures/lec09/slide78_img0.jpg" 
+            alt="Binary Tree Traversal" 
+            caption="The three standard ways to visit every node in a binary tree."
+          />
 
           <TraversalMetaphor />
 

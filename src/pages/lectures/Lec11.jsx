@@ -1,5 +1,7 @@
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 import HorspoolTracer from '../../components/visualization/bespoke/HorspoolTracer';
 import HashingTracer from '../../components/visualization/bespoke/HashingTracer';
 import ComparisonCountingSortTracer from '../../components/visualization/bespoke/ComparisonCountingSortTracer';
@@ -41,18 +43,23 @@ const Lec11 = () => {
             <b>Comparison Counting Sort</b> is a simple sorting algorithm that works by counting, for each element, the number of elements smaller than it. If we know there are 3 elements smaller than <MathBlock math="x" />, then <MathBlock math="x" /> must belong in the 4th position of the sorted array.
           </p>
 
-          <div className={styles.statsBar}>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Time Complexity</span>
-              <MathBlock math="\Theta(n^2)" />
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Space Complexity</span>
-              <MathBlock math="\Theta(n)" />
-            </div>
-          </div>
+          <AlgorithmCard 
+            title="Comparison Counting Sort"
+            goal="Sort an array by counting smaller elements for each item."
+            steps={[
+              "Initialize a 'Count' array of size n with zeros.",
+              "Compare every pair of elements (i, j) in the input array.",
+              "If element[i] < element[j], increment Count[j].",
+              "Else, increment Count[i].",
+              "Place each element[i] at position Count[i] in the result array."
+            ]}
+            complexity={{
+              time: "\\Theta(n^2)",
+              space: "\\Theta(n)"
+            }}
+          />
 
-          <p className={styles.editorialText}>
+          <p className={styles.editorialText} style={{ marginTop: '2rem' }}>
             While its time complexity is no better than simple sorts like Selection Sort, it demonstrates the principle of using an extra <em>Count</em> array to simplify the logic and avoid in-place swaps.
           </p>
 
@@ -65,7 +72,23 @@ const Lec11 = () => {
             Horspool's algorithm improves upon brute-force string matching by using <b>Input Enhancement</b>. It pre-calculates a <em>Shift Table</em> based on the pattern being searched.
           </p>
 
-          <div className={styles.infoCard} style={{ marginBottom: '2rem' }}>
+          <AlgorithmCard 
+            title="Horspool's Algorithm"
+            goal="Efficient string matching using a precomputed shift table."
+            steps={[
+              "Precompute the Shift Table for the given pattern.",
+              "Align the pattern with the beginning of the text.",
+              "Compare characters from right to left.",
+              "If a mismatch occurs, look up the shift distance in the table.",
+              "Shift the pattern and repeat until a match is found or the text ends."
+            ]}
+            complexity={{
+              time: "O(mn) \\text{ worst}, \\Theta(n) \\text{ avg}",
+              space: "\\Theta(m) \\text{ for table}"
+            }}
+          />
+
+          <div className={styles.infoCard} style={{ marginTop: '2rem', marginBottom: '2rem' }}>
             <h4>Key Innovations</h4>
             <ul className={styles.editorialList}>
               <li><b>Right-to-Left Scan:</b> Compares the pattern against the text starting from the last character of the pattern.</li>
@@ -77,6 +100,31 @@ const Lec11 = () => {
             block 
             math="t(c) = \begin{cases} m & \text{if } c \text{ is not in first } m-1 \text{ chars} \\ m - 1 - i & \text{rightmost index } i \text{ in first } m-1 \text{ chars} \end{cases}" 
             caption="The Shift Table Rule: Determines how many characters to skip based on the character in the text aligned with the last character of the pattern."
+          />
+
+          <div className={styles.infoCard}>
+            <h4>Shift Table Example: "BARBER"</h4>
+            <p className={styles.editorialText}>
+              For the pattern <b>BARBER</b> (length $m=6$), the shift table is calculated by looking at the first $m-1$ characters:
+            </p>
+            <ul className={styles.editorialList}>
+              <li><b>B:</b> Rightmost index is 3, shift = $6 - 1 - 3 = 2$</li>
+              <li><b>A:</b> Rightmost index is 1, shift = $6 - 1 - 1 = 4$</li>
+              <li><b>R:</b> Rightmost index is 2, shift = $6 - 1 - 2 = 3$</li>
+              <li><b>E:</b> Rightmost index is 4, shift = $6 - 1 - 4 = 1$</li>
+              <li><b>Others:</b> Shift = $m = 6$</li>
+            </ul>
+            <PremiumImage 
+              src="/images/lectures/lec11/slide10_img0.png" 
+              alt="Horspool Shift Table" 
+              caption="The shift table for 'BARBER' determines the jump distance for each character."
+            />
+          </div>
+
+          <PremiumImage 
+            src="/images/lectures/lec11/slide11_img0.png" 
+            alt="Horspool Search Trace" 
+            caption="A trace of Horspool's algorithm searching for 'BARBER' in a text."
           />
 
           <HorspoolTracer />

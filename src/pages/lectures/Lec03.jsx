@@ -1,5 +1,7 @@
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 import { StackedTriangleDemo, RecursiveCallStackDemo, HalvingBarChartDemo, EmpiricalDashboardDemo } from '../../components/visualization/bespoke/MathVisualizers';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
@@ -25,15 +27,38 @@ const Lec03 = () => {
             For non-recursive algorithms, our goal is to identify the <b>basic operation</b> and set up a summation that represents its execution count across all iterations of the algorithm's loops.
           </p>
 
-          <div className={styles.infoCard}>
-            <h3>General Plan</h3>
-            <ol className={styles.editorialList}>
-              <li>Decide on a parameter indicating input size <MathBlock math="n" />.</li>
-              <li>Identify the algorithm's basic operation (usually in the innermost loop).</li>
-              <li>Check whether the number of times the basic operation is executed depends only on <MathBlock math="n" />.</li>
-              <li>Set up a sum for the number of basic operations.</li>
-              <li>Simplify the sum using standard formulas.</li>
-            </ol>
+          <PremiumImage 
+            src="/images/lectures/lec03/slide03_img0.jpg" 
+            alt="Non-recursive Analysis Diagram" 
+            caption="The process of setting up summations for loop-based algorithms."
+          />
+
+          <AlgorithmCard 
+            title="Non-Recursive Analysis Plan"
+            goal="Establish a mathematical sum for loop-based algorithm performance."
+            steps={[
+              "Decide on a parameter indicating input size n.",
+              "Identify the basic operation (innermost loop).",
+              "Determine if execution count depends only on n.",
+              "Set up a sum Σ for the number of operations.",
+              "Simplify using standard summation formulas."
+            ]}
+            complexity={{
+              time: "Depends on loops",
+              space: "\\Theta(1) \\text{ usually}"
+            }}
+          />
+
+          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>Loop Range Calculations</h4>
+            <p className={styles.editorialText}>
+              When setting up a sum, pay close attention to the loop boundaries:
+            </p>
+            <ul className={styles.editorialList}>
+              <li><b>First:</b> The initial value of the loop index.</li>
+              <li><b>Last:</b> The final value of the loop index.</li>
+              <li><b>Size:</b> The number of iterations, calculated as <MathBlock math="\text{Last} - \text{First} + 1" />.</li>
+            </ul>
           </div>
 
           <div className={styles.methodBox}>
@@ -55,13 +80,37 @@ const Lec03 = () => {
             Recursive algorithms are analyzed by creating a <b>recurrence relationship</b>. This is an equation that defines <MathBlock math="T(n)" /> in terms of <MathBlock math="T(k)" /> for smaller values of <MathBlock math="k" />.
           </p>
 
-          <div className={styles.infoCard}>
-            <h3>The Recursive Plan</h3>
-            <ul className={styles.editorialList}>
-              <li>Identify the basic operation and input size <MathBlock math="n" />.</li>
-              <li>Set up a recurrence relation with a base case (e.g., <MathBlock math="T(0) = 0" />).</li>
-              <li>Solve the recurrence using <b>Backward Substitution</b>.</li>
-            </ul>
+          <PremiumImage 
+            src="/images/lectures/lec03/slide05_img0.jpg" 
+            alt="Recursive Analysis Diagram" 
+            caption="The process of setting up recurrence relations for recursive algorithms."
+          />
+
+          <AlgorithmCard 
+            title="Recursive Analysis Plan"
+            goal="Solve recursive performance using recurrence relations."
+            steps={[
+              "Identify basic operation and input size n.",
+              "Set up recurrence T(n) with base case T(0).",
+              "Solve using Backward Substitution.",
+              "Identify the pattern and efficiency class."
+            ]}
+            complexity={{
+              time: "Depends on recursion",
+              space: "O(\\text{depth}) \\text{ stack}"
+            }}
+          />
+
+          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>The Stopping Condition</h4>
+            <p className={styles.editorialText}>
+              Every recursive algorithm must have a base case to prevent infinite recursion. For example, in the factorial algorithm:
+            </p>
+            <MathBlock block math="F(n) = \begin{cases} 1 & \text{if } n = 0 \\ n \cdot F(n-1) & \text{if } n > 0 \end{cases}" />
+            <p className={styles.editorialText}>
+              The recurrence for the number of multiplications <MathBlock math="M(n)" /> would be:
+            </p>
+            <MathBlock block math="M(n) = M(n-1) + 1, \quad M(0) = 0" />
           </div>
 
           <RecursiveCallStackDemo />
@@ -207,14 +256,21 @@ const Lec03 = () => {
           <p className={styles.editorialText}>
             Mathematical analysis is <b>theory</b>. Empirical analysis is <b>reality</b>. It involves running the algorithm on a machine and measuring physical execution time.
           </p>
+
+          <PremiumImage 
+            src="/images/lectures/lec03/slide28_img0.png" 
+            alt="Empirical Analysis Example" 
+            caption="A table and graph showing actual execution times for different input sizes."
+          />
+
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
-               <h4>The How-To</h4>
+               <h4>Why use Empirical Analysis?</h4>
                <ul className={styles.editorialList}>
-                  <li>Implement the algorithm in a real language.</li>
-                  <li>Decide on a sample range for <MathBlock math="n" />.</li>
-                  <li>Use high-resolution timers to measure execution.</li>
-                  <li>Plot the data to observe trends.</li>
+                  <li>To determine the values of <b>hidden constants</b> in the efficiency class.</li>
+                  <li>To compare algorithms with the same asymptotic complexity.</li>
+                  <li>To analyze algorithms whose mathematical analysis is too difficult.</li>
+                  <li>To verify the correctness of a theoretical analysis.</li>
                </ul>
             </div>
             <div className={styles.infoCard}>
@@ -224,6 +280,19 @@ const Lec03 = () => {
                </p>
             </div>
           </div>
+
+          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>The Empirical Workflow</h4>
+            <ol className={styles.editorialList}>
+              <li><b>Understand the goal:</b> What are you trying to measure?</li>
+              <li><b>Choose the sample:</b> Select a representative set of inputs.</li>
+              <li><b>Implement the algorithm:</b> Write clean, efficient code.</li>
+              <li><b>Measure execution time:</b> Use high-resolution timers.</li>
+              <li><b>Analyze the data:</b> Look for patterns and trends.</li>
+              <li><b>Draw conclusions:</b> Relate the empirical results back to the theory.</li>
+            </ol>
+          </div>
+
           <EmpiricalDashboardDemo />
         </section>
       </div>

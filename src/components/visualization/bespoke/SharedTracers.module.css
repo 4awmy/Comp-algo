@@ -1,0 +1,137 @@
+/* Shared styles for all bespoke algorithm tracers */
+
+.tracerContainer {
+  padding: 1.5rem;
+  background: var(--bg-elevated, rgba(255, 255, 255, 0.03));
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(8px);
+  margin-bottom: 2rem;
+}
+
+.arrayContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 200px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.bar {
+  width: 30px;
+  background: var(--accent-blue, #3b82f6);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  min-height: 20px;
+}
+
+.barActive {
+  background: var(--accent-purple, #8b5cf6) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.barComparing {
+  background: var(--accent-yellow, #f59e0b) !important;
+}
+
+.barSorted {
+  background: var(--accent-green, #10b981) !important;
+}
+
+.barPivot {
+  background: var(--accent-red, #ef4444) !important;
+}
+
+.charBox {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-default, rgba(255, 255, 255, 0.1));
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  background: var(--bg-surface, rgba(255, 255, 255, 0.02));
+  transition: all 0.2s;
+}
+
+.charActive {
+  border-color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-blue);
+  transform: scale(1.1);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.controlBtn {
+  background: var(--bg-surface, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  color: var(--text-primary, #fff);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.controlBtn:hover:not(:disabled) {
+  background: var(--bg-elevated, rgba(255, 255, 255, 0.1));
+  border-color: var(--accent-blue);
+}
+
+.controlBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.stepInfo {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.7));
+  font-family: var(--font-sans, sans-serif);
+  min-height: 1.5em;
+}
+
+.codeOverlay {
+  font-family: var(--font-mono, monospace);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.codeLine {
+  opacity: 0.5;
+  padding: 0 4px;
+}
+
+.codeLineActive {
+  opacity: 1;
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--accent-blue);
+  border-left: 2px solid var(--accent-blue);
+}

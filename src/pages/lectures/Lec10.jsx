@@ -1,5 +1,8 @@
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+import { RotationLL, RotationRR, RotationLR, TwoThreeTreeDiagram } from '../../components/visualization/diagrams/AVLRotationDiagram';
 import HeapsortTracer from '../../components/visualization/bespoke/HeapsortTracer';
 import HornersTracer from '../../components/visualization/bespoke/HornersTracer';
 import AvlTreeTracer from '../../components/visualization/bespoke/AvlTreeTracer';
@@ -75,21 +78,30 @@ const Lec10 = () => {
             Many questions about a list are easier to answer if the list is sorted. Presorting involves sorting the list first, then performing the desired operation.
           </p>
 
+          <AlgorithmCard 
+            title="Element Uniqueness (Presorting)"
+            goal="Check if all elements in an array are unique by sorting first."
+            steps={[
+              "Sort the input array using an efficient algorithm (e.g., Merge Sort).",
+              "Scan the sorted array from left to right.",
+              "Compare each element with its immediate neighbor.",
+              "If any adjacent elements are equal, return 'false' (not unique).",
+              "If the scan completes with no matches, return 'true' (all unique)."
+            ]}
+            complexity={{ time: "O(n \\log n)", space: "O(1) \\text{ or } O(n)" }}
+          />
+
           <PresortingVisual />
 
           <div className={styles.methodBox}>
-            <h3>Case Study: Element Uniqueness</h3>
+            <h3>Case Study Efficiency</h3>
             <p className={styles.editorialText}>
-              To check if all elements in an array are unique, compare the brute force quadratic approach with the optimized sorted scan.
+              Compare the brute force quadratic approach with the optimized sorted scan.
             </p>
             <div className={styles.gridTwoCol}>
               <UniquenessMatrix />
               <SortScanVisual />
             </div>
-            <ul className={styles.editorialList}>
-              <li><b>Brute Force:</b> Compare all pairs. <MathBlock math="\Theta(n^2)" /></li>
-              <li><b>Presorting:</b> Sort, then scan neighbors. <MathBlock math="\Theta(n \log n) + \Theta(n) = \Theta(n \log n)" /></li>
-            </ul>
           </div>
         </section>
 
@@ -98,6 +110,19 @@ const Lec10 = () => {
           <p className={styles.editorialText}>
             A standard Binary Search Tree (BST) can become skewed, leading to linear <MathBlock math="\Theta(n)" /> performance. Balanced trees like <b>AVL Trees</b> and <b>2-3 Trees</b> ensure the height remains logarithmic.
           </p>
+
+          <AlgorithmCard 
+            title="AVL Tree Insertion"
+            goal="Insert a key into a BST while maintaining height balance."
+            steps={[
+              "Perform a standard Binary Search Tree insertion.",
+              "Update the balance factor (BF = height_left - height_right) for all ancestors.",
+              "If any node has |BF| > 1, the tree is imbalanced.",
+              "Apply the appropriate rotation: Single (LL, RR) or Double (LR, RL).",
+              "The resulting tree remains balanced with height O(log n)."
+            ]}
+            complexity={{ time: "O(\\log n)", space: "O(n)" }}
+          />
 
           <BstBalanceScale />
 
@@ -117,12 +142,23 @@ const Lec10 = () => {
           </div>
 
           <h3 className={styles.blockTitle}>AVL Insertion & Growth</h3>
+          <div className={styles.infoCard}>
+            <h4>Trace Example</h4>
+            <p className={styles.editorialText}>
+              Insert the following sequence into an empty AVL tree: <b>5, 6, 8, 3, 2, 4, 7</b>. Notice how rotations are triggered to maintain balance.
+            </p>
+          </div>
           <BstGrowthTracer />
 
           <h3 className={styles.blockTitle}>AVL Self-Correction (Rotations)</h3>
           <p className={styles.editorialText}>
             When an imbalance is detected, the tree applies a rotation to restore its structural integrity.
           </p>
+          <div className={styles.gridThreeCol}>
+            <RotationLL />
+            <RotationRR />
+            <RotationLR />
+          </div>
           <AvlSelfCorrection />
           <p className={styles.editorialText} style={{ marginTop: '2rem' }}>
             There are four primary rotation cases depending on where the imbalance occurs: LL, RR, LR, or RL.
@@ -133,6 +169,13 @@ const Lec10 = () => {
           <p className={styles.editorialText}>
             Unlike binary trees, 2-3 trees allow nodes to hold one or two keys, maintaining perfect balance by growing upwards.
           </p>
+          <div className={styles.infoCard}>
+            <h4>Trace Example</h4>
+            <p className={styles.editorialText}>
+              Insert the following sequence into an empty 2-3 tree: <b>9, 5, 8, 3, 2, 4, 7</b>.
+            </p>
+            <TwoThreeTreeDiagram />
+          </div>
           <TwoThreeTreeNode />
           <TwoThreeInsertion />
 
@@ -145,8 +188,34 @@ const Lec10 = () => {
             A <b>Heap</b> is a complete binary tree where each node satisfies the heap property (Max-Heap: parent ≥ children). We represent this tree using a simple array mapping.
           </p>
 
+          <AlgorithmCard 
+            title="Heapsort"
+            goal="Sort an array by transforming it into a max-heap and extracting elements."
+            steps={[
+              "Heap Construction: Build a Max-Heap from the input array using bottom-up sift-down.",
+              "Root Extraction: Swap the root (max element) with the last element of the heap.",
+              "Size Reduction: Decrease the effective heap size by 1.",
+              "Re-heapify: Sift down the new root to restore the Max-Heap property.",
+              "Repeat extraction until the heap is empty."
+            ]}
+            complexity={{ time: "O(n \\log n)", space: "O(1)" }}
+          />
+
           <HeapProperties />
           <HeapIntroduction />
+          
+          <div className={styles.methodBox}>
+            <h3>Array Mapping Formulas</h3>
+            <p className={styles.editorialText}>
+              For a heap stored in an array (1-indexed):
+            </p>
+            <ul className={styles.editorialList}>
+              <li><b>Parent of node $i$:</b> <MathBlock math="\lfloor i/2 \rfloor" /></li>
+              <li><b>Left child of node $i$:</b> <MathBlock math="2i" /></li>
+              <li><b>Right child of node $i$:</b> <MathBlock math="2i + 1" /></li>
+            </ul>
+          </div>
+          
           <HeapArrayMap />
 
           <div className={styles.gridTwoCol}>
@@ -160,6 +229,12 @@ const Lec10 = () => {
             </div>
             <div className={styles.infoCard}>
                <h4>Heap Construction</h4>
+               <div className={styles.infoCard}>
+                 <h5>Top-down Trace</h5>
+                 <p className={styles.editorialText}>
+                   Construct a heap by inserting: <b>2, 9, 7, 6, 5, 8</b> one by one.
+                 </p>
+               </div>
                <BottomUpHeapifyTracer />
                <TopDownHeapTracer />
             </div>
@@ -179,6 +254,18 @@ const Lec10 = () => {
           <p className={styles.editorialText}>
             Evaluating a polynomial of degree <MathBlock math="n" /> can be done more efficiently by changing its representation to a nested form.
           </p>
+
+          <AlgorithmCard 
+            title="Horner's Rule"
+            goal="Evaluate a polynomial at a given x with minimum multiplications."
+            steps={[
+              "Start with the coefficient of the highest power, p = a[n].",
+              "For i = n-1 down to 0:",
+              "Update p = p * x + a[i].",
+              "Return the final value of p."
+            ]}
+            complexity={{ time: "\\Theta(n)", space: "O(1)" }}
+          />
 
           <MathBlock 
             block 

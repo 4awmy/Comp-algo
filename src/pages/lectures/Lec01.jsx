@@ -1,5 +1,7 @@
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 import GcdRaceTracer from '../../components/visualization/bespoke/GcdRaceTracer';
 import SortingSearchingTracer from '../../components/visualization/bespoke/SortingSearchingTracer';
 import GraphConverterTracer from '../../components/visualization/bespoke/GraphConverterTracer';
@@ -20,6 +22,12 @@ const Lec01 = () => {
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             An <b>algorithm</b> is a sequence of unambiguous instructions for solving a problem, for obtaining a required output for any legitimate input in a finite amount of time. In this course, we will dive deep into the design and analysis of these logical structures that power modern computing.
           </p>
+
+          <PremiumImage 
+            src="/images/lectures/lec01/slide08_img0.png" 
+            alt="Algorithm Definition Diagram" 
+            caption="The basic black-box model of an algorithm: Input → Algorithm → Output."
+          />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
@@ -59,20 +67,55 @@ const Lec01 = () => {
             The GCD of 60 and 24 is 12, which is the largest number that both input numbers are divisible by.
           </p>
 
-          <div className={styles.comparisonGrid}>
-            <div className={styles.comparisonCard}>
-              <h3>Euclid's Algorithm</h3>
-              <p>Based on the property: <MathBlock math="\text{gcd}(m, n) = \text{gcd}(n, m \pmod n)" /></p>
-              <p>It uses <b>Decrease and Conquer</b> and is remarkably fast.</p>
-            </div>
-            <div className={styles.comparisonCard}>
-              <h3>Consecutive Integer Checking</h3>
-              <p>Starts from <MathBlock math="t = \min(m, n)" /> and checks each integer descending to 1.</p>
-              <p>It uses <b>Brute Force</b> and can be very slow for large inputs.</p>
-            </div>
+          <div className={styles.gridTwoCol}>
+            <AlgorithmCard 
+              title="Euclid's Algorithm"
+              goal="Find the Greatest Common Divisor using the property gcd(m, n) = gcd(n, m mod n)."
+              steps={[
+                "If n = 0, return m as the GCD and stop.",
+                "Calculate r = m mod n.",
+                "Set m = n and n = r.",
+                "Repeat the process from step 1."
+              ]}
+              complexity={{ time: "O(\\log n)", space: "O(1)" }}
+            />
+            <AlgorithmCard 
+              title="Consecutive Integer Checking"
+              goal="Find the GCD by checking all integers from min(m, n) down to 1."
+              steps={[
+                "Assign the value of min(m, n) to t.",
+                "Divide m by t. If the remainder is 0, go to step 3; otherwise, go to step 4.",
+                "Divide n by t. If the remainder is 0, return t as the answer; otherwise, go to step 4.",
+                "Decrease t by 1 and go back to step 2."
+              ]}
+              complexity={{ time: "O(\\min(m, n))", space: "O(1)" }}
+            />
           </div>
 
           <GcdRaceTracer />
+        </section>
+
+        <section id="problem-solving-flow" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>Fundamentals of Algorithmic Problem Solving</h2>
+          <p className={styles.editorialText}>
+            Designing an algorithm is a structured process. It starts with understanding the problem and ends with verifying the correctness and efficiency of the solution.
+          </p>
+          
+          <PremiumImage 
+            src="/images/lectures/lec01/slide07_img0.jpg" 
+            alt="Fundamentals of Algorithmic Problem Solving Flowchart" 
+            caption="The standard workflow: Understand the problem → Decide on computational means → Design algorithm → Prove correctness → Analyze algorithm → Code it."
+          />
+
+          <div className={styles.infoCard}>
+            <h4>Key Steps in the Process</h4>
+            <ul className={styles.editorialList}>
+              <li><b>Understanding the Problem:</b> Read the problem description carefully and ask questions if anything is unclear.</li>
+              <li><b>Ascertaining Computational Capabilities:</b> Sequential vs. Parallel, Exact vs. Approximate.</li>
+              <li><b>Choosing Data Structures:</b> The choice of data structure can significantly impact the algorithm's performance.</li>
+              <li><b>Algorithm Design Techniques:</b> Brute force, divide-and-conquer, dynamic programming, etc.</li>
+            </ul>
+          </div>
         </section>
 
         <section id="sorting-searching" className={styles.lessonSection}>
@@ -95,6 +138,38 @@ const Lec01 = () => {
           <SortingSearchingTracer />
         </section>
 
+        <section id="data-structures" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>Fundamental Data Structures</h2>
+          <p className={styles.editorialText}>
+            Data structures are ways of organizing and storing data so that they can be accessed and modified efficiently.
+          </p>
+
+          <PremiumImage 
+            src="/images/lectures/lec01/slide46_img0.jpg" 
+            alt="Fundamental Data Structures Overview" 
+            caption="Overview of common data structures: Linear (Arrays, Lists, Stacks, Queues), Graphs, and Trees."
+          />
+
+          <div className={styles.gridTwoCol}>
+            <div className={styles.infoCard}>
+              <h4>Linear Data Structures</h4>
+              <ul className={styles.editorialList}>
+                <li><b>Arrays:</b> Fixed-size, contiguous memory.</li>
+                <li><b>Linked Lists:</b> Dynamic size, non-contiguous memory.</li>
+                <li><b>Stacks:</b> LIFO (Last-In, First-Out) - Push/Pop operations.</li>
+                <li><b>Queues:</b> FIFO (First-In, First-Out) - Enqueue/Dequeue operations.</li>
+              </ul>
+            </div>
+            <div className={styles.infoCard}>
+              <h4>Non-Linear Data Structures</h4>
+              <ul className={styles.editorialList}>
+                <li><b>Graphs:</b> Vertices and Edges. Can be weighted or unweighted.</li>
+                <li><b>Trees:</b> Rooted, hierarchical structures. Height is the length of the longest path from root to leaf.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section id="graph-data" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>Graph Representations</h2>
           <p className={styles.editorialText}>
@@ -108,11 +183,35 @@ const Lec01 = () => {
           <p className={styles.editorialText}>
             A classic algorithm for finding all prime numbers up to a given limit <MathBlock math="n" />. It works by iteratively marking the multiples of each prime number as composite.
           </p>
+          
+          <AlgorithmCard 
+            title="Sieve of Eratosthenes"
+            goal="Identify all prime numbers up to a specified integer n."
+            steps={[
+              "Create a list of consecutive integers from 2 to n.",
+              "Initialize p = 2 (the first prime number).",
+              "Mark all multiples of p (2p, 3p, ...) that are greater than or equal to p² as composite.",
+              "Find the first number greater than p in the list that is not marked. If no such number exists, stop.",
+              "Set p to this new number and repeat from step 3."
+            ]}
+            complexity={{ time: "O(n \\log \\log n)", space: "O(n)" }}
+          />
+
           <SieveTracer />
         </section>
 
         <section id="problem-types" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>Other Important Problem Types</h2>
+          <p className={styles.editorialText}>
+            Beyond sorting and searching, algorithms are used to solve a wide variety of complex problems.
+          </p>
+
+          <PremiumImage 
+            src="/images/lectures/lec01/slide38_img0.jpg" 
+            alt="Important Problem Types Overview" 
+            caption="A categorization of common algorithmic problems."
+          />
+
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
               <h4>3. String Processing</h4>
@@ -121,6 +220,14 @@ const Lec01 = () => {
             <div className={styles.infoCard}>
               <h4>4. Combinatorial Problems</h4>
               <p>Finding objects like permutations or subsets that satisfy specific constraints. Often leads to exponential complexity.</p>
+            </div>
+            <div className={styles.infoCard}>
+              <h4>5. Geometric Problems</h4>
+              <p>Dealing with geometric objects like points, lines, and polygons. Examples include the Closest-Pair and Convex-Hull problems.</p>
+            </div>
+            <div className={styles.infoCard}>
+              <h4>6. Numerical Problems</h4>
+              <p>Solving problems that involve continuous mathematical functions, such as solving equations or evaluating integrals.</p>
             </div>
           </div>
         </section>

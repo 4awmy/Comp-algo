@@ -6,8 +6,8 @@
   "problems": [
     {
       "number": 1,
-      "question": "What is computing algorithm?",
-      "answer": "",
+      "question": "What is a computing algorithm? Define its key characteristics.",
+      "answer": "A computing algorithm is a sequence of unambiguous instructions for solving a problem, i.e., for obtaining a required output for any legitimate input in a finite amount of time. Key characteristics include: finiteness, definiteness, input/output constraints, and effectiveness.",
       "explanation": [
         {
           "step": 1,
@@ -15,74 +15,99 @@
         },
         {
           "step": 2,
-          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+          "text": "Define the sequence of unambiguous steps required to transition from input to output."
         },
         {
           "step": 3,
-          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+          "text": "Validate the finiteness (termination) and correctness by tracing a test case."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "sieveEratosthenes"
     },
     {
       "number": 2,
-      "question": "Compute the following sums:",
-      "answer": "1+2+3+…….+70\n1+3+5+……+999",
+      "question": "Compute the following sums using mathematical analysis:\na. 1 + 2 + 3 + ... + 70\nb. 1 + 3 + 5 + ... + 999",
+      "answer": "a. The sum is 2485 (using the formula n(n+1)/2 = 70 * 71 / 2).\nb. The sum is 250000 (since 1 + 3 + ... + (2k-1) = k^2, where k = 500 terms: 500^2 = 250,000).",
       "explanation": [
         {
           "step": 1,
-          "text": "Understand the input parameters and the expected output for the given problem statement."
+          "text": "For part a, apply the arithmetic series sum formula: Sum = n(n+1)/2, with n = 70."
         },
         {
           "step": 2,
-          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+          "text": "For part b, identify the series of consecutive odd integers. Find the number of terms k = (999 - 1)/2 + 1 = 500."
         },
         {
           "step": 3,
-          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+          "text": "Use the odd sum formula: Sum = k^2 = 500^2 = 250,000."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "euclidGcd"
     },
     {
       "number": 3,
-      "question": "Solve the following functions:",
-      "answer": "=\n=",
+      "question": "Solve the following summation formulas:\na. ∑_{i=3}^{5} 2\nb. ∑_{i=3}^{10} C\nc. ∑_{i=3}^{n} 2\nd. ∑_{i=0}^{n-1} i\ne. ∑_{i=0}^{n-1} n\nf. ∑_{i=0}^{n-1} ∑_{j=0}^{n-1} 1\ng. ∑_{i=0}^{n-1} ∑_{j=0}^{n-1} j\nh. ∑_{i=0}^{n-1} ∑_{j=0}^{i} 1\ni. 2 + 4 + 8 + 16 + ... + 1024\nj. ∑_{i=0}^{n-1} (3i + 1)",
+      "answer": "Answers:\na. 6\nb. 8C\nc. 2n - 4\nd. n(n-1)/2\ne. n^2\nf. n^2\ng. n^2(n-1)/2\nh. n(n+1)/2\ni. 2046 (using geometric series a(r^k - 1)/(r - 1) = 2(2^10 - 1)/1)\nj. (3n^2 - n)/2",
       "explanation": [
         {
           "step": 1,
-          "text": "Understand the input parameters and the expected output for the given problem statement."
+          "text": "Sum of constant C from i=a to b is C * (b - a + 1)."
         },
         {
           "step": 2,
-          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+          "text": "Sum of i from 0 to n-1 is n(n-1)/2."
         },
         {
           "step": 3,
-          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+          "text": "For double sum ∑∑j, factor out independent index i and evaluate inner sum first."
+        },
+        {
+          "step": 4,
+          "text": "For geometric sum 2^1 + ... + 2^10, apply standard formula a(r^k - 1)/(r-1)."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
     },
     {
       "number": 4,
-      "question": "For the given data structures",
-      "answer": "Given a stack, what will be the final elements in the stack after the following operations\npush(a), push(b), push(c), pop, pop, push(d)\nGiven a queue, what will be the final elements in the queue after the following operations\nenqueue(a), enqueue(b), enqueue(c), dequeue, dequeue",
+      "question": "Solve the following logarithmic functions:\na. log_a 1\nb. log_y y\nc. log_2 2^{10}\nd. log_x x^2\ne. log_x (x / y)",
+      "answer": "Answers:\na. 0\nb. 1\nc. 10\nd. 2\ne. 1 - log_x y",
       "explanation": [
         {
           "step": 1,
-          "text": "Understand the input parameters and the expected output for the given problem statement."
+          "text": "Apply logarithm properties: log_b 1 = 0, and log_b b = 1."
         },
         {
           "step": 2,
-          "text": "Determine the design method (e.g. Brute Force, Decrease & Conquer) suitable for this problem."
+          "text": "Apply power rule: log_b b^k = k."
         },
         {
           "step": 3,
-          "text": "Validate the finiteness and correctness of the algorithm by walking through a test case."
+          "text": "Apply quotient rule: log_b (x/y) = log_b x - log_b y."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
+    },
+    {
+      "number": 5,
+      "question": "Given the following data structures, find the output elements:\na. Stack: What are the final elements after: push(a), push(b), push(c), pop(), pop(), push(d)?\nb. Queue: What are the final elements after: enqueue(a), enqueue(b), enqueue(c), dequeue(), dequeue()?",
+      "answer": "a. Stack elements from bottom to top: [a, d]. (b, c are popped)\nb. Queue elements: [c]. (a, b are dequeued)",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Stack is LIFO (Last In First Out). push(a)->[a], push(b)->[a,b], push(c)->[a,b,c], pop()->[a,b], pop()->[a], push(d)->[a,d]."
+        },
+        {
+          "step": 2,
+          "text": "Queue is FIFO (First In First Out). enqueue(a)->[a], enqueue(b)->[a,b], enqueue(c)->[a,b,c], dequeue()->[b,c], dequeue()->[c]."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "josephus"
     }
   ]
 }

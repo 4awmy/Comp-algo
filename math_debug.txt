@@ -1,0 +1,1273 @@
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="0A8D2E37" w14:textId="77777777" w:rsidR="00440602" w:rsidRPr="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=3</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>5</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>2</m:t>
+        </m:r>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="6532A090" w14:textId="77777777" w:rsidR="00440602" w:rsidRPr="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=3</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>10</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>C</m:t>
+        </m:r>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="62469112" w14:textId="77777777" w:rsidR="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=3</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>2</m:t>
+        </m:r>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="48385ACC" w14:textId="77777777" w:rsidR="00440602" w:rsidRPr="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i</m:t>
+        </m:r>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="3500163B" w14:textId="77777777" w:rsidR="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n</m:t>
+        </m:r>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="5F61B245" w14:textId="77777777" w:rsidR="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:nary>
+          <m:naryPr>
+            <m:chr m:val="∑"/>
+            <m:limLoc m:val="subSup"/>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:naryPr>
+          <m:sub>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j=0</m:t>
+            </m:r>
+          </m:sub>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>n-1</m:t>
+            </m:r>
+          </m:sup>
+          <m:e>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>1</m:t>
+            </m:r>
+          </m:e>
+        </m:nary>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="4200DCEE" w14:textId="77777777" w:rsidR="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:nary>
+          <m:naryPr>
+            <m:chr m:val="∑"/>
+            <m:limLoc m:val="subSup"/>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:naryPr>
+          <m:sub>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j=0</m:t>
+            </m:r>
+          </m:sub>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>n-1</m:t>
+            </m:r>
+          </m:sup>
+          <m:e>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j</m:t>
+            </m:r>
+          </m:e>
+        </m:nary>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="36286476" w14:textId="77777777" w:rsidR="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:nary>
+          <m:naryPr>
+            <m:chr m:val="∑"/>
+            <m:limLoc m:val="subSup"/>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:naryPr>
+          <m:sub>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j=0</m:t>
+            </m:r>
+          </m:sub>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>n-1</m:t>
+            </m:r>
+          </m:sup>
+          <m:e>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>i</m:t>
+            </m:r>
+          </m:e>
+        </m:nary>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="46A2E014" w14:textId="0F5FD458" w:rsidR="00504783" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:nary>
+          <m:naryPr>
+            <m:chr m:val="∑"/>
+            <m:limLoc m:val="subSup"/>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:naryPr>
+          <m:sub>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j=0</m:t>
+            </m:r>
+          </m:sub>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>n-1</m:t>
+            </m:r>
+          </m:sup>
+          <m:e>
+            <m:nary>
+              <m:naryPr>
+                <m:chr m:val="∑"/>
+                <m:limLoc m:val="undOvr"/>
+                <m:ctrlPr>
+                  <w:rPr>
+                    <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                    <w:i/>
+                  </w:rPr>
+                </m:ctrlPr>
+              </m:naryPr>
+              <m:sub>
+                <m:r>
+                  <w:rPr>
+                    <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                  </w:rPr>
+                  <m:t>k=0</m:t>
+                </m:r>
+              </m:sub>
+              <m:sup>
+                <m:r>
+                  <w:rPr>
+                    <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                  </w:rPr>
+                  <m:t>n-1</m:t>
+                </m:r>
+              </m:sup>
+              <m:e>
+                <m:r>
+                  <w:rPr>
+                    <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                  </w:rPr>
+                  <m:t>k</m:t>
+                </m:r>
+              </m:e>
+            </m:nary>
+          </m:e>
+        </m:nary>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="717B379A" w14:textId="70FFEDAB" w:rsidR="00440602" w:rsidRDefault="00000000" w:rsidP="00440602">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:nary>
+          <m:naryPr>
+            <m:chr m:val="∑"/>
+            <m:limLoc m:val="subSup"/>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:naryPr>
+          <m:sub>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j=0</m:t>
+            </m:r>
+          </m:sub>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>n-1</m:t>
+            </m:r>
+          </m:sup>
+          <m:e>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>i</m:t>
+            </m:r>
+          </m:e>
+        </m:nary>
+      </m:e>
+    </m:nary>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>.j</m:t>
+    </m:r>
+  </m:oMath>
+  <w:r w:rsidR="00504783">
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+    <w:t xml:space="preserve"> </w:t>
+  </w:r>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="1F111512" w14:textId="77777777" w:rsidR="00504783" w:rsidRDefault="00000000" w:rsidP="00504783">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:nary>
+          <m:naryPr>
+            <m:chr m:val="∑"/>
+            <m:limLoc m:val="subSup"/>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:naryPr>
+          <m:sub>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j=0</m:t>
+            </m:r>
+          </m:sub>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>i</m:t>
+            </m:r>
+          </m:sup>
+          <m:e>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>1</m:t>
+            </m:r>
+          </m:e>
+        </m:nary>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="6D620C68" w14:textId="1BBA6DC6" w:rsidR="00504783" w:rsidRDefault="00000000" w:rsidP="00504783">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:nary>
+          <m:naryPr>
+            <m:chr m:val="∑"/>
+            <m:limLoc m:val="subSup"/>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:naryPr>
+          <m:sub>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j=0</m:t>
+            </m:r>
+          </m:sub>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>i</m:t>
+            </m:r>
+          </m:sup>
+          <m:e>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>j</m:t>
+            </m:r>
+          </m:e>
+        </m:nary>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+  <w:r w:rsidR="00504783">
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+    <w:t xml:space="preserve">  </w:t>
+  </w:r>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="4A93DF98" w14:textId="3C0CE18A" w:rsidR="002E5FA4" w:rsidRDefault="002E5FA4" w:rsidP="00504783">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>2+4+8+16+32+………..1024</m:t>
+    </m:r>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="7DFB6B99" w14:textId="6615029C" w:rsidR="002E5FA4" w:rsidRDefault="00000000" w:rsidP="002E5FA4">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="1"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:nary>
+      <m:naryPr>
+        <m:chr m:val="∑"/>
+        <m:limLoc m:val="undOvr"/>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:naryPr>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>i=0</m:t>
+        </m:r>
+      </m:sub>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>n-1</m:t>
+        </m:r>
+      </m:sup>
+      <m:e>
+        <m:sSup>
+          <m:sSupPr>
+            <m:ctrlPr>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                <w:i/>
+              </w:rPr>
+            </m:ctrlPr>
+          </m:sSupPr>
+          <m:e>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>3</m:t>
+            </m:r>
+          </m:e>
+          <m:sup>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>i</m:t>
+            </m:r>
+            <m:r>
+              <w:rPr>
+                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+              </w:rPr>
+              <m:t>+1</m:t>
+            </m:r>
+          </m:sup>
+        </m:sSup>
+      </m:e>
+    </m:nary>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="42E8665A" w14:textId="6D968033" w:rsidR="00F02525" w:rsidRDefault="00F02525" w:rsidP="00F02525">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="4"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>lo</m:t>
+    </m:r>
+    <m:sSub>
+      <m:sSubPr>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:sSubPr>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>g</m:t>
+        </m:r>
+      </m:e>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>a</m:t>
+        </m:r>
+      </m:sub>
+    </m:sSub>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>1=</m:t>
+    </m:r>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="51A7E1BA" w14:textId="56F29A35" w:rsidR="00F02525" w:rsidRDefault="00F02525" w:rsidP="00F02525">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="4"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>lo</m:t>
+    </m:r>
+    <m:sSub>
+      <m:sSubPr>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:sSubPr>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>g</m:t>
+        </m:r>
+      </m:e>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>y</m:t>
+        </m:r>
+      </m:sub>
+    </m:sSub>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>y=</m:t>
+    </m:r>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="7DA02E56" w14:textId="421C322D" w:rsidR="00F02525" w:rsidRDefault="00F02525" w:rsidP="00F02525">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="4"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>lo</m:t>
+    </m:r>
+    <m:sSub>
+      <m:sSubPr>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:sSubPr>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>g</m:t>
+        </m:r>
+      </m:e>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>2</m:t>
+        </m:r>
+      </m:sub>
+    </m:sSub>
+    <m:sSup>
+      <m:sSupPr>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:sSupPr>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>2</m:t>
+        </m:r>
+      </m:e>
+      <m:sup>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>10</m:t>
+        </m:r>
+      </m:sup>
+    </m:sSup>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>=</m:t>
+    </m:r>
+  </m:oMath>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="3D0B71F7" w14:textId="1C9CA62F" w:rsidR="00F02525" w:rsidRDefault="008D55F7" w:rsidP="00F02525">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="4"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>lo</m:t>
+    </m:r>
+    <m:sSub>
+      <m:sSubPr>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:sSubPr>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>g</m:t>
+        </m:r>
+      </m:e>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>x</m:t>
+        </m:r>
+      </m:sub>
+    </m:sSub>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>2x</m:t>
+    </m:r>
+  </m:oMath>
+  <w:r>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+    <w:t>=</w:t>
+  </w:r>
+</w:p>
+
+<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" w14:paraId="55EDC8A9" w14:textId="591FC59A" w:rsidR="008D55F7" w:rsidRPr="00F02525" w:rsidRDefault="008D55F7" w:rsidP="00F02525">
+  <w:pPr>
+    <w:pStyle w:val="ListParagraph"/>
+    <w:numPr>
+      <w:ilvl w:val="0"/>
+      <w:numId w:val="4"/>
+    </w:numPr>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+  </w:pPr>
+  <m:oMath>
+    <m:r>
+      <m:rPr>
+        <m:sty m:val="p"/>
+      </m:rPr>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t>lo</m:t>
+    </m:r>
+    <m:sSub>
+      <m:sSubPr>
+        <m:ctrlPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+            <w:i/>
+          </w:rPr>
+        </m:ctrlPr>
+      </m:sSubPr>
+      <m:e>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>g</m:t>
+        </m:r>
+      </m:e>
+      <m:sub>
+        <m:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+          </w:rPr>
+          <m:t>x</m:t>
+        </m:r>
+      </m:sub>
+    </m:sSub>
+    <m:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Cambria Math" w:eastAsiaTheme="minorEastAsia" w:hAnsi="Cambria Math"/>
+      </w:rPr>
+      <m:t xml:space="preserve"> x/y</m:t>
+    </m:r>
+  </m:oMath>
+  <w:r>
+    <w:rPr>
+      <w:rFonts w:eastAsiaTheme="minorEastAsia"/>
+    </w:rPr>
+    <w:t>=</w:t>
+  </w:r>
+</w:p>

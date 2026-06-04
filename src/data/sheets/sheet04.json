@@ -5,44 +5,112 @@
   "title": "Brute Force",
   "problems": [
     {
-      "question": "Determine the number of character comparisons made by the brute-force algorithm in searching for the pattern GANDHI in the text THERE_IS_MORE_TO_LIFE_THAN_INCREASING_ITS_SPEED\nAssume that the length of the text—it is 47 characters long—is known before the search starts.",
-      "answer": "",
       "number": 1,
+      "pageNumber": 1,
+      "question": "Sort the list E, X, A, M, P, L, E in alphabetical order by selection sort and bubble sort. Show the state of the list after each pass.",
+      "answer": "### Selection Sort Passes:\n- Input: `[E, X, A, M, P, L, E]`\n- Pass 1: Swap minimum `A` (index 2) with first element: `[A, X, E, M, P, L, E]`\n- Pass 2: Swap minimum `E` (index 2) with second element: `[A, E, X, M, P, L, E]`\n- Pass 3: Swap minimum `E` (index 6) with third element: `[A, E, E, M, P, L, X]`\n- Pass 4: Swap minimum `L` (index 5) with fourth element: `[A, E, E, L, P, M, X]`\n- Pass 5: Swap minimum `M` (index 5) with fifth element: `[A, E, E, L, M, P, X]`\n- Pass 6: Minimum `P` is already in position: `[A, E, E, L, M, P, X]`\n\n### Bubble Sort Passes:\n- Input: `[E, X, A, M, P, L, E]`\n- Pass 1: Compare and swap adjacent elements to bubble `X` to the end: `[E, A, M, P, L, E, X]`\n- Pass 2: Bubble `P` to its correct position: `[A, E, M, L, E, P, X]`\n- Pass 3: Bubble `M` to its correct position: `[A, E, L, E, M, P, X]`\n- Pass 4: Bubble `L` to its correct position: `[A, E, E, L, M, P, X]`\n- Pass 5: List is already sorted (no swaps): `[A, E, E, L, M, P, X]`",
       "explanation": [
         {
           "step": 1,
-          "text": "Understand the brute-force search space by analyzing all possible permutations or combinations."
+          "text": "For **Selection Sort**: Find the smallest element in the unsorted suffix and swap it with the element at the beginning of the suffix."
         },
         {
           "step": 2,
-          "text": "Implement nested loops to compare elements systematically (e.g., Selection Sort or Bubble Sort passes)."
+          "text": "Identify the elements step by step: Swap (E, A), then (X, E), then (X, E), then (M, L), then (P, M), then (P, P)."
         },
         {
           "step": 3,
-          "text": "Analyze the worst-case number of comparisons, which is typically quadratic: O(n²)."
+          "text": "For **Bubble Sort**: Step through the list, compare adjacent elements, and swap them if they are in the wrong order. Repeat this $n-1$ times."
+        },
+        {
+          "step": 4,
+          "text": "Observe that in each pass of Bubble Sort, the largest unsorted element bubbles to the end of the array (e.g. X in pass 1, P in pass 2, M in pass 3)."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "selectionSort"
     },
     {
-      "question": "5. How many comparisons (both successful and unsuccessful) will be made by the brute-force algorithm in searching for each of the following patterns in the binary text of one thousand zeros?\na. 00001\nb. 10000\nc. 01010",
-      "answer": "",
       "number": 2,
+      "pageNumber": 1,
+      "question": "State if the selection sort and bubble sort are stable and in-place.",
+      "answer": "- **Selection Sort**: **In-place** (requires only $O(1)$ auxiliary space) but **not stable** (can change the relative order of duplicate elements during swaps).\n- **Bubble Sort**: **In-place** (requires only $O(1)$ auxiliary space) and **stable** (does not swap duplicate elements because of strict comparison inequality).",
       "explanation": [
         {
           "step": 1,
-          "text": "Understand the brute-force search space by analyzing all possible permutations or combinations."
+          "text": "An algorithm is *in-place* if it requires a constant amount of extra memory space ($O(1)$ auxiliary memory). Both selection and bubble sort perform all operations inside the input array, making them both in-place."
         },
         {
           "step": 2,
-          "text": "Implement nested loops to compare elements systematically (e.g., Selection Sort or Bubble Sort passes)."
+          "text": "An algorithm is *stable* if it preserves the relative order of duplicate items."
         },
         {
           "step": 3,
-          "text": "Analyze the worst-case number of comparisons, which is typically quadratic: O(n²)."
+          "text": "Show why Selection Sort is unstable: For input `[E1, X, A, M, P, L, E2]`, the first swap exchanges `E1` with `A`, yielding `[A, X, E2, M, P, L, E1]`. The relative order of `E1` and `E2` has changed."
+        },
+        {
+          "step": 4,
+          "text": "Show why Bubble Sort is stable: Bubble sort only swaps adjacent elements $A[i] > A[i+1]$. Equal values are never swapped, preserving their original relative order."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "bubbleSort"
+    },
+    {
+      "number": 3,
+      "pageNumber": 2,
+      "question": "Determine the number of character comparisons made by the brute-force algorithm in searching for the pattern GANDHI (M = 6) in the text THERE_IS_MORE_TO_LIFE_THAN_INCREASING_ITS_SPEED (N = 47).",
+      "answer": "The brute-force algorithm makes exactly **43 comparisons** across 42 alignments.",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Calculate the total number of alignments: $N - M + 1 = 47 - 6 + 1 = 42$ alignments."
+        },
+        {
+          "step": 2,
+          "text": "For 41 of these alignments, the pattern's first letter 'G' is compared to a text character that is not 'G' (e.g. 'T', 'H', 'E', '_', etc.). Each of these alignments results in exactly 1 comparison (41 comparisons total)."
+        },
+        {
+          "step": 3,
+          "text": "Locate the only character 'G' in the text, which is in 'INCREASING' at index 36: `...I(34)N(35)G(36)_(37)I(38)...`."
+        },
+        {
+          "step": 4,
+          "text": "When the pattern is aligned at index 36, compare 'G' with 'G' (success, 1 comparison) and then compare 'A' (pattern[1]) with '_' (text[37]) (failure, 1 comparison). This alignment makes 2 comparisons."
+        },
+        {
+          "step": 5,
+          "text": "Add them together: $41 \\text{ alignments} \\times 1 \\text{ comparison} + 1 \\text{ alignment} \\times 2 \\text{ comparisons} = 43 \\text{ comparisons}$."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "stringMatching"
+    },
+    {
+      "number": 4,
+      "pageNumber": 3,
+      "question": "How many comparisons (both successful and unsuccessful) will be made by the brute-force algorithm in searching for each of the following patterns in the binary text of one thousand zeros (N = 1000)?\na. 00001\nb. 10000\nc. 01010",
+      "answer": "- **a. 00001**: **4980 comparisons**\n- **b. 10000**: **996 comparisons**\n- **c. 01010**: **1992 comparisons**",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Calculate the number of alignments for a text of length $N = 1000$ and patterns of length $M = 5$: $N - M + 1 = 1000 - 5 + 1 = 996$ alignments."
+        },
+        {
+          "step": 2,
+          "text": "For pattern **a. 00001**: At each of the 996 alignments, the first 4 characters match the text ('0' vs '0') and the 5th character mismatches ('1' vs '0'). This yields 5 comparisons per alignment: $996 \\times 5 = 4980$ comparisons."
+        },
+        {
+          "step": 3,
+          "text": "For pattern **b. 10000**: The first character is '1', which mismatches the text '0' immediately. This yields 1 comparison per alignment: $996 \\times 1 = 996$ comparisons."
+        },
+        {
+          "step": 4,
+          "text": "For pattern **c. 01010**: The first character '0' matches the text '0' (1 comparison), and the second character '1' mismatches the text '0' (1 comparison). This yields 2 comparisons per alignment: $996 \\times 2 = 1992$ comparisons."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "stringMatching"
     }
   ]
 }

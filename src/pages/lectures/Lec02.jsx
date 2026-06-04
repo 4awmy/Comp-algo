@@ -1,7 +1,7 @@
-import React from 'react';
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
-import VisualStage from '../../components/ui/Premium/VisualStage';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 import ComplexityCounterTracer from '../../components/visualization/bespoke/ComplexityCounterTracer';
 import GrowthChartTracer from '../../components/visualization/bespoke/GrowthChartTracer';
 import AsymptoticNotationTracer from '../../components/visualization/bespoke/AsymptoticNotationTracer';
@@ -21,6 +21,12 @@ const Lec02 = () => {
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             To design better algorithms, we must first learn how to <b>measure</b> them. Analysis of algorithms focuses on two primary resources: <b>Time</b> and <b>Space</b>. We don't measure time in seconds, but in the number of <b>Basic Operations</b> executed relative to the input size <MathBlock math="n" />.
           </p>
+
+          <PremiumImage 
+            src="/images/lectures/lec02/slide03_img0.jpg" 
+            alt="The Analysis Framework" 
+            caption="The theoretical framework for analyzing algorithm efficiency."
+          />
           
           <div className={styles.infoCard}>
             <h4>The Analysis Framework</h4>
@@ -30,6 +36,19 @@ const Lec02 = () => {
               <li><b>Growth Rate:</b> How the number of operations increases as <MathBlock math="n" /> grows.</li>
             </ul>
           </div>
+
+          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>Measuring Input Size</h4>
+            <p className={styles.editorialText}>
+              The way we measure <MathBlock math="n" /> depends on the problem:
+            </p>
+            <ul className={styles.editorialList}>
+              <li><b>Sorting/Searching:</b> Number of elements in the list.</li>
+              <li><b>Matrix Multiplication:</b> Dimensions of the matrices (e.g., <MathBlock math="n \times n" />).</li>
+              <li><b>Graphs:</b> Number of vertices (<MathBlock math="|V|" />) and edges (<MathBlock math="|E|" />).</li>
+              <li><b>Numerical Problems:</b> Number of bits in the binary representation of the input.</li>
+            </ul>
+          </div>
         </section>
 
         <section id="basic-operations" className={styles.lessonSection}>
@@ -37,6 +56,22 @@ const Lec02 = () => {
           <p className={styles.editorialText}>
             The first step in analysis is identifying and counting the basic operations. These are usually comparisons or arithmetic operations in the deepest part of the loop.
           </p>
+
+          <AlgorithmCard 
+            title="Max Element Search"
+            goal="Find the largest value in an array of n elements."
+            steps={[
+              "Initialize 'max' with the first element of the array.",
+              "Iterate through the remaining n-1 elements.",
+              "For each element, compare it with the current 'max'.",
+              "If the element is larger, update 'max'.",
+              "Return 'max' after the loop finishes."
+            ]}
+            complexity={{
+              time: "n-1 \\approx \\Theta(n)",
+              space: "\\Theta(1)"
+            }}
+          />
 
           <ComplexityCounterTracer />
 
@@ -59,6 +94,19 @@ const Lec02 = () => {
                 <p className="mt-2 text-xs">Total operations: <MathBlock math="n^2" /></p>
              </div>
           </div>
+
+          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>Operation Hierarchy</h4>
+            <p className={styles.editorialText}>
+              Not all operations are created equal. In terms of computational cost:
+            </p>
+            <p className={styles.editorialText} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+              Division / Modulo {'>'} Multiplication {'>'} Addition / Subtraction {'>'} Comparison
+            </p>
+            <p className={styles.editorialText}>
+              When analyzing, we focus on the <b>most expensive</b> operation that is executed most frequently.
+            </p>
+          </div>
         </section>
 
         <section id="growth-rates" className={styles.lessonSection}>
@@ -68,6 +116,12 @@ const Lec02 = () => {
           </p>
 
           <GrowthChartTracer />
+
+          <PremiumImage 
+            src="/images/lectures/lec02/slide16_img0.png" 
+            alt="Order of Growth Comparison Table" 
+            caption="Numerical comparison of common growth functions for increasing values of n."
+          />
 
           <div className={styles.infoCard}>
              <h4 className="mb-4">Common Efficiency Classes</h4>
@@ -114,6 +168,25 @@ const Lec02 = () => {
           </div>
 
           <AsymptoticNotationTracer />
+
+          <PremiumImage 
+            src="/images/lectures/lec02/slide27_img0.png" 
+            alt="Big Omega Formal Definition Graph" 
+            caption="Visual representation of the lower bound (Big-Omega) definition."
+          />
+
+          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>Asymptotic Comparison Quiz</h4>
+            <p className={styles.editorialText}>
+              Test your understanding of asymptotic relations. Are the following statements True or False?
+            </p>
+            <ul className={styles.editorialList}>
+              <li><MathBlock math="n^2 \in O(n^3)" /> — <b>True</b> (Quadratic is bounded above by cubic)</li>
+              <li><MathBlock math="n^3 \in O(n^2)" /> — <b>False</b> (Cubic grows faster than quadratic)</li>
+              <li><MathBlock math="2^n \in \Omega(n^{100})" /> — <b>True</b> (Exponential eventually overtakes any polynomial)</li>
+              <li><MathBlock math="\sqrt{n} \in \Theta(\log n)" /> — <b>False</b> (Square root grows faster than logarithmic)</li>
+            </ul>
+          </div>
         </section>
 
         <section id="cases" className={styles.lessonSection}>

@@ -1,5 +1,7 @@
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 import FakeCoinTracer from '../../components/visualization/bespoke/FakeCoinTracer';
 import JosephusTracer from '../../components/visualization/bespoke/JosephusTracer';
 import { 
@@ -44,13 +46,31 @@ const Lec07 = () => {
             Generating permutations is a fundamental task in combinatorial computing. The <b>minimal-change</b> requirement ensures that each new permutation is created by swapping exactly two adjacent elements.
           </p>
 
+          <AlgorithmCard 
+            title="Johnson-Trotter Algorithm"
+            goal="Generate all n! permutations such that each differs from the previous by one adjacent swap."
+            steps={[
+              "Initialize the first permutation (1, 2, ..., n) with all elements pointing left.",
+              "Find the largest 'mobile' element (points to a smaller adjacent element).",
+              "Swap the mobile element with the element it points to.",
+              "Reverse the direction of all elements larger than the swapped mobile element.",
+              "Repeat until no mobile elements remain."
+            ]}
+            complexity={{ time: "O(n!)", space: "O(n)" }}
+          />
+
+          <PremiumImage 
+            src="/images/lectures/lec07/slide05_img0.png" 
+            alt="Johnson Trotter Trace" 
+            caption="A step-by-step trace of the Johnson-Trotter algorithm for n=3."
+          />
+
           <JohnsonTrotterTracer />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.methodBox}>
-              <h3>Minimal-Change Algorithm</h3>
+              <h3>Minimal-Change Property</h3>
               <p>Each permutation differs from its predecessor by a single swap of adjacent elements. The Johnson-Trotter algorithm is the most famous implementation of this property.</p>
-              <MathBlock math="n! \text{ permutations, } O(1) \text{ per change}" />
             </div>
             <div className={styles.methodBox}>
               <h3>Lexicographic Generation</h3>
@@ -66,16 +86,26 @@ const Lec07 = () => {
             The bottom-up approach generates subsets of size $n$ by taking all subsets of size $n-1$ and duplicating them, adding the new $n$-th element to each duplicate.
           </p>
 
-          <BottomUpSubsetTracer />
+          <AlgorithmCard 
+            title="Binary Reflected Gray Code"
+            goal="Generate all 2^n subsets such that each differs from the previous by exactly one element."
+            steps={[
+              "Generate Gray code G(n-1) for n-1 bits.",
+              "Prefix each string in G(n-1) with 0.",
+              "Prefix each string in the reverse of G(n-1) with 1.",
+              "Concatenate the two lists to get G(n).",
+              "Each bit string corresponds to a subset of the n-element set."
+            ]}
+            complexity={{ time: "O(2^n)", space: "O(2^n)" }}
+          />
 
-          <div className={styles.infoCard}>
-            <h4>Binary Reflected Gray Code</h4>
-            <p className={styles.editorialText}>
-              A Gray code is a sequence of bit strings where each differs from the predecessor by exactly one bit. This corresponds to adding or removing exactly one element from a subset.
-            </p>
-            <GrayCodeTracer />
-            <MathBlock block math="G(n) = [0G(n-1), 1G(n-1)^R]" />
-          </div>
+          <PremiumImage 
+            src="/images/lectures/lec07/slide10_img0.png" 
+            alt="Binary Representation for Subsets" 
+            caption="Mapping binary strings to subsets: a 1 at position i means the i-th element is included."
+          />
+
+          <BottomUpSubsetTracer />
         </section>
 
         <section id="binary-search" className={styles.lessonSection}>
@@ -84,18 +114,20 @@ const Lec07 = () => {
             Binary Search is the ultimate example of <b>decrease-by-a-constant-factor</b> ($n/2$). By comparing the target with the middle element, we can discard half of the remaining array in each step.
           </p>
 
-          <BinarySearchRace />
+          <AlgorithmCard 
+            title="Binary Search"
+            goal="Efficiently find a target value in a sorted array."
+            steps={[
+              "Compare the target value with the middle element of the array.",
+              "If target equals middle, the search is successful.",
+              "If target is smaller, repeat the search on the left half of the array.",
+              "If target is larger, repeat the search on the right half of the array.",
+              "Continue until the value is found or the range is empty."
+            ]}
+            complexity={{ time: "O(\\log n)", space: "O(1)" }}
+          />
 
-          <div className={styles.statsBar}>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Linear Search</span>
-              <MathBlock math="\Theta(n)" />
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statLabel}>Binary Search</span>
-              <MathBlock math="\Theta(\log n)" />
-            </div>
-          </div>
+          <BinarySearchRace />
         </section>
 
         <section id="fake-coin" className={styles.lessonSection}>
@@ -104,11 +136,19 @@ const Lec07 = () => {
             Given $n$ coins where one is lighter, identifying it using a balance scale. Dividing into <b>three groups</b> ($n/3$) is more efficient than binary splitting.
           </p>
 
-          <FakeCoinTracer />
+          <AlgorithmCard 
+            title="Fake Coin Problem (n/3)"
+            goal="Identify a lighter fake coin in the minimum number of weighings."
+            steps={[
+              "Divide the coins into three nearly equal groups: A, B, and C.",
+              "Weigh group A against group B on a balance scale.",
+              "If A is lighter, the fake coin is in A. If B is lighter, it's in B. If they balance, it's in C.",
+              "Repeat the process for the identified group until only one coin remains."
+            ]}
+            complexity={{ time: "O(\\log_3 n)", space: "O(1)" }}
+          />
 
-          <p className={styles.editorialText}>
-            Ternary splitting reduces the search space more aggressively than binary splitting, yielding $\lceil \log_3 n \rceil$ weighings.
-          </p>
+          <FakeCoinTracer />
         </section>
 
         <section id="russian-peasant" className={styles.lessonSection}>
@@ -117,14 +157,25 @@ const Lec07 = () => {
             An ancient method for multiplying two integers $n$ and $m$ using only halving, doubling, and addition.
           </p>
 
-          <RussianPeasantTracer />
+          <AlgorithmCard 
+            title="Russian Peasant Multiplication"
+            goal="Multiply two integers using halving, doubling, and addition."
+            steps={[
+              "Place the two numbers n and m in two columns.",
+              "Repeatedly halve n (dropping remainders) and double m until n becomes 1.",
+              "Identify all rows where n is an odd number.",
+              "Sum the corresponding values of m from those rows to get the product."
+            ]}
+            complexity={{ time: "O(\\log n)", space: "O(1)" }}
+          />
 
-          <div className={styles.infoCard}>
-            <p className={styles.editorialText}>
-              The method works because it essentially performs binary multiplication. We halve $n$ and double $m$, keeping the $m$ values where $n$ is odd.
-            </p>
-            <MathBlock math="T(n) \in \Theta(\log n)" />
-          </div>
+          <PremiumImage 
+            src="/images/lectures/lec07/slide16_img0.jpg" 
+            alt="Russian Peasant Multiplication Overview" 
+            caption="The halving and doubling process used to multiply integers."
+          />
+
+          <RussianPeasantTracer />
         </section>
 
         <section id="josephus" className={styles.lessonSection}>
@@ -133,6 +184,18 @@ const Lec07 = () => {
             Eliminating every second person in a circle until one remains. The solution has a beautiful property linked to binary representation.
           </p>
 
+          <AlgorithmCard 
+            title="Josephus Problem"
+            goal="Find the last remaining position in a circular elimination process."
+            steps={[
+              "Represent the number of people n in binary.",
+              "Perform a cyclic left shift by one bit (move the leading 1 to the end).",
+              "The resulting binary string is the winning position.",
+              "Formulaicly, if n = 2^m + l, the winner is 2l + 1."
+            ]}
+            complexity={{ time: "O(\\log n)", space: "O(1)" }}
+          />
+
           <JosephusCircle />
 
           <div className={styles.gridTwoCol}>
@@ -140,11 +203,6 @@ const Lec07 = () => {
                <h3>Interactive Tracer</h3>
                <p className={styles.editorialText}>Explore the exact step-by-step elimination sequence for any n in the simulator below.</p>
                <JosephusTracer />
-            </div>
-            <div className={styles.comparisonCard}>
-              <h3>Surprising Solution</h3>
-              <p className={styles.editorialText}>If $n = 2^m + l$, the winning position is $2l + 1$. This corresponds to moving the most significant bit of $n$'s binary representation to the end.</p>
-              <MathBlock math="J(n) = 2l + 1" />
             </div>
           </div>
         </section>

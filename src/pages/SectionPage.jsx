@@ -63,7 +63,7 @@ const TRACER_MAP = {
   'hashing': HashingTracer,
   'heapsort': HeapsortTracer,
   'hornersMethod': HornersTracer,
-  'horspoolSearch': HornersTracer,
+  'horspoolSearch': HorspoolTracer,
   'insertionSort': InsertionSortTracer,
   'josephus': JosephusTracer,
   'mergeSort': MergeSortTracer,
@@ -195,6 +195,8 @@ export default function SectionPage() {
                         key={prob.number}
                         number={prob.number}
                         question={prob.question}
+                        answer={prob.answer}
+                        explanation={prob.explanation}
                         BespokeTracer={TRACER_MAP[prob.algorithm || prob.visualizationType]}
                         algorithm={prob.algorithm || prob.visualizationType}
                         data={prob.data}
@@ -213,6 +215,8 @@ export default function SectionPage() {
                 key={prob.number}
                 number={prob.number}
                 question={prob.question}
+                answer={prob.answer}
+                explanation={prob.explanation}
                 BespokeTracer={TRACER_MAP[prob.algorithm || prob.visualizationType]}
                 algorithm={prob.algorithm || prob.visualizationType}
                 data={prob.data}

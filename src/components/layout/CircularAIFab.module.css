@@ -1,0 +1,43 @@
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-blue, #3b82f6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+  z-index: 2000;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+  background: var(--accent-blue-hover, #2563eb);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}
+
+.active {
+  background: var(--accent-purple, #8b5cf6);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+}
+
+.active:hover {
+  background: var(--accent-purple-hover, #7c3aed);
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+}

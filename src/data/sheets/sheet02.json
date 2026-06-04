@@ -5,76 +5,151 @@
   "title": "Analysis Fundamentals",
   "problems": [
     {
-      "question": "ALGORITHM Mystery(n)\n//Input: A nonnegative integer n\nS ← 0\nfor i ← 1 to n do\nS ← S + i * i\nreturn S",
-      "answer": "",
       "number": 1,
+      "question": "For the following code segments, define the basic operation and find the total execution count T(n):\na. x <- 0; for i <- 1 to n do x <- x+1\nb. x <- 0; for i <- 1 to n do x <- x+1*2\nc. x <- 0; for i <- 1 to n do x <- x+1; x <- x+x\nd. x <- 19; for i <- 1 to n do x <- x-1; x <- x+x\ne. x <- 0; for i <- 1 to n do for j <- 1 to n do x <- x+1; x <- x+x\nf. x <- 0; for i <- 1 to n do for j <- 1 to i do x <- x*2; x <- x/3",
+      "answer": "Basic Operations and T(n):\na. Addition/assignment inside loop. T(n) = n ∈ Θ(n).\nb. Multiplication/addition. T(n) = n ∈ Θ(n).\nc. Loop iterations. T(n) = n ∈ Θ(n).\nd. Loop iterations. T(n) = n ∈ Θ(n).\ne. Nested loop body execution. T(n) = n^2 ∈ Θ(n^2).\nf. Inner loop statements. T(n) = ∑_{i=1}^n i = n(n+1)/2 ∈ Θ(n^2).",
       "explanation": [
         {
           "step": 1,
-          "text": "Identify the basic operation of the algorithm (e.g. comparisons, assignments)."
+          "text": "Identify the statement inside the innermost loop as the basic operation."
         },
         {
           "step": 2,
-          "text": "Set up a summation representing the execution count of the basic operation based on input size n."
+          "text": "Set up a sum representing how many times the loop runs. For nested loops, use a nested summation."
         },
         {
           "step": 3,
-          "text": "Solve the summation using standard arithmetic or geometric series formulas."
-        },
-        {
-          "step": 4,
-          "text": "Determine the asymptotic growth class (O, Θ, Ω) using limits or definitions."
+          "text": "For part f: inner loop runs 'i' times for each outer step 'i'. Summing i from 1 to n yields n(n+1)/2."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
     },
     {
-      "question": "ALGORITHM Secret(A[0..n-1])\n//Input: An array A[0..n-1] of n real numbers\nminval ← A[0]; maxval ← A[0]\nfor i ← 1 to n - 1 do\n  if A[i] < minval\n    minval ← A[i]\n  if A[i] > maxval\n    maxval ← A[i]\nreturn maxval - minval",
-      "answer": "",
       "number": 2,
+      "question": "Consider definition-based matrix algorithms:\na. For adding two n x n matrices, what is the basic operation? How many times is it performed as a function of matrix order n? As a function of total elements N?\nb. Answer the same for definition-based matrix multiplication.",
+      "answer": "Answers:\na. Addition of elements. Performed n^2 times. In terms of N = 2n^2 (total input elements), it is N/2 times.\nb. Multiplication of elements. Performed n^3 times. In terms of N = 2n^2, it is (N/2)^1.5 times.",
       "explanation": [
         {
           "step": 1,
-          "text": "Identify the basic operation of the algorithm (e.g. comparisons, assignments)."
+          "text": "Matrix addition loops through all cells i, j: C[i,j] = A[i,j] + B[i,j]. This requires exactly n^2 additions."
         },
         {
           "step": 2,
-          "text": "Set up a summation representing the execution count of the basic operation based on input size n."
+          "text": "Matrix multiplication loops through i, j, k: C[i,j] = ∑ A[i,k] * B[k,j]. This takes n^3 multiplications."
         },
         {
           "step": 3,
-          "text": "Solve the summation using standard arithmetic or geometric series formulas."
-        },
-        {
-          "step": 4,
-          "text": "Determine the asymptotic growth class (O, Θ, Ω) using limits or definitions."
+          "text": "Express n in terms of total input elements N = 2n^2 (two n x n matrices). n = sqrt(N/2). Substitute to get formulas."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
     },
     {
-      "question": "ALGORITHM Enigma(A[0..n − 1, 0..n − 1])\n//Input: A matrix A[0..n − 1, 0..n − 1] of real numbers\nfor i ← 0 to n − 2 do\nfor j ← i + 1 to n − 1 do\nif A[i, j] ≠ A[j, i]\nreturn false\nreturn true",
-      "answer": "",
       "number": 3,
+      "question": "Glove selection: There are 22 gloves in a drawer: 5 pairs of red gloves, 4 pairs of yellow, and 2 pairs of green. You select gloves in the dark. What is the smallest number of gloves you need to select to have at least one matching pair in (a) the best case, and (b) the worst case?",
+      "answer": "a. Best Case: 2 gloves (if first two selected match in color).\nb. Worst Case: 12 gloves (you could select 5 left-red, 4 left-yellow, and 2 left-green without forming any pairs. The 12th glove must form a pair).",
       "explanation": [
         {
           "step": 1,
-          "text": "Identify the basic operation of the algorithm (e.g. comparisons, assignments)."
+          "text": "Analyze total glove counts: Red (10), Yellow (8), Green (4). Total = 22 gloves."
         },
         {
           "step": 2,
-          "text": "Set up a summation representing the execution count of the basic operation based on input size n."
+          "text": "Best Case: Minimum possible selections to get a matching pair is choosing two of the same color, which takes 2 draws."
         },
         {
           "step": 3,
-          "text": "Solve the summation using standard arithmetic or geometric series formulas."
+          "text": "Worst Case: Apply Pigeonhole Principle. Maximum single gloves of different types you can draw without any matches is 1 of each pair = 5 + 4 + 2 = 11 gloves. The next glove (12th) will guarantee a matching pair."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "exhaustiveSearch"
+    },
+    {
+      "number": 4,
+      "question": "For each of the following functions, indicate how much the function's value will change if its argument is increased fourfold (n becomes 4n):\na. log_2 n\nb. √n\nc. n\nd. n^2\ne. n^3\nf. 2^n",
+      "answer": "Answers:\na. log_2(4n) = log_2 n + 2 (increases by a constant +2)\nb. sqrt(4n) = 2*sqrt(n) (doubles)\nc. 4n (increases 4-fold)\nd. (4n)^2 = 16n^2 (increases 16-fold)\ne. (4n)^3 = 64n^3 (increases 64-fold)\nf. 2^(4n) = (2^n)^4 (raised to the fourth power)",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Substitute n with 4n in each expression and simplify."
+        },
+        {
+          "step": 2,
+          "text": "Compare the simplified expression with the original function to determine the ratio or difference of growth."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
+    },
+    {
+      "number": 5,
+      "question": "List the following functions in order of growth from lowest to highest:\n(n-2)!, 5log(n+100)^10, 2^{2n}, 0.002n^4 + 3n^3 + 1, ln^2 n, 3^n, 3n",
+      "answer": "Order of growth (lowest to highest):\nln^2 n < 5log(n+100)^10 < 3n < 0.002n^4 + 3n^3 + 1 < 3^n < 2^{2n} < (n-2)!",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Logarithmic functions grow slowest (ln^2 n < log^10 n)."
+        },
+        {
+          "step": 2,
+          "text": "Linear functions (3n) grow faster than logs, but slower than polynomial powers (n^4)."
+        },
+        {
+          "step": 3,
+          "text": "Exponential functions (3^n < 4^n = 2^{2n}) grow faster than any polynomial."
         },
         {
           "step": 4,
-          "text": "Determine the asymptotic growth class (O, Θ, Ω) using limits or definitions."
+          "text": "Factorial functions (n-2)! grow the fastest among the listed functions."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
+    },
+    {
+      "number": 6,
+      "question": "For each of the following pairs, indicate whether the first function has a lower, same, or higher order of growth than the second:\na. 100n^2 and 0.01n^3\nb. log_2^2 n and log_2 n^2\nc. (n-1)! and n!\nd. n(n+1) and 2000n^2\ne. log_2 n and ln n\nf. 2^{n-1} and 2^n",
+      "answer": "Answers:\na. Lower\nb. Higher\nc. Lower\nd. Same\ne. Same\nf. Same",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Use limits lim_{n->∞} f(n)/g(n) to determine relationship. If limit is 0, first is lower; if c > 0, same; if ∞, first is higher."
+        },
+        {
+          "step": 2,
+          "text": "Part b: log_2^2 n = (log_2 n)^2. log_2 n^2 = 2 * log_2 n. Since (log_2 n)^2 / log_2 n goes to infinity, it has a higher order of growth."
+        },
+        {
+          "step": 3,
+          "text": "Part f: 2^(n-1) = 0.5 * 2^n. They differ by a constant multiple of 0.5, so they have the same order of growth."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
+    },
+    {
+      "number": 7,
+      "question": "Analyze the following algorithms to state their basic operation, T(n), and order of growth:\na. Mystery(n): S <- 0; for i <- 1 to n do S <- S + i*i; return S\nb. Secret(A[0..n-1]): minval <- A[0]; maxval <- A[0]; for i <- 1 to n-1 do (if A[i] < minval ... if A[i] > maxval ...); return maxval - minval\nc. Enigma(A[0..n-1, 0..n-1]): for i <- 0 to n-2 do for j <- i+1 to n-1 do (if A[i,j] != A[j,i] return false); return true",
+      "answer": "Answers:\na. Mystery: Basic operation is multiplication (i*i) or addition. T(n) = n. Growth: Θ(n).\nb. Secret: Basic operation is comparison (A[i] < minval). T(n) = n - 1 (or 2(n-1) depending on implementation). Growth: Θ(n).\nc. Enigma: Basic operation is comparison (A[i,j] != A[j,i]). Worst case T(n) = n(n-1)/2. Growth: Θ(n^2).",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "For Mystery: loop runs n times executing single multiplication and additions inside, hence linear."
+        },
+        {
+          "step": 2,
+          "text": "For Secret: single loop from 1 to n-1 performs array comparisons, hence linear."
+        },
+        {
+          "step": 3,
+          "text": "For Enigma: nested loops where j runs from i+1 to n-1. Total comparisons is ∑_{i=0}^{n-2} (n-1-i) = n(n-1)/2, hence quadratic."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "analysisWorkspace"
     }
   ]
 }

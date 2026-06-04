@@ -1,6 +1,7 @@
-import React from 'react';
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
+import PremiumImage from '../../components/ui/Premium/PremiumImage';
+import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 import ClosestPairTracer from '../../components/visualization/bespoke/ClosestPairTracer';
 import ExhaustiveSearchConcepts from '../../components/visualization/bespoke/ExhaustiveSearchConcepts';
 import TspTracer from '../../components/visualization/bespoke/TspTracer';
@@ -30,6 +31,25 @@ const Lec05 = () => {
             Given <i>n</i> points in a 2D plane, find the two points that are closest to each other. The brute-force approach is the most natural: compute the distance between <b>every possible pair</b> of points and keep track of the minimum.
           </p>
 
+          <AlgorithmCard 
+            title="Brute-force Closest-Pair"
+            goal="Find the minimum distance between any two distinct points in a 2D plane."
+            steps={[
+              "Initialize the minimum distance 'd' to infinity.",
+              "For each pair of distinct points (Pi, Pj) in the set:",
+              "Calculate their Euclidean distance using the distance formula.",
+              "If the distance is less than 'd', update 'd' with this new value.",
+              "After checking all possible pairs, return the minimum distance 'd'."
+            ]}
+            complexity={{ time: "O(n^2)", space: "O(1)" }}
+          />
+
+          <PremiumImage 
+            src="/images/lectures/lec05/slide03_img0.jpg" 
+            alt="Closest-Pair Problem Diagram" 
+            caption="Finding the minimum distance between any two points in a set."
+          />
+
           <div className={styles.infoCard}>
             <h4>Euclidean Distance</h4>
             <p className={styles.editorialText}>
@@ -39,10 +59,6 @@ const Lec05 = () => {
           </div>
 
           <ClosestPairTracer />
-
-          <p className={styles.editorialText}>
-            Notice that we only need to check each pair once. If we have already calculated <MathBlock math="dist(P_i, P_j)" />, we don't need to calculate <MathBlock math="dist(P_j, P_i)" />. Furthermore, a point's distance to itself is zero, but we are looking for the distance between <i>distinct</i> points.
-          </p>
         </section>
 
         <section id="exhaustive-search" className={styles.lessonSection}>
@@ -50,21 +66,27 @@ const Lec05 = () => {
           <p className={styles.editorialText}>
             Exhaustive search is a brute-force approach applied to <b>Combinatorial Problems</b>. It involves generating every element of the problem's domain (subsets, permutations, or paths), selecting those that satisfy the constraints, and finding the one that optimizes the objective function.
           </p>
+
+          <AlgorithmCard 
+            title="General Exhaustive Search"
+            goal="Solve optimization problems by evaluating every possible candidate solution."
+            steps={[
+              "Generate all possible candidates in the problem's domain.",
+              "Evaluate each candidate based on the problem's constraints.",
+              "Calculate the objective function value for each valid candidate.",
+              "Keep track of the best (minimum or maximum) solution found so far.",
+              "Return the candidate with the optimal objective value."
+            ]}
+            complexity={{ time: "O(n! \\text{ or } 2^n)", space: "O(n)" }}
+          />
+
+          <PremiumImage 
+            src="/images/lectures/lec05/slide26_img0.jpg" 
+            alt="Exhaustive Search Diagram" 
+            caption="The process of generating and evaluating all possible solutions."
+          />
           
           <ExhaustiveSearchConcepts />
-
-          <div className={styles.comparisonGrid}>
-            <div className={styles.comparisonCard}>
-              <h3>Permutations</h3>
-              <p>Ordering <i>n</i> items. Grows as <MathBlock math="\Theta(n!)" />.</p>
-              <p>Used in: <i>TSP, Assignment Problem</i></p>
-            </div>
-            <div className={styles.comparisonCard}>
-              <h3>Subsets</h3>
-              <p>Selecting from <i>n</i> items. Grows as <MathBlock math="\Theta(2^n)" />.</p>
-              <p>Used in: <i>Knapsack Problem</i></p>
-            </div>
-          </div>
         </section>
 
         <section id="tsp" className={styles.lessonSection}>
@@ -72,9 +94,18 @@ const Lec05 = () => {
           <p className={styles.editorialText}>
             A salesman must visit <i>n</i> cities and return to the starting city. What is the shortest possible route that visits each city exactly once?
           </p>
-          <p className={styles.editorialText}>
-            For <i>n</i> cities, there are <MathBlock math="(n-1)! / 2" /> unique Hamilton circuits (if we ignore direction and starting point). Even for <MathBlock math="n=10" />, we are looking at 181,440 paths. For <MathBlock math="n=20" />, the number exceeds the capacity of modern supercomputers to solve via brute force.
-          </p>
+
+          <AlgorithmCard 
+            title="TSP (Brute Force)"
+            goal="Find the shortest Hamilton circuit in a weighted graph."
+            steps={[
+              "Generate all possible permutations of the cities.",
+              "Each permutation represents a Hamilton circuit (a route).",
+              "Calculate the total weight (distance) of each circuit.",
+              "Find and return the circuit with the minimum total distance."
+            ]}
+            complexity={{ time: "O(n!)", space: "O(n)" }}
+          />
 
           <TspTracer />
         </section>
@@ -85,11 +116,19 @@ const Lec05 = () => {
             You have a knapsack with a weight capacity <i>W</i> and a set of <i>n</i> items, each with a weight and a value. Which items should you take to maximize the total value?
           </p>
 
-          <KnapsackTracer />
+          <AlgorithmCard 
+            title="Knapsack (Brute Force)"
+            goal="Find the most valuable subset of items that fit within weight capacity W."
+            steps={[
+              "Generate all possible subsets of the given n items (the power set).",
+              "Calculate the total weight and total value of each subset.",
+              "Discard any subset whose total weight exceeds capacity W.",
+              "From the valid subsets, identify the one with the highest total value."
+            ]}
+            complexity={{ time: "O(2^n)", space: "O(n)" }}
+          />
 
-          <p className={styles.editorialText}>
-            The brute-force solution checks all <MathBlock math="2^n" /> possible subsets of items. It discards any subset whose total weight exceeds <i>W</i> and keeps the one with the highest value.
-          </p>
+          <KnapsackTracer />
         </section>
 
         <section id="assignment" className={styles.lessonSection}>
@@ -98,13 +137,51 @@ const Lec05 = () => {
             There are <i>n</i> people and <i>n</i> jobs. Each person has a specific cost for each job. How can we assign exactly one person to each job to minimize the total cost?
           </p>
 
-          <AssignmentTracer />
+          <AlgorithmCard 
+            title="Assignment Problem (Brute Force)"
+            goal="Assign n people to n jobs at the minimum total cost."
+            steps={[
+              "Generate all n! permutations of assigning people to jobs.",
+              "Calculate the total cost for each assignment permutation.",
+              "Identify the assignment with the minimum total cost.",
+              "Return the optimal assignment and its cost."
+            ]}
+            complexity={{ time: "O(n!)", space: "O(n)" }}
+          />
 
           <div className={styles.infoCard}>
-            <h4>Wait, there's a better way!</h4>
+            <h4>Numerical Example</h4>
             <p className={styles.editorialText}>
-              While brute force takes <MathBlock math="\Theta(n!)" />, the <b>Hungarian Algorithm</b> can solve the assignment problem in <MathBlock math="\Theta(n^3)" />. This is a classic example where moving away from brute force leads to a massive efficiency gain.
+              Consider 4 jobs and 4 people with the following cost matrix:
             </p>
+            <pre style={{fontSize: '12px', background: 'var(--bg-elevated)', padding: '1rem', borderRadius: '8px'}}>
+{`        Job 1  Job 2  Job 3  Job 4
+Person 1 [ 9,     2,     7,     8 ]
+Person 2 [ 6,     4,     3,     7 ]
+Person 3 [ 5,     8,     1,     8 ]
+Person 4 [ 7,     6,     9,     4 ]`}
+            </pre>
+          </div>
+
+          <AssignmentTracer />
+        </section>
+
+        <section id="np-hard" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>The NP-Hard Wall</h2>
+          <p className={styles.editorialText}>
+            Many combinatorial problems, like TSP and Knapsack, belong to a class called <b>NP-hard</b>. For these problems, no polynomial-time algorithm is known to exist.
+          </p>
+
+          <div className={styles.infoCard}>
+            <h4>The "Quintillion" Scale</h4>
+            <p className={styles.editorialText}>
+              To understand why <MathBlock math="n!" /> is so dangerous, consider the Assignment Problem with just 20 people and 20 jobs:
+            </p>
+            <ul className={styles.editorialList}>
+              <li><MathBlock math="20! \approx 2.4 \times 10^{18}" /> (2.4 quintillion possibilities)</li>
+              <li>If a computer evaluates 1 billion assignments per second, it would take <b>77 years</b> to find the optimal solution.</li>
+              <li>For <MathBlock math="n=25" />, it would take longer than the age of the universe.</li>
+            </ul>
           </div>
         </section>
 

@@ -269,6 +269,16 @@
   font-weight: 600;
 }
 
+.sectionBadge {
+  flex-shrink: 0;
+}
+
+.sliderWrapper {
+  margin: 0 -24px;
+  padding: 0 24px;
+  overflow: hidden;
+}
+
 /* ── AI Tutor Section ── */
 .aiSection {
   padding: 80px 24px;

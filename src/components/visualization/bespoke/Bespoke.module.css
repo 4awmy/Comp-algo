@@ -1865,3 +1865,113 @@
   transition: height 0.3s;
   border-radius: 5px;
 }
+
+/* ── Lecture 13 Extras ── */
+.scanLine {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-blue);
+  box-shadow: 0 0 10px var(--accent-blue);
+  z-index: 10;
+  pointer-events: none;
+  animation: scanMatrix 2s infinite ease-in-out;
+}
+
+@keyframes scanMatrix {
+  0%, 100% { top: 0; opacity: 0; }
+  10%, 90% { opacity: 1; }
+  50% { top: 100%; }
+}
+
+.odometer {
+  display: flex;
+  gap: 2px;
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #333;
+}
+
+.odoDigit {
+  width: 30px;
+  height: 45px;
+  background: #222;
+  color: #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-code);
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 4px;
+  text-shadow: 0 0 5px #0f0;
+}
+
+.buffetTable {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem;
+  background: #fed7aa;
+  border-radius: 12px;
+  border-bottom: 8px solid #ea580c;
+  margin: 1rem 0;
+}
+
+.foodItem {
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.foodItem:hover {
+  transform: scale(1.2) translateY(-10px);
+}
+
+.mstEdge {
+  stroke: var(--border-subtle);
+  stroke-width: 2;
+  transition: all 0.5s;
+}
+
+.mstEdgeActive {
+  stroke: var(--accent-blue);
+  stroke-width: 4;
+  stroke-dasharray: 0;
+}
+
+.mstEdgeCycle {
+  stroke: var(--color-error);
+  animation: flashRed 0.5s infinite;
+}
+
+@keyframes flashRed {
+  to { opacity: 0.3; }
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+.dijkstraTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dijkstraTable th, .dijkstraTable td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+  font-size: var(--text-xs);
+}
+
+.currentVertex {
+  background: rgba(59, 130, 246, 0.1);
+  font-weight: 800;
+  color: var(--accent-blue);
+}
