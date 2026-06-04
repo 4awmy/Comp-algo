@@ -103,6 +103,15 @@
   --sidebar-collapsed:  0px;
   --topbar-height:      64px;
   --content-max-width:  1280px;
+
+  /* ── Semantic Algorithm Palette ── */
+  --node-primary:   var(--accent-blue);
+  --node-highlight: var(--accent-purple);
+  --node-success:   var(--color-success);
+  --link-default:   var(--border-default);
+  --link-traversed: var(--accent-blue);
+  --pivot-color:    #ef4444;
+  --compare-color:  #f59e0b;
 }
 
 /* ── Utility Classes ── */

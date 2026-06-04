@@ -2,6 +2,7 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import { StackedTriangleDemo, RecursiveCallStackDemo, HalvingBarChartDemo, EmpiricalDashboardDemo } from '../../components/visualization/bespoke/MathVisualizers';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
@@ -15,6 +16,7 @@ const Lec03 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             As we move beyond simple definitions, we must develop a rigorous <b>mathematical framework</b> to prove the efficiency of our algorithms. This lecture focuses on the twin pillars of analysis: <b>Non-recursive</b> summation and <b>Recursive</b> recurrence relations.
@@ -31,6 +33,7 @@ const Lec03 = () => {
             src="/images/lectures/lec03/slide03_img0.jpg" 
             alt="Non-recursive Analysis Diagram" 
             caption="The process of setting up summations for loop-based algorithms."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <AlgorithmCard 
@@ -70,7 +73,7 @@ const Lec03 = () => {
               block 
               math="\sum_{i=1}^{n} i = 1 + 2 + \dots + n = \frac{n(n+1)}{2} \approx \frac{n^2}{2}" 
             />
-            <StackedTriangleDemo />
+            <StackedTriangleDemo style={{ margin: '2.5rem 0' }} />
           </div>
         </section>
 
@@ -84,6 +87,7 @@ const Lec03 = () => {
             src="/images/lectures/lec03/slide05_img0.jpg" 
             alt="Recursive Analysis Diagram" 
             caption="The process of setting up recurrence relations for recursive algorithms."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <AlgorithmCard 
@@ -113,7 +117,7 @@ const Lec03 = () => {
             <MathBlock block math="M(n) = M(n-1) + 1, \quad M(0) = 0" />
           </div>
 
-          <RecursiveCallStackDemo />
+          <RecursiveCallStackDemo style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="recurrence-lab" className={styles.lessonSection}>
@@ -122,7 +126,7 @@ const Lec03 = () => {
             Solving recurrences via backward substitution involves expanding the equation until a pattern emerges. Below are the five fundamental patterns every engineer should recognize.
           </p>
 
-          <div className={styles.recurrenceGrid}>
+          <div className={styles.recurrenceGrid} style={{ margin: '2.5rem 0' }}>
             <div className={styles.columnHeader}>Equation Expansion</div>
             <div className={styles.columnHeader}>Visualization</div>
             <div className={styles.columnHeader}>Pattern Recognition</div>
@@ -144,7 +148,7 @@ const Lec03 = () => {
                </div>
             </div>
             <div className={styles.gridCell}>
-               <span className={styles.patternHighlight}>Θ(n)</span>
+               <span className={styles.patternHighlight}><MathBlock math="\Theta(n)" /></span>
                <span className="text-[10px] opacity-60">Sequential execution (e.g., Factorial)</span>
             </div>
 
@@ -172,7 +176,7 @@ const Lec03 = () => {
                </div>
             </div>
             <div className={styles.gridCell}>
-               <span className={styles.patternHighlight}>Θ(2ⁿ)</span>
+               <span className={styles.patternHighlight}><MathBlock math="\Theta(2^n)" /></span>
                <span className="text-[10px] opacity-60">Exponential (e.g., Tower of Hanoi)</span>
             </div>
 
@@ -193,7 +197,7 @@ const Lec03 = () => {
                </div>
             </div>
             <div className={styles.gridCell}>
-               <span className={styles.patternHighlight}>Θ(log n)</span>
+               <span className={styles.patternHighlight}><MathBlock math="\Theta(\log n)" /></span>
                <span className="text-[10px] opacity-60">Divide & Conquer (e.g., Binary Search)</span>
             </div>
 
@@ -214,7 +218,7 @@ const Lec03 = () => {
                </div>
             </div>
             <div className={styles.gridCell}>
-               <span className={styles.patternHighlight}>Θ(n²)</span>
+               <span className={styles.patternHighlight}><MathBlock math="\Theta(n^2)" /></span>
                <span className="text-[10px] opacity-60">Quadratic Sum (e.g., Selection Sort recursive)</span>
             </div>
 
@@ -237,7 +241,7 @@ const Lec03 = () => {
                <span className="text-[8px] opacity-40 text-center">Geometric Sum</span>
             </div>
             <div className={styles.gridCell}>
-               <span className={styles.patternHighlight}>Θ(n)</span>
+               <span className={styles.patternHighlight}><MathBlock math="\Theta(n)" /></span>
                <span className="text-[10px] opacity-60">Geometric converge (e.g., Quickselect)</span>
             </div>
           </div>
@@ -248,7 +252,7 @@ const Lec03 = () => {
           <p className={styles.editorialText}>
             The "magic" of algorithms often comes from <MathBlock math="\log n" />. This complexity arises whenever an algorithm repeatedly reduces the problem size by a constant factor.
           </p>
-          <HalvingBarChartDemo />
+          <HalvingBarChartDemo style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="empirical" className={styles.lessonSection}>
@@ -261,6 +265,7 @@ const Lec03 = () => {
             src="/images/lectures/lec03/slide28_img0.png" 
             alt="Empirical Analysis Example" 
             caption="A table and graph showing actual execution times for different input sizes."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.gridTwoCol}>
@@ -293,7 +298,7 @@ const Lec03 = () => {
             </ol>
           </div>
 
-          <EmpiricalDashboardDemo />
+          <EmpiricalDashboardDemo style={{ margin: '2.5rem 0' }} />
         </section>
       </div>
     </div>
@@ -301,3 +306,4 @@ const Lec03 = () => {
 };
 
 export default Lec03;
+

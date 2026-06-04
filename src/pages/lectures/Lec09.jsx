@@ -1,7 +1,9 @@
+import React from 'react';
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import MergeSortTracer from '../../components/visualization/bespoke/MergeSortTracer';
 import QuickSortTracer from '../../components/visualization/bespoke/QuickSortTracer';
 import TreeTraversalTracer from '../../components/visualization/bespoke/TreeTraversalTracer';
@@ -26,13 +28,14 @@ const Lec09 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>Divide and Conquer Paradigm</h2>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             <b>Divide and Conquer</b> is an algorithm design paradigm based on multi-branched recursion. It works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly.
           </p>
           
-          <ParadigmMetaphor />
+          <ParadigmMetaphor style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.infoCard}>
             <h4>The Three Steps</h4>
@@ -74,14 +77,14 @@ const Lec09 = () => {
              </div>
           </div>
 
-          <MergeSortRecursiveTree />
+          <MergeSortRecursiveTree style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
              <h4>Divide Sync: Code + Tree + Stack</h4>
              <p className={styles.editorialText}>
                 Observe how the recursive calls are added to the stack as we descend the tree.
              </p>
-             <MergeSortDivideVisual />
+             <MergeSortDivideVisual style={{ margin: '2.5rem 0' }} />
           </div>
 
           <div className={styles.methodBox}>
@@ -102,13 +105,13 @@ const Lec09 = () => {
           <div className={styles.infoCard}>
             <h4>Efficiency Analysis</h4>
             <p className={styles.editorialText}>
-              The number of comparisons in the worst case is <MathBlock math="C_{worst}(n) = n \log_2 n - n + 1" />. In practice, we often simplify this to <MathBlock math="n \log n" />.
+              The number of comparisons in the worst case is <MathBlock math="C_{worst}(n) = n \\log_2 n - n + 1" />. In practice, we often simplify this to <MathBlock math="n \\log n" />.
             </p>
           </div>
 
-          <MergeOperationVisual />
+          <MergeOperationVisual style={{ margin: '2.5rem 0' }} />
 
-          <MergeSortTracer />
+          <MergeSortTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="quick-sort" className={styles.lessonSection}>
@@ -134,26 +137,27 @@ const Lec09 = () => {
             src="/images/lectures/lec09/slide74_img0.jpg" 
             alt="Quick Sort Partitioning" 
             caption="Partitioning is the heart of Quick Sort, determining the final position of the pivot."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <PivotMetaphor />
+          <PivotMetaphor style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.methodBox}>
             <h3>Partitioning Logic</h3>
             <p className={styles.editorialText}>
               Smaller elements walk to the left of the pivot, and larger elements walk to the right. The pivot then finds its permanent final sorted position.
             </p>
-            <MathBlock block math="T(n) = T(s) + T(n-s-1) + \Theta(n)" />
+            <MathBlock block math="T(n) = T(s) + T(n-s-1) + \\Theta(n)" />
           </div>
 
-          <QuickSortTracer />
+          <QuickSortTracer style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
              <h4>Average vs. Worst Case</h4>
              <p className={styles.editorialText}>
-                Balanced partitions produce <MathBlock math="\Theta(n \log n)" />, while highly unbalanced partitions (e.g., already sorted array) lead to <MathBlock math="\Theta(n^2)" />.
+                Balanced partitions produce <MathBlock math="\\Theta(n \\log n)" />, while highly unbalanced partitions (e.g., already sorted array) lead to <MathBlock math="\\Theta(n^2)" />.
              </p>
-             <QuickSortWorstCase />
+             <QuickSortWorstCase style={{ margin: '2.5rem 0' }} />
           </div>
         </section>
 
@@ -179,33 +183,34 @@ const Lec09 = () => {
             src="/images/lectures/lec09/slide78_img0.jpg" 
             alt="Binary Tree Traversal" 
             caption="The three standard ways to visit every node in a binary tree."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <TraversalMetaphor />
+          <TraversalMetaphor style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridThreeCol}>
             <div className={styles.comparisonCard}>
               <h3>Preorder</h3>
-              <MathBlock math="\text{Root} \to \text{L} \to \text{R}" />
+              <MathBlock math="\\text{Root} \\to \\text{L} \\to \\text{R}" />
             </div>
             <div className={styles.comparisonCard}>
               <h3>Inorder</h3>
-              <MathBlock math="\text{L} \to \text{Root} \to \text{R}" />
+              <MathBlock math="\\text{L} \\to \\text{Root} \\to \\text{R}" />
             </div>
             <div className={styles.comparisonCard}>
               <h3>Postorder</h3>
-              <MathBlock math="\text{L} \to \text{R} \to \text{Root}" />
+              <MathBlock math="\\text{L} \\to \\text{R} \\to \\text{Root}" />
             </div>
           </div>
 
-          <TreeTraversalTracer />
+          <TreeTraversalTracer style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
             <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>
               Since every node is visited exactly once, the time complexity for all traversals is linear:
             </p>
-            <MathBlock block math="\Theta(n)" />
+            <MathBlock block math="\\Theta(n)" />
           </div>
         </section>
       </div>
@@ -214,3 +219,4 @@ const Lec09 = () => {
 };
 
 export default Lec09;
+

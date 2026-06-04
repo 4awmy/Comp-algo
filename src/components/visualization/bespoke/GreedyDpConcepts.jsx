@@ -42,9 +42,9 @@ export const CoinRowMetaphor = () => {
   );
 };
 
-export const GreedyVsDpMetaphor = () => {
+export const GreedyVsDpMetaphor = ({ style }) => {
   return (
-    <div className={styles.gridTwoCol}>
+    <div className={styles.gridTwoCol} style={style}>
        <div className={styles.caseBox}>
           <h4>Greedy Mindset</h4>
           <div className={styles.pipelineContent}>"Take the best NOW."</div>
@@ -67,7 +67,7 @@ export const GreedyVsDpMetaphor = () => {
   );
 };
 
-export const DpPuzzleMetaphor = () => {
+export const DpPuzzleMetaphor = ({ style }) => {
   const [solvedCount, setSolvedCount] = useState(0);
   const total = 4;
 
@@ -79,7 +79,7 @@ export const DpPuzzleMetaphor = () => {
   }, []);
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>DP Metaphor: Memoization Jigsaw</div>
        <div className={styles.puzzleStage}>
           <div className={styles.puzzleWhole}>
@@ -113,7 +113,7 @@ export const DpPuzzleMetaphor = () => {
   );
 };
 
-export const CoinRowWeighingScale = () => {
+export const CoinRowWeighingScale = ({ style }) => {
   const [step, setStep] = useState(2);
   const coins = [5, 1, 2, 10, 6, 2];
   const F = [0, 5, 5, 7, 15, 15, 17]; // Pre-calculated F values for 5, 1, 2, 10, 6, 2
@@ -123,7 +123,7 @@ export const CoinRowWeighingScale = () => {
   const choiceB = currentCoin + F[step - 2]; // Pick
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Step-by-Step Selection: F({step})</div>
        <div className={styles.pipelineFlex}>
           <div className={`${styles.caseBox} ${choiceA >= choiceB ? styles.active : ''}`}>
@@ -147,7 +147,7 @@ export const CoinRowWeighingScale = () => {
   );
 };
 
-export const KnapsackSimulator = () => {
+export const KnapsackSimulator = ({ style }) => {
   const [capacity, setCapacity] = useState(5);
   const items = [
     { name: 'Gems', w: 2, v: 12, icon: '💎' },
@@ -160,7 +160,7 @@ export const KnapsackSimulator = () => {
   const isFull = currentWeight > capacity;
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>The Adventurer's Backpack</div>
        <div className={styles.knapsackContainer}>
           <div className={styles.shelf}>
@@ -179,7 +179,7 @@ export const KnapsackSimulator = () => {
                    className={styles.progressFill} 
                    style={{ 
                      width: `${Math.min(100, (currentWeight / capacity) * 100)}%`,
-                     background: isFull ? 'var(--color-error)' : 'var(--accent-green)'
+                     background: isFull ? 'var(--color-error)' : 'var(--color-success)'
                    }} 
                 />
              </div>
@@ -201,7 +201,7 @@ export const KnapsackSimulator = () => {
   );
 };
 
-export const WarshallScanner = () => {
+export const WarshallScanner = ({ style }) => {
   const [activeK, setActiveK] = useState(0);
   const matrix = [
     [0, 1, 0, 0],
@@ -211,7 +211,7 @@ export const WarshallScanner = () => {
   ];
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Warshall's Scanning: k = {activeK}</div>
        <div style={{ position: 'relative', display: 'inline-block' }}>
           <div className={styles.scanLine} style={{ animationDuration: '3s' }} />
@@ -248,12 +248,12 @@ export const WarshallScanner = () => {
   );
 };
 
-export const FloydOdometer = () => {
+export const FloydOdometer = ({ style }) => {
   const [val, setVal] = useState(15);
   const [target, setTarget] = useState(12);
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Floyd's Shortest Path Odometer</div>
        <div className={styles.pipelineFlex}>
           <div className={styles.odometer}>
@@ -276,7 +276,7 @@ export const FloydOdometer = () => {
   );
 };
 
-export const GreedyBuffetMetaphor = () => {
+export const GreedyBuffetMetaphor = ({ style }) => {
   const [plate, setPlate] = useState([]);
   const foods = [
     { icon: '🍗', val: 10, fill: 30 },
@@ -289,7 +289,7 @@ export const GreedyBuffetMetaphor = () => {
   const totalFill = plate.reduce((acc, f) => acc + f.fill, 0);
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Greedy Buffet: Maximize Happiness!</div>
        <div className={styles.buffetTable}>
           {foods.map((f, i) => (
@@ -317,11 +317,11 @@ export const GreedyBuffetMetaphor = () => {
   );
 };
 
-export const MstNetwork = () => {
+export const MstNetwork = ({ style }) => {
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Minimum Spanning Tree: Outpost Network</div>
-       <svg width="300" height="200" viewBox="0 0 300 200" style={{ background: '#f8fafc', borderRadius: '8px' }}>
+       <svg width="300" height="200" viewBox="0 0 300 200" style={{ background: 'var(--bg-base)', borderRadius: '8px' }}>
           {/* Edges */}
           <line x1="50" y1="50" x2="150" y2="50" className={styles.mstEdgeActive} />
           <line x1="150" y1="50" x2="250" y2="100" className={styles.mstEdge} strokeDasharray="4" />
@@ -347,7 +347,7 @@ export const MstNetwork = () => {
   );
 };
 
-export const PrimsSolver = () => {
+export const PrimsSolver = ({ style }) => {
   const [visited, setVisited] = useState(['A']);
   const vertices = ['A', 'B', 'C', 'D'];
   const candidates = [
@@ -364,7 +364,7 @@ export const PrimsSolver = () => {
   ).sort((a, b) => a.weight - b.weight);
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Prim's: Nearest Neighbor Search</div>
        <div className={styles.tableContainer}>
           <table className={styles.dijkstraTable}>
@@ -406,7 +406,7 @@ export const PrimsSolver = () => {
   );
 };
 
-export const KruskalsSolver = () => {
+export const KruskalsSolver = ({ style }) => {
   const [edges, setEdges] = useState([]);
   const [error, setError] = useState(false);
   const allEdges = [
@@ -427,7 +427,7 @@ export const KruskalsSolver = () => {
   };
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Kruskal's: Global Edge Sort</div>
        <div className={styles.pipelineFlex}>
           {allEdges.map(e => (
@@ -452,7 +452,7 @@ export const KruskalsSolver = () => {
   );
 };
 
-export const DijkstraRoadmap = () => {
+export const DijkstraRoadmap = ({ style }) => {
   const [current, setCurrent] = useState('A');
   const [dist, setDist] = useState({ A: 0, B: Infinity, C: Infinity, D: Infinity });
   
@@ -471,7 +471,7 @@ export const DijkstraRoadmap = () => {
   };
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Dijkstra Roadmap Scanner</div>
        <div className={styles.tableContainer}>
           <table className={styles.dijkstraTable}>
@@ -508,11 +508,11 @@ export const DijkstraRoadmap = () => {
   );
 };
 
-export const HuffmanMachine = () => {
+export const HuffmanMachine = ({ style }) => {
   const [step, setStep] = useState(0);
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Huffman Tree Machine</div>
        <div className={styles.pipelineFlex}>
           <div className={styles.conceptBox}>
@@ -539,9 +539,9 @@ export const HuffmanMachine = () => {
   );
 };
 
-export const HuffmanMetaphor = () => {
+export const HuffmanMetaphor = ({ style }) => {
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
        <div className={styles.metaphorLabel}>Huffman Encoding (Compression)</div>
        <div className={styles.huffmanGrid}>
           <div className={styles.huffmanBox}>

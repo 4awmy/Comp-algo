@@ -2,11 +2,11 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import ClosestPairTracer from '../../components/visualization/bespoke/ClosestPairTracer';
 import ExhaustiveSearchConcepts from '../../components/visualization/bespoke/ExhaustiveSearchConcepts';
 import TspTracer from '../../components/visualization/bespoke/TspTracer';
 import KnapsackTracer from '../../components/visualization/bespoke/KnapsackTracer';
-import AssignmentTracer from '../../components/visualization/bespoke/AssignmentTracer';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
 const Lec05 = () => {
@@ -19,6 +19,7 @@ const Lec05 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             In our previous exploration of brute force, we focused on linear problems like sorting and string matching. Now, we expand our horizon to <b>Geometric Problems</b> and <b>Combinatorial Optimization</b>. These problems often reveal the true cost of the brute-force approach: the "Exhaustive Search" which leads to exponential time complexities.
@@ -48,6 +49,7 @@ const Lec05 = () => {
             src="/images/lectures/lec05/slide03_img0.jpg" 
             alt="Closest-Pair Problem Diagram" 
             caption="Finding the minimum distance between any two points in a set."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard}>
@@ -58,7 +60,7 @@ const Lec05 = () => {
             <MathBlock math="d(P_i, P_j) = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}" />
           </div>
 
-          <ClosestPairTracer />
+          <ClosestPairTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="exhaustive-search" className={styles.lessonSection}>
@@ -84,9 +86,10 @@ const Lec05 = () => {
             src="/images/lectures/lec05/slide26_img0.jpg" 
             alt="Exhaustive Search Diagram" 
             caption="The process of generating and evaluating all possible solutions."
+            style={{ margin: '2.5rem 0' }}
           />
           
-          <ExhaustiveSearchConcepts />
+          <ExhaustiveSearchConcepts style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="tsp" className={styles.lessonSection}>
@@ -107,7 +110,7 @@ const Lec05 = () => {
             complexity={{ time: "O(n!)", space: "O(n)" }}
           />
 
-          <TspTracer />
+          <TspTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="knapsack" className={styles.lessonSection}>
@@ -128,42 +131,7 @@ const Lec05 = () => {
             complexity={{ time: "O(2^n)", space: "O(n)" }}
           />
 
-          <KnapsackTracer />
-        </section>
-
-        <section id="assignment" className={styles.lessonSection}>
-          <h2 className={styles.sectionTitle}>The Assignment Problem</h2>
-          <p className={styles.editorialText}>
-            There are <i>n</i> people and <i>n</i> jobs. Each person has a specific cost for each job. How can we assign exactly one person to each job to minimize the total cost?
-          </p>
-
-          <AlgorithmCard 
-            title="Assignment Problem (Brute Force)"
-            goal="Assign n people to n jobs at the minimum total cost."
-            steps={[
-              "Generate all n! permutations of assigning people to jobs.",
-              "Calculate the total cost for each assignment permutation.",
-              "Identify the assignment with the minimum total cost.",
-              "Return the optimal assignment and its cost."
-            ]}
-            complexity={{ time: "O(n!)", space: "O(n)" }}
-          />
-
-          <div className={styles.infoCard}>
-            <h4>Numerical Example</h4>
-            <p className={styles.editorialText}>
-              Consider 4 jobs and 4 people with the following cost matrix:
-            </p>
-            <pre style={{fontSize: '12px', background: 'var(--bg-elevated)', padding: '1rem', borderRadius: '8px'}}>
-{`        Job 1  Job 2  Job 3  Job 4
-Person 1 [ 9,     2,     7,     8 ]
-Person 2 [ 6,     4,     3,     7 ]
-Person 3 [ 5,     8,     1,     8 ]
-Person 4 [ 7,     6,     9,     4 ]`}
-            </pre>
-          </div>
-
-          <AssignmentTracer />
+          <KnapsackTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="np-hard" className={styles.lessonSection}>
@@ -197,3 +165,4 @@ Person 4 [ 7,     6,     9,     4 ]`}
 };
 
 export default Lec05;
+

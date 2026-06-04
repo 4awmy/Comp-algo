@@ -32,14 +32,15 @@ const Lec13 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>Introduction to Optimization</h2>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             Many algorithmic problems require finding an <b>optimal solution</b>—the best possible outcome among many candidates. <b>Dynamic Programming (DP)</b> and <b>Greedy Algorithms</b> are two powerful paradigms for solving such problems.
           </p>
           
-          <GreedyVsDpMetaphor />
-          <DpPuzzleMetaphor />
+          <GreedyVsDpMetaphor style={{ margin: '2.5rem 0' }} />
+          <DpPuzzleMetaphor style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
@@ -79,13 +80,14 @@ const Lec13 = () => {
             }}
           />
 
-          <CoinRowMetaphor />
+          <CoinRowMetaphor style={{ margin: '2.5rem 0' }} />
           <PremiumImage 
             src="/images/lectures/lec13/slide06_img0.png" 
             alt="Coin-Row Problem" 
             caption="The goal is to pick non-adjacent coins to maximize total value."
+            style={{ margin: '2.5rem 0' }}
           />
-          <CoinRowWeighingScale />
+          <CoinRowWeighingScale style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.methodBox}>
             <h3>Recurrence Relation</h3>
@@ -93,6 +95,7 @@ const Lec13 = () => {
               block 
               math="F(n) = \max(c_n + F(n-2), F(n-1))" 
               caption="Where F(n) is the maximum value for the first n coins. We either pick the nth coin (and skip n-1) or skip the nth coin."
+              style={{ margin: '2.5rem 0' }}
             />
           </div>
 
@@ -114,6 +117,7 @@ const Lec13 = () => {
               src="/images/lectures/lec13/slide08_img0.png" 
               alt="Coin-Row DP Table" 
               caption="The step-by-step construction of the DP table for the coin-row problem."
+              style={{ margin: '2.5rem 0' }}
             />
           </div>
         </section>
@@ -145,10 +149,11 @@ const Lec13 = () => {
             block 
             math="V[i, j] = \begin{cases} \max(V[i-1, j], v_i + V[i-1, j - w_i]) & \text{if } j \ge w_i \\ V[i-1, j] & \text{if } j < w_i \end{cases}" 
             caption="The DP choice: Include item i (if it fits) or exclude it."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <KnapsackSimulator />
-          <DynamicProgTracer />
+          <KnapsackSimulator style={{ margin: '2.5rem 0' }} />
+          <DynamicProgTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="warshall-floyd" className={styles.lessonSection}>
@@ -198,7 +203,7 @@ const Lec13 = () => {
                 <PremiumImage src="/images/lectures/lec13/slide13_img0.png" alt="Warshall Step 1" />
                 <PremiumImage src="/images/lectures/lec13/slide14_img0.png" alt="Warshall Step 2" />
               </div>
-              <WarshallScanner />
+              <WarshallScanner style={{ margin: '1rem 0' }} />
             </div>
             <div className={styles.infoCard}>
               <h4>Floyd's (All-Pairs Shortest Paths)</h4>
@@ -208,7 +213,7 @@ const Lec13 = () => {
                 <PremiumImage src="/images/lectures/lec13/slide17_img0.png" alt="Floyd Step 1" />
                 <PremiumImage src="/images/lectures/lec13/slide18_img0.png" alt="Floyd Step 2" />
               </div>
-              <FloydOdometer />
+              <FloydOdometer style={{ margin: '1rem 0' }} />
             </div>
           </div>
         </section>
@@ -239,9 +244,9 @@ const Lec13 = () => {
             </ul>
           </div>
 
-          <GreedyBuffetMetaphor />
-          <MstNetwork />
-          <GreedyTracer />
+          <GreedyBuffetMetaphor style={{ margin: '2.5rem 0' }} />
+          <MstNetwork style={{ margin: '2.5rem 0' }} />
+          <GreedyTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="prim-kruskal" className={styles.lessonSection}>
@@ -252,21 +257,21 @@ const Lec13 = () => {
               A <b>Spanning Tree</b> of a connected graph is a tree that contains all the vertices of the graph. A <b>Minimum Spanning Tree</b> is a spanning tree with the smallest possible sum of edge weights.
             </p>
           </div>
-          <div className={styles.gridThreeCol}>
+          <div className={styles.gridThreeCol} style={{ margin: '2.5rem 0' }}>
             <div className={styles.comparisonCard}>
               <h3>Prim's</h3>
               <p className={styles.editorialText}>Builds MST by adding the nearest unvisited neighbor to a single growing tree.</p>
-              <PrimsSolver />
+              <PrimsSolver style={{ margin: '1rem 0' }} />
             </div>
             <div className={styles.comparisonCard}>
               <h3>Kruskal's</h3>
               <p className={styles.editorialText}>Builds MST by adding the smallest edge that doesn't form a cycle, merging forest components.</p>
-              <KruskalsSolver />
+              <KruskalsSolver style={{ margin: '1rem 0' }} />
             </div>
             <div className={styles.comparisonCard}>
               <h3>Dijkstra's</h3>
               <p className={styles.editorialText}>Finds single-source shortest paths by always expanding the node with the shortest known distance.</p>
-              <DijkstraRoadmap />
+              <DijkstraRoadmap style={{ margin: '1rem 0' }} />
             </div>
           </div>
         </section>
@@ -295,8 +300,8 @@ const Lec13 = () => {
           />
           
           <div style={{ marginTop: '2rem' }}>
-            <HuffmanMetaphor />
-            <HuffmanMachine />
+            <HuffmanMetaphor style={{ margin: '2.5rem 0' }} />
+            <HuffmanMachine style={{ margin: '2.5rem 0' }} />
           </div>
 
           <div className={styles.infoCard}>
@@ -306,16 +311,17 @@ const Lec13 = () => {
             </p>
           </div>
 
-          <div className={styles.infoCard}>
+          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
             <h4>Compression Ratio Example</h4>
             <p className={styles.editorialText}>
               Consider a toy example where fixed-length encoding uses 3 bits per character. If Huffman coding achieves an average of 2.25 bits per character, the compression ratio is:
             </p>
-            <MathBlock block math="\frac{3 - 2.25}{3} = 25\%" />
+            <MathBlock block math="\frac{3 - 2.25}{3} = 25\%" style={{ margin: '1rem 0' }} />
             <PremiumImage 
               src="/images/lectures/lec13/slide36_img0.png" 
               alt="Huffman Tree Example" 
               caption="A Huffman tree for a specific character frequency distribution."
+              style={{ margin: '1.5rem 0' }}
             />
           </div>
         </section>
@@ -325,3 +331,4 @@ const Lec13 = () => {
 };
 
 export default Lec13;
+

@@ -107,9 +107,9 @@ export const CombinatorialComplexity = () => {
         <div className={styles.complexityLane}>
           <div className={styles.laneLabel}>Permutations (n!)</div>
           <div className={`${styles.progressBar} ${n > 13 ? styles.shatter : ''}`}>
-            <div className={styles.progressFill} style={{ width: `${Math.min(100, (n / 15) * 100)}%`, backgroundColor: n > 12 ? '#ef4444' : '' }} />
+            <div className={styles.progressFill} style={{ width: `${Math.min(100, (n / 15) * 100)}%`, backgroundColor: n > 12 ? 'var(--color-error)' : '' }} />
           </div>
-          <div className={styles.scoreValue} style={{ color: n > 12 ? '#ef4444' : '' }}>{formatTime(permOps)}</div>
+          <div className={styles.scoreValue} style={{ color: n > 12 ? 'var(--color-error)' : '' }}>{formatTime(permOps)}</div>
         </div>
       </div>
       <p className={styles.metaphorNote}>

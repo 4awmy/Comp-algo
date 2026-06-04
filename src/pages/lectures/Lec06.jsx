@@ -2,6 +2,7 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import InsertionSortTracer from '../../components/visualization/bespoke/InsertionSortTracer';
 import DfsTracer from '../../components/visualization/bespoke/DfsTracer';
 import TopologicalSortTracer from '../../components/visualization/bespoke/TopologicalSortTracer';
@@ -17,6 +18,7 @@ const Lec06 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             The <b>decrease-and-conquer</b> technique is a powerful algorithmic paradigm based on exploiting the relationship between a solution to a given instance of a problem and a solution to its smaller instance. Unlike divide-and-conquer, which splits problems into multiple sub-problems, decrease-and-conquer reduces the problem to a <b>single</b> smaller instance.
@@ -26,6 +28,7 @@ const Lec06 = () => {
             src="/images/lectures/lec06/slide11_img0.jpg" 
             alt="Decrease and Conquer Overview" 
             caption="The three major variations of the decrease-and-conquer paradigm."
+            style={{ margin: '2.5rem 0' }}
           />
           
           <div className={styles.gridTwoCol}>
@@ -75,6 +78,7 @@ const Lec06 = () => {
             src="/images/lectures/lec06/slide16_img0.jpg" 
             alt="Insertion Sort Diagram" 
             caption="The process of inserting an element into a sorted sub-array."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard} style={{ marginBottom: '2rem' }}>
@@ -88,7 +92,7 @@ const Lec06 = () => {
             </ul>
           </div>
 
-          <InsertionSortTracer />
+          <InsertionSortTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="graph-traversals" className={styles.lessonSection}>
@@ -122,15 +126,16 @@ const Lec06 = () => {
             />
           </div>
 
-          <DfsTracer />
+          <DfsTracer style={{ margin: '2.5rem 0' }} />
 
           <PremiumImage 
             src="/images/lectures/lec06/slide08_img0.png" 
             alt="BFS Diagram" 
             caption="The level-by-level exploration pattern of Breadth-First Search."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <div className={styles.comparisonGrid}>
+          <div className={styles.comparisonGrid} style={{ margin: '2.5rem 0' }}>
             <div id="dfs" className={styles.comparisonCard}>
               <h3>DFS Characteristics</h3>
               <p>Uses a <b>Stack</b> (often via recursion). Perfect for finding cycles, connectivity, and strongly connected components.</p>
@@ -165,6 +170,7 @@ const Lec06 = () => {
             src="/images/lectures/lec06/slide58_img0.jpg" 
             alt="Topological Sorting Overview" 
             caption="Ordering tasks with dependencies into a valid linear sequence."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard} style={{ marginBottom: '2rem' }}>
@@ -174,7 +180,7 @@ const Lec06 = () => {
             </p>
           </div>
 
-          <TopologicalSortTracer />
+          <TopologicalSortTracer style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.methodBox}>
             <h3>Alternate Method: DFS-based</h3>
@@ -193,3 +199,4 @@ const Lec06 = () => {
 };
 
 export default Lec06;
+

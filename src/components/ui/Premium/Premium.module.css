@@ -374,3 +374,15 @@
   width: 100%;
   border: none;
 }
+
+.presentationToggleButton.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.presentationCloseBtn:hover,
+.presentationToggleButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}

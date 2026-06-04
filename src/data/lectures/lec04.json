@@ -3,58 +3,6 @@
   "number": 4,
   "week": 4,
   "title": "Brute Force",
-  "sections": [
-    {
-      "id": "intro",
-      "title": "Introduction to Brute Force",
-      "blocks": [
-        {
-          "type": "text",
-          "content": "Brute force is a straightforward approach to solving a problem, usually directly based on the problem statement and definitions of the concepts involved.\n\n### Key Characteristics\n- Simple to design\n- Exhaustive (check every candidate)\n- Guaranteed correctness\n- Often inefficient for large inputs"
-        },
-        {
-          "type": "visual",
-          "images": ["public/images/lectures/lec04/slide03_img0.jpg"]
-        }
-      ]
-    },
-    {
-      "id": "selection-sort",
-      "title": "Selection Sort",
-      "blocks": [
-        {
-          "type": "text",
-          "content": "Selection Sort works by repeatedly finding the minimum element from the unsorted part and putting it at the beginning."
-        },
-        {
-          "type": "code",
-          "title": "Selection Sort Pseudocode",
-          "language": "javascript",
-          "code": "ALGORITHM SelectionSort(A[0..n-1])\n// Sorts a given array by selection sort\n// Input: An array A[0..n-1] of orderable elements\n// Output: Array A[0..n-1] sorted in ascending order\nfor i ← 0 to n - 2 do\n    min ← i\n    for j ← i + 1 to n - 1 do\n        if A[j] < A[min]  min ← j\n    swap A[i] and A[min]"
-        },
-        {
-          "type": "visual",
-          "algorithm": "selectionSort",
-          "title": "Interactive Selection Sort"
-        }
-      ]
-    },
-    {
-      "id": "bubble-sort",
-      "title": "Bubble Sort",
-      "blocks": [
-        {
-          "type": "text",
-          "content": "Bubble Sort repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order."
-        },
-        {
-          "type": "visual",
-          "algorithm": "bubbleSort",
-          "title": "Interactive Bubble Sort"
-        }
-      ]
-    }
-  ],
   "slides": [
     {
       "slideNumber": 1,

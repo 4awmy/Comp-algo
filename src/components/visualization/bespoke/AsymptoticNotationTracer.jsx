@@ -46,11 +46,11 @@ const AsymptoticNotationTracer = () => {
           <div className="relative w-full h-48 border-l border-b border-white/20">
              <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {/* Lower bound Omega */}
-                <path d="M0,100 Q30,95 100,85" fill="none" stroke="#10b981" strokeWidth="1" strokeDasharray="2,2" />
+                <path d="M0,100 Q30,95 100,85" fill="none" stroke="var(--color-success)" strokeWidth="1" strokeDasharray="2,2" />
                 {/* Upper bound O */}
-                <path d="M0,100 Q30,50 100,0" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2,2" />
+                <path d="M0,100 Q30,50 100,0" fill="none" stroke="var(--color-error)" strokeWidth="1" strokeDasharray="2,2" />
                 {/* Tight bound Theta */}
-                <path d="M0,100 Q30,80 100,60" fill="none" stroke="#8b5cf6" strokeWidth="2" />
+                <path d="M0,100 Q30,80 100,60" fill="none" stroke="var(--accent-purple)" strokeWidth="2" />
                 {/* Actual random-ish complexity */}
                 <polyline points="0,100 10,95 20,85 30,88 40,82 50,75 60,78 70,70 80,65 90,68 100,62" fill="none" stroke="white" strokeWidth="0.5" opacity="0.6" />
              </svg>

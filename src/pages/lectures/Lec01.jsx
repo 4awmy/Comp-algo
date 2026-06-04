@@ -16,7 +16,9 @@ const Lec01 = () => {
         tag="Lecture 01"
         title="Introduction to Algorithms"
         subtitle="Exploring the fundamental concepts of algorithmic thinking and problem-solving."
-        presentationPdf="/presentations/lec01.pdf"
+        presentationSlides={[
+          '/images/lectures/lec01/slide08_img0.png'
+        ]}
       />
 
       <div className={styles.contentWrapper}>

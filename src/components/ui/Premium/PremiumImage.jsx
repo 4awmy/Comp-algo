@@ -8,6 +8,11 @@ const PremiumImage = ({ src, alt, caption, className = '' }) => {
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
 
+  const baseUrl = import.meta.env.BASE_URL;
+  const finalSrc = src.startsWith('/') && !src.startsWith(baseUrl) 
+    ? `${baseUrl}${src.slice(1)}` 
+    : src;
+
   return (
     <>
       <figure className={`${styles.figure} ${className}`}>
@@ -24,7 +29,7 @@ const PremiumImage = ({ src, alt, caption, className = '' }) => {
             }
           }}
         >
-          <img src={src} alt={alt} className={styles.image} loading="lazy" />
+          <img src={finalSrc} alt={alt} className={styles.image} loading="lazy" />
         </div>
         {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
       </figure>

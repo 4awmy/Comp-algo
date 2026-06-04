@@ -245,12 +245,12 @@ export const EmpiricalDashboardDemo = () => {
                {/* Alg 1: O(n) */}
                <polyline 
                  points={data.map(d => `${d.n * 2},${100 - d.t1}`).join(' ')}
-                 fill="none" stroke="#60a5fa" strokeWidth="1"
+                 fill="none" stroke="var(--accent-blue)" strokeWidth="1"
                />
                {/* Alg 2: O(n^2) */}
                <polyline 
                  points={data.map(d => `${d.n * 2},${100 - d.t2}`).join(' ')}
-                 fill="none" stroke="#f472b6" strokeWidth="1"
+                 fill="none" stroke="var(--color-error)" strokeWidth="1"
                />
             </svg>
             <div className="absolute top-2 right-2 flex flex-col gap-1 text-[8px] font-bold">
