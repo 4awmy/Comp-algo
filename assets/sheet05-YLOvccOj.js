@@ -1,0 +1,27 @@
+var e=`sheet05`,t=`lec05`,n=5,r=`Brute Force II`,i=[{number:1,pageNumber:1,question:`Let $x_1 < x_2 < \\dots < x_n$ be real numbers representing coordinates of $n$ villages located along a straight road. A post office needs to be built in one of these villages.
+a. Design an efficient algorithm to find the post-office location minimizing the average distance between the villages and the post office.
+b. Design an efficient algorithm to find the post-office location minimizing the maximum distance from a village to the post office.`,answer:`a. **Minimizing average distance**: Build the post office at the **median** village coordinate, which is $x_{\\lceil n/2 \\rceil}$ (if $n$ is odd), or either $x_{n/2}$ or $x_{n/2+1}$ (if $n$ is even).
+
+b. **Minimizing maximum distance**: Build the post office at the village coordinate $x_i$ closest to the **midpoint** of the two outermost villages, $\\frac{x_1 + x_n}{2}$.`,explanation:[{step:1,text:`For average distance: We want to minimize the sum $\\sum_{i=1}^n |x_i - p|$. Mathematically, the sum of absolute differences is minimized at the median of the coordinates.`},{step:2,text:`Since the village coordinates are already sorted ($x_1 < x_2 < \\dots < x_n$), the median can be found in $O(1)$ time by accessing the middle element(s).`},{step:3,text:`For maximum distance: We want to minimize the function $\\max_i |x_i - p|$. Since the coordinates are sorted, the maximum distance is always determined by the outermost villages: $\\max(|x_1 - p|, |x_n - p|)$.`},{step:4,text:`The point that minimizes this maximum distance is the exact midpoint: $p = \\frac{x_1 + x_n}{2}$. Since we must build the post office *in one of the villages*, we scan the array and select the village $x_i$ that minimizes $|x_i - p|$.`}],hasVisualization:!0,algorithm:`exhaustiveSearch`},{number:2,pageNumber:2,question:`What is the time-efficiency class of the brute-force algorithm for the $k$-dimensional closest-pair problem?`,answer:`The time-efficiency class is **$\\Theta(k \\cdot n^2)$** (or simply **$\\Theta(n^2)$** if the dimension $k$ is constant).`,explanation:[{step:1,text:`The brute-force algorithm compares every pair of points to find the minimum distance. The number of unique pairs is $\\binom{n}{2} = \\frac{n(n-1)}{2} = \\Theta(n^2)$.`},{step:2,text:`For each pair of points, we compute the distance in $k$-dimensional space.`},{step:3,text:`The distance formula in $k$-dimensions requires $k$ coordinate subtractions, $k$ multiplications, and $k-1$ additions, which takes $\\Theta(k)$ basic operations.`},{step:4,text:`Multiplying the number of pairs by the cost per pair yields: $\\Theta(n^2) \\times \\Theta(k) = \\Theta(k \\cdot n^2)$ basic operations.`}],hasVisualization:!0,algorithm:`exhaustiveSearch`},{number:3,pageNumber:3,question:`Apply the brute-force knapsack problem algorithm on the following input where the capacity is $W = 6$:
+- **Item 1**: Weight = 3, Value = 10
+- **Item 2**: Weight = 4, Value = 20
+- **Item 3**: Weight = 2, Value = 12
+- **Item 4**: Weight = 1, Value = 8
+
+Find the subset of items that maximizes value without exceeding capacity.`,answer:`The optimal subset is **{Item 2, Item 3}** with a total weight of **6** ($4 + 2$) and a maximum value of **32** ($20 + 12$).`,explanation:[{step:1,text:`The brute-force algorithm evaluates all $2^4 = 16$ possible subsets of items.`},{step:2,text:`Compute the total weight and value for each subset: 
+- $\\emptyset$: wt = 0, val = 0
+- {Item 1}: wt = 3, val = 10
+- {Item 2}: wt = 4, val = 20
+- {Item 3}: wt = 2, val = 12
+- {Item 4}: wt = 1, val = 8`},{step:3,text:`Evaluate multi-item subsets: 
+- {Item 1, Item 3}: wt = 5, val = 22
+- {Item 1, Item 4}: wt = 4, val = 18
+- {Item 2, Item 3}: wt = 6, val = 32
+- {Item 2, Item 4}: wt = 5, val = 28
+- {Item 3, Item 4}: wt = 3, val = 20
+- {Item 1, Item 3, Item 4}: wt = 6, val = 30`},{step:4,text:`Subsets exceeding capacity ($W = 6$) are infeasible: {Item 1, Item 2} (wt=7), {Item 2, Item 3, Item 4} (wt=7), etc. The feasible subset with the maximum value is {Item 2, Item 3} with value 32.`}],hasVisualization:!0,algorithm:`exhaustiveSearch`},{number:4,pageNumber:3,question:"Apply the brute-force assignment problem algorithm to assign 4 jobs to 4 people using the following cost matrix:\n- **Person 1**: `[9, 12, 10, 6]`\n- **Person 2**: `[8, 4, 5, 4]`\n- **Person 3**: `[4, 5, 6, 1]`\n- **Person 4**: `[1, 4, 6, 7]`",answer:`The optimal assignment is **Person 1 → Job 3, Person 2 → Job 2, Person 3 → Job 4, Person 4 → Job 1** with a minimum total cost of **16** ($10 + 4 + 1 + 1$).`,explanation:[{step:1,text:`The brute-force algorithm evaluates all $4! = 24$ permutations of job assignments.`},{step:2,text:"Calculate costs for different assignments. For instance: \n- Assignment `[Job 1, Job 2, Job 3, Job 4]`: cost = $9 + 4 + 6 + 7 = 26$\n- Assignment `[Job 4, Job 2, Job 3, Job 1]`: cost = $6 + 4 + 6 + 1 = 17$"},{step:3,text:`Evaluate the assignment \`[Job 3, Job 2, Job 4, Job 1]\`:
+- Person 1 assigned to Job 3 (cost = 10)
+- Person 2 assigned to Job 2 (cost = 4)
+- Person 3 assigned to Job 4 (cost = 1)
+- Person 4 assigned to Job 1 (cost = 1)
+Total cost = $10 + 4 + 1 + 1 = 16$.`},{step:4,text:`Comparing all 24 permutations, this assignment yields the absolute minimum cost of 16.`}],hasVisualization:!0,algorithm:`exhaustiveSearch`}],a={id:e,lectureId:t,week:5,title:r,problems:i};export{a as default,e as id,t as lectureId,i as problems,r as title,n as week};
