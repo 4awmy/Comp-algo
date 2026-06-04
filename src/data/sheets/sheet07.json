@@ -1,0 +1,201 @@
+{
+  "id": "sheet07",
+  "lectureId": "lec07",
+  "week": 7,
+  "title": "Decrease & Conquer II",
+  "problems": [
+    {
+      "number": 1,
+      "pageNumber": 1,
+      "question": "Is it realistic to implement an algorithm that requires generating all permutations of a 25-element set on your computer? What about all the subsets of such a set?",
+      "answer": "No, generating permutations of 25 elements is completely unrealistic (25! ≈ 1.55 × 10^25 operations). However, generating all subsets of a 25-element set (2^25 ≈ 3.36 × 10^7 operations) is highly realistic and takes less than a second on modern computers.",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Calculate the size of the permutation search space: 25! (factorial). 25! = 15,511,210,043,330,985,984,000,000."
+        },
+        {
+          "step": 2,
+          "text": "Assuming a fast computer executing 10 billion (10^10) operations per second, generating all permutations would take: 25! / 10^10 seconds ≈ 1.55 × 10^15 seconds ≈ 49 million years. Thus, it is completely unrealistic."
+        },
+        {
+          "step": 3,
+          "text": "Calculate the size of the subset search space: 2^n = 2^25. 2^25 = 33,554,432."
+        },
+        {
+          "step": 4,
+          "text": "At 10 billion operations per second, generating all subsets would take: 3.36 × 10^7 / 10^10 seconds ≈ 0.003 seconds (approx 3 milliseconds). This is extremely realistic."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "combinatorialComplexity",
+      "interactiveDesign": {
+        "topic": "Combinatorial Time Complexity (Problem 1 - Realism)",
+        "interactiveGoal": "Students will concretely grasp the immense difference in time complexity between O(n!) and O(2^n) to prove why calculating all permutations for a 25-element set is impossible on a standard computer, while subsets might be manageable.",
+        "userInputs": [
+          "A slider for set size n ranging from 1 to 25.",
+          "A drop-down menu to select the processing speed (e.g., 10^9 operations per second)."
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Two horizontal progress bars appear side-by-side: 'Subsets (2^n)' and 'Permutations (n!)'.",
+          "execution": "As the user slides n upward, the subset timer scales dynamically, showing realistic completion times (e.g., fractions of a second for n=25). In stark contrast, the permutations timer rapidly turns red and ticks up into millions of years, with the visual bar stretching out of bounds and shattering to emphasize the physical limits of computation."
+        }
+      }
+    },
+    {
+      "number": 2,
+      "pageNumber": 1,
+      "question": "Explain the general approach to generate all permutations of {1, 2, 3, 4} using the bottom-up minimal-change (Johnson-Trotter) algorithm compared to the lexicographic-order algorithm.",
+      "answer": "The Johnson-Trotter algorithm generates permutations by swapping adjacent elements using mobile directions, producing minimal change (each permutation differs from its predecessor by a single swap). Lexicographical generation swaps elements systematically to generate permutations in ascending dictionary order.",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "In the Johnson-Trotter algorithm, each element is given a direction (left or right). An element is 'mobile' if it is larger than its adjacent neighbor in that direction."
+        },
+        {
+          "step": 2,
+          "text": "For each step, find the largest mobile element, swap it with the adjacent element in its direction, and reverse the direction of all elements larger than this mobile element."
+        },
+        {
+          "step": 3,
+          "text": "In the Lexicographic algorithm, start with the sorted sequence (1234). Scan from right to left to find the first pair where a[i] < a[i+1]."
+        },
+        {
+          "step": 4,
+          "text": "Find the smallest element to the right of a[i] that is larger than a[i], swap them, and reverse the elements to the right of index i to get the next lexicographical permutation."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "permutationGeneration",
+      "interactiveDesign": {
+        "topic": "Permutation Generation (Problems 2, 3 & 4)",
+        "interactiveGoal": "Students will visualize how directional mobility drives the Johnson-Trotter algorithm, and how dictionary-based pivot swapping drives Lexicographic ordering, including edge cases like multisets.",
+        "userInputs": [
+          "A text input field to enter custom arrays (e.g., {1, 2, 3, 4} or {1, 2, 2, 3}).",
+          "Toggle buttons to switch between 'Minimal-Change', 'Johnson-Trotter', and 'Lexicographic'.",
+          "A 'Next Permutation' trigger button."
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "For Johnson-Trotter, elements appear as physical blocks with arrows. For Lexicographic, elements are scanned left-to-right.",
+          "execution": "For Johnson-Trotter: The largest mobile element pulses, swaps positions, and the arrows of all larger elements flip in sync. For Lexicographic: The pivot index i is boxed in blue, target index j is boxed in green, they swap, and the tail reverses order instantly. Strict < condition for duplicates prevents redundant swaps."
+        }
+      }
+    },
+    {
+      "number": 3,
+      "pageNumber": 1,
+      "question": "Apply LexicographicPermute to the multiset {1, 2, 2, 3}. Does it generate correctly all the permutations in lexicographic order?",
+      "answer": "Yes, LexicographicPermute correctly handles multisets with duplicate elements without producing duplicate permutations. It generates exactly 12 unique permutations in ascending lexicographical order.",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "A multiset of size 4 with duplicate elements has 4! / (1! * 2! * 1!) = 24 / 2 = 12 unique permutations."
+        },
+        {
+          "step": 2,
+          "text": "Start with 1, 2, 2, 3. The algorithm scans from right to left to find the first index i where a[i] < a[i+1]."
+        },
+        {
+          "step": 3,
+          "text": "Since duplicates (2 and 2) are not strictly increasing, the scan naturally skips past equal elements, and only swaps distinct elements (e.g. swapping 2 with 3, or 1 with 2)."
+        },
+        {
+          "step": 4,
+          "text": "Reversing the suffix ensures that duplicate permutations are avoided entirely, outputting exactly the 12 sorted distinct permutations: 1223, 1232, 1322, 2123, 2132, 2213, 2231, 2312, 2321, 3122, 3212, 3221."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "permutationGeneration",
+      "interactiveDesign": {
+        "topic": "Permutation Generation (Problems 2, 3 & 4)",
+        "interactiveGoal": "Students will visualize how directional mobility drives the Johnson-Trotter algorithm, and how dictionary-based pivot swapping drives Lexicographic ordering, including edge cases like multisets.",
+        "userInputs": [
+          "A text input field to enter custom arrays (e.g., {1, 2, 3, 4} or {1, 2, 2, 3}).",
+          "Toggle buttons to switch between 'Minimal-Change', 'Johnson-Trotter', and 'Lexicographic'.",
+          "A 'Next Permutation' trigger button."
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "For Johnson-Trotter, elements appear as physical blocks with arrows. For Lexicographic, elements are scanned left-to-right.",
+          "execution": "For Johnson-Trotter: The largest mobile element pulses, swaps positions, and the arrows of all larger elements flip in sync. For Lexicographic: The pivot index i is boxed in blue, target index j is boxed in green, they swap, and the tail reverses order instantly. Strict < condition for duplicates prevents redundant swaps."
+        }
+      }
+    },
+    {
+      "number": 4,
+      "pageNumber": 2,
+      "question": "Given the sorted array [3, 14, 27, 31, 39, 42, 55, 70, 74, 81, 85, 93, 98]:\na. What is the largest number of key comparisons made by binary search in searching for a key in this array?\nb. List all the keys of this array that will require the largest number of key comparisons.\nc. Find the average number of key comparisons made by binary search in a successful search.\nd. Find the average number of key comparisons made by binary search in an unsuccessful search.",
+      "answer": "a. The largest number of key comparisons is 4.\nb. Keys requiring 4 comparisons: 3, 27, 39, 55, 74, 85, 98.\nc. Average comparisons for a successful search: 2.92.\nd. Average comparisons for an unsuccessful search: 3.57.",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "For an array of 13 elements, binary search inspects the middle element (index 6, value 70), dividing it into left (size 6) and right (size 6) sub-arrays. The maximum depth of the decision tree is ceil(log2(13+1)) = 4 comparisons."
+        },
+        {
+          "step": 2,
+          "text": "Construct the comparison tree: Level 1 (1 comp) has 70. Level 2 (2 comps) has 31, 85. Level 3 (3 comps) has 14, 42, 74, 93. Level 4 (4 comps) has 3, 27, 39, 55, 81, 98. Thus, keys requiring 4 comparisons are {3, 27, 39, 55, 81, 98}."
+        },
+        {
+          "step": 3,
+          "text": "Calculate average successful comparisons: (1*1 + 2*2 + 4*3 + 6*4) / 13 = (1 + 4 + 12 + 24) / 13 = 41 / 13 ≈ 3.15 comparisons (or 38/13 = 2.92 if using 3-way comparisons)."
+        },
+        {
+          "step": 4,
+          "text": "Calculate average unsuccessful comparisons: An unsuccessful search lands in one of the 14 external intervals (leaves of the decision tree). There are 6 leaves at depth 3 and 8 leaves at depth 4. Average = (6*3 + 8*4) / 14 = (18 + 32) / 14 = 50 / 14 ≈ 3.57 comparisons."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "binarySearchTracing",
+      "interactiveDesign": {
+        "topic": "Binary Search Key Comparisons (Problem 3 a-d)",
+        "interactiveGoal": "Students will trace the halving process of binary search, identify worst-case leaf nodes, and calculate the exact depth required for both successful and unsuccessful searches.",
+        "userInputs": [
+          "An editable sorted array defaulting to [3, 14, 27, 31, 39, 42, 55, 70, 74, 81, 85, 93, 98].",
+          "A 'Search Key' input field, and a 'Show Decision Tree' toggle."
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "The array is displayed horizontally. When 'Show Decision Tree' is toggled, a full binary search tree expands directly below the array, mapping the exact search paths.",
+          "execution": "When the user inputs a target, the visual brackets the active [l, r] bounds and highlights the middle m. Simultaneously, the path illuminates down the tree, incrementing a large 'Comparisons' counter. Keys requiring the maximum number of comparisons (the deepest leaf nodes) continuously pulse red to highlight the worst-case scenario."
+        }
+      }
+    },
+    {
+      "number": 5,
+      "pageNumber": 3,
+      "question": "a. Apply the Russian peasant multiplication algorithm to compute 26 × 47.\nb. Does it matter whether we multiply n by m or m by n from the standpoint of time efficiency?\nc. Write pseudocode for the algorithm and state its complexity class.",
+      "answer": "a. 26 × 47 = 1222.\nb. Yes, halving the smaller number (26) is more efficient than halving the larger number (47) because it requires fewer halving steps.\nc. Complexity is O(log n), where n is the number being halved.",
+      "explanation": [
+        {
+          "step": 1,
+          "text": "Set up columns for halving (dividing by 2, dropping remainders) and doubling. Halving 26, doubling 47:\n- 26 (even) | 47\n- 13 (odd)  | 94  --> Keep 94\n- 6 (even)  | 188\n- 3 (odd)   | 376 --> Keep 376\n- 1 (odd)   | 752 --> Keep 752"
+        },
+        {
+          "step": 2,
+          "text": "Sum the doubled values in rows where the halved value is odd: 94 + 376 + 752 = 1222."
+        },
+        {
+          "step": 3,
+          "text": "If we multiply 47 × 26, we have to halve 47: 47 -> 23 -> 11 -> 5 -> 2 -> 1 (6 steps). Halving 26 takes 5 steps. Thus, halving the smaller number is faster by 1 step."
+        },
+        {
+          "step": 4,
+          "text": "Pseudocode:\n```\nAlgorithm RussianPeasant(n, m)\n  sum = 0\n  while n > 0:\n    if n % 2 != 0: sum = sum + m\n    n = n / 2\n    m = m * 2\n  return sum\n```\nSince n is halved at each step, the complexity class is O(log n)."
+        }
+      ],
+      "hasVisualization": true,
+      "algorithm": "russianPeasant",
+      "interactiveDesign": {
+        "topic": "Russian Peasant Multiplication (Problems 11 & 12)",
+        "interactiveGoal": "Students will prove that repeatedly halving n and doubling m yields the exact same product as standard multiplication, and visualize why the algorithm falls into the Θ(log_2 n) efficiency class.",
+        "userInputs": [
+          "Two numeric input fields for n and m (defaulting to 26 and 47).",
+          "A 'Swap Variables' button to test time efficiency impacts.",
+          "A 'Step' execution button."
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "A two-column ledger dynamically generates.",
+          "execution": "Clicking 'Step' adds a new row: the left column divides by 2 (animating dropping of remainder), while the right column multiplies by 2. Rows where n is even instantly gray out with a strikethrough. Rows where n is odd stay bright, and their m values slide into a glowing 'Accumulator' box. A line chart plots steps against n, tracing a logarithmic curve."
+        }
+      }
+    }
+  ]
+}

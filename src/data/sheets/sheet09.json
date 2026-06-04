@@ -6,8 +6,8 @@
   "problems": [
     {
       "number": 1,
-      "question": "",
-      "answer": "",
+      "question": "Step through the Merge Sort trace. Predict the recursive divisions and observe how subarrays are split.",
+      "answer": "Merge Sort recursively divides the array into halves until subarrays of size 1 are reached, which are trivially sorted, and then merges them back in sorted order.",
       "explanation": [
         {
           "step": 1,
@@ -22,107 +22,196 @@
           "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "mergeSort",
+      "interactiveDesign": {
+        "topic": "Merge Sort Trace Simulation",
+        "interactiveGoal": "Students manually step through Merge Sort and predict the next recursive split, understanding recursive splitting and merging.",
+        "userInputs": [
+          "Custom array input field",
+          "Random array generator",
+          "Array size slider",
+          "Step Forward / Step Backward / Play / Reset controls",
+          "Animation speed slider"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Displays pseudocode, recursion tree, current array segments, and call stack in a multi-panel layout.",
+          "execution": "When MergeSort(A) executes, current node glows and is pushed onto the call stack. Splitting visually divides arrays into separate boxes (e.g., [38,27,43,3,9] splits into [38,27] and [43,3,9]). Base cases of size <= 1 highlight green and return."
+        }
+      }
     },
     {
       "number": 2,
-      "question": "",
-      "answer": "",
+      "question": "Trace the merge procedure combining two sorted subarrays. Identify which element wins the comparison and how pointers move.",
+      "answer": "The merge procedure compares elements from the left and right subarrays using pointers, copy the smaller element to the combined array, and increment the respective pointer.",
       "explanation": [
         {
           "step": 1,
-          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+          "text": "Identify the elements pointed to by left subarray pointer i and right subarray pointer j."
         },
         {
           "step": 2,
-          "text": "Recursively solve each sub-problem independently."
+          "text": "Compare the elements. Copy the smaller one into target index k of the combined array."
         },
         {
           "step": 3,
-          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+          "text": "Increment the pointer of the winning subarray and the target pointer k. Repeat until one subarray is exhausted, then copy remaining elements."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "mergeSort",
+      "interactiveDesign": {
+        "topic": "Merge Function Simulation",
+        "interactiveGoal": "Students choose which element should move next during merging, learning how two sorted lists are merged into one sorted list.",
+        "userInputs": [
+          "Left sorted array input",
+          "Right sorted array input",
+          "Step button",
+          "Auto-play button"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Visual representation of array B (with pointer i), array C (with pointer j), and final array A (with pointer k).",
+          "execution": "Comparing B[i] <= C[j] causes values to flash. Copying A[k]=C[j] physically moves value to A. Pointers i, j, k update dynamically, showing element wins, pointer updates, and copying of leftovers."
+        }
+      }
     },
     {
       "number": 3,
-      "question": "",
-      "answer": "",
+      "question": "Trace the partition phase of Quick Sort. Examine how elements are compared against the pivot and placed into left/right partitions.",
+      "answer": "The partition algorithm selects a pivot, places all elements smaller than the pivot to its left and elements larger to its right, locking the pivot in its final sorted position.",
       "explanation": [
         {
           "step": 1,
-          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+          "text": "Choose a pivot strategy (first, last, middle, random) and identify the pivot value."
         },
         {
           "step": 2,
-          "text": "Recursively solve each sub-problem independently."
+          "text": "Scan the array and compare each element to the pivot."
         },
         {
           "step": 3,
-          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+          "text": "Reorder elements such that those less than the pivot are on the left, and those greater are on the right."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "quickSort",
+      "interactiveDesign": {
+        "topic": "Quick Sort Partition Challenge",
+        "interactiveGoal": "Students drag elements to the correct side of a pivot, understanding pivot selection and partitioning.",
+        "userInputs": [
+          "Custom array",
+          "Pivot strategy selector (First element, Last element, Middle element, Random)",
+          "Step button",
+          "Auto Play"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Current pivot glows (e.g. Pivot = 38). Every element is examined one-by-one and moves to the Left Side or Right Side depending on comparison.",
+          "execution": "Final partition state (e.g. [27,3,9] 38 [43]) is displayed with boundaries clearly shown."
+        }
+      }
     },
     {
       "number": 4,
-      "question": "",
-      "answer": "",
+      "question": "Construct the recursion tree for Quick Sort partitioning on a given array.",
+      "answer": "Each pivot selection forms a node in the recursion tree, with left and right child nodes representing the recursive partitioning of the left and right subproblems.",
       "explanation": [
         {
           "step": 1,
-          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+          "text": "Perform the initial partition. The first pivot becomes the root node of the tree."
         },
         {
           "step": 2,
-          "text": "Recursively solve each sub-problem independently."
+          "text": "Recursively select pivots in left and right partitions, forming left and right child nodes."
         },
         {
           "step": 3,
-          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+          "text": "Continue until all subproblems reach size 1 (leaves of the tree)."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "quickSort",
+      "interactiveDesign": {
+        "topic": "Quick Sort Recursion Builder",
+        "interactiveGoal": "Students construct the recursion tree manually, showing how Quick Sort recursively partitions smaller sections.",
+        "userInputs": [
+          "Same controls as Quick Sort",
+          "Show recursion tree toggle"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Displays the recursion tree dynamically as pivots are selected (e.g., 38 at root, with left child [27,3,9] and right child [43]).",
+          "execution": "Students click any tree node to inspect its left/right partitions and pivot position."
+        }
+      }
     },
     {
       "number": 5,
-      "question": "",
-      "answer": "",
+      "question": "Predict the visiting order of nodes in a binary tree for Preorder, Inorder, and Postorder traversals.",
+      "answer": "Preorder traverses Root-Left-Right (A B D E C F G). Inorder traverses Left-Root-Right (D B E A F C G). Postorder traverses Left-Right-Root (D E B F G C A).",
       "explanation": [
         {
           "step": 1,
-          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+          "text": "Preorder: Visit root, recursively traverse left subtree, recursively traverse right subtree."
         },
         {
           "step": 2,
-          "text": "Recursively solve each sub-problem independently."
+          "text": "Inorder: Recursively traverse left subtree, visit root, recursively traverse right subtree."
         },
         {
           "step": 3,
-          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+          "text": "Postorder: Recursively traverse left subtree, recursively traverse right subtree, visit root."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "treeTraversal",
+      "interactiveDesign": {
+        "topic": "Traversal Prediction Tool",
+        "interactiveGoal": "Students predict the preorder/inorder/postorder output before revealing the answer, understanding root-left-right, left-root-right, and left-right-root sequences.",
+        "userInputs": [
+          "Build custom tree (Add node, Delete node)",
+          "Generate random tree",
+          "Traversal selector (Preorder, Inorder, Postorder)",
+          "Play / Step Forward buttons"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Graphical binary tree is displayed. Selected traversal determines node visitation sequence, and visited nodes glow sequentially.",
+          "execution": "Visited sequence is recorded live (e.g. D B E A F C G). Currently executed recursive code line is highlighted beside the tree."
+        }
+      }
     },
     {
       "number": 6,
-      "question": "Q6",
-      "answer": "",
+      "question": "Compare the time complexity of Merge Sort and Quick Sort under random, sorted, and reverse-sorted arrays.",
+      "answer": "Merge Sort maintains Θ(n log n) in all cases since it always splits inputs evenly. Quick Sort runs in average Θ(n log n) but degrades to worst-case O(n^2) on already sorted arrays when poor pivots are chosen.",
       "explanation": [
         {
           "step": 1,
-          "text": "Divide the input dataset into two or more disjoint sub-problems of equal size (e.g., n/2)."
+          "text": "Observe Merge Sort complexity by tracking work per level (n) across log n tree levels, totaling Θ(n log n)."
         },
         {
           "step": 2,
-          "text": "Recursively solve each sub-problem independently."
+          "text": "Compare balanced pivot splits in Quick Sort (Θ(n log n) height) against worst-case unbalanced pivot splits (Θ(n) height)."
         },
         {
           "step": 3,
-          "text": "Combine the sub-problem solutions (e.g. the merge step in Merge Sort) in linear time: O(n)."
+          "text": "Analyze how input order and pivot strategy affect the recursion depth and comparisons."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "quickSort",
+      "interactiveDesign": {
+        "topic": "Complexity Explorer",
+        "interactiveGoal": "Students compare Merge Sort and Quick Sort on random, sorted, and reverse-sorted arrays while watching comparisons and recursion depth update live.",
+        "userInputs": [
+          "Ascending / Descending / Random array generators",
+          "Array size slider",
+          "Pivot strategy selector",
+          "Show Cost Per Level / Show Total Cost toggles"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Compares balanced trees (depth log n) against worst-case skewed trees (depth n). Displays comparisons counter, recursion depth, and runtime estimates.",
+          "execution": "Demonstrates why Merge Sort runs in Θ(n log n) by displaying work per level (n) across log n levels, and why poor pivot selection in Quick Sort leads to O(n^2)."
+        }
+      }
     }
   ]
 }

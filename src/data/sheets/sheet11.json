@@ -23,7 +23,21 @@
         }
       ],
       "hasVisualization": true,
-      "algorithm": "comparisonCountingSort"
+      "algorithm": "comparisonCountingSort",
+      "interactiveDesign": {
+        "topic": "Comparison Counting Sort",
+        "interactiveGoal": "Students will understand how Counting Sort leverages space (an auxiliary count array) to determine the final sorted positions of elements, and evaluate its stability and in-place properties.",
+        "userInputs": [
+          "Input Array Field: Pre-populated with [C, O, M, P, U, T, I, N, G], but fully editable.",
+          "Playback Controls: 'Play,' 'Pause,' 'Step Forward,' and a 'Speed' slider.",
+          "Highlight Duplicates Toggle: A switch to visually tag identical elements (e.g., if the user inputs two 'C's, they become C_1 and C_2) to test stability."
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "The interface displays the pseudocode on the left. On the right, three arrays are visible: the original array A, the auxiliary Count array (initialized to 0s), and a faded final array S.",
+          "execution": "As the nested for loops execute, two colored pointers (i and j) iterate over array A. An animated scale briefly appears between the two compared elements. If A[i] < A[j], a +1 animation floats into Count[j]; otherwise, it floats into Count[i].",
+          "tradeoffVerification": "A 'Memory Tracker' bar on the side fills up when the Count and S arrays are allocated, visually proving the algorithm is not in-place. If the 'Highlight Duplicates' toggle is active, the final placement into array S will clearly show whether C_1 and C_2 maintained their relative order, prompting the student to deduce the algorithm's stability."
+        }
+      }
     },
     {
       "number": 2,
@@ -44,7 +58,37 @@
         }
       ],
       "hasVisualization": true,
-      "algorithm": "horspoolSearch"
+      "algorithm": "horspoolSearch",
+      "interactiveDesign": {
+        "shiftTableConstruction": {
+          "topic": "Horspools Algorithm - Shift Table Construction",
+          "interactiveGoal": "Students will learn how to pre-compute the shift table by calculating right-to-left distances, a classic example of using space (the table) to save time (skipping character comparisons).",
+          "userInputs": [
+            "Alphabet Selector: Dropdown to select the universe of keys (e.g., DNA {A, C, G, T} or English Alphabet).",
+            "Pattern Input: Pre-populated with TCCTATTCTT.",
+            "Interactive Ruler: A draggable measuring tool."
+          ],
+          "dynamicVisualBehavior": {
+            "layout": "The pattern is displayed as a sequence of large blocks. Below it is an empty Shift Table indexed by the selected alphabet.",
+            "execution": "The tool highlights the default shift value (the length of the pattern, m) and fills all table cells with it. Then, a scanning box moves left-to-right across the pattern, stopping before the last character.",
+            "interaction": "The system pauses and asks the student to drag the 'Interactive Ruler' from the current character to the final character. Once they measure the distance, that integer drops down into the corresponding alphabet column in the Shift Table, overwriting the previous value."
+          }
+        },
+        "stringMatching": {
+          "topic": "Horspools Algorithm - String Matching",
+          "interactiveGoal": "Students will visualize the right-to-left character comparison and the massive time-saving jumps dictated by the pre-computed shift table.",
+          "userInputs": [
+            "Text Input: Pre-populated with BESS_KNEW_ABOUT_BAOBABS.",
+            "Pattern Input: Pre-populated with BAOBAB.",
+            "Step Controls: 'Compare Next' and 'Shift Pattern'."
+          ],
+          "dynamicVisualBehavior": {
+            "layout": "The long text string sits at the top. The pattern sits directly below it, initially aligned at index 0. The fully populated Shift Table is docked on the right side of the screen.",
+            "execution": "The student clicks 'Compare Next.' A magnifying glass highlights the last character of the pattern and the text character directly above it.",
+            "mismatchAndJump": "When a mismatch is found (e.g., 'B' vs '*'), the line of code referencing t(c) highlights. The text character ('*') glows, and a dotted line connects it to the '_' column in the Shift Table. The shift value is extracted, and the entire pattern block smoothly slides to the right by exactly that many slots, demonstrating the algorithm's skip logic."
+          }
+        }
+      }
     },
     {
       "number": 3,
@@ -65,7 +109,37 @@
         }
       ],
       "hasVisualization": true,
-      "algorithm": "hashing"
+      "algorithm": "hashing",
+      "interactiveDesign": {
+        "openHashingSeparateChaining": {
+          "topic": "Open Hashing (Separate Chaining)",
+          "interactiveGoal": "Students will understand collision resolution via linked lists and learn how to calculate the maximum and average number of key comparisons for successful searches.",
+          "userInputs": [
+            "Data Stream: [30, 20, 56, 75, 31, 19].",
+            "Hash Function Configurator: Sliders to adjust K and m in h(K) = K mod m (default m=11).",
+            "Action Button: 'Hash Next Element'."
+          ],
+          "dynamicVisualBehavior": {
+            "layout": "A horizontal array indexed 0-10 represents the hash table. A 'Comparisons Dashboard' sits on the left, tracking metrics.",
+            "execution": "As an element is hashed, the math K mod 11 flashes on screen. The element turns into a falling block. If the target slot is empty, it lands. If occupied (a collision), the existing block visually 'spawns' a downward arrow, and the new block attaches below it, forming a vertical linked list.",
+            "searchAnalysis": "Once populated, the user clicks 'Calculate Search Costs.' The visualizer simulates searching for every element. As it traverses down a linked list, a counter ticks up (1 comparison for the head, 2 for the second node, etc.). The dashboard aggregates these to reveal the 'Largest Number of Comparisons' (the deepest node) and the 'Average' (total comparisons / total elements)."
+          }
+        },
+        "closedHashingLinearProbing": {
+          "topic": "Closed Hashing (Linear Probing)",
+          "interactiveGoal": "Students will observe how linear probing resolves collisions without extra space (no pointers), but at the cost of clustering and increased search time.",
+          "userInputs": [
+            "Data Stream: [30, 20, 56, 75, 31, 19].",
+            "Action Button: 'Hash Next Element'."
+          ],
+          "dynamicVisualBehavior": {
+            "layout": "A single horizontal array indexed 0-10.",
+            "execution": "When a collision occurs (e.g., two numbers evaluating to the same index), the new element turns red and bounces off the occupied slot. It then visibly 'hops' one space to the right (i+1). If that is also occupied, it hops again, wrapping around to the beginning of the array if it reaches the end.",
+            "clusteringHeatmap": "As elements settle into adjacent slots, the background color of those slots shifts to a warmer color (yellow to orange), creating a visual 'cluster.'",
+            "searchAnalysis": "Similar to the open hashing visualizer, simulating a search will show an animated probe hopping through the cluster. The dashboard tracks the number of hops required to find each element, definitively showing how clusters drag down the average search time."
+          }
+        }
+      }
     }
   ]
 }

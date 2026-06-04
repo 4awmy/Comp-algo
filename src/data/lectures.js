@@ -80,7 +80,7 @@ export const LECTURES = [
     topics: ['Insertion Sort', 'Graph Traversals (DFS/BFS)', 'Topological Sorting'],
     hasSection: true,
     hasVisualization: true,
-    sheetImagesCount: 4,
+    sheetImagesCount: 1,
   },
   {
     id: '07',
@@ -91,9 +91,9 @@ export const LECTURES = [
     color: '#f97316',
     week: 'Week 7',
     topics: ['Generating Permutations', 'Generating Subsets', 'Binary Search', 'The Fake Coin Problem', 'Russian Peasant Multiplication', 'The Josephus Problem'],
-    hasSection: false,   // ← No section sheet
+    hasSection: true,
     hasVisualization: true,
-    sheetImagesCount: 0,
+    sheetImagesCount: 3,
   },
   // Lecture 08 is SKIPPED
   {

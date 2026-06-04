@@ -6,123 +6,210 @@
   "problems": [
     {
       "number": 1,
-      "question": "",
-      "answer": "",
+      "question": "Explain the general principle of the Transform and Conquer design strategy. How does transforming a problem, such as through presorting, simplify operations like Searching, Duplicate Detection, and Median Finding?",
+      "answer": "Transform and Conquer solves a problem by transforming it into a simpler or more convenient representation. Presorting turns searching into O(log n) binary search, duplicate detection into a single O(n) adjacent pass, and median finding into O(1) index access, leading to a total complexity dominated by the O(n log n) sorting phase.",
       "explanation": [
         {
           "step": 1,
-          "text": "Transform the problem representation into a more convenient structure (e.g. a Binary Search Tree or Heap)."
+          "text": "Instance Simplification: Transform the input into a simpler form (e.g., sort the array first)."
         },
         {
           "step": 2,
-          "text": "For heaps: use bottom-up heapify to convert an array into a heap structure in O(n) time."
+          "text": "Representation Change: Transform the problem representation into a different structure (e.g. Binary Search Tree or Heap)."
         },
         {
           "step": 3,
-          "text": "Perform the required operation (e.g. delete-max in Heapsort) and re-heapify in O(log n) time."
+          "text": "Problem Reduction: Transform the problem into an instance of another problem for which an efficient algorithm is already known."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "transformationParadigm",
+      "interactiveDesign": {
+        "topic": "Transform and Conquer Paradigm & Presorting",
+        "interactiveGoal": "Help students understand why transforming a problem makes it easier to solve, and demonstrate how sorting simplifies tasks like Searching, Duplicate Detection, and Median Finding.",
+        "userInputs": [
+          "Select problem type (Searching, Duplicate Detection, Scheduling)",
+          "Toggle 'Apply Transformation'",
+          "Problem size slider (10-1000 items)",
+          "Sorting algorithm selector"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Split-screen interface displaying original messy representation on the left vs simplified transformed representation on the right.",
+          "execution": "Students compare direct complexity O(n) or O(n^2) against transformed complexity O(n log n). Live complexity charts and comparison counters update in real time."
+        }
+      }
     },
     {
       "number": 2,
-      "question": "",
-      "answer": "",
+      "question": "Trace the Element Uniqueness problem using (a) Brute Force pairwise comparisons and (b) Transform-and-Conquer using presorting followed by adjacent element checking.",
+      "answer": "(a) Brute Force compares all pairs, requiring O(n^2) operations. (b) Transform-and-Conquer sorts the array first, then scans adjacent elements for duplicates, requiring O(n log n) sorting + O(n) checking, which equals O(n log n) overall.",
       "explanation": [
         {
           "step": 1,
-          "text": "Transform the problem representation into a more convenient structure (e.g. a Binary Search Tree or Heap)."
+          "text": "Brute Force: Use nested loops to compare array[i] with array[j] for all i != j."
         },
         {
           "step": 2,
-          "text": "For heaps: use bottom-up heapify to convert an array into a heap structure in O(n) time."
+          "text": "Transform: Sort the array using an O(n log n) sort like mergesort or heapsort."
         },
         {
           "step": 3,
-          "text": "Perform the required operation (e.g. delete-max in Heapsort) and re-heapify in O(log n) time."
+          "text": "Conquer: Scan adjacent elements (array[i] == array[i+1]) in a single loop. If any match is found, elements are not unique."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "presortingDemo",
+      "interactiveDesign": {
+        "topic": "Element Uniqueness (Brute Force vs Transform-and-Conquer)",
+        "interactiveGoal": "Visualize why pairwise comparison becomes expensive in brute force, and how sorting reduces duplicate detection to a single neighbor check sweep.",
+        "userInputs": [
+          "Custom array input",
+          "Random generator",
+          "Duplicate density slider",
+          "Play / Pause / Step controls"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Displays comparison matrix view for brute force vs sequential neighbor pointers in sorted sweep.",
+          "execution": "In brute force mode, loops highlight cells in a comparison matrix. In sorting mode, pointer animations walk through sorted elements, alerting when adjacent duplicates match. Complexity dashboard compares operations in real-time."
+        }
+      }
     },
     {
       "number": 3,
-      "question": "",
-      "answer": "",
+      "question": "Compare search, insertion, and deletion efficiency of an unsorted Array, a Linked List, and a Binary Search Tree (BST). Explain why sequential insertions degrade a BST and how balancing corrects this.",
+      "answer": "Arrays and Linked Lists have O(n) search times. A balanced BST has O(log n) search. Sequential insertions in a BST (e.g. 1, 2, 3...) degenerate the tree into a linear list with O(n) height. Balancing keeps the tree height logarithmic, preserving O(log n) efficiency.",
       "explanation": [
         {
           "step": 1,
-          "text": "Transform the problem representation into a more convenient structure (e.g. a Binary Search Tree or Heap)."
+          "text": "Unsorted Array / Linked List: Linear search scans elements one by one, giving O(n) complexity."
         },
         {
           "step": 2,
-          "text": "For heaps: use bottom-up heapify to convert an array into a heap structure in O(n) time."
+          "text": "BST: Node selection divides the search space in half at each step (left for smaller, right for larger)."
         },
         {
           "step": 3,
-          "text": "Perform the required operation (e.g. delete-max in Heapsort) and re-heapify in O(log n) time."
+          "text": "Degeneration: Inserting pre-sorted keys creates a single-branch tree (skewed), leading to worst-case O(n) height. Balancing maintains height <= 1.44 log2 n."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "dsComparison",
+      "interactiveDesign": {
+        "topic": "BST vs Array vs Linked List & Unbalanced BST Problem",
+        "interactiveGoal": "Compare operation costs across data structures and understand BST height degeneration under sequential inputs.",
+        "userInputs": [
+          "Data size slider",
+          "Operation selector (Search, Insert, Delete)",
+          "Insert sequence selector (Worst case ascending vs Random)"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Three side-by-side structures (Array, Linked List, BST) perform the same operation simultaneously.",
+          "execution": "ProgressBar speeds and operation counters update live. Height meter graph rises dramatically under worst-case sequential insertions to show degeneration."
+        }
+      }
     },
     {
       "number": 4,
-      "question": "",
-      "answer": "",
+      "question": "Construct an AVL Tree by inserting nodes. Trace height, check Balance Factors, and show LL, RR, LR, and RL rotations to restore balance.",
+      "answer": "An AVL tree is a self-balancing BST where the Balance Factor (BF = height(L) - height(R)) of every node is in {-1, 0, 1}. Any insertion causing BF = +2 or -2 triggers rotations: Single (LL, RR) or Double (LR, RL) to restore balance.",
       "explanation": [
         {
           "step": 1,
-          "text": "Transform the problem representation into a more convenient structure (e.g. a Binary Search Tree or Heap)."
+          "text": "Insert the node as in a normal BST."
         },
         {
           "step": 2,
-          "text": "For heaps: use bottom-up heapify to convert an array into a heap structure in O(n) time."
+          "text": "Compute Balance Factor = height(Left subtree) - height(Right subtree) for ancestor nodes."
         },
         {
           "step": 3,
-          "text": "Perform the required operation (e.g. delete-max in Heapsort) and re-heapify in O(log n) time."
+          "text": "If BF is +2 or -2, determine rotation type based on inserted node path: LL (Right rotation), RR (Left rotation), LR (Left-Right rotation), RL (Right-Left rotation)."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "avlBalanceExplorer",
+      "interactiveDesign": {
+        "topic": "AVL Tree Balancing, Factors, & Rotations",
+        "interactiveGoal": "Learn self-balancing behavior, balance factor computation (Height(Left) - Height(Right)), and single/double rotations.",
+        "userInputs": [
+          "Insert / Delete values",
+          "Auto-balance toggle",
+          "Select node to compute BF",
+          "Rotation type selector"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "AVL tree structure displaying heights and balance factors beside nodes.",
+          "execution": "Node selection highlights left/right subtrees and prints equation step-by-step. Triggering imbalance highlights 'Rebalance Required' and animates single/double node rotation shifts."
+        }
+      }
     },
     {
       "number": 5,
-      "question": "",
-      "answer": "",
+      "question": "Represent a Max-Heap as an array. Connect tree node positions with array indices, explain index formulas, and run the heap property audit.",
+      "answer": "A Max-Heap is a complete binary tree where parent >= children. It is stored as an array where for a 1-indexed node i: Parent = i/2, Left Child = 2i, Right Child = 2i+1. Max-Heap property is violated if parent < children.",
       "explanation": [
         {
           "step": 1,
-          "text": "Transform the problem representation into a more convenient structure (e.g. a Binary Search Tree or Heap)."
+          "text": "Map tree nodes level-by-level (left to right) to array positions."
         },
         {
           "step": 2,
-          "text": "For heaps: use bottom-up heapify to convert an array into a heap structure in O(n) time."
+          "text": "Compute parent-child index bounds: parent of index i is floor(i/2), left child is 2*i, right child is 2*i+1 (adjusting for 0-indexing: parent = (i-1)/2, left = 2i+1, right = 2i+2)."
         },
         {
           "step": 3,
-          "text": "Perform the required operation (e.g. delete-max in Heapsort) and re-heapify in O(log n) time."
+          "text": "Verify the Max-Heap property: Array[parent] >= Array[child] for all valid indices."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "heapValidator",
+      "interactiveDesign": {
+        "topic": "Heap Structure & Array Representation",
+        "interactiveGoal": "Connect tree nodes with array positions, understand index formulas, and audit parent-child value properties.",
+        "userInputs": [
+          "Create custom tree",
+          "Drag or input node values",
+          "Click node or array index to highlight pair"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Binary tree node layout linked to a horizontal array layout.",
+          "execution": "Selecting node i displays index formula and highlights parent/child cells. Violations of shape or max-heap property highlight nodes in red, alerting students."
+        }
+      }
     },
     {
       "number": 6,
-      "question": "",
-      "answer": "",
+      "question": "Step through the Heapsort process using bottom-up heapify, max key deletions, and sift-down operations. Verify its complexity.",
+      "answer": "Heapsort has two phases: (1) Build Heap in O(n) using bottom-up heapify starting from the last parent node down to the root. (2) Sort by swapping root (max) with the last element, decrementing heap size, and running sift-down on root in O(log n), repeating n-1 times. Total complexity is O(n log n).",
       "explanation": [
         {
           "step": 1,
-          "text": "Transform the problem representation into a more convenient structure (e.g. a Binary Search Tree or Heap)."
+          "text": "Build heap: heapify parent nodes floor(n/2) down to 1. Sift-down swaps larger children until heap property is restored."
         },
         {
           "step": 2,
-          "text": "For heaps: use bottom-up heapify to convert an array into a heap structure in O(n) time."
+          "text": "Swap root (index 0) with the last element of the active heap, locking the max element in sorted position."
         },
         {
           "step": 3,
-          "text": "Perform the required operation (e.g. delete-max in Heapsort) and re-heapify in O(log n) time."
+          "text": "Sift-down the root element on the remaining active heap bounds. Repeat until sorted region grows from right to left."
         }
       ],
-      "hasVisualization": false
+      "hasVisualization": true,
+      "algorithm": "heapSortProcess",
+      "interactiveDesign": {
+        "topic": "Heap Sort Construction, Deletion, and Complexity",
+        "interactiveGoal": "Visualize the full sorting process using bottom-up heapify sift-down passes, delete-max steps, and verify complexity curves.",
+        "userInputs": [
+          "Custom array",
+          "Auto-play speed",
+          "Step Forward / Backward controls"
+        ],
+        "dynamicVisualBehavior": {
+          "layout": "Four synchronized panels displaying array state, heap tree, pseudocode, and complexity tracker.",
+          "execution": "Animations show root swapping with leaf, removing node from heap boundary, and sift-down bubble. Complexity tracker plots actual comparisons and swaps against n log n."
+        }
+      }
     }
   ]
 }
