@@ -2,15 +2,20 @@ import { useState } from 'react';
 import styles from './PremiumImage.module.css';
 import LightboxPortal from './LightboxPortal';
 
-const PremiumImage = ({ src, alt, caption, className = '' }) => {
+const PremiumImage = ({ src, alt, caption, className = '', style }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
 
+  const baseUrl = import.meta.env.BASE_URL;
+  const finalSrc = src.startsWith('/') && !src.startsWith(baseUrl) 
+    ? `${baseUrl}${src.slice(1)}` 
+    : src;
+
   return (
     <>
-      <figure className={`${styles.figure} ${className}`}>
+      <figure className={`${styles.figure} ${className}`} style={style}>
         <div 
           className={styles.imageContainer} 
           onClick={handleOpen}
@@ -24,14 +29,14 @@ const PremiumImage = ({ src, alt, caption, className = '' }) => {
             }
           }}
         >
-          <img src={src} alt={alt} className={styles.image} loading="lazy" />
+          <img src={finalSrc} alt={alt} className={styles.image} loading="lazy" />
         </div>
         {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
       </figure>
 
       {isOpen && (
-        <LightboxPortal 
-          src={src} 
+        <LightboxPortal
+          src={finalSrc}
           alt={alt} 
           caption={caption} 
           onClose={handleClose} 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import MathBlock from '../../ui/Premium/MathBlock';
 import styles from './Bespoke.module.css';
 
-export const TransformationPipeline = () => {
+export const TransformationPipeline = ({ style }) => {
   const [stage, setStage] = useState(0);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export const TransformationPipeline = () => {
   }, []);
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
       <div className={styles.metaphorLabel}>The Transformation Pipeline</div>
       <div className={styles.pipelineFlex}>
         <div className={`${styles.pipelineCard} ${stage === 0 ? styles.active : ''}`}>
@@ -45,14 +45,14 @@ export const TransformationPipeline = () => {
   );
 };
 
-export const PresortingVisual = () => {
+export const PresortingVisual = ({ style }) => {
   const [isSorted, setIsSorted] = useState(false);
   const unsorted = [7, 2, 9, 3, 1, 8];
   const sorted = [...unsorted].sort((a, b) => a - b);
   const current = isSorted ? sorted : unsorted;
 
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <div className={styles.conceptTitle}>Presorting Metaphor</div>
       <div className={styles.gridTwoCol}>
         <div className={styles.caseBox}>
@@ -64,7 +64,7 @@ export const PresortingVisual = () => {
                 className={styles.book} 
                 style={{ 
                   height: `${30 + v * 6}px`, 
-                  backgroundColor: isSorted ? 'var(--accent-blue)' : '#475569',
+                  backgroundColor: isSorted ? 'var(--accent-blue)' : 'var(--text-secondary)',
                   transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                   order: isSorted ? sorted.indexOf(v) : unsorted.indexOf(v)
                 }}
@@ -94,9 +94,9 @@ export const PresortingVisual = () => {
   );
 };
 
-export const UniquenessMatrix = () => {
+export const UniquenessMatrix = ({ style }) => {
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <div className={styles.conceptTitle}>Brute Force: Pairwise Matrix</div>
       <div className={styles.matrixVisual}>
         {Array.from({ length: 5 }).map((_, r) => (
@@ -124,7 +124,7 @@ export const UniquenessMatrix = () => {
   );
 };
 
-export const SortScanVisual = () => {
+export const SortScanVisual = ({ style }) => {
   const [index, setIndex] = useState(0);
   const elements = [1, 2, 4, 7, 7, 9, 10];
   const isMatch = elements[index] === elements[index + 1];
@@ -137,7 +137,7 @@ export const SortScanVisual = () => {
   }, []);
 
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <div className={styles.conceptTitle}>Presorting: Neighbor Scan</div>
       <div className={styles.scanVisual}>
         <div className={styles.raceArray}>
@@ -166,7 +166,7 @@ export const SortScanVisual = () => {
   );
 };
 
-export const BstGrowthTracer = () => {
+export const BstGrowthTracer = ({ style }) => {
   const [step, setStep] = useState(0);
   const nodes = [
     { id: '30', x: 100, y: 30, visible: true, rule: "Root: 30" },
@@ -184,7 +184,7 @@ export const BstGrowthTracer = () => {
   }, []);
 
   return (
-    <div className={styles.traversalContainer}>
+    <div className={styles.traversalContainer} style={style}>
       <div className={styles.metaphorLabel}>BST Insertion Trace</div>
       <div className={styles.gridTwoCol}>
         <svg className={styles.traversalSvg} viewBox="0 0 200 150">
@@ -217,7 +217,7 @@ export const BstGrowthTracer = () => {
   );
 };
 
-export const AvlSelfCorrection = () => {
+export const AvlSelfCorrection = ({ style }) => {
   const [state, setState] = useState(0); // 0: Balanced, 1: Imbalanced, 2: Fixed
 
   useEffect(() => {
@@ -228,7 +228,7 @@ export const AvlSelfCorrection = () => {
   }, []);
 
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <div className={styles.conceptTitle}>AVL Self-Correction</div>
       <div className={styles.rotationStage}>
          <div className={styles.rotationFlex} style={{ 
@@ -265,9 +265,9 @@ export const AvlSelfCorrection = () => {
   );
 };
 
-export const AvlBalanceMeter = () => {
+export const AvlBalanceMeter = ({ style }) => {
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
       <div className={styles.metaphorLabel}>AVL Balance Meter</div>
       <div className={styles.flexRow} style={{ gap: '2rem', justifyContent: 'center' }}>
         <div className={styles.trafficLight}>
@@ -288,11 +288,11 @@ export const AvlBalanceMeter = () => {
   );
 };
 
-export const BespokeAvlRotations = () => {
+export const BespokeAvlRotations = ({ style }) => {
   const [type, setType] = useState('LL');
 
   return (
-    <div className={styles.traversalContainer}>
+    <div className={styles.traversalContainer} style={style}>
       <div className={styles.traversalControls}>
         {['LL', 'RR', 'LR', 'RL'].map((t) => (
           <button key={t} className={`${styles.traversalBtn} ${type === t ? styles.active : ''}`} onClick={() => setType(t)}>
@@ -382,9 +382,9 @@ export const BespokeAvlRotations = () => {
   );
 };
 
-export const TwoThreeTreeNode = () => {
+export const TwoThreeTreeNode = ({ style }) => {
   return (
-    <div className={styles.gridTwoCol}>
+    <div className={styles.gridTwoCol} style={style}>
       <div className={styles.caseBox} style={{ background: 'rgba(59, 130, 246, 0.05)' }}>
         <h4 className={styles.boxHeader}>2-Node</h4>
         <div className={styles.rotNode}>K</div>
@@ -396,7 +396,7 @@ export const TwoThreeTreeNode = () => {
       </div>
       <div className={styles.caseBox} style={{ background: 'rgba(16, 185, 129, 0.05)' }}>
         <h4 className={styles.boxHeader}>3-Node</h4>
-        <div className={styles.nodePill} style={{ background: 'var(--accent-green)', color: 'white', borderColor: '#059669' }}>K1 | K2</div>
+        <div className={styles.nodePill} style={{ background: 'var(--color-success)', color: 'white', borderColor: 'var(--color-success)' }}>K1 | K2</div>
         <div className={styles.rotRow} style={{ marginTop: '0.5rem' }}>
           <div className={styles.rotNode} style={{ fontSize: '8px', opacity: 0.5, background: 'rgba(16, 185, 129, 0.2)' }}>{'< K1'}</div>
           <div className={styles.rotNode} style={{ fontSize: '8px', opacity: 0.5, background: 'rgba(16, 185, 129, 0.2)' }}>{'Between'}</div>
@@ -408,48 +408,48 @@ export const TwoThreeTreeNode = () => {
   );
 };
 
-export const HeapIntroduction = () => {
+export const HeapIntroduction = ({ style }) => {
   return (
-    <div className={styles.gridTwoCol}>
+    <div className={styles.gridTwoCol} style={style}>
       <div className={styles.caseBox}>
         <h4 className={styles.boxHeader}>Valid Max-Heap</h4>
         <svg viewBox="0 0 100 60" style={{ width: '100px' }}>
-          <circle cx="50" cy="10" r="6" fill="var(--accent-green)" />
+          <circle cx="50" cy="10" r="6" fill="var(--color-success)" />
           <text x="50" y="14" textAnchor="middle" fontSize="10" fill="white">99</text>
           <line x1="50" y1="10" x2="30" y2="30" stroke="var(--border-subtle)" />
           <line x1="50" y1="10" x2="70" y2="30" stroke="var(--border-subtle)" />
-          <circle cx="30" cy="30" r="6" fill="var(--accent-green)" />
+          <circle cx="30" cy="30" r="6" fill="var(--color-success)" />
           <text x="30" y="34" textAnchor="middle" fontSize="10" fill="white">70</text>
-          <circle cx="70" cy="30" r="6" fill="var(--accent-green)" />
+          <circle cx="70" cy="30" r="6" fill="var(--color-success)" />
           <text x="70" y="34" textAnchor="middle" fontSize="10" fill="white">80</text>
         </svg>
-        <div className={styles.quizBadge} style={{ background: 'var(--accent-green)' }}>Parent {'>'} Child</div>
+        <div className={styles.quizBadge} style={{ background: 'var(--color-success)' }}>Parent {'>'} Child</div>
       </div>
       <div className={styles.caseBox}>
         <h4 className={styles.boxHeader}>Heap Violation</h4>
         <svg viewBox="0 0 100 60" style={{ width: '100px' }}>
-          <circle cx="50" cy="10" r="6" fill="#ef4444" />
+          <circle cx="50" cy="10" r="6" fill="var(--color-error)" />
           <text x="50" y="14" textAnchor="middle" fontSize="10" fill="white">50</text>
           <line x1="50" y1="10" x2="30" y2="30" stroke="var(--border-subtle)" />
           <line x1="50" y1="10" x2="70" y2="30" stroke="var(--border-subtle)" />
-          <circle cx="30" cy="30" r="6" fill="#ef4444" />
+          <circle cx="30" cy="30" r="6" fill="var(--color-error)" />
           <text x="30" y="34" textAnchor="middle" fontSize="10" fill="white">80</text>
-          <circle cx="70" cy="30" r="6" fill="var(--accent-green)" />
+          <circle cx="70" cy="30" r="6" fill="var(--color-success)" />
           <text x="70" y="34" textAnchor="middle" fontSize="10" fill="white">40</text>
         </svg>
-        <div className={styles.quizBadge} style={{ background: '#ef4444' }}>80 {'>'} 50 (Violation!)</div>
+        <div className={styles.quizBadge} style={{ background: 'var(--color-error)' }}>80 {'>'} 50 (Violation!)</div>
       </div>
     </div>
   );
 };
 
-export const BottomUpHeapifyTracer = () => {
+export const BottomUpHeapifyTracer = ({ style }) => {
   const [step, setStep] = useState(0);
   const data = [20, 50, 80, 10, 30, 70, 40];
   const lastParent = Math.floor(data.length / 2) - 1; // Index 2 (value 80)
 
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <div className={styles.conceptTitle}>Bottom-Up Heapify (O(n))</div>
       <div className={styles.heapGrid}>
         <div className={styles.heapArrayWrapper}>
@@ -472,7 +472,7 @@ export const BottomUpHeapifyTracer = () => {
   );
 };
 
-export const TopDownHeapTracer = () => {
+export const TopDownHeapTracer = ({ style }) => {
   const [elements, setElements] = useState([100]);
   const pool = [80, 120, 60, 150];
 
@@ -485,7 +485,7 @@ export const TopDownHeapTracer = () => {
   };
 
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <div className={styles.conceptTitle}>Top-Down (O(n log n))</div>
       <div className={styles.raceLane}>
         <div className={styles.raceArray}>
@@ -503,9 +503,9 @@ export const TopDownHeapTracer = () => {
   );
 };
 
-export const HeapSortFactory = () => {
+export const HeapSortFactory = ({ style }) => {
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
       <div className={styles.metaphorLabel}>Heapsort Production Line</div>
       <div className={styles.pipelineFlex}>
         <div className={styles.pipelineCard}>
@@ -526,7 +526,7 @@ export const HeapSortFactory = () => {
           <div className={styles.pipelineText}>Pop Root & Fix</div>
         </div>
         <div className={styles.pipelineArrow}>➔</div>
-        <div className={styles.pipelineCard} style={{ background: 'rgba(16, 185, 129, 0.1)', borderColor: 'var(--accent-green)' }}>
+        <div className={styles.pipelineCard} style={{ background: 'rgba(16, 185, 129, 0.1)', borderColor: 'var(--color-success)' }}>
           <div className={styles.puzzleIcon}>✨</div>
           <div className={styles.pipelineTitle}>Sorted List</div>
           <div className={styles.pipelineText}>Final Result</div>
@@ -548,9 +548,9 @@ export const HeapConstructionBottomUp = BottomUpHeapifyTracer;
 export const HeapConstructionTopDown = TopDownHeapTracer;
 
 // Existing components from original file that weren't specifically requested to be updated but are used in Lec10
-export const BstComparisonTable = () => {
+export const BstComparisonTable = ({ style }) => {
   return (
-    <div className={styles.peasantContainer}>
+    <div className={styles.peasantContainer} style={style}>
       <table className={styles.peasantTable}>
         <thead>
           <tr>
@@ -592,9 +592,9 @@ export const BstComparisonTable = () => {
   );
 };
 
-export const BstBalanceScale = () => {
+export const BstBalanceScale = ({ style }) => {
   return (
-    <div className={styles.gridTwoCol}>
+    <div className={styles.gridTwoCol} style={style}>
       <div className={styles.caseBox}>
         <div className={styles.conceptTitle}>Balanced Tree</div>
         <svg viewBox="0 0 100 60" style={{ width: '120px' }}>
@@ -609,11 +609,11 @@ export const BstBalanceScale = () => {
       <div className={styles.caseBox}>
         <div className={styles.conceptTitle}>Skewed Tree</div>
         <svg viewBox="0 0 100 60" style={{ width: '120px' }}>
-          <circle cx="20" cy="10" r="5" fill="#ef4444" />
+          <circle cx="20" cy="10" r="5" fill="var(--color-error)" />
           <line x1="20" y1="10" x2="40" y2="25" stroke="var(--border-subtle)" />
-          <circle cx="40" cy="25" r="5" fill="#ef4444" />
+          <circle cx="40" cy="25" r="5" fill="var(--color-error)" />
           <line x1="40" y1="25" x2="60" y2="40" stroke="var(--border-subtle)" />
-          <circle cx="60" cy="40" r="5" fill="#ef4444" />
+          <circle cx="60" cy="40" r="5" fill="var(--color-error)" />
         </svg>
         <p className={styles.metaphorNote}>Height ≈ n (Linear!)</p>
       </div>
@@ -621,7 +621,7 @@ export const BstBalanceScale = () => {
   );
 };
 
-export const TwoThreeInsertion = () => {
+export const TwoThreeInsertion = ({ style }) => {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -632,7 +632,7 @@ export const TwoThreeInsertion = () => {
   }, []);
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
       <div className={styles.metaphorLabel}>2-3 Tree Split Animation</div>
       <div className={styles.rotationFlex} style={{ minHeight: '120px' }}>
         {step === 0 && (
@@ -643,7 +643,7 @@ export const TwoThreeInsertion = () => {
         )}
         {step === 1 && (
           <div className={styles.rotHalf}>
-            <div className={styles.nodePill} style={{ backgroundColor: '#ef4444', color: 'white' }}>20 | 30 | 50</div>
+            <div className={styles.nodePill} style={{ backgroundColor: 'var(--color-error)', color: 'white' }}>20 | 30 | 50</div>
             <div className={styles.rotLabel}>Temporary 4-node (Overflow!)</div>
           </div>
         )}
@@ -662,9 +662,9 @@ export const TwoThreeInsertion = () => {
   );
 };
 
-export const HeapProperties = () => {
+export const HeapProperties = ({ style }) => {
   return (
-    <div className={styles.gridTwoCol}>
+    <div className={styles.gridTwoCol} style={style}>
       <div className={styles.caseBox}>
         <h4>1. Shape Property</h4>
         <div className={styles.shelfVisual} style={{ height: '60px' }}>
@@ -688,12 +688,12 @@ export const HeapProperties = () => {
   );
 };
 
-export const HeapArrayMap = () => {
+export const HeapArrayMap = ({ style }) => {
   const [hoverIdx, setHoverIdx] = useState(null);
   const data = [100, 80, 90, 60, 50, 70, 40];
 
   return (
-    <div className={styles.metaphorContainer}>
+    <div className={styles.metaphorContainer} style={style}>
       <div className={styles.metaphorLabel}>Interactive Array Map</div>
       <div className={styles.heapGrid}>
         <div className={styles.heapTree}>
@@ -728,9 +728,9 @@ export const HeapArrayMap = () => {
   );
 };
 
-export const HeapMaxDeletion = () => {
+export const HeapMaxDeletion = ({ style }) => {
   return (
-    <div className={styles.conceptBox}>
+    <div className={styles.conceptBox} style={style}>
       <div className={styles.conceptTitle}>Max Deletion Cycle</div>
       <div className={styles.flexRow} style={{ gap: '1rem', alignItems: 'center' }}>
         <div className={styles.rotNode} style={{ background: 'var(--accent-blue)', color: 'white' }}>1. Pop Root</div>
@@ -743,12 +743,12 @@ export const HeapMaxDeletion = () => {
   );
 };
 
-export const HeapSortTimeline = () => {
+export const HeapSortTimeline = ({ style }) => {
   return (
-    <div className={styles.caseBox} style={{ width: '100%' }}>
+    <div className={styles.caseBox} style={{ width: '100%', ...style }}>
       <div className={styles.conceptTitle}>Time Complexity Breakdown</div>
       <div className={styles.progressBar} style={{ height: '30px', width: '100%' }}>
-        <div className={styles.progressFill} style={{ width: '30%', backgroundColor: '#94a3b8' }}>Build: O(n)</div>
+        <div className={styles.progressFill} style={{ width: '30%', backgroundColor: 'var(--text-muted)' }}>Build: O(n)</div>
         <div className={styles.progressFill} style={{ width: '70%', backgroundColor: 'var(--accent-blue)' }}>Extract: O(n log n)</div>
       </div>
       <MathBlock math="Total: O(n \log n)" />

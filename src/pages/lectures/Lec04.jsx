@@ -2,9 +2,11 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import SelectionSortTracer from '../../components/visualization/bespoke/SelectionSortTracer';
 import BubbleSortTracer from '../../components/visualization/bespoke/BubbleSortTracer';
 import StringMatchTracer from '../../components/visualization/bespoke/StringMatchTracer';
+import AssignmentTracer from '../../components/visualization/bespoke/AssignmentTracer';
 import { PillarsInfographic, MindsetVisual, SweetSpotMatrix } from '../../components/visualization/bespoke/BruteForceConcepts';
 import styles from '../../components/ui/Premium/Premium.module.css';
 
@@ -18,6 +20,7 @@ const Lec04 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             <b>Brute force</b> is a straightforward approach to solving a problem, usually directly based on the problem statement and definitions of the concepts involved. It is the "just do it" philosophy of algorithm design—ignoring cleverness in favor of a guaranteed, albeit often slow, result.
@@ -27,9 +30,10 @@ const Lec04 = () => {
             src="/images/lectures/lec04/slide03_img0.jpg" 
             alt="Brute Force Introduction Diagram" 
             caption="The direct mapping from problem definition to algorithmic solution."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <PillarsInfographic />
+          <PillarsInfographic style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
             <h4>Classic Examples</h4>
@@ -44,7 +48,7 @@ const Lec04 = () => {
             The brute-force mindset is applicable to a wide variety of problems. Whether it's cracking a combination lock by trying every possible number or scanning a 2D grid pixel-by-pixel, the principle remains: <i>exhaustive coverage ensures success.</i>
           </p>
           
-          <MindsetVisual />
+          <MindsetVisual style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section className={styles.lessonSection}>
@@ -53,7 +57,7 @@ const Lec04 = () => {
             While often criticized for its <MathBlock math="\Theta(2^n)" /> or <MathBlock math="\Theta(n!)" /> behavior in combinatorial problems, brute force is not always a bad choice. In fact, there is a specific "Sweet Spot" where it is the superior engineering decision.
           </p>
           
-          <SweetSpotMatrix />
+          <SweetSpotMatrix style={{ margin: '2.5rem 0' }} />
 
           <p className={styles.editorialText}>
             If the input size is small (e.g., <MathBlock math="n < 20" />), even an exponential algorithm will run in milliseconds. In such cases, the simplicity of brute force leads to fewer bugs and faster development time.
@@ -78,7 +82,7 @@ const Lec04 = () => {
             complexity={{ time: "\\Theta(n^2)", space: "O(1)" }}
           />
 
-          <SelectionSortTracer />
+          <SelectionSortTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="bubble-sort" className={styles.lessonSection}>
@@ -99,7 +103,7 @@ const Lec04 = () => {
             complexity={{ time: "\\Theta(n^2)", space: "O(1)" }}
           />
 
-          <BubbleSortTracer />
+          <BubbleSortTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="sentinel-search" className={styles.lessonSection}>
@@ -145,6 +149,7 @@ const Lec04 = () => {
             src="/images/lectures/lec04/slide77_img0.jpg" 
             alt="Sequential Search and String Matching Overview" 
             caption="A visual guide to searching for keys and patterns in linear data."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard}>
@@ -161,7 +166,79 @@ const Lec04 = () => {
             </ul>
           </div>
 
-          <StringMatchTracer />
+          <StringMatchTracer style={{ margin: '2.5rem 0' }} />
+        </section>
+
+        <section id="assignment" className={styles.lessonSection}>
+          <h2 className={styles.sectionTitle}>The Assignment Problem</h2>
+          <p className={styles.editorialText}>
+            The <b>Assignment Problem</b> is a classic combinatorial problem. Suppose there are <i>n</i> people and <i>n</i> jobs. Each person has a specific cost for each job. The goal is to assign exactly one person to each job such that the <b>total cost</b> is minimized.
+          </p>
+
+          <AlgorithmCard 
+            title="Assignment Problem (Brute Force)"
+            goal="Minimize total cost by checking all possible one-to-one assignments."
+            steps={[
+              "Generate all <i>n!</i> permutations of assigning people to jobs.",
+              "Calculate the total cost for each permutation.",
+              "Compare costs to find the global minimum.",
+              "Return the optimal assignment and the minimum cost."
+            ]}
+            complexity={{ time: "\\Theta(n!)", space: "O(n)" }}
+          />
+
+          <div className={styles.infoCard}>
+            <h4>Numerical Example: Cost Matrix</h4>
+            <p className={styles.editorialText}>
+              Consider 4 jobs and 4 people with the following cost matrix. Each cell represents the cost of assigning person <i>i</i> (row) to job <i>j</i> (column).
+            </p>
+            <div className="overflow-x-auto my-6">
+              <table className="table w-full border-collapse border border-slate-700 bg-slate-900/50">
+                <thead>
+                  <tr className="bg-slate-800">
+                    <th className="border border-slate-700 p-2 text-primary"></th>
+                    <th className="border border-slate-700 p-2 text-primary">Job 1</th>
+                    <th className="border border-slate-700 p-2 text-primary">Job 2</th>
+                    <th className="border border-slate-700 p-2 text-primary">Job 3</th>
+                    <th className="border border-slate-700 p-2 text-primary">Job 4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 1</td>
+                    <td className="border border-slate-700 p-2 text-center">9</td>
+                    <td className="border border-slate-700 p-2 text-center bg-primary/20">2</td>
+                    <td className="border border-slate-700 p-2 text-center">7</td>
+                    <td className="border border-slate-700 p-2 text-center">8</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 2</td>
+                    <td className="border border-slate-700 p-2 text-center">6</td>
+                    <td className="border border-slate-700 p-2 text-center">4</td>
+                    <td className="border border-slate-700 p-2 text-center bg-primary/20">3</td>
+                    <td className="border border-slate-700 p-2 text-center">7</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 3</td>
+                    <td className="border border-slate-700 p-2 text-center bg-primary/20">5</td>
+                    <td className="border border-slate-700 p-2 text-center">8</td>
+                    <td className="border border-slate-700 p-2 text-center">1</td>
+                    <td className="border border-slate-700 p-2 text-center">8</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 4</td>
+                    <td className="border border-slate-700 p-2 text-center">7</td>
+                    <td className="border border-slate-700 p-2 text-center">6</td>
+                    <td className="border border-slate-700 p-2 text-center">9</td>
+                    <td className="border border-slate-700 p-2 text-center bg-primary/20">4</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-xs italic text-slate-400">Highlighted cells (2, 3, 5, 4) represent one possible valid assignment with total cost 14.</p>
+          </div>
+
+          <AssignmentTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="summary" className={styles.lessonSection}>

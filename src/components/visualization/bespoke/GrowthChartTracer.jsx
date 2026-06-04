@@ -3,15 +3,15 @@ import React, { useState, useMemo } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const GrowthChartTracer = () => {
+const GrowthChartTracer = ({ style }) => {
   const [n, setN] = useState(20);
 
   const functions = [
-    { id: '1', label: '1 (Constant)', color: '#10b981', calc: () => 1 },
-    { id: 'log', label: 'log n', color: '#eab308', calc: (v) => Math.log2(v) },
-    { id: 'n', label: 'n (Linear)', color: '#3b82f6', calc: (v) => v },
-    { id: 'nlogn', label: 'n log n', color: '#8b5cf6', calc: (v) => v * Math.log2(v) },
-    { id: 'n2', label: 'n² (Quadratic)', color: '#ef4444', calc: (v) => v * v },
+    { id: '1', label: '1 (Constant)', color: 'var(--color-success)', calc: () => 1 },
+    { id: 'log', label: 'log n', color: 'var(--color-warning)', calc: (v) => Math.log2(v) },
+    { id: 'n', label: 'n (Linear)', color: 'var(--accent-blue)', calc: (v) => v },
+    { id: 'nlogn', label: 'n log n', color: 'var(--accent-purple)', calc: (v) => v * Math.log2(v) },
+    { id: 'n2', label: 'n² (Quadratic)', color: 'var(--color-error)', calc: (v) => v * v },
   ];
 
   const chartData = useMemo(() => {
@@ -28,7 +28,7 @@ const GrowthChartTracer = () => {
   const maxVal = n * n; // Cap for visualization
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Order of Growth Comparison"
       description="Adjust 'n' to see how basic efficiency classes grow relative to each other."
     >

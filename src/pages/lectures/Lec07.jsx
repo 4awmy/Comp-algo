@@ -2,6 +2,7 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import FakeCoinTracer from '../../components/visualization/bespoke/FakeCoinTracer';
 import JosephusTracer from '../../components/visualization/bespoke/JosephusTracer';
 import { 
@@ -25,6 +26,7 @@ const Lec07 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             In this second deep-dive into <b>decrease-and-conquer</b>, we shift our focus from simple decrease-by-one patterns to more sophisticated reductions. We explore algorithms where the instance size is reduced by a <b>constant factor</b> or even by a <b>variable amount</b> depending on the state of the problem.
@@ -63,9 +65,10 @@ const Lec07 = () => {
             src="/images/lectures/lec07/slide05_img0.png" 
             alt="Johnson Trotter Trace" 
             caption="A step-by-step trace of the Johnson-Trotter algorithm for n=3."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <JohnsonTrotterTracer />
+          <JohnsonTrotterTracer style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.methodBox}>
@@ -75,7 +78,7 @@ const Lec07 = () => {
             <div className={styles.methodBox}>
               <h3>Lexicographic Generation</h3>
               <p>Dictionary order generation. While logical, it often requires multiple swaps to move from one permutation to the next.</p>
-              <LexicographicTracer />
+              <LexicographicTracer style={{ margin: '2.5rem 0' }} />
             </div>
           </div>
         </section>
@@ -103,9 +106,10 @@ const Lec07 = () => {
             src="/images/lectures/lec07/slide10_img0.png" 
             alt="Binary Representation for Subsets" 
             caption="Mapping binary strings to subsets: a 1 at position i means the i-th element is included."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <BottomUpSubsetTracer />
+          <BottomUpSubsetTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="binary-search" className={styles.lessonSection}>
@@ -127,7 +131,7 @@ const Lec07 = () => {
             complexity={{ time: "O(\\log n)", space: "O(1)" }}
           />
 
-          <BinarySearchRace />
+          <BinarySearchRace style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="fake-coin" className={styles.lessonSection}>
@@ -148,7 +152,7 @@ const Lec07 = () => {
             complexity={{ time: "O(\\log_3 n)", space: "O(1)" }}
           />
 
-          <FakeCoinTracer />
+          <FakeCoinTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="russian-peasant" className={styles.lessonSection}>
@@ -173,9 +177,10 @@ const Lec07 = () => {
             src="/images/lectures/lec07/slide16_img0.jpg" 
             alt="Russian Peasant Multiplication Overview" 
             caption="The halving and doubling process used to multiply integers."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <RussianPeasantTracer />
+          <RussianPeasantTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="josephus" className={styles.lessonSection}>
@@ -196,13 +201,13 @@ const Lec07 = () => {
             complexity={{ time: "O(\\log n)", space: "O(1)" }}
           />
 
-          <JosephusCircle />
+          <JosephusCircle style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.comparisonCard}>
                <h3>Interactive Tracer</h3>
                <p className={styles.editorialText}>Explore the exact step-by-step elimination sequence for any n in the simulator below.</p>
-               <JosephusTracer />
+               <JosephusTracer style={{ margin: '2.5rem 0' }} />
             </div>
           </div>
         </section>

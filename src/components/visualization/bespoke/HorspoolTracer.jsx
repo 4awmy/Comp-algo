@@ -11,7 +11,7 @@ const PATTERN = "BARBER";
  */
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_".split("");
 
-const HorspoolTracer = () => {
+const HorspoolTracer = ({ style }) => {
   const [view, setView] = useState('search'); // 'table' or 'search'
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
 
@@ -105,7 +105,7 @@ const HorspoolTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style}
       title={view === 'table' ? `Shift Table for "${PATTERN}"` : `Horspool Search: "${PATTERN}" in Text`}
       description={view === 'table' ? "The shift table determines how far to skip when a character at the end of the alignment is encountered." : step.description}
       actions={actions}

@@ -6,7 +6,7 @@ import styles from './Bespoke.module.css';
  * SieveTracer - Visualizes the Sieve of Eratosthenes algorithm.
  * Featured in Lec 01: Introduction.
  */
-const SieveTracer = () => {
+const SieveTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const limit = 50;
@@ -109,7 +109,7 @@ const SieveTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Sieve of Eratosthenes" 
       description={step.description}
       actions={actions}

@@ -7,7 +7,7 @@ const INITIAL_ARRAY = [38, 27, 43, 3, 9, 82, 10];
 /**
  * QuickSortTracer - Standardized with shared styles and granular steps.
  */
-const QuickSortTracer = () => {
+const QuickSortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -140,7 +140,7 @@ const QuickSortTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Quick Sort: Hoare Partitioning" 
       description={step.description}
       actions={actions}

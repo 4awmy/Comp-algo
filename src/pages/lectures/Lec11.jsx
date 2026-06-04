@@ -1,7 +1,9 @@
+import React from 'react';
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import HorspoolTracer from '../../components/visualization/bespoke/HorspoolTracer';
 import HashingTracer from '../../components/visualization/bespoke/HashingTracer';
 import ComparisonCountingSortTracer from '../../components/visualization/bespoke/ComparisonCountingSortTracer';
@@ -17,6 +19,7 @@ const Lec11 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             In algorithm design, we often face a fundamental choice: should we prioritize speed (time) or memory efficiency (space)? Most optimizations in one direction come at the cost of the other. This is known as the <b>Space-Time Trade-off</b>.
@@ -63,7 +66,7 @@ const Lec11 = () => {
             While its time complexity is no better than simple sorts like Selection Sort, it demonstrates the principle of using an extra <em>Count</em> array to simplify the logic and avoid in-place swaps.
           </p>
 
-          <ComparisonCountingSortTracer />
+          <ComparisonCountingSortTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="horspool" className={styles.lessonSection}>
@@ -98,8 +101,9 @@ const Lec11 = () => {
 
           <MathBlock 
             block 
-            math="t(c) = \begin{cases} m & \text{if } c \text{ is not in first } m-1 \text{ chars} \\ m - 1 - i & \text{rightmost index } i \text{ in first } m-1 \text{ chars} \end{cases}" 
+            math="t(c) = \\begin{cases} m & \\text{if } c \\text{ is not in first } m-1 \\text{ chars} \\\\ m - 1 - i & \\text{rightmost index } i \\text{ in first } m-1 \\text{ chars} \\end{cases}" 
             caption="The Shift Table Rule: Determines how many characters to skip based on the character in the text aligned with the last character of the pattern."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard}>
@@ -118,6 +122,7 @@ const Lec11 = () => {
               src="/images/lectures/lec11/slide10_img0.png" 
               alt="Horspool Shift Table" 
               caption="The shift table for 'BARBER' determines the jump distance for each character."
+              style={{ margin: '1.5rem 0' }}
             />
           </div>
 
@@ -125,9 +130,10 @@ const Lec11 = () => {
             src="/images/lectures/lec11/slide11_img0.png" 
             alt="Horspool Search Trace" 
             caption="A trace of Horspool's algorithm searching for 'BARBER' in a text."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <HorspoolTracer />
+          <HorspoolTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="hashing" className={styles.lessonSection}>
@@ -147,10 +153,10 @@ const Lec11 = () => {
             </ul>
           </div>
 
-          <HashingTracer />
+          <HashingTracer style={{ margin: '2.5rem 0' }} />
 
           <p className={styles.editorialText} style={{ marginTop: '2rem' }}>
-            The efficiency of hashing depends heavily on the <b>Load Factor</b> <MathBlock math="\alpha = n/m" /> and the quality of the hash function in distributing keys uniformly.
+            The efficiency of hashing depends heavily on the <b>Load Factor</b> <MathBlock math="\\alpha = n/m" /> and the quality of the hash function in distributing keys uniformly.
           </p>
         </section>
 
@@ -183,3 +189,4 @@ const Lec11 = () => {
 };
 
 export default Lec11;
+

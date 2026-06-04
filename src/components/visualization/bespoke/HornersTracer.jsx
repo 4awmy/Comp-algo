@@ -9,7 +9,7 @@ const X_VALUE = 2;
  * HornersTracer - Visualizes polynomial evaluation using Horner's Rule.
  * Formula: P(x) = (...((a_n*x + a_n-1)*x + a_n-2)*x + ... + a_0)
  */
-const HornersTracer = () => {
+const HornersTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
 
   const steps = useMemo(() => {
@@ -55,7 +55,7 @@ const HornersTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title={`Horner's Rule Evaluation (x = ${X_VALUE})`}
       description={step.description}
       actions={actions}

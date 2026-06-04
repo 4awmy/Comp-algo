@@ -2,6 +2,7 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import ComplexityCounterTracer from '../../components/visualization/bespoke/ComplexityCounterTracer';
 import GrowthChartTracer from '../../components/visualization/bespoke/GrowthChartTracer';
 import AsymptoticNotationTracer from '../../components/visualization/bespoke/AsymptoticNotationTracer';
@@ -17,6 +18,7 @@ const Lec02 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             To design better algorithms, we must first learn how to <b>measure</b> them. Analysis of algorithms focuses on two primary resources: <b>Time</b> and <b>Space</b>. We don't measure time in seconds, but in the number of <b>Basic Operations</b> executed relative to the input size <MathBlock math="n" />.
@@ -26,6 +28,7 @@ const Lec02 = () => {
             src="/images/lectures/lec02/slide03_img0.jpg" 
             alt="The Analysis Framework" 
             caption="The theoretical framework for analyzing algorithm efficiency."
+            style={{ margin: '2.5rem 0' }}
           />
           
           <div className={styles.infoCard}>
@@ -73,7 +76,7 @@ const Lec02 = () => {
             }}
           />
 
-          <ComplexityCounterTracer />
+          <ComplexityCounterTracer style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridTwoCol}>
              <div className={styles.infoCard}>
@@ -115,12 +118,13 @@ const Lec02 = () => {
             We categorize algorithms into <b>Efficiency Classes</b> based on their growth rates. Small differences in constant factors don't matter as much as the overall class (e.g., linear vs. quadratic) when <MathBlock math="n" /> is large.
           </p>
 
-          <GrowthChartTracer />
+          <GrowthChartTracer style={{ margin: '2.5rem 0' }} />
 
           <PremiumImage 
             src="/images/lectures/lec02/slide16_img0.png" 
             alt="Order of Growth Comparison Table" 
             caption="Numerical comparison of common growth functions for increasing values of n."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard}>
@@ -158,21 +162,22 @@ const Lec02 = () => {
                 <p className="text-xs"><b>Upper Bound:</b> The algorithm is at most this slow. "Worst Case" guarantee.</p>
              </div>
              <div className={styles.infoCard}>
-                <h4 className="text-green-400">Big-Omega ($\Omega$)</h4>
+                <h4 className="text-green-400"><MathBlock math="\Omega" /> Notation</h4>
                 <p className="text-xs"><b>Lower Bound:</b> The algorithm is at least this fast. "Best Case" guarantee.</p>
              </div>
              <div className={styles.infoCard}>
-                <h4 className="text-purple-400">Big-Theta ($\Theta$)</h4>
+                <h4 className="text-purple-400"><MathBlock math="\Theta" /> Notation</h4>
                 <p className="text-xs"><b>Tight Bound:</b> The algorithm grows exactly at this rate.</p>
              </div>
           </div>
 
-          <AsymptoticNotationTracer />
+          <AsymptoticNotationTracer style={{ margin: '2.5rem 0' }} />
 
           <PremiumImage 
             src="/images/lectures/lec02/slide27_img0.png" 
-            alt="Big Omega Formal Definition Graph" 
-            caption="Visual representation of the lower bound (Big-Omega) definition."
+            alt="\Omega Formal Definition Graph" 
+            caption={<>Visual representation of the lower bound (<MathBlock math="\Omega" />) definition.</>}
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
@@ -208,3 +213,4 @@ const Lec02 = () => {
 };
 
 export default Lec02;
+

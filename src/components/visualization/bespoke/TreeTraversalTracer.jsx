@@ -22,7 +22,7 @@ const TREE_DATA = {
   }
 };
 
-const TreeTraversalTracer = () => {
+const TreeTraversalTracer = ({ style }) => {
   const [traversalType, setTraversalType] = useState('preorder');
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -152,7 +152,7 @@ const TreeTraversalTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Binary Tree Traversal" 
       description={step.description}
       actions={actions}

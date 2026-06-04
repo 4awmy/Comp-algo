@@ -4,7 +4,7 @@ import VisualStage from '../../ui/Premium/VisualStage';
 import MathBlock from '../../ui/Premium/MathBlock';
 import styles from './Bespoke.module.css';
 
-const ComplexityCounterTracer = () => {
+const ComplexityCounterTracer = ({ style }) => {
   const [n, setN] = useState(5);
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -68,7 +68,7 @@ const ComplexityCounterTracer = () => {
   const current = steps[currentStepIdx] || steps[0];
 
   return (
-    <VisualStage 
+    <VisualStage style={style}
       title="Basic Operation Counter"
       description={current.desc}
       actions={

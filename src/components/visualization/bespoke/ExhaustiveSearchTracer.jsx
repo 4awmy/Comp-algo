@@ -21,7 +21,7 @@ const KNAPSACK_ITEMS = [
 ];
 const KNAPSACK_CAPACITY = 5;
 
-const ExhaustiveSearchTracer = () => {
+const ExhaustiveSearchTracer = ({ style }) => {
   const [mode, setMode] = useState('TSP'); // 'TSP' or 'Knapsack'
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -223,7 +223,7 @@ const ExhaustiveSearchTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title={mode === 'TSP' ? "TSP Exhaustive Search" : "Knapsack Exhaustive Search"}
       description={step.description}
       actions={actions}

@@ -2,7 +2,8 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
-import { RotationLL, RotationRR, RotationLR, TwoThreeTreeDiagram } from '../../components/visualization/diagrams/AVLRotationDiagram';
+
+import { RotationLL, RotationRR, RotationLR, RotationRL, TwoThreeTreeDiagram } from '../../components/visualization/diagrams/AVLRotationDiagram';
 import HeapsortTracer from '../../components/visualization/bespoke/HeapsortTracer';
 import HornersTracer from '../../components/visualization/bespoke/HornersTracer';
 import AvlTreeTracer from '../../components/visualization/bespoke/AvlTreeTracer';
@@ -40,13 +41,14 @@ const Lec10 = () => {
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>Transform and Conquer Paradigm</h2>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             The <b>transform-and-conquer</b> paradigm is a two-stage procedure. In the first stage, the problem's instance is <b>transformed</b> into a form that is easier to solve. In the second stage, the problem is <b>conquered</b> (solved) in its new representation.
           </p>
           
-          <TransformationPipeline />
+          <TransformationPipeline style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
@@ -91,7 +93,7 @@ const Lec10 = () => {
             complexity={{ time: "O(n \\log n)", space: "O(1) \\text{ or } O(n)" }}
           />
 
-          <PresortingVisual />
+          <PresortingVisual style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.methodBox}>
             <h3>Case Study Efficiency</h3>
@@ -99,8 +101,8 @@ const Lec10 = () => {
               Compare the brute force quadratic approach with the optimized sorted scan.
             </p>
             <div className={styles.gridTwoCol}>
-              <UniquenessMatrix />
-              <SortScanVisual />
+              <UniquenessMatrix style={{ margin: '1rem 0' }} />
+              <SortScanVisual style={{ margin: '1rem 0' }} />
             </div>
           </div>
         </section>
@@ -124,20 +126,20 @@ const Lec10 = () => {
             complexity={{ time: "O(\\log n)", space: "O(n)" }}
           />
 
-          <BstBalanceScale />
+          <BstBalanceScale style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridTwoCol}>
              <div className={styles.infoCard}>
                 <h4>The Balance Factor (BF)</h4>
                 <MathBlock math="BF = h_L - h_R \in \{-1, 0, 1\}" />
                 <p className={styles.editorialText}>If $|BF| {'>'} 1$, the tree is imbalanced. We monitor this like a traffic light.</p>
-                <AvlBalanceMeter />
+                <AvlBalanceMeter style={{ margin: '1rem 0' }} />
              </div>
              <div className={styles.infoCard}>
                 <h4>Search/Insert/Delete</h4>
                 <MathBlock math="\Theta(\log n)" />
                 <p className={styles.editorialText}>Guaranteed logarithmic time even in the worst case.</p>
-                <BstComparisonTable />
+                <BstComparisonTable style={{ margin: '1rem 0' }} />
              </div>
           </div>
 
@@ -148,22 +150,23 @@ const Lec10 = () => {
               Insert the following sequence into an empty AVL tree: <b>5, 6, 8, 3, 2, 4, 7</b>. Notice how rotations are triggered to maintain balance.
             </p>
           </div>
-          <BstGrowthTracer />
+          <BstGrowthTracer style={{ margin: '2.5rem 0' }} />
 
           <h3 className={styles.blockTitle}>AVL Self-Correction (Rotations)</h3>
           <p className={styles.editorialText}>
             When an imbalance is detected, the tree applies a rotation to restore its structural integrity.
           </p>
-          <div className={styles.gridThreeCol}>
+          <div className={styles.gridTwoCol} style={{ margin: '2.5rem 0' }}>
             <RotationLL />
             <RotationRR />
             <RotationLR />
+            <RotationRL />
           </div>
-          <AvlSelfCorrection />
+          <AvlSelfCorrection style={{ margin: '2.5rem 0' }} />
           <p className={styles.editorialText} style={{ marginTop: '2rem' }}>
             There are four primary rotation cases depending on where the imbalance occurs: LL, RR, LR, or RL.
           </p>
-          <BespokeAvlRotations />
+          <BespokeAvlRotations style={{ margin: '2.5rem 0' }} />
 
           <h3 className={styles.blockTitle}>2-3 Trees: Multi-way Search</h3>
           <p className={styles.editorialText}>
@@ -174,12 +177,12 @@ const Lec10 = () => {
             <p className={styles.editorialText}>
               Insert the following sequence into an empty 2-3 tree: <b>9, 5, 8, 3, 2, 4, 7</b>.
             </p>
-            <TwoThreeTreeDiagram />
+            <TwoThreeTreeDiagram style={{ margin: '1.5rem 0' }} />
           </div>
-          <TwoThreeTreeNode />
-          <TwoThreeInsertion />
+          <TwoThreeTreeNode style={{ margin: '1.5rem 0' }} />
+          <TwoThreeInsertion style={{ margin: '1.5rem 0' }} />
 
-          <AvlTreeTracer />
+          <AvlTreeTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="heapsort" className={styles.lessonSection}>
@@ -201,8 +204,8 @@ const Lec10 = () => {
             complexity={{ time: "O(n \\log n)", space: "O(1)" }}
           />
 
-          <HeapProperties />
-          <HeapIntroduction />
+          <HeapProperties style={{ margin: '2.5rem 0' }} />
+          <HeapIntroduction style={{ margin: '2.5rem 0' }} />
           
           <div className={styles.methodBox}>
             <h3>Array Mapping Formulas</h3>
@@ -216,12 +219,12 @@ const Lec10 = () => {
             </ul>
           </div>
           
-          <HeapArrayMap />
+          <HeapArrayMap style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.gridTwoCol}>
             <div className={styles.infoCard}>
               <h4>Algorithm Stages</h4>
-              <HeapSortFactory />
+              <HeapSortFactory style={{ margin: '1rem 0' }} />
               <ol className={styles.editorialList}>
                 <li><b>Stage 1:</b> Transform the array into a Max-Heap.</li>
                 <li><b>Stage 2:</b> Repeatedly extract the root and re-heapify.</li>
@@ -235,18 +238,18 @@ const Lec10 = () => {
                    Construct a heap by inserting: <b>2, 9, 7, 6, 5, 8</b> one by one.
                  </p>
                </div>
-               <BottomUpHeapifyTracer />
-               <TopDownHeapTracer />
+               <BottomUpHeapifyTracer style={{ margin: '1rem 0' }} />
+               <TopDownHeapTracer style={{ margin: '1rem 0' }} />
             </div>
           </div>
 
           <h3 className={styles.blockTitle}>The Deletion Cycle</h3>
-          <HeapMaxDeletion />
+          <HeapMaxDeletion style={{ margin: '2.5rem 0' }} />
           
           <h3 className={styles.blockTitle}>Performance Timeline</h3>
-          <HeapSortTimeline />
+          <HeapSortTimeline style={{ margin: '2.5rem 0' }} />
 
-          <HeapsortTracer />
+          <HeapsortTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="horners-rule" className={styles.lessonSection}>
@@ -271,9 +274,10 @@ const Lec10 = () => {
             block 
             math="P(x) = (\dots((a_n x + a_{n-1})x + a_{n-2})x + \dots + a_1)x + a_0" 
             caption="Horner's Rule: Reduces multiplications from O(n^2) to exactly n."
+            style={{ margin: '2.5rem 0' }}
           />
 
-          <HornersTracer />
+          <HornersTracer style={{ margin: '2.5rem 0' }} />
         </section>
       </div>
     </div>
@@ -281,3 +285,4 @@ const Lec10 = () => {
 };
 
 export default Lec10;
+

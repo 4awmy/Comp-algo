@@ -6,12 +6,12 @@ import styles from './Bespoke.module.css';
 /**
  * Visualizes the arithmetic series summation formula (n(n+1)/2) using boxes.
  */
-export const StackedTriangleDemo = () => {
+export const StackedTriangleDemo = ({ style }) => {
   const [n, setN] = useState(5);
   const total = (n * (n + 1)) / 2;
 
   return (
-    <VisualStage 
+    <VisualStage style={style}
       title="Summation Visualization"
       description={`Visualizing the sum 1 + 2 + ... + n. The total area of the triangle is n(n+1)/2 = ${total}.`}
       actions={
@@ -55,7 +55,7 @@ export const StackedTriangleDemo = () => {
 /**
  * Visualizes a call stack for T(n) building up and then returning values.
  */
-export const RecursiveCallStackDemo = () => {
+export const RecursiveCallStackDemo = ({ style }) => {
   const [maxN, setMaxN] = useState(4);
   const [step, setStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -103,7 +103,7 @@ export const RecursiveCallStackDemo = () => {
   const current = steps[step] || steps[0];
 
   return (
-    <VisualStage 
+    <VisualStage style={style}
       title="Recursive Call Stack"
       description={current.desc}
       actions={
@@ -146,7 +146,7 @@ export const RecursiveCallStackDemo = () => {
 /**
  * Visualizes a bar shrinking by half repeatedly for logarithmic complexity.
  */
-export const HalvingBarChartDemo = () => {
+export const HalvingBarChartDemo = ({ style }) => {
   const [initialSize, setInitialSize] = useState(128);
   
   const points = useMemo(() => {
@@ -160,7 +160,7 @@ export const HalvingBarChartDemo = () => {
   }, [initialSize]);
 
   return (
-    <VisualStage 
+    <VisualStage style={style}
       title="Logarithmic Halving"
       description="Visualizing O(log n) where the problem size halves at each step."
       actions={
@@ -190,7 +190,7 @@ export const HalvingBarChartDemo = () => {
 /**
  * A mock "Scientific Experiment Lab" showing a race between two algorithms.
  */
-export const EmpiricalDashboardDemo = () => {
+export const EmpiricalDashboardDemo = ({ style }) => {
   const [isRunning, setIsRunning] = useState(false);
   const [data, setData] = useState([]);
   const [n, setN] = useState(0);
@@ -217,7 +217,7 @@ export const EmpiricalDashboardDemo = () => {
   }, [isRunning]);
 
   return (
-    <VisualStage 
+    <VisualStage style={style}
       title="Empirical Measurement Lab"
       description="Observe how hardware latency and noise affect real-world execution time compared to asymptotic curves."
       actions={
@@ -245,12 +245,12 @@ export const EmpiricalDashboardDemo = () => {
                {/* Alg 1: O(n) */}
                <polyline 
                  points={data.map(d => `${d.n * 2},${100 - d.t1}`).join(' ')}
-                 fill="none" stroke="#60a5fa" strokeWidth="1"
+                 fill="none" stroke="var(--accent-blue)" strokeWidth="1"
                />
                {/* Alg 2: O(n^2) */}
                <polyline 
                  points={data.map(d => `${d.n * 2},${100 - d.t2}`).join(' ')}
-                 fill="none" stroke="#f472b6" strokeWidth="1"
+                 fill="none" stroke="var(--color-error)" strokeWidth="1"
                />
             </svg>
             <div className="absolute top-2 right-2 flex flex-col gap-1 text-[8px] font-bold">

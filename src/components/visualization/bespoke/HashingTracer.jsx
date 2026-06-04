@@ -9,7 +9,7 @@ const TABLE_SIZE = 10;
  * HashingTracer - Visualizes Collision Resolution Strategies.
  * Supports Separate Chaining and Linear Probing.
  */
-const HashingTracer = () => {
+const HashingTracer = ({ style }) => {
   const [strategy, setStrategy] = useState('chaining'); // 'chaining' or 'probing'
   const [keys, setKeys] = useState(INITIAL_KEYS);
   const [inputKey, setInputKey] = useState("");
@@ -85,7 +85,7 @@ const HashingTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title={`Hash Table: ${strategy === 'chaining' ? 'Separate Chaining' : 'Linear Probing'}`}
       description={strategy === 'chaining' 
         ? "Open Hashing: Each slot is a linked list of keys that hashed to the same index." 

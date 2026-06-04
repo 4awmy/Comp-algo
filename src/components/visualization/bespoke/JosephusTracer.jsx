@@ -8,7 +8,7 @@ const INITIAL_N = 10;
  * JosephusTracer - Visualizes the Josephus elimination problem
  * using a circular SVG layout.
  */
-const JosephusTracer = () => {
+const JosephusTracer = ({ style }) => {
   const [n, setN] = useState(INITIAL_N);
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -136,7 +136,7 @@ const JosephusTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Josephus Problem" 
       description={step.description}
       actions={actions}

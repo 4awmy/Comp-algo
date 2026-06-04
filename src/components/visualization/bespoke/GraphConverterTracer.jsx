@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const GraphConverterTracer = () => {
+const GraphConverterTracer = ({ style }) => {
   const [nodes, setNodes] = useState([
     { id: 0, x: 50, y: 50 },
     { id: 1, x: 150, y: 50 },
@@ -31,7 +31,7 @@ const GraphConverterTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Graph Representation Converter"
       description="Click on nodes to toggle edges and see the Adjacency Matrix and List update live."
     >

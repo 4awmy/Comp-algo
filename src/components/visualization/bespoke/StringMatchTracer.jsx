@@ -5,7 +5,7 @@ import styles from './Bespoke.module.css';
 const TEXT = "ABRA CADABRA";
 const PATTERN = "CAD";
 
-const StringMatchTracer = () => {
+const StringMatchTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -90,7 +90,7 @@ const StringMatchTracer = () => {
   );
 
   return (
-    <VisualStage title="String Match Ruler" description={step.description} actions={actions}>
+    <VisualStage style={style} title="String Match Ruler" description={step.description} actions={actions}>
       <div className={styles.dualPane}>
         <div className={styles.codePane}>
           {code.map((line, idx) => (

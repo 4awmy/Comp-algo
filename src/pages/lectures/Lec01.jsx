@@ -2,6 +2,7 @@ import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
 import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
+
 import GcdRaceTracer from '../../components/visualization/bespoke/GcdRaceTracer';
 import SortingSearchingTracer from '../../components/visualization/bespoke/SortingSearchingTracer';
 import GraphConverterTracer from '../../components/visualization/bespoke/GraphConverterTracer';
@@ -15,9 +16,13 @@ const Lec01 = () => {
         tag="Lecture 01"
         title="Introduction to Algorithms"
         subtitle="Exploring the fundamental concepts of algorithmic thinking and problem-solving."
+        presentationSlides={[
+          '/images/lectures/lec01/slide08_img0.png'
+        ]}
       />
 
       <div className={styles.contentWrapper}>
+        
         <section className={styles.lessonSection}>
           <p className={`${styles.editorialText} ${styles.dropCap}`}>
             An <b>algorithm</b> is a sequence of unambiguous instructions for solving a problem, for obtaining a required output for any legitimate input in a finite amount of time. In this course, we will dive deep into the design and analysis of these logical structures that power modern computing.
@@ -27,6 +32,7 @@ const Lec01 = () => {
             src="/images/lectures/lec01/slide08_img0.png" 
             alt="Algorithm Definition Diagram" 
             caption="The basic black-box model of an algorithm: Input → Algorithm → Output."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.gridTwoCol}>
@@ -92,7 +98,7 @@ const Lec01 = () => {
             />
           </div>
 
-          <GcdRaceTracer />
+          <GcdRaceTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="problem-solving-flow" className={styles.lessonSection}>
@@ -105,6 +111,7 @@ const Lec01 = () => {
             src="/images/lectures/lec01/slide07_img0.jpg" 
             alt="Fundamentals of Algorithmic Problem Solving Flowchart" 
             caption="The standard workflow: Understand the problem → Decide on computational means → Design algorithm → Prove correctness → Analyze algorithm → Code it."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.infoCard}>
@@ -135,7 +142,7 @@ const Lec01 = () => {
             </div>
           </div>
 
-          <SortingSearchingTracer />
+          <SortingSearchingTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="data-structures" className={styles.lessonSection}>
@@ -148,6 +155,7 @@ const Lec01 = () => {
             src="/images/lectures/lec01/slide46_img0.jpg" 
             alt="Fundamental Data Structures Overview" 
             caption="Overview of common data structures: Linear (Arrays, Lists, Stacks, Queues), Graphs, and Trees."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.gridTwoCol}>
@@ -175,7 +183,7 @@ const Lec01 = () => {
           <p className={styles.editorialText}>
             Graphs are versatile data structures consisting of <b>vertices</b> and <b>edges</b>. They can be directed or undirected and are represented in code primarily via matrices or lists.
           </p>
-          <GraphConverterTracer />
+          <GraphConverterTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="sieve" className={styles.lessonSection}>
@@ -197,7 +205,7 @@ const Lec01 = () => {
             complexity={{ time: "O(n \\log \\log n)", space: "O(n)" }}
           />
 
-          <SieveTracer />
+          <SieveTracer style={{ margin: '2.5rem 0' }} />
         </section>
 
         <section id="problem-types" className={styles.lessonSection}>
@@ -210,6 +218,7 @@ const Lec01 = () => {
             src="/images/lectures/lec01/slide38_img0.jpg" 
             alt="Important Problem Types Overview" 
             caption="A categorization of common algorithmic problems."
+            style={{ margin: '2.5rem 0' }}
           />
 
           <div className={styles.gridTwoCol}>
@@ -237,3 +246,4 @@ const Lec01 = () => {
 };
 
 export default Lec01;
+

@@ -6,7 +6,7 @@ import styles from './Bespoke.module.css';
  * EuclidTracer - Visualizes Euclid's GCD algorithm using the modulo approach.
  * Featured in Lec 01: Introduction.
  */
-const EuclidTracer = () => {
+const EuclidTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -91,7 +91,7 @@ const EuclidTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Euclid's GCD Algorithm" 
       description={step.description}
       actions={actions}

@@ -171,14 +171,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className={styles.sliderWrapper}>
-          <LectureSlider>
-            {LECTURES.map((lecture, i) => (
-              <LectureCard key={lecture.id} lecture={lecture} index={i} />
-            ))}
-          </LectureSlider>
+        <div className={styles.lectureGrid}>
+          {LECTURES.map((lecture, i) => (
+            <LectureCard key={lecture.id} lecture={lecture} index={i} />
+          ))}
         </div>
-      </section>
+        </section>
+
 
       {/* ── AI TUTOR ── */}
       <section className={styles.aiSection}>

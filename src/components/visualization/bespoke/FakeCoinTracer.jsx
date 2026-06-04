@@ -8,7 +8,7 @@ const INITIAL_N = 9;
  * FakeCoinTracer - Visualizes the Decrease-by-a-factor (n/3) strategy
  * for the Fake Coin problem.
  */
-const FakeCoinTracer = () => {
+const FakeCoinTracer = ({ style }) => {
   const [n, setN] = useState(INITIAL_N);
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -151,7 +151,7 @@ const FakeCoinTracer = () => {
   );
 
   return (
-    <VisualStage 
+    <VisualStage style={style} 
       title="Fake Coin Problem (n/3 Strategy)" 
       description={step.description}
       actions={actions}

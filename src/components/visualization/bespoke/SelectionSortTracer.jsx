@@ -4,7 +4,7 @@ import styles from './Bespoke.module.css';
 
 const INITIAL_ARRAY = [45, 12, 89, 33, 22];
 
-const SelectionSortTracer = () => {
+const SelectionSortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -122,7 +122,7 @@ const SelectionSortTracer = () => {
   );
 
   return (
-    <VisualStage title="Selection Sort Tracer" description={step.description} actions={actions}>
+    <VisualStage style={style} title="Selection Sort Tracer" description={step.description} actions={actions}>
       <div className={styles.dualPane}>
         <div className={styles.codePane}>
           {code.map((line, idx) => (
