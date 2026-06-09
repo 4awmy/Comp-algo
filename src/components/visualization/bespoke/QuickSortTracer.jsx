@@ -1,12 +1,21 @@
 import { useState, useEffect, useMemo } from 'react';
 import VisualStage from '../../ui/Premium/VisualStage';
-import styles from './SharedTracers.module.css';
+import styles from './Bespoke.module.css';
 
 const INITIAL_ARRAY = [38, 27, 43, 3, 9, 82, 10];
+const CODE_LINES = [
+  'QuickSort(A, l, r)',
+  'if l >= r return',
+  'p <- Partition(A, l, r)',
+  'QuickSort(A, l, p - 1)',
+  'QuickSort(A, p + 1, r)',
+  'Partition: pivot <- A[l]',
+  'scan i right while A[i] <= pivot',
+  'scan j left while A[j] > pivot',
+  'if i < j swap A[i], A[j]',
+  'swap pivot with A[j]'
+];
 
-/**
- * QuickSortTracer - Standardized with shared styles and granular steps.
- */
 const QuickSortTracer = ({ style }) => {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -15,66 +24,62 @@ const QuickSortTracer = ({ style }) => {
     const s = [];
     const arr = [...INITIAL_ARRAY];
 
-    const record = (a, pivotIdx, left, right, description) => {
+    const record = (a, pivotIdx, left, right, description, line) => {
       s.push({
         arr: [...a],
         pivotIdx,
         left,
         right,
-        description
+        description,
+        line
       });
     };
 
-    // 1. Initial State
-    record(arr, -1, -1, -1, "Quick Sort: Partitioning the array around a pivot.");
+    record(arr, -1, -1, -1, 'Quick Sort begins by partitioning the current subarray around a pivot.', 0);
 
-    // 2. Pick Pivot
     const pivotVal = arr[0];
-    record(arr, 0, -1, -1, `We pick the first element (${pivotVal}) as the pivot.`);
+    record(arr, 0, -1, -1, `Choose the first element (${pivotVal}) as the pivot.`, 5);
 
-    // 3. Initialize Pointers
     let i = 1;
     let j = arr.length - 1;
-    record(arr, 0, i, j, `Initialize i to 1 and j to n-1 (${j}).`);
+    record(arr, 0, i, j, `Initialize i to 1 and j to ${j}.`, 2);
 
-    // 4. Partition Loop
     while (true) {
-      // Find element > pivot from left
       while (i < arr.length && arr[i] <= pivotVal) {
-        record(arr, 0, i, j, `A[${i}] (${arr[i]}) ≤ pivot (${pivotVal}), incrementing i.`);
-        i++;
-      }
-      if (i < arr.length) {
-        record(arr, 0, i, j, `A[${i}] (${arr[i]}) > pivot (${pivotVal}), i stops.`);
-      } else {
-        record(arr, 0, i - 1, j, `i reached the end of the array.`);
+        record(arr, 0, i, j, `A[${i}] (${arr[i]}) <= pivot (${pivotVal}), so i moves right.`, 6);
+        i += 1;
       }
 
-      // Find element < pivot from right
-      while (j >= 0 && arr[j] > pivotVal) {
-        record(arr, 0, i < arr.length ? i : i - 1, j, `A[${j}] (${arr[j]}) > pivot (${pivotVal}), decrementing j.`);
-        j--;
+      if (i < arr.length) {
+        record(arr, 0, i, j, `A[${i}] (${arr[i]}) > pivot (${pivotVal}), so i stops.`, 6);
+      } else {
+        record(arr, 0, i - 1, j, 'i reached the end of the array.', 6);
       }
-      record(arr, 0, i < arr.length ? i : i - 1, j, `A[${j}] (${arr[j]}) ≤ pivot (${pivotVal}), j stops.`);
+
+      while (j >= 0 && arr[j] > pivotVal) {
+        record(arr, 0, i < arr.length ? i : i - 1, j, `A[${j}] (${arr[j]}) > pivot (${pivotVal}), so j moves left.`, 7);
+        j -= 1;
+      }
+
+      record(arr, 0, i < arr.length ? i : i - 1, j, `A[${j}] (${arr[j]}) <= pivot (${pivotVal}), so j stops.`, 7);
 
       if (i < j) {
-        record(arr, 0, i, j, `Since i < j, we swap A[${i}] (${arr[i]}) and A[${j}] (${arr[j]}).`);
+        record(arr, 0, i, j, `Since i < j, swap A[${i}] (${arr[i]}) and A[${j}] (${arr[j]}).`, 8);
         const temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
-        record(arr, 0, i, j, `Swap complete.`);
+        record(arr, 0, i, j, 'Swap complete.', 8);
       } else {
-        record(arr, 0, i, j, `Pointers have crossed (i ≥ j). Partition loop terminates.`);
+        record(arr, 0, i, j, 'The pointers crossed, so partitioning is ready for the final pivot swap.', 2);
         break;
       }
     }
 
-    // 5. Final Swap
-    record(arr, 0, -1, j, `Finally, swap pivot A[0] (${arr[0]}) with A[j] (${arr[j]}).`);
+    record(arr, 0, -1, j, `Swap pivot A[0] (${arr[0]}) with A[j] (${arr[j]}).`, 9);
     const temp = arr[0];
     arr[0] = arr[j];
     arr[j] = temp;
-    record(arr, j, -1, -1, `Pivot is now at its final sorted position (index ${j}). Elements to the left are ≤ pivot, elements to the right are > pivot.`);
+    record(arr, j, -1, -1, `Pivot ${pivotVal} is now in final position ${j}.`, 3);
 
     return s;
   }, []);
@@ -83,10 +88,13 @@ const QuickSortTracer = ({ style }) => {
     let timer;
     if (isPlaying && currentStepIdx < steps.length - 1) {
       timer = setTimeout(() => {
-        setCurrentStepIdx(prev => prev + 1);
+        setCurrentStepIdx(prev => {
+          if (prev >= steps.length - 2) {
+            setIsPlaying(false);
+          }
+          return Math.min(steps.length - 1, prev + 1);
+        });
       }, 1200);
-    } else if (currentStepIdx === steps.length - 1) {
-      setIsPlaying(false);
     }
     return () => clearTimeout(timer);
   }, [isPlaying, currentStepIdx, steps.length]);
@@ -95,7 +103,7 @@ const QuickSortTracer = ({ style }) => {
 
   const actions = (
     <div className={styles.controls}>
-      <button 
+      <button
         className={styles.controlBtn}
         onClick={() => {
           setCurrentStepIdx(0);
@@ -103,13 +111,9 @@ const QuickSortTracer = ({ style }) => {
         }}
         disabled={currentStepIdx === 0}
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M1 4v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2z"/>
-          <path d="M8 12h8"/><path d="M12 8l-4 4 4 4"/>
-        </svg>
         Reset
       </button>
-      <button 
+      <button
         className={styles.controlBtn}
         onClick={() => {
           setCurrentStepIdx(prev => Math.max(0, prev - 1));
@@ -119,14 +123,14 @@ const QuickSortTracer = ({ style }) => {
       >
         Prev
       </button>
-      <button 
-        className={`${styles.controlBtn} btn-primary`}
+      <button
+        className={styles.controlBtn}
         onClick={() => setIsPlaying(!isPlaying)}
-        style={{ minWidth: '100px' }}
+        style={{ minWidth: '90px' }}
       >
         {isPlaying ? 'Pause' : 'Play'}
       </button>
-      <button 
+      <button
         className={styles.controlBtn}
         onClick={() => {
           setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1));
@@ -140,51 +144,59 @@ const QuickSortTracer = ({ style }) => {
   );
 
   return (
-    <VisualStage style={style} 
-      title="Quick Sort: Hoare Partitioning" 
+    <VisualStage
+      style={style}
+      title="Quick Sort: Hoare Partitioning"
       description={step.description}
       actions={actions}
     >
-      <div className={styles.tracerContainer}>
-        <div className={styles.arrayContainer}>
-          {step.arr.map((val, idx) => {
-            let stateClass = '';
-            if (idx === step.pivotIdx) stateClass = styles.barPivot;
-            else if (idx === step.left || idx === step.right) stateClass = styles.barActive;
-            
-            // If pointers cross and loop ends, mark pivot swap candidate
-            if (currentStepIdx === steps.length - 2 && (idx === 0 || idx === step.right)) {
-               stateClass = styles.barComparing;
-            }
+      <div className={styles.dualPane}>
+        <div className={styles.codePane}>
+          <div className={styles.codeHeader}>Pseudocode</div>
+          {CODE_LINES.map((line, idx) => (
+            <span key={line} className={`${styles.codeLine} ${step.line === idx ? styles.codeLineActive : ''}`}>
+              {line}
+            </span>
+          ))}
+        </div>
 
-            return (
-              <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <div 
-                  className={`${styles.bar} ${stateClass}`} 
-                  style={{ height: `${val * 1.5 + 40}px` }}
-                >
-                  {val}
-                </div>
-                <div style={{ position: 'relative', width: '30px', textAlign: 'center', fontSize: '11px', color: 'var(--text-secondary)' }}>
+        <div className={styles.vizPane} style={{ minHeight: '320px', flexDirection: 'column', gap: '1rem' }}>
+          <div className={styles.arrayContainer}>
+            {step.arr.map((val, idx) => {
+              let stateClass = '';
+              if (idx === step.pivotIdx) stateClass = styles.barPivot;
+              else if (idx === step.left || idx === step.right) stateClass = styles.barActive;
+
+              if (currentStepIdx === steps.length - 2 && (idx === 0 || idx === step.right)) {
+                stateClass = styles.barComparing;
+              }
+
+              return (
+                <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                  <div className={`${styles.bar} ${stateClass}`} style={{ height: `${val * 1.5 + 40}px` }}>
+                    {val}
+                  </div>
+                  <div style={{ position: 'relative', width: '30px', textAlign: 'center', fontSize: '11px', color: 'var(--text-secondary)' }}>
                     <span>{idx}</span>
                     <div style={{ position: 'absolute', top: '15px', left: '0', width: '100%', display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                        {idx === step.left && (
-                            <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>i</span>
-                        )}
-                        {idx === step.right && (
-                            <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>j</span>
-                        )}
-                        {idx === step.pivotIdx && (
-                             <span style={{ color: 'var(--accent-red)', fontWeight: 'bold', fontSize: '9px' }}>P</span>
-                        )}
+                      {idx === step.left && (
+                        <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>i</span>
+                      )}
+                      {idx === step.right && (
+                        <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>j</span>
+                      )}
+                      {idx === step.pivotIdx && (
+                        <span style={{ color: 'var(--color-error)', fontWeight: 'bold', fontSize: '9px' }}>P</span>
+                      )}
                     </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className={styles.stepInfo}>
-          Step {currentStepIdx + 1} of {steps.length}
+              );
+            })}
+          </div>
+          <div className={styles.stepInfo}>
+            Step {currentStepIdx + 1} of {steps.length}
+          </div>
         </div>
       </div>
     </VisualStage>

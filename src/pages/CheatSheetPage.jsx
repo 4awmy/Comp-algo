@@ -64,6 +64,18 @@ const ALGORITHMS = [
     link: '/lecture/09#quick-sort-complexity',
   },
   {
+    name: 'Binary Tree Traversal',
+    category: 'Trees (Divide & Conquer)',
+    best: '\\Theta(n)',
+    avg: '\\Theta(n)',
+    worst: '\\Theta(n)',
+    space: '\\Theta(h)',
+    stable: 'N/A',
+    lecture: 'Lec 09',
+    steps: ['1. Choose preorder, inorder, or postorder', '2. Recursively traverse the left subtree', '3. Recursively traverse the right subtree', '4. Visit each node exactly once'],
+    link: '/lecture/09#tree-traversal-complexity',
+  },
+  {
     name: 'AVL Trees (ops)',
     category: 'Search Trees (Transform & Conquer)',
     best: '\\Theta(1)',

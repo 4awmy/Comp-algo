@@ -1,7 +1,5 @@
-import React from 'react';
 import LessonHero from '../../components/ui/Premium/LessonHero';
 import MathBlock from '../../components/ui/Premium/MathBlock';
-import PremiumImage from '../../components/ui/Premium/PremiumImage';
 import AlgorithmCard from '../../components/ui/Premium/AlgorithmCard';
 
 import MergeSortTracer from '../../components/visualization/bespoke/MergeSortTracer';
@@ -145,13 +143,6 @@ const Lec09 = () => {
             complexity={{ time: "\\Theta(n \\log n) \\text{ average}, O(n^2) \\text{ worst}", space: "\\Theta(\\log n)" }}
           />
 
-          <PremiumImage 
-            src="/images/lectures/lec09/slide74_img0.jpg" 
-            alt="Quick Sort Partitioning" 
-            caption="Partitioning is the heart of Quick Sort, determining the final position of the pivot."
-            style={{ margin: '2.5rem 0' }}
-          />
-
           <PivotMetaphor style={{ margin: '2.5rem 0' }} />
 
           <div className={styles.methodBox}>
@@ -202,13 +193,6 @@ const Lec09 = () => {
               "Apply these rules recursively to all child nodes."
             ]}
             complexity={{ time: "\\Theta(n)", space: "\\Theta(h)" }}
-          />
-
-          <PremiumImage 
-            src="/images/lectures/lec09/slide78_img0.jpg" 
-            alt="Binary Tree Traversal" 
-            caption="The three standard ways to visit every node in a binary tree."
-            style={{ margin: '2.5rem 0' }}
           />
 
           <TraversalMetaphor style={{ margin: '2.5rem 0' }} />
