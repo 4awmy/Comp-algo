@@ -63,7 +63,7 @@ const Lec09 = () => {
               "Use two pointers to compare elements from each half and pick the smaller one.",
               "Repeat until all elements are merged back into the original array."
             ]}
-            complexity={{ time: "\\Theta(n \\log n)", space: "O(n)" }}
+            complexity={{ time: "\\Theta(n \\log n)", space: "\\Theta(n)" }}
           />
 
           <div className={styles.gridTwoCol}>
@@ -112,6 +112,18 @@ const Lec09 = () => {
           <MergeOperationVisual style={{ margin: '2.5rem 0' }} />
 
           <MergeSortTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="merge-sort-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Merge Sort Time Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              Each level of the recursion tree merges all <MathBlock math="n" /> elements once. Since the array halves at every divide step, the tree has <MathBlock math="\\log_2 n" /> merge levels.
+            </p>
+            <MathBlock block math="T(n) = 2T(n/2) + \\Theta(n)" />
+            <MathBlock block math="T(n) = \\sum_{i=0}^{\\log_2 n - 1} n + \\Theta(n) = \\Theta(n \\log n)" />
+            <p className={styles.editorialText}>
+              The auxiliary array used during merging stores up to <MathBlock math="n" /> elements, so the extra space is <MathBlock math="\\Theta(n)" />.
+            </p>
+          </div>
         </section>
 
         <section id="quick-sort" className={styles.lessonSection}>
@@ -130,7 +142,7 @@ const Lec09 = () => {
               "Recursively apply the process to the left and right sub-arrays.",
               "Combine the results (implicitly handled by partitioning in place)."
             ]}
-            complexity={{ time: "\\Theta(n \\log n) \\text{ average}", space: "O(\\log n)" }}
+            complexity={{ time: "\\Theta(n \\log n) \\text{ average}, O(n^2) \\text{ worst}", space: "\\Theta(\\log n)" }}
           />
 
           <PremiumImage 
@@ -159,6 +171,19 @@ const Lec09 = () => {
              </p>
              <QuickSortWorstCase style={{ margin: '2.5rem 0' }} />
           </div>
+
+          <div id="quick-sort-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Quick Sort Time Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              Partitioning scans the current subarray once. The total cost depends on how evenly the pivot splits the input.
+            </p>
+            <MathBlock block math="T(n) = T(s) + T(n-s-1) + \\Theta(n)" />
+            <MathBlock block math="T_{avg}(n) = 2T(n/2) + \\Theta(n) = \\Theta(n \\log n)" />
+            <MathBlock block math="T_{worst}(n) = T(n-1) + \\Theta(n) = \\sum_{k=1}^{n} k = \\Theta(n^2)" />
+            <p className={styles.editorialText}>
+              With balanced partitions, the recursion stack has height <MathBlock math="\\Theta(\\log n)" />; the worst case can grow to <MathBlock math="\\Theta(n)" /> stack frames.
+            </p>
+          </div>
         </section>
 
         <section id="tree-traversal" className={styles.lessonSection}>
@@ -176,7 +201,7 @@ const Lec09 = () => {
               "Postorder: Visit Left Subtree, then Right Subtree, then Root.",
               "Apply these rules recursively to all child nodes."
             ]}
-            complexity={{ time: "\\Theta(n)", space: "O(h)" }}
+            complexity={{ time: "\\Theta(n)", space: "\\Theta(h)" }}
           />
 
           <PremiumImage 
@@ -205,12 +230,16 @@ const Lec09 = () => {
 
           <TreeTraversalTracer style={{ margin: '2.5rem 0' }} />
 
-          <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
-            <h4>Complexity Analysis</h4>
+          <div id="tree-traversal-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Binary Tree Traversal Time Complexity Analysis</h4>
             <p className={styles.editorialText}>
-              Since every node is visited exactly once, the time complexity for all traversals is linear:
+              Preorder, inorder, and postorder differ only in when the root is visited. All three recursively process the left subtree, the right subtree, and the root exactly once.
             </p>
-            <MathBlock block math="\\Theta(n)" />
+            <MathBlock block math="T(n) = T(n_L) + T(n_R) + 1" />
+            <MathBlock block math="\\sum_{v \\in V} 1 = n \\in \\Theta(n)" />
+            <p className={styles.editorialText}>
+              The recursion stack stores one root-to-leaf path at a time, so the auxiliary space is <MathBlock math="\\Theta(h)" />, where <MathBlock math="h" /> is tree height.
+            </p>
           </div>
         </section>
       </div>

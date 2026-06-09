@@ -105,12 +105,18 @@ const Lec10 = () => {
               <SortScanVisual style={{ margin: '1rem 0' }} />
             </div>
           </div>
+
+          <div id="presorting-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Element Uniqueness (Presorting) Complexity Analysis</h4>
+            <p className={styles.editorialText}>Sorting the array takes <MathBlock math="\\Theta(n \\log n)" /> time using Merge Sort or Heapsort. The subsequent linear scan compares adjacent elements, taking <MathBlock math="\\Theta(n)" /> time.</p>
+            <MathBlock block math="T(n) = T_{\\text{sort}}(n) + T_{\\text{scan}}(n) = \\Theta(n \\log n) + \\Theta(n) = \\Theta(n \\log n)" />
+          </div>
         </section>
 
         <section id="avl-trees" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>2. Representation Change: Balanced Search Trees</h2>
           <p className={styles.editorialText}>
-            A standard Binary Search Tree (BST) can become skewed, leading to linear <MathBlock math="\Theta(n)" /> performance. Balanced trees like <b>AVL Trees</b> and <b>2-3 Trees</b> ensure the height remains logarithmic.
+            A standard Binary Search Tree (BST) can become skewed, leading to linear <MathBlock math="\\Theta(n)" /> performance. Balanced trees like <b>AVL Trees</b> and <b>2-3 Trees</b> ensure the height remains logarithmic.
           </p>
 
           <AlgorithmCard 
@@ -123,7 +129,7 @@ const Lec10 = () => {
               "Apply the appropriate rotation: Single (LL, RR) or Double (LR, RL).",
               "The resulting tree remains balanced with height O(log n)."
             ]}
-            complexity={{ time: "O(\\log n)", space: "O(n)" }}
+            complexity={{ time: "\\Theta(\\log n)", space: "\\Theta(n)" }}
           />
 
           <BstBalanceScale style={{ margin: '2.5rem 0' }} />
@@ -131,13 +137,13 @@ const Lec10 = () => {
           <div className={styles.gridTwoCol}>
              <div className={styles.infoCard}>
                 <h4>The Balance Factor (BF)</h4>
-                <MathBlock math="BF = h_L - h_R \in \{-1, 0, 1\}" />
-                <p className={styles.editorialText}>If $|BF| {'>'} 1$, the tree is imbalanced. We monitor this like a traffic light.</p>
+                <MathBlock math="BF = h_L - h_R \\in \\{-1, 0, 1\\}" />
+                <p className={styles.editorialText}>If <MathBlock math="|BF| > 1" />, the tree is imbalanced. We monitor this like a traffic light.</p>
                 <AvlBalanceMeter style={{ margin: '1rem 0' }} />
              </div>
              <div className={styles.infoCard}>
                 <h4>Search/Insert/Delete</h4>
-                <MathBlock math="\Theta(\log n)" />
+                <MathBlock math="\\Theta(\\log n)" />
                 <p className={styles.editorialText}>Guaranteed logarithmic time even in the worst case.</p>
                 <BstComparisonTable style={{ margin: '1rem 0' }} />
              </div>
@@ -183,6 +189,12 @@ const Lec10 = () => {
           <TwoThreeInsertion style={{ margin: '1.5rem 0' }} />
 
           <AvlTreeTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="avl-trees-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>AVL Trees Complexity Analysis</h4>
+            <p className={styles.editorialText}>The height of an AVL tree with <MathBlock math="n" /> nodes is strictly bounded by <MathBlock math="\\Theta(\\log n)" />. All primary operations (search, insert, delete) traverse from root to leaf, and rotations take <MathBlock math="\\Theta(1)" /> time.</p>
+            <MathBlock block math="h \\le 1.44 \\log_2(n + 2) - 1.328 \\implies T(n) \\in \\Theta(\\log n)" />
+          </div>
         </section>
 
         <section id="heapsort" className={styles.lessonSection}>
@@ -201,7 +213,7 @@ const Lec10 = () => {
               "Re-heapify: Sift down the new root to restore the Max-Heap property.",
               "Repeat extraction until the heap is empty."
             ]}
-            complexity={{ time: "O(n \\log n)", space: "O(1)" }}
+            complexity={{ time: "\\Theta(n \\log n)", space: "\\Theta(1)" }}
           />
 
           <HeapProperties style={{ margin: '2.5rem 0' }} />
@@ -213,9 +225,9 @@ const Lec10 = () => {
               For a heap stored in an array (1-indexed):
             </p>
             <ul className={styles.editorialList}>
-              <li><b>Parent of node $i$:</b> <MathBlock math="\lfloor i/2 \rfloor" /></li>
-              <li><b>Left child of node $i$:</b> <MathBlock math="2i" /></li>
-              <li><b>Right child of node $i$:</b> <MathBlock math="2i + 1" /></li>
+              <li><b>Parent of node <MathBlock math="i" />:</b> <MathBlock math="\\lfloor i/2 \\rfloor" /></li>
+              <li><b>Left child of node <MathBlock math="i" />:</b> <MathBlock math="2i" /></li>
+              <li><b>Right child of node <MathBlock math="i" />:</b> <MathBlock math="2i + 1" /></li>
             </ul>
           </div>
           
@@ -250,6 +262,12 @@ const Lec10 = () => {
           <HeapSortTimeline style={{ margin: '2.5rem 0' }} />
 
           <HeapsortTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="heapsort-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Heapsort Time Complexity Analysis</h4>
+            <p className={styles.editorialText}>Building the heap (bottom-up) takes <MathBlock math="\\Theta(n)" /> time. The extraction phase removes the root <MathBlock math="n-1" /> times, each followed by a sift-down taking at most <MathBlock math="\\Theta(\\log n)" /> time.</p>
+            <MathBlock block math="T(n) = T_{\\text{build}}(n) + T_{\\text{extract}}(n) = \\Theta(n) + \\sum_{i=1}^{n-1} \\Theta(\\log i) = \\Theta(n \\log n)" />
+          </div>
         </section>
 
         <section id="horners-rule" className={styles.lessonSection}>
@@ -267,17 +285,23 @@ const Lec10 = () => {
               "Update p = p * x + a[i].",
               "Return the final value of p."
             ]}
-            complexity={{ time: "\\Theta(n)", space: "O(1)" }}
+            complexity={{ time: "\\Theta(n)", space: "\\Theta(1)" }}
           />
 
           <MathBlock 
             block 
-            math="P(x) = (\dots((a_n x + a_{n-1})x + a_{n-2})x + \dots + a_1)x + a_0" 
+            math="P(x) = (\\dots((a_n x + a_{n-1})x + a_{n-2})x + \\dots + a_1)x + a_0" 
             caption="Horner's Rule: Reduces multiplications from O(n^2) to exactly n."
             style={{ margin: '2.5rem 0' }}
           />
 
           <HornersTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="horners-rule-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Horner's Rule Complexity Analysis</h4>
+            <p className={styles.editorialText}>The algorithm iterates from <MathBlock math="n-1" /> down to 0, performing exactly one multiplication and one addition per step.</p>
+            <MathBlock block math="T(n) = \\sum_{i=0}^{n-1} 1 = n \\implies \\Theta(n)" />
+          </div>
         </section>
       </div>
     </div>
