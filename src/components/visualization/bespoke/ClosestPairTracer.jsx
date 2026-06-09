@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import MathBlock from '../../ui/Premium/MathBlock';
+import { useState, useEffect, useCallback } from 'react';
 import styles from './Bespoke.module.css';
 
 const ClosestPairTracer = () => {
-  const [points, setPoints] = useState([
+  const [points] = useState([
     { x: 30, y: 40, id: 1 },
     { x: 70, y: 80, id: 2 },
     { x: 120, y: 50, id: 3 },
@@ -26,19 +25,7 @@ const ClosestPairTracer = () => {
     return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
   };
 
-  useEffect(() => {
-    let timer;
-    if (isPlaying && step < totalSteps) {
-      timer = setTimeout(() => {
-        nextStep();
-      }, 800);
-    } else if (step >= totalSteps) {
-      setIsPlaying(false);
-    }
-    return () => clearTimeout(timer);
-  }, [isPlaying, step]);
-
-  const nextStep = () => {
+  const nextStep = useCallback(() => {
     let count = 0;
     for (let i = 0; i < points.length - 1; i++) {
       for (let j = i + 1; j < points.length; j++) {
@@ -57,7 +44,19 @@ const ClosestPairTracer = () => {
         count++;
       }
     }
-  };
+  }, [points, step, minDist]);
+
+  useEffect(() => {
+    let timer;
+    if (isPlaying && step < totalSteps) {
+      timer = setTimeout(() => {
+        nextStep();
+      }, 800);
+    } else if (step >= totalSteps && isPlaying) {
+      timer = setTimeout(() => setIsPlaying(false), 0);
+    }
+    return () => clearTimeout(timer);
+  }, [isPlaying, step, totalSteps, nextStep]);
 
   const reset = () => {
     setStep(0);

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import MathBlock from '../../ui/Premium/MathBlock';
+import { useState, useEffect, useMemo } from 'react';
 import styles from './Bespoke.module.css';
 
 const TspTracer = () => {
@@ -10,17 +9,17 @@ const TspTracer = () => {
     { id: 'D', x: 50, y: 150 },
   ];
 
-  const permutations = [
+  const permutations = useMemo(() => [
     ['A', 'B', 'C', 'D', 'A'],
     ['A', 'B', 'D', 'C', 'A'],
     ['A', 'C', 'B', 'D', 'A'],
-  ];
+  ], []);
 
-  const costs = {
+  const costs = useMemo(() => ({
     'AB': 10, 'BC': 15, 'CD': 10, 'DA': 15,
     'AC': 25, 'BD': 20, 'AD': 15, 'CB': 15,
     'DB': 20, 'DC': 10, 'BA': 10, 'CA': 25
-  };
+  }), []);
 
   const [currentPerm, setCurrentPerm] = useState(0);
   const [cityIndex, setCityIndex] = useState(0);
@@ -45,7 +44,7 @@ const TspTracer = () => {
       }, 1000);
     }
     return () => clearTimeout(timer);
-  }, [isPlaying, cityIndex]);
+  }, [isPlaying, cityIndex, currentPerm, permutations, costs]);
 
   const startAnimation = (idx) => {
     setCurrentPerm(idx);
@@ -103,7 +102,7 @@ const TspTracer = () => {
                   <line 
                     key={edge} 
                     x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} 
-                    stroke="#e2e8f0" strokeWidth="1" 
+                    stroke="var(--border-subtle)" strokeWidth="1" 
                   />
                 );
               })}
@@ -125,7 +124,7 @@ const TspTracer = () => {
               {/* Draw Cities */}
               {cities.map(city => (
                 <g key={city.id}>
-                  <circle cx={city.x} cy={city.y} r="12" fill="white" stroke="var(--accent-blue)" strokeWidth="2" />
+                  <circle cx={city.x} cy={city.y} r="12" fill="var(--bg-surface)" stroke="var(--accent-blue)" strokeWidth="2" />
                   <text x={city.x} y={city.y + 4} textAnchor="middle" fontSize="10" fontWeight="bold" fill="var(--accent-blue)">{city.id}</text>
                 </g>
               ))}

@@ -63,8 +63,8 @@ const Lec05 = () => {
           </div>
 
           <ClosestPairTracer style={{ margin: '2.5rem 0' }} />
-          <div id="closest-pair-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Closest-Pair Time Complexity Analysis</h4>
+          <div id="closest-pair-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>The brute‑force algorithm checks every pair of points.</p>
             <MathBlock block math="T(n) = \\sum_{i=1}^{n-1} \\sum_{j=i+1}^{n} 1 = \\frac{n(n-1)}{2} = \\Theta(n^2)" />
             <p className={styles.editorialText}>Space usage is constant: <MathBlock math="\\Theta(1)" />.</p>
@@ -98,8 +98,8 @@ const Lec05 = () => {
           />
           
           <ExhaustiveSearchConcepts style={{ margin: '2.5rem 0' }} />
-          <div id="exhaustive-search-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Exhaustive Search Time Complexity Analysis</h4>
+          <div id="exhaustive-search-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>Generating all possible candidates leads to factorial or exponential growth.</p>
             <MathBlock block math="T(n) = O(n!) \\text{ or } O(2^n)" />
             <p className={styles.editorialText}>Space required to hold a candidate is linear: <MathBlock math="\\Theta(n)" />.</p>
@@ -125,8 +125,8 @@ const Lec05 = () => {
           />
 
           <TspTracer style={{ margin: '2.5rem 0' }} />
-          <div id="tsp-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>TSP Brute‑Force Time Complexity Analysis</h4>
+          <div id="tsp-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>All permutations of <MathBlock math="n" /> cities are examined.</p>
             <MathBlock block math="T(n) = O(n!)" />
             <p className={styles.editorialText}>Space usage is linear in the number of cities: <MathBlock math="\\Theta(n)" />.</p>
@@ -152,8 +152,8 @@ const Lec05 = () => {
           />
 
           <KnapsackTracer style={{ margin: '2.5rem 0' }} />
-          <div id="knapsack-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Knapsack Brute‑Force Time Complexity Analysis</h4>
+          <div id="knapsack-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>All subsets of <MathBlock math="n" /> items are examined.</p>
             <MathBlock block math="T(n) = O(2^n)" />
             <p className={styles.editorialText}>Space required to store a subset is linear: <MathBlock math="\\Theta(n)" />.</p>
@@ -176,8 +176,8 @@ const Lec05 = () => {
               complexity={{ time: "O(n \\cdot m)", space: "\\Theta(1)" }}
             />
             <StringMatchTracer style={{ margin: '2.5rem 0' }} />
-            <div id="string-match-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-              <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>String Matching Time Complexity Analysis</h4>
+            <div id="string-match-complexity" className={styles.infoCard}>
+              <h4>Complexity Analysis</h4>
               <p className={styles.editorialText}>For each of the n‑m+1 alignments we compare up to m characters.</p>
               <MathBlock block math="T(n) = \\Theta((n-m+1) \\cdot m) = \\Theta(n \\cdot m)" />
               <p className={styles.editorialText}>Space usage is constant: <MathBlock math="\\Theta(1)" />.</p>
@@ -200,8 +200,8 @@ const Lec05 = () => {
               complexity={{ time: "O(n^3)", space: "\\Theta(n)" }}
             />
             {/* <ConvexHullTracer style={{ margin: '2.5rem 0' }} /> */}
-            <div id="convex-hull-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-              <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Convex Hull Brute‑Force Time Complexity Analysis</h4>
+            <div id="convex-hull-complexity" className={styles.infoCard}>
+              <h4>Complexity Analysis</h4>
               <p className={styles.editorialText}>Checking each of the <MathBlock math="\\binom{n}{2}" /> pairs against all <MathBlock math="n" /> points yields <MathBlock math="\\Theta(n^3)" /> work.</p>
               <MathBlock block math="T(n) = \\Theta(n^3)" />
               <p className={styles.editorialText}>Space is linear to store the hull vertices: <MathBlock math="\\Theta(n)" />.</p>

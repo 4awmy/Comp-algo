@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import MathBlock from '../../ui/Premium/MathBlock';
 import styles from './Bespoke.module.css';
 
 const AssignmentTracer = () => {
@@ -12,7 +11,6 @@ const AssignmentTracer = () => {
   ];
 
   const [assignments, setAssignments] = useState([-1, -1, -1]); // Index of job for each person
-  const [hovered, setHovered] = useState(null);
 
   const toggleAssignment = (personIdx, jobIdx) => {
     const newAssignments = [...assignments];
@@ -58,8 +56,6 @@ const AssignmentTracer = () => {
                       key={j} 
                       className={`${styles.matrixCell} ${assignments[i] === j ? styles.matrixActive : ''}`}
                       onClick={() => toggleAssignment(i, j)}
-                      onMouseEnter={() => setHovered({ i, j })}
-                      onMouseLeave={() => setHovered(null)}
                       style={{ cursor: 'pointer', fontSize: '14px', fontWeight: '700' }}
                     >
                       {cost}

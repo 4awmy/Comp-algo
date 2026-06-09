@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import MathBlock from '../../ui/Premium/MathBlock';
 import styles from './Bespoke.module.css';
 
@@ -36,7 +36,7 @@ export const TNMatrixVisual = ({ style }) => {
 
 export const KeyringMetaphor = ({ style }) => {
   const [activeKey, setActiveKey] = useState(-1);
-  const [successKey, setSuccessKey] = useState(7);
+  const successKey = 7;
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
@@ -45,11 +45,11 @@ export const KeyringMetaphor = ({ style }) => {
       timer = setTimeout(() => {
         setActiveKey(prev => prev + 1);
       }, 300);
-    } else {
-      setIsSearching(false);
+    } else if (isSearching) {
+      timer = setTimeout(() => setIsSearching(false), 0);
     }
     return () => clearTimeout(timer);
-  }, [isSearching, activeKey]);
+  }, [isSearching, activeKey, successKey]);
 
   return (
     <div className={styles.conceptBox} style={style}>
@@ -80,7 +80,6 @@ export const KeyringMetaphor = ({ style }) => {
 export const NPHardSpeedometer = ({ style }) => {
   const [n, setN] = useState(5);
   const complexity = Math.pow(2, n);
-  const maxComplexity = Math.pow(2, 25);
   const angle = (n / 25) * 180 - 90;
 
   return (
@@ -121,7 +120,7 @@ export const NPHardSpeedometer = ({ style }) => {
   );
 };
 
-const ExhaustiveSearchConcepts = () => {
+const ExhaustiveSearchConcepts = ({ style }) => {
   return (
     <div className={styles.conceptsGrid} style={style}>
       <TNMatrixVisual />

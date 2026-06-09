@@ -100,6 +100,45 @@
   border-color: var(--accent-blue);
 }
 
+.btnOutline {
+  padding: 0.4rem 0.8rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnOutline:hover {
+  background: var(--bg-elevated);
+  border-color: var(--accent-blue);
+}
+
+.btnPrimary {
+  padding: 0.4rem 0.8rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-blue);
+  background: var(--accent-blue);
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnPrimary:hover {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+.btnSm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
 .tracerVisualPane {
   padding: 1.5rem;
   display: flex;
