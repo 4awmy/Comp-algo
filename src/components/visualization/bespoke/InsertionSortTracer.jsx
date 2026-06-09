@@ -88,7 +88,7 @@ const InsertionSortTracer = ({ style }) => {
   const actions = (
     <div className={styles.controls}>
       <button 
-        className="btn btn-outline btn-sm"
+        className={`${styles.btnOutline} ${styles.btnSm}`}
         onClick={() => {
           setCurrentStepIdx(0);
           setIsPlaying(false);
@@ -98,21 +98,21 @@ const InsertionSortTracer = ({ style }) => {
         Reset
       </button>
       <button 
-        className="btn btn-outline btn-sm"
+        className={`${styles.btnOutline} ${styles.btnSm}`}
         onClick={() => setCurrentStepIdx(prev => Math.max(0, prev - 1))}
         disabled={currentStepIdx === 0}
       >
         Prev
       </button>
       <button 
-        className="btn btn-primary btn-sm"
+        className={`${styles.btnPrimary} ${styles.btnSm}`}
         onClick={() => setIsPlaying(!isPlaying)}
         style={{ minWidth: '80px' }}
       >
         {isPlaying ? 'Pause' : 'Play'}
       </button>
       <button 
-        className="btn btn-outline btn-sm"
+        className={`${styles.btnOutline} ${styles.btnSm}`}
         onClick={() => setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1))}
         disabled={currentStepIdx === steps.length - 1}
       >
@@ -131,8 +131,8 @@ const InsertionSortTracer = ({ style }) => {
         <div className={styles.arrayContainer}>
           {step.arr.map((val, idx) => {
             let stateClass = styles.unsorted;
-            if (idx === step.activeIdx) stateClass = styles.active;
-            else if (idx === step.comparingIdx) stateClass = styles.comparing;
+            if (idx === step.activeIdx) stateClass = styles.barActive;
+            else if (idx === step.comparingIdx) stateClass = styles.barComparing;
             else if (idx <= step.sortedIdx) stateClass = styles.sorted;
 
             return (

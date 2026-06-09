@@ -131,7 +131,7 @@ const DfsTracer = ({ style }) => {
   const actions = (
     <div className={styles.controls}>
       <select 
-        className="btn btn-outline btn-sm" 
+        className={styles.tracerSelect} 
         value={mode} 
         onChange={handleModeChange}
         style={{ marginRight: 'var(--space-2)' }}
@@ -140,7 +140,7 @@ const DfsTracer = ({ style }) => {
         <option value="BFS">BFS Mode</option>
       </select>
       <button 
-        className="btn btn-outline btn-sm"
+        className={`${styles.btnOutline} ${styles.btnSm}`}
         onClick={() => {
           setCurrentStepIdx(0);
           setIsPlaying(false);
@@ -150,14 +150,14 @@ const DfsTracer = ({ style }) => {
         Reset
       </button>
       <button 
-        className="btn btn-primary btn-sm"
+        className={`${styles.btnPrimary} ${styles.btnSm}`}
         onClick={() => setIsPlaying(!isPlaying)}
         style={{ minWidth: '80px' }}
       >
         {isPlaying ? 'Pause' : 'Play'}
       </button>
       <button 
-        className="btn btn-outline btn-sm"
+        className={`${styles.btnOutline} ${styles.btnSm}`}
         onClick={() => setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1))}
         disabled={currentStepIdx === steps.length - 1}
       >
@@ -197,7 +197,7 @@ const DfsTracer = ({ style }) => {
             {/* Draw Nodes */}
             {GRAPH_DATA.nodes.map((node) => {
               let nodeState = '';
-              if (node.id === step.activeNode) nodeState = styles.nodeActive;
+              if (node.id === step.activeNode) nodeState = styles.activeNode;
               else if (step.visited.has(node.id)) nodeState = styles.nodeVisited;
               else if (step.queued.has(node.id)) nodeState = styles.nodeQueued;
 

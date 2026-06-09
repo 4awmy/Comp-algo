@@ -105,12 +105,12 @@ const TopologicalSortTracer = ({ style }) => {
       description={currentStep.desc}
       actions={
         <div className={styles.tracerActions}>
-          <button className="btn btn-outline btn-sm" onClick={() => { setMode(method === 'DFS' ? 'SourceRemoval' : 'DFS'); setCurrentStepIdx(0); }}>
+          <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => { setMode(method === 'DFS' ? 'SourceRemoval' : 'DFS'); setCurrentStepIdx(0); }}>
             Switch to {method === 'DFS' ? 'Source Removal' : 'DFS-based'}
           </button>
           <div className={styles.stepControls}>
-            <button className="btn btn-outline btn-sm" onClick={() => setCurrentStepIdx(Math.max(0, currentStepIdx - 1))}>Prev</button>
-            <button className="btn btn-primary btn-sm" onClick={() => setCurrentStepIdx(Math.min(steps.length - 1, currentStepIdx + 1))}>Next</button>
+            <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(Math.max(0, currentStepIdx - 1))}>Prev</button>
+            <button className={`${styles.btnPrimary} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(Math.min(steps.length - 1, currentStepIdx + 1))}>Next</button>
           </div>
         </div>
       }
@@ -149,8 +149,8 @@ const TopologicalSortTracer = ({ style }) => {
               
               let color = "var(--bg-surface)";
               let border = "var(--border-subtle)";
-              if (isActive) { border = "var(--accent-cyan)"; color = "rgba(6, 182, 212, 0.1)"; }
-              else if (isFinished || (method === 'SourceRemoval' && isVisited)) { border = "var(--color-success)"; color = "rgba(16, 185, 129, 0.1)"; }
+              if (isActive) { border = "var(--accent-cyan)"; color = "color-mix(in srgb, var(--accent-cyan), transparent 90%)"; }
+              else if (isFinished || (method === 'SourceRemoval' && isVisited)) { border = "var(--color-success)"; color = "color-mix(in srgb, var(--color-success), transparent 90%)"; }
               else if (isVisited) { border = "var(--accent-blue)"; }
 
               return (
