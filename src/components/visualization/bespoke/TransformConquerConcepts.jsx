@@ -87,7 +87,7 @@ export const PresortingVisual = ({ style }) => {
                ? 'With a sorted shelf, searching for a book becomes a Logarithmic Binary Search.' 
                : 'On a messy shelf, searching for a specific book requires a Linear O(n) scan.'}
            </p>
-           <MathBlock math={isSorted ? "O(\log n)" : "O(n)"} />
+           <MathBlock math={isSorted ? "O(\\log n)" : "O(n)"} />
         </div>
       </div>
     </div>

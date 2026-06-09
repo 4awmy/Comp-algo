@@ -170,15 +170,7 @@ const TreeTraversalTracer = ({ style }) => {
           setCurrentStepIdx(0);
           setIsPlaying(false);
         }}
-        style={{
-          border: '1px solid var(--border-subtle)',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--bg-surface)',
-          color: 'var(--text-primary)',
-          padding: '0.55rem 0.7rem',
-          fontSize: 'var(--text-xs)',
-          fontWeight: 600
-        }}
+        className={styles.tracerSelect}
       >
         <option value="preorder">Preorder</option>
         <option value="inorder">Inorder</option>
@@ -230,29 +222,23 @@ const TreeTraversalTracer = ({ style }) => {
         </div>
 
         <div className={styles.vizPane} style={{ minHeight: '340px', flexDirection: 'column', gap: '1rem' }}>
-          <svg viewBox="0 0 400 280" className={styles.graphContainer} style={{ background: 'transparent', height: '280px', border: 'none' }}>
+          <svg viewBox="0 0 400 280" className={styles.graphContainer} style={{ background: 'transparent', border: 'none' }}>
             {renderNodes(TREE_DATA)}
           </svg>
 
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div className={styles.visitedSequence}>
             {traversals[traversalType].map((id, idx) => {
-              const isDone = step.visited.includes(id) || step.current === id;
+              const isCurrent = step.current === id;
+              const isVisited = step.visited.includes(id);
+              
+              let stateClass = styles.seqItemEmpty;
+              if (isCurrent) stateClass = styles.seqItemActive;
+              else if (isVisited) stateClass = styles.seqItemVisited;
+
               return (
                 <div
                   key={`${id}-${idx}`}
-                  style={{
-                    width: '30px',
-                    height: '30px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '4px',
-                    background: step.current === id ? 'var(--accent-blue)' : step.visited.includes(id) ? 'var(--color-success)' : 'var(--bg-elevated)',
-                    color: isDone ? 'white' : 'var(--text-muted)',
-                    border: '1px solid var(--border-subtle)',
-                    fontWeight: 'bold',
-                    transition: 'all 0.3s ease'
-                  }}
+                  className={`${styles.seqItem} ${stateClass}`}
                 >
                   {id}
                 </div>

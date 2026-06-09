@@ -299,6 +299,17 @@ const Lec03 = () => {
           </div>
 
           <EmpiricalDashboardDemo style={{ margin: '2.5rem 0' }} />
+
+          <div id="empirical-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              Empirical analysis doesn't have a single "complexity class" but rather measures the <b>actual performance</b>. However, we can use it to estimate the growth rate:
+            </p>
+            <MathBlock math="T(n) \approx c \cdot f(n)" block />
+            <p className={styles.editorialText}>
+              By measuring <MathBlock math="T(n)" /> for various <MathBlock math="n" />, we can solve for the constant <MathBlock math="c" /> and verify if the algorithm follows its theoretical class <MathBlock math="f(n)" />.
+            </p>
+          </div>
         </section>
       </div>
     </div>

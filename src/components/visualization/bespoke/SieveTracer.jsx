@@ -80,9 +80,9 @@ const SieveTracer = ({ style }) => {
   const step = steps[currentStepIdx];
 
   const actions = (
-    <div className={styles.controls}>
+    <div className={styles.stepControls}>
       <button 
-        className="btn btn-outline btn-sm"
+        className={`${styles.btnOutline} ${styles.btnSm}`}
         onClick={() => {
           setCurrentStepIdx(0);
           setIsPlaying(false);
@@ -92,14 +92,14 @@ const SieveTracer = ({ style }) => {
         Reset
       </button>
       <button 
-        className="btn btn-primary btn-sm"
+        className={`${styles.btnPrimary} ${styles.btnSm}`}
         onClick={() => setIsPlaying(!isPlaying)}
         style={{ minWidth: '80px' }}
       >
         {isPlaying ? 'Pause' : 'Play'}
       </button>
       <button 
-        className="btn btn-outline btn-sm"
+        className={`${styles.btnOutline} ${styles.btnSm}`}
         onClick={() => setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1))}
         disabled={currentStepIdx === steps.length - 1}
       >
@@ -118,7 +118,7 @@ const SieveTracer = ({ style }) => {
         <div className={styles.sieveGrid}>
           {step.numbers.map((num, idx) => {
             let stateClass = '';
-            if (idx === step.activeIdx) stateClass = styles.active;
+            if (idx === step.activeIdx) stateClass = styles.current;
             else if (step.highlightIdxs.includes(idx)) stateClass = styles.highlight;
             else if (num.isEliminated) stateClass = styles.composite;
             else if (currentStepIdx === steps.length - 1 && num.isPrime) stateClass = styles.prime;

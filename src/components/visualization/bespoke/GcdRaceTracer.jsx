@@ -54,65 +54,65 @@ const GcdRaceTracer = ({ style }) => {
       description={`Step ${currentStepIdx + 1}: ${current.euclid.action === 'Done' && current.brute.action === 'Found' ? 'Both finished.' : 'Comparing iterations.'}`}
       actions={
         <div className={styles.tracerActions}>
-          <div className="flex gap-2">
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
             <input 
-              type="number" className="input input-sm input-bordered w-20" 
+              type="number" className={styles.peasantInput} 
               value={m} onChange={e => {setM(Number(e.target.value)); setCurrentStepIdx(0);}} 
             />
             <input 
-              type="number" className="input input-sm input-bordered w-20" 
+              type="number" className={styles.peasantInput} 
               value={n} onChange={e => {setN(Number(e.target.value)); setCurrentStepIdx(0);}} 
             />
           </div>
           <div className={styles.stepControls}>
-            <button className="btn btn-outline btn-sm" onClick={() => setCurrentStepIdx(Math.max(0, currentStepIdx - 1))}>Prev</button>
-            <button className="btn btn-primary btn-sm" onClick={() => setCurrentStepIdx(Math.min(steps.length - 1, currentStepIdx + 1))}>Next</button>
+            <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(Math.max(0, currentStepIdx - 1))}>Prev</button>
+            <button className={`${styles.btnPrimary} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(Math.min(steps.length - 1, currentStepIdx + 1))}>Next</button>
           </div>
         </div>
       }
     >
-      <div className="grid grid-cols-2 gap-8 w-full p-4">
+      <div className={styles.gridTwoCol} style={{ width: '100%', padding: '1rem' }}>
         {/* Euclid Side */}
-        <div className="flex flex-col gap-4 p-4 rounded-xl border border-blue-500/20 bg-blue-500/5">
-          <h4 className="text-center font-bold text-blue-400">Euclid's Algorithm</h4>
-          <div className="flex justify-around items-center h-24">
-            <div className="text-center">
-              <div className="text-xs text-muted-foreground mb-1">m</div>
-              <div className="text-2xl font-bold text-white">{current.euclid.m}</div>
+        <div className={styles.infoCard} style={{ borderLeft: '4px solid var(--accent-blue)' }}>
+          <h4 style={{ textAlign: 'center' }}>Euclid's Algorithm</h4>
+          <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '6rem' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>m</div>
+              <div style={{ fontSize: 'var(--text-2xl)', fontWeight: 'bold', color: 'var(--text-primary)' }}>{current.euclid.m}</div>
             </div>
-            <div className="text-xl text-muted-foreground opacity-50">/</div>
-            <div className="text-center">
-              <div className="text-xs text-muted-foreground mb-1">n</div>
-              <div className="text-2xl font-bold text-white">{current.euclid.n}</div>
+            <div style={{ fontSize: 'var(--text-xl)', color: 'var(--text-muted)', opacity: 0.5 }}>/</div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>n</div>
+              <div style={{ fontSize: 'var(--text-2xl)', fontWeight: 'bold', color: 'var(--text-primary)' }}>{current.euclid.n}</div>
             </div>
-            <div className="text-xl text-muted-foreground opacity-50">=</div>
-            <div className="text-center">
-              <div className="text-xs text-muted-foreground mb-1">rem</div>
-              <div className="text-2xl font-bold text-accent-cyan">{current.euclid.r}</div>
+            <div style={{ fontSize: 'var(--text-xl)', color: 'var(--text-muted)', opacity: 0.5 }}>=</div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>rem</div>
+              <div style={{ fontSize: 'var(--text-2xl)', fontWeight: 'bold', color: 'var(--accent-cyan)' }}>{current.euclid.r}</div>
             </div>
           </div>
-          <div className={`badge ${current.euclid.action === 'Done' ? 'badge-success' : 'badge-ghost'} self-center`}>
+          <div className={`badge ${current.euclid.action === 'Done' ? 'badge-green' : 'badge-blue'}`} style={{ alignSelf: 'center' }}>
             {current.euclid.action === 'Done' ? 'GCD FOUND: ' + current.euclid.m : 'Iterating...'}
           </div>
         </div>
 
         {/* Brute Force Side */}
-        <div className="flex flex-col gap-4 p-4 rounded-xl border border-amber-500/20 bg-amber-500/5">
-          <h4 className="text-center font-bold text-amber-400">Brute Force (Consecutive)</h4>
-          <div className="flex flex-col items-center justify-center h-24">
-            <div className="text-xs text-muted-foreground mb-1">Checking t =</div>
-            <div className="text-3xl font-bold text-white">{current.brute.t}</div>
-            <div className="flex gap-4 mt-2 text-[10px]">
-              <span className={current.brute.mDiv ? 'text-green-400' : 'text-red-400'}>60 % t == 0: {current.brute.mDiv ? 'YES' : 'NO'}</span>
-              <span className={current.brute.nDiv ? 'text-green-400' : 'text-red-400'}>24 % t == 0: {current.brute.nDiv ? 'YES' : 'NO'}</span>
+        <div className={styles.infoCard} style={{ borderLeft: '4px solid var(--accent-purple)' }}>
+          <h4 style={{ textAlign: 'center', color: 'var(--accent-purple)' }}>Brute Force (Consecutive)</h4>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '6rem' }}>
+            <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Checking t =</div>
+            <div style={{ fontSize: 'var(--text-3xl)', fontWeight: 'bold', color: 'var(--text-primary)' }}>{current.brute.t}</div>
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', fontSize: '10px' }}>
+              <span style={{ color: current.brute.mDiv ? 'var(--color-success)' : 'var(--color-error)' }}>{m} % t == 0: {current.brute.mDiv ? 'YES' : 'NO'}</span>
+              <span style={{ color: current.brute.nDiv ? 'var(--color-success)' : 'var(--color-error)' }}>{n} % t == 0: {current.brute.nDiv ? 'YES' : 'NO'}</span>
             </div>
           </div>
-          <div className={`badge ${current.brute.action === 'Found' ? 'badge-success' : 'badge-ghost'} self-center`}>
+          <div className={`badge ${current.brute.action === 'Found' ? 'badge-green' : 'badge-blue'}`} style={{ alignSelf: 'center' }}>
             {current.brute.action === 'Found' ? 'GCD FOUND: ' + current.brute.t : 'Scanning Down...'}
           </div>
         </div>
       </div>
-      <div className="w-full text-center mt-4 text-xs text-muted-foreground italic">
+      <div style={{ width: '100%', textAlign: 'center', marginTop: '1rem', fontSize: 'var(--text-xs)', color: 'var(--text-muted)', fontStyle: 'italic' }}>
         Notice: Euclid's finds the answer in {steps.filter(s => s.euclid.action !== 'Done').length + 1} steps, while Brute Force takes {currentStepIdx + 1} checks (and counting).
       </div>
     </VisualStage>

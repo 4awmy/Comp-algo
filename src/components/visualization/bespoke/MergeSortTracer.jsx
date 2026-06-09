@@ -150,39 +150,18 @@ const MergeSortTracer = ({ style }) => {
         <div className={styles.vizPane} style={{ minHeight: '400px', flexDirection: 'column', gap: '1rem', overflowX: 'auto' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', minWidth: '520px', width: '100%', alignItems: 'center' }}>
             {step.levels.map((level, lIdx) => (
-              <div key={lIdx} style={{ display: 'flex', gap: '2rem', justifyContent: 'center', width: '100%' }}>
+              <div key={lIdx} className={styles.mergeLevel}>
                 {level.map((block, bIdx) => {
                   const isHighlighted = step.highlight.level === lIdx && step.highlight.block === bIdx;
                   return (
                     <div 
                       key={bIdx} 
-                      style={{ 
-                        display: 'flex', 
-                        gap: '4px', 
-                        padding: '8px', 
-                        background: isHighlighted ? 'rgba(16, 185, 129, 0.1)' : 'var(--bg-elevated)',
-                        border: `2px solid ${isHighlighted ? 'var(--color-success)' : 'var(--border-subtle)'}`,
-                        borderRadius: '8px',
-                        boxShadow: isHighlighted ? '0 0 15px rgba(16, 185, 129, 0.2)' : 'none',
-                        transition: 'all 0.5s ease'
-                      }}
+                      className={`${styles.mergeBlockContainer} ${isHighlighted ? styles.mergeBlockHighlighted : ''}`}
                     >
                       {block.map((val, vIdx) => (
                         <div 
                           key={vIdx} 
-                          style={{ 
-                            width: '32px', 
-                            height: '32px', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center',
-                            background: 'var(--bg-surface)',
-                            border: '1px solid var(--border-subtle)',
-                            borderRadius: '4px',
-                            fontSize: '0.8rem',
-                            fontWeight: 'bold',
-                            fontFamily: 'var(--font-code)'
-                          }}
+                          className={styles.mergeVal}
                         >
                           {val}
                         </div>

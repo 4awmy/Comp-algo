@@ -176,17 +176,17 @@ const QuickSortTracer = ({ style }) => {
                   <div className={`${styles.bar} ${stateClass}`} style={{ height: `${val * 1.5 + 40}px` }}>
                     {val}
                   </div>
-                  <div style={{ position: 'relative', width: '30px', textAlign: 'center', fontSize: '11px', color: 'var(--text-secondary)' }}>
+                  <div className={styles.pointerLabel}>
                     <span>{idx}</span>
-                    <div style={{ position: 'absolute', top: '15px', left: '0', width: '100%', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    <div className={styles.pointerIndices}>
                       {idx === step.left && (
-                        <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>i</span>
+                        <span className={styles.pointerI}>i</span>
                       )}
                       {idx === step.right && (
-                        <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>j</span>
+                        <span className={styles.pointerJ}>j</span>
                       )}
                       {idx === step.pivotIdx && (
-                        <span style={{ color: 'var(--color-error)', fontWeight: 'bold', fontSize: '9px' }}>P</span>
+                        <span className={styles.pointerP}>P</span>
                       )}
                     </div>
                   </div>

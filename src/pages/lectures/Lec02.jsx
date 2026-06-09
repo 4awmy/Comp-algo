@@ -32,7 +32,7 @@ const Lec02 = () => {
           />
           
           <div className={styles.infoCard}>
-            <h4>The Analysis Framework</h4>
+            <h4>Complexity Analysis</h4>
             <ul className={styles.editorialList}>
               <li><b>Input Size (n):</b> The number of items the algorithm processes.</li>
               <li><b>Basic Operation:</b> The operation in the algorithm's innermost loop that contributes the most to the total running time.</li>
@@ -41,9 +41,9 @@ const Lec02 = () => {
           </div>
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
-            <h4>Measuring Input Size</h4>
+            <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>
-              The way we measure <MathBlock math="n" /> depends on the problem:
+              <b>Measuring Input Size:</b> The way we measure <MathBlock math="n" /> depends on the problem:
             </p>
             <ul className={styles.editorialList}>
               <li><b>Sorting/Searching:</b> Number of elements in the list.</li>
@@ -80,28 +80,30 @@ const Lec02 = () => {
 
           <div className={styles.gridTwoCol}>
              <div className={styles.infoCard}>
-                <h4>Simple Loop</h4>
+                <h4>Complexity Analysis</h4>
+                <p className={styles.editorialText}><b>Simple Loop:</b></p>
                 <pre style={{fontSize: '12px', background: 'var(--bg-elevated)'}}>
 {`for i ← 0 to n-1 do
   x ← x + 4`}
                 </pre>
-                <p className="mt-2 text-xs">Total operations: <MathBlock math="n" /></p>
+                <p className={styles.editorialText} style={{ marginTop: '0.5rem', fontSize: 'var(--text-xs)' }}>Total operations: <MathBlock math="n" /></p>
              </div>
              <div className={styles.infoCard}>
-                <h4>Nested Loop</h4>
+                <h4>Complexity Analysis</h4>
+                <p className={styles.editorialText}><b>Nested Loop:</b></p>
                 <pre style={{fontSize: '12px', background: 'var(--bg-elevated)'}}>
 {`for i ← 0 to n-1 do
   for j ← 0 to n-1 do
     x ← x + 1`}
                 </pre>
-                <p className="mt-2 text-xs">Total operations: <MathBlock math="n^2" /></p>
+                <p className={styles.editorialText} style={{ marginTop: '0.5rem', fontSize: 'var(--text-xs)' }}>Total operations: <MathBlock math="n^2" /></p>
              </div>
           </div>
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
-            <h4>Operation Hierarchy</h4>
+            <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>
-              Not all operations are created equal. In terms of computational cost:
+              <b>Operation Hierarchy:</b> Not all operations are created equal. In terms of computational cost:
             </p>
             <p className={styles.editorialText} style={{ textAlign: 'center', fontWeight: 'bold' }}>
               Division / Modulo {'>'} Multiplication {'>'} Addition / Subtraction {'>'} Comparison
@@ -128,22 +130,43 @@ const Lec02 = () => {
           />
 
           <div className={styles.infoCard}>
-             <h4 className="mb-4">Common Efficiency Classes</h4>
-             <div className="overflow-x-auto">
-               <table className="table table-xs w-full">
+             <h4>Complexity Analysis</h4>
+             <p className={styles.editorialText}><b>Common Efficiency Classes:</b></p>
+             <div style={{ overflowX: 'auto' }}>
+               <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
                  <thead>
-                   <tr>
-                     <th>Class</th>
-                     <th>Name</th>
-                     <th>Growth Velocity</th>
+                   <tr style={{ borderBottom: '1px solid var(--border-subtle)', textAlign: 'left' }}>
+                     <th style={{ padding: '0.5rem' }}>Class</th>
+                     <th style={{ padding: '0.5rem' }}>Name</th>
+                     <th style={{ padding: '0.5rem' }}>Growth Velocity</th>
                    </tr>
                  </thead>
                  <tbody>
-                   <tr><td><MathBlock math="1" /></td><td>Constant</td><td className="text-green-400">🟢 No change</td></tr>
-                   <tr><td><MathBlock math="\log n" /></td><td>Logarithmic</td><td className="text-yellow-400">🟡 Extremely slow growth</td></tr>
-                   <tr><td><MathBlock math="n" /></td><td>Linear</td><td className="text-orange-400">🟠 Steady growth</td></tr>
-                   <tr><td><MathBlock math="n^2" /></td><td>Quadratic</td><td className="text-red-400">🔴 Fast growth</td></tr>
-                   <tr><td><MathBlock math="2^n" /></td><td>Exponential</td><td className="text-red-600 font-bold">⚫ Explosive growth</td></tr>
+                   <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                     <td style={{ padding: '0.5rem' }}><MathBlock math="1" /></td>
+                     <td style={{ padding: '0.5rem' }}>Constant</td>
+                     <td style={{ padding: '0.5rem', color: 'var(--color-success)' }}>🟢 No change</td>
+                   </tr>
+                   <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                     <td style={{ padding: '0.5rem' }}><MathBlock math="\log n" /></td>
+                     <td style={{ padding: '0.5rem' }}>Logarithmic</td>
+                     <td style={{ padding: '0.5rem', color: 'var(--color-warning)' }}>🟡 Extremely slow growth</td>
+                   </tr>
+                   <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                     <td style={{ padding: '0.5rem' }}><MathBlock math="n" /></td>
+                     <td style={{ padding: '0.5rem' }}>Linear</td>
+                     <td style={{ padding: '0.5rem', color: 'var(--color-warning)' }}>🟠 Steady growth</td>
+                   </tr>
+                   <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                     <td style={{ padding: '0.5rem' }}><MathBlock math="n^2" /></td>
+                     <td style={{ padding: '0.5rem' }}>Quadratic</td>
+                     <td style={{ padding: '0.5rem', color: 'var(--color-error)' }}>🔴 Fast growth</td>
+                   </tr>
+                   <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                     <td style={{ padding: '0.5rem' }}><MathBlock math="2^n" /></td>
+                     <td style={{ padding: '0.5rem' }}>Exponential</td>
+                     <td style={{ padding: '0.5rem', color: 'var(--color-error)', fontWeight: 'bold' }}>⚫ Explosive growth</td>
+                   </tr>
                  </tbody>
                </table>
              </div>
@@ -157,17 +180,17 @@ const Lec02 = () => {
           </p>
 
           <div className={styles.gridThreeCol}>
-             <div className={styles.infoCard}>
-                <h4 className="text-red-400">Big-O ($O$)</h4>
-                <p className="text-xs"><b>Upper Bound:</b> The algorithm is at most this slow. "Worst Case" guarantee.</p>
+             <div id="big-o-complexity" className={styles.infoCard}>
+                <h4>Complexity Analysis</h4>
+                <p className={styles.editorialText}><b>Big-O ($O$):</b> Upper Bound. The algorithm is at most this slow. "Worst Case" guarantee.</p>
              </div>
-             <div className={styles.infoCard}>
-                <h4 className="text-green-400"><MathBlock math="\Omega" /> Notation</h4>
-                <p className="text-xs"><b>Lower Bound:</b> The algorithm is at least this fast. "Best Case" guarantee.</p>
+             <div id="omega-complexity" className={styles.infoCard}>
+                <h4>Complexity Analysis</h4>
+                <p className={styles.editorialText}><b><MathBlock math="\Omega" /> Notation:</b> Lower Bound. The algorithm is at least this fast. "Best Case" guarantee.</p>
              </div>
-             <div className={styles.infoCard}>
-                <h4 className="text-purple-400"><MathBlock math="\Theta" /> Notation</h4>
-                <p className="text-xs"><b>Tight Bound:</b> The algorithm grows exactly at this rate.</p>
+             <div id="theta-complexity" className={styles.infoCard}>
+                <h4>Complexity Analysis</h4>
+                <p className={styles.editorialText}><b><MathBlock math="\Theta" /> Notation:</b> Tight Bound. The algorithm grows exactly at this rate.</p>
              </div>
           </div>
 
@@ -181,9 +204,9 @@ const Lec02 = () => {
           />
 
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
-            <h4>Asymptotic Comparison Quiz</h4>
+            <h4>Complexity Analysis</h4>
             <p className={styles.editorialText}>
-              Test your understanding of asymptotic relations. Are the following statements True or False?
+              <b>Asymptotic Comparison Quiz:</b> Test your understanding of asymptotic relations. Are the following statements True or False?
             </p>
             <ul className={styles.editorialList}>
               <li><MathBlock math="n^2 \in O(n^3)" /> — <b>True</b> (Quadratic is bounded above by cubic)</li>

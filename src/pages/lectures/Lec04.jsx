@@ -44,6 +44,14 @@ const Lec04 = () => {
             </ul>
           </div>
 
+          <div id="max-element-complexity" className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>Complexity Analysis: Max Element</h4>
+            <p className={styles.editorialText}>
+              To find the maximum element in an array of size <MathBlock math="n" />, we must examine every element exactly once.
+            </p>
+            <MathBlock math="C(n) = n - 1 = \Theta(n)" block />
+          </div>
+
           <p className={styles.editorialText}>
             The brute-force mindset is applicable to a wide variety of problems. Whether it's cracking a combination lock by trying every possible number or scanning a 2D grid pixel-by-pixel, the principle remains: <i>exhaustive coverage ensures success.</i>
           </p>
@@ -83,6 +91,17 @@ const Lec04 = () => {
           />
 
           <SelectionSortTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="selection-sort-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The number of comparisons <MathBlock math="C(n)" /> is the sum of the work done in each pass:
+            </p>
+            <MathBlock math="C(n) = \sum_{i=0}^{n-2} \sum_{j=i+1}^{n-1} 1 = \sum_{i=0}^{n-2} (n-1-i) = \frac{n(n-1)}{2} = \Theta(n^2)" block />
+            <p className={styles.editorialText}>
+              Note that the number of swaps is always <MathBlock math="n-1" />, which is <MathBlock math="\Theta(n)" />.
+            </p>
+          </div>
         </section>
 
         <section id="bubble-sort" className={styles.lessonSection}>
@@ -104,6 +123,14 @@ const Lec04 = () => {
           />
 
           <BubbleSortTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="bubble-sort-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The number of comparisons <MathBlock math="C(n)" /> is the same as selection sort in the worst case:
+            </p>
+            <MathBlock math="C(n) = \sum_{i=0}^{n-2} \sum_{j=0}^{n-2-i} 1 = \frac{n(n-1)}{2} = \Theta(n^2)" block />
+          </div>
         </section>
 
         <section id="sentinel-search" className={styles.lessonSection}>
@@ -124,6 +151,18 @@ const Lec04 = () => {
             ]}
             complexity={{ time: "O(n)", space: "O(1)" }}
           />
+
+          <div id="sequential-search-complexity" className={styles.infoCard} style={{ marginTop: '2rem' }}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              In the worst case (key not in the list), we check every element plus the sentinel:
+            </p>
+            <MathBlock math="C_{worst}(n) = n + 1 = \Theta(n)" block />
+            <p className={styles.editorialText}>
+              In the average case, we expect to find the key halfway through:
+            </p>
+            <MathBlock math="C_{avg}(n) \approx \frac{n}{2} = \Theta(n)" block />
+          </div>
         </section>
 
         <section id="string-matching" className={styles.lessonSection}>
@@ -175,67 +214,71 @@ const Lec04 = () => {
             The <b>Assignment Problem</b> is a classic combinatorial problem. Suppose there are <i>n</i> people and <i>n</i> jobs. Each person has a specific cost for each job. The goal is to assign exactly one person to each job such that the <b>total cost</b> is minimized.
           </p>
 
-          <AlgorithmCard 
-            title="Assignment Problem (Brute Force)"
-            goal="Minimize total cost by checking all possible one-to-one assignments."
-            steps={[
-              "Generate all <i>n!</i> permutations of assigning people to jobs.",
-              "Calculate the total cost for each permutation.",
-              "Compare costs to find the global minimum.",
-              "Return the optimal assignment and the minimum cost."
-            ]}
-            complexity={{ time: "\\Theta(n!)", space: "O(n)" }}
-          />
+          <div id="assignment-complexity">
+            <AlgorithmCard 
+              title="Assignment Problem (Brute Force)"
+              goal="Minimize total cost by checking all possible one-to-one assignments."
+              steps={[
+                "Generate all <i>n!</i> permutations of assigning people to jobs.",
+                "Calculate the total cost for each permutation.",
+                "Compare costs to find the global minimum.",
+                "Return the optimal assignment and the minimum cost."
+              ]}
+              complexity={{ time: "\\Theta(n!)", space: "O(n)" }}
+            />
+          </div>
 
           <div className={styles.infoCard}>
             <h4>Numerical Example: Cost Matrix</h4>
             <p className={styles.editorialText}>
               Consider 4 jobs and 4 people with the following cost matrix. Each cell represents the cost of assigning person <i>i</i> (row) to job <i>j</i> (column).
             </p>
-            <div className="overflow-x-auto my-6">
-              <table className="table w-full border-collapse border border-slate-700 bg-slate-900/50">
+            <div className={styles.tableContainer} style={{ margin: '1.5rem 0' }}>
+              <table className={styles.dijkstraTable}>
                 <thead>
-                  <tr className="bg-slate-800">
-                    <th className="border border-slate-700 p-2 text-primary"></th>
-                    <th className="border border-slate-700 p-2 text-primary">Job 1</th>
-                    <th className="border border-slate-700 p-2 text-primary">Job 2</th>
-                    <th className="border border-slate-700 p-2 text-primary">Job 3</th>
-                    <th className="border border-slate-700 p-2 text-primary">Job 4</th>
+                  <tr>
+                    <th></th>
+                    <th>Job 1</th>
+                    <th>Job 2</th>
+                    <th>Job 3</th>
+                    <th>Job 4</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 1</td>
-                    <td className="border border-slate-700 p-2 text-center">9</td>
-                    <td className="border border-slate-700 p-2 text-center bg-primary/20">2</td>
-                    <td className="border border-slate-700 p-2 text-center">7</td>
-                    <td className="border border-slate-700 p-2 text-center">8</td>
+                    <td className={styles.currentVertex}>Person 1</td>
+                    <td>9</td>
+                    <td className={styles.matrixActive} style={{ background: 'rgba(59, 130, 246, 0.2)' }}>2</td>
+                    <td>7</td>
+                    <td>8</td>
                   </tr>
                   <tr>
-                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 2</td>
-                    <td className="border border-slate-700 p-2 text-center">6</td>
-                    <td className="border border-slate-700 p-2 text-center">4</td>
-                    <td className="border border-slate-700 p-2 text-center bg-primary/20">3</td>
-                    <td className="border border-slate-700 p-2 text-center">7</td>
+                    <td className={styles.currentVertex}>Person 2</td>
+                    <td>6</td>
+                    <td>4</td>
+                    <td className={styles.matrixActive} style={{ background: 'rgba(59, 130, 246, 0.2)' }}>3</td>
+                    <td>7</td>
                   </tr>
                   <tr>
-                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 3</td>
-                    <td className="border border-slate-700 p-2 text-center bg-primary/20">5</td>
-                    <td className="border border-slate-700 p-2 text-center">8</td>
-                    <td className="border border-slate-700 p-2 text-center">1</td>
-                    <td className="border border-slate-700 p-2 text-center">8</td>
+                    <td className={styles.currentVertex}>Person 3</td>
+                    <td className={styles.matrixActive} style={{ background: 'rgba(59, 130, 246, 0.2)' }}>5</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>8</td>
                   </tr>
                   <tr>
-                    <td className="border border-slate-700 p-2 font-bold text-secondary text-center">Person 4</td>
-                    <td className="border border-slate-700 p-2 text-center">7</td>
-                    <td className="border border-slate-700 p-2 text-center">6</td>
-                    <td className="border border-slate-700 p-2 text-center">9</td>
-                    <td className="border border-slate-700 p-2 text-center bg-primary/20">4</td>
+                    <td className={styles.currentVertex}>Person 4</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>9</td>
+                    <td className={styles.matrixActive} style={{ background: 'rgba(59, 130, 246, 0.2)' }}>4</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-xs italic text-slate-400">Highlighted cells (2, 3, 5, 4) represent one possible valid assignment with total cost 14.</p>
+            <p className={styles.editorialText} style={{ fontSize: '0.75rem', fontStyle: 'italic', opacity: 0.7 }}>
+              Highlighted cells (2, 3, 5, 4) represent one possible valid assignment with total cost 14.
+            </p>
           </div>
 
           <AssignmentTracer style={{ margin: '2.5rem 0' }} />

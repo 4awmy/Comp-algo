@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import VisualStage from '../../ui/Premium/VisualStage';
 import styles from './Bespoke.module.css';
 
-const AssignmentTracer = () => {
+const AssignmentTracer = ({ style }) => {
   const persons = ['P1', 'P2', 'P3'];
   const jobs = ['J1', 'J2', 'J3'];
   const costMatrix = [
@@ -36,14 +37,22 @@ const AssignmentTracer = () => {
   const totalCost = calculateTotal();
   const allAssigned = assignments.every(a => a !== -1);
 
+  const actions = (
+    <div className={styles.tracerActions}>
+      <button className={styles.btnOutline} onClick={() => setAssignments([-1, -1, -1])}>Reset</button>
+    </div>
+  );
+
   return (
-    <div className={styles.tracerContainer}>
+    <VisualStage 
+      style={style} 
+      title="Assignment Problem Lab" 
+      description="Click on the cost matrix cells to assign jobs to people. Try to find the minimum total cost."
+      actions={actions}
+    >
       <div className={styles.tracerGrid}>
         <div className={styles.tracerCodePane}>
-          <div className={styles.codeHeader}>Assignment Problem</div>
-          <p className={styles.conceptText} style={{ fontSize: '12px' }}>
-            Find a one-to-one mapping between persons and jobs that minimizes total cost. Exhaustive search checks all <i>n!</i> permutations.
-          </p>
+          <div className={styles.codeHeader}>Cost Matrix</div>
           <div className={styles.matrixContainer}>
             <div className={styles.matrixGrid} style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
               <div className={styles.matrixCell}></div>
@@ -56,7 +65,7 @@ const AssignmentTracer = () => {
                       key={j} 
                       className={`${styles.matrixCell} ${assignments[i] === j ? styles.matrixActive : ''}`}
                       onClick={() => toggleAssignment(i, j)}
-                      style={{ cursor: 'pointer', fontSize: '14px', fontWeight: '700' }}
+                      style={{ cursor: 'pointer' }}
                     >
                       {cost}
                     </div>
@@ -111,7 +120,7 @@ const AssignmentTracer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </VisualStage>
   );
 };
 

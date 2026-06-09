@@ -99,6 +99,17 @@ const Lec01 = () => {
           </div>
 
           <GcdRaceTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="euclid-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The time complexity of Euclid's algorithm is proportional to the number of digits in the input. A more precise derivation shows:
+            </p>
+            <MathBlock math="T(m, n) \approx \frac{12 \ln 2}{\pi^2} \ln n" block />
+            <p className={styles.editorialText}>
+              This results in a logarithmic time complexity: <MathBlock math="O(\log n)" />.
+            </p>
+          </div>
         </section>
 
         <section id="problem-solving-flow" className={styles.lessonSection}>
@@ -206,6 +217,17 @@ const Lec01 = () => {
           />
 
           <SieveTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="sieve-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The number of times the inner loop runs is the sum of <MathBlock math="n/p" /> for all primes <MathBlock math="p \le \sqrt{n}" />:
+            </p>
+            <MathBlock math="T(n) = \sum_{p \le \sqrt{n}} \frac{n}{p}" block />
+            <p className={styles.editorialText}>
+              This series converges to: <MathBlock math="\Theta(n \log \log n)" />.
+            </p>
+          </div>
         </section>
 
         <section id="problem-types" className={styles.lessonSection}>

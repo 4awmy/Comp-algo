@@ -113,11 +113,11 @@ const SelectionSortTracer = ({ style }) => {
   ];
 
   const actions = (
-    <div className={styles.controls}>
-      <button className="btn btn-outline btn-sm" onClick={() => { setCurrentStepIdx(0); setIsPlaying(false); }}>Reset</button>
-      <button className="btn btn-outline btn-sm" onClick={() => setCurrentStepIdx(prev => Math.max(0, prev - 1))}>Prev</button>
-      <button className="btn btn-primary btn-sm" onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Play'}</button>
-      <button className="btn btn-outline btn-sm" onClick={() => setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1))}>Next</button>
+    <div className={styles.tracerActions}>
+      <button className={styles.btnOutline} onClick={() => { setCurrentStepIdx(0); setIsPlaying(false); }}>Reset</button>
+      <button className={styles.btnOutline} onClick={() => setCurrentStepIdx(prev => Math.max(0, prev - 1))}>Prev</button>
+      <button className={styles.btnPrimary} onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Play'}</button>
+      <button className={styles.btnOutline} onClick={() => setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1))}>Next</button>
     </div>
   );
 

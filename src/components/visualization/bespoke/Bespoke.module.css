@@ -139,6 +139,273 @@
   font-size: 0.75rem;
 }
 
+.btnError {
+  background: var(--color-error);
+  border-color: var(--color-error);
+  color: white;
+}
+
+.btnError:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+/* ── Math Visualizers ── */
+.mathContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 200px;
+}
+
+.triangleGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.triangleRow {
+  display: flex;
+  gap: 4px;
+}
+
+.triangleCell {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.triangleCellText {
+  font-size: 8px;
+  color: var(--accent-cyan);
+  opacity: 0.4;
+}
+
+.mathTotal {
+  margin-top: 1.5rem;
+  font-size: var(--text-sm);
+  font-family: var(--font-code);
+  color: var(--accent-cyan);
+}
+
+.mathTotalValue {
+  color: var(--text-primary);
+}
+
+.stackContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem;
+  min-height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+.stackVisual {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+  width: 192px;
+  border-left: 2px solid var(--border-subtle);
+  border-right: 2px solid var(--border-subtle);
+  border-bottom: 2px solid var(--border-subtle);
+  padding: 8px;
+  min-height: 200px;
+}
+
+.stackFrame {
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0.4;
+}
+
+.stackFrameActive {
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.2);
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.stackStatus {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 1rem;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(4px);
+}
+
+.statusLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.statusValue {
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.statusValueDown {
+  color: var(--accent-cyan);
+}
+
+.statusValueUp {
+  color: var(--accent-green);
+}
+
+.halvingContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding: 2rem;
+  min-height: 200px;
+  width: 100%;
+}
+
+.halvingBarWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.halvingBar {
+  width: 32px;
+  background: rgba(34, 211, 238, 0.2);
+  border-top: 2px solid var(--accent-cyan);
+  transition: all 0.5s;
+}
+
+.halvingLabel {
+  font-size: 10px;
+  font-family: var(--font-code);
+  opacity: 0.6;
+}
+
+.halvingStep {
+  font-size: 8px;
+  color: var(--text-muted);
+}
+
+.empiricalGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .empiricalGrid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.graphContainer {
+  position: relative;
+  height: 192px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+}
+
+.graphLegend {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.legendLinear { color: var(--accent-blue); }
+.legendQuadratic { color: var(--color-error); }
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statBox {
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+}
+
+.statLabel {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-size: var(--text-xl);
+  font-family: var(--font-code);
+}
+
+.logContainer {
+  flex: 1;
+  padding: 8px;
+  overflow-y: auto;
+  max-height: 96px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: var(--font-code);
+  font-size: 8px;
+}
+
+.logRow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4px 0;
+}
+
+.logT1 { color: var(--accent-blue); }
+.logT2 { color: var(--color-error); }
+
+.rangeInput {
+  width: 100%;
+  max-width: 150px;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border-subtle);
+  margin: 0 8px;
+}
+
 .tracerVisualPane {
   padding: 1.5rem;
   display: flex;
@@ -3502,4 +3769,167 @@
 .tracerSelect:focus {
   outline: none;
   border-color: var(--accent-blue);
+}
+
+/* Merge Sort Tracer */
+.mergeLevel {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.mergeBlockContainer {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all 0.5s ease;
+}
+
+.mergeBlockHighlighted {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--color-success);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.mergeVal {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: var(--font-code);
+}
+
+/* Quick Sort Tracer */
+.arrayContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding: 2rem;
+  min-height: 200px;
+  width: 100%;
+}
+
+.bar {
+  width: 30px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.barActive {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+}
+
+.barPivot {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.barComparing {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.pointerLabel {
+  position: relative;
+  width: 30px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.pointerIndices {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pointerI { color: var(--accent-purple); font-weight: bold; }
+.pointerJ { color: var(--accent-purple); font-weight: bold; }
+.pointerP { color: var(--color-error); font-weight: bold; font-size: 9px; }
+
+/* Tree Traversal Tracer */
+.graphContainer {
+  width: 100%;
+  max-width: 400px;
+  height: 280px;
+}
+
+.nodeCircle {
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.nodeText {
+  font-family: var(--font-display);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.edge {
+  stroke: var(--border-subtle);
+  stroke-width: 2;
+}
+
+.visitedSequence {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.seqItem {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.seqItemActive {
+  background: var(--accent-blue);
+  color: white;
+  border-color: var(--accent-blue);
+}
+
+.seqItemVisited {
+  background: var(--color-success);
+  color: white;
+  border-color: var(--color-success);
+}
+
+.seqItemEmpty {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
 }

@@ -15,37 +15,37 @@ export const StackedTriangleDemo = ({ style }) => {
       title="Summation Visualization"
       description={`Visualizing the sum 1 + 2 + ... + n. The total area of the triangle is n(n+1)/2 = ${total}.`}
       actions={
-        <div className="flex items-center gap-4">
+        <div className={styles.tracerActions}>
           <input 
             type="range" 
             min="1" 
             max="10" 
             value={n} 
             onChange={(e) => setN(parseInt(e.target.value))}
-            className="range range-xs range-primary"
+            className={styles.rangeInput}
           />
-          <span className="text-xs font-mono text-white/60">n = {n}</span>
+          <span className={styles.halvingLabel}>n = {n}</span>
         </div>
       }
     >
-      <div className="flex flex-col items-center justify-center p-4 min-h-[200px]">
-        <div className="flex flex-col gap-1 items-center">
+      <div className={styles.mathContainer}>
+        <div className={styles.triangleGrid}>
           {Array.from({ length: n }).map((_, rowIndex) => (
-            <div key={rowIndex} className="flex gap-1">
+            <div key={rowIndex} className={styles.triangleRow}>
               {Array.from({ length: rowIndex + 1 }).map((_, colIndex) => (
                 <div 
                   key={colIndex} 
-                  className="w-6 h-6 rounded border border-accent-cyan bg-accent-cyan/10 flex items-center justify-center animate-in fade-in zoom-in duration-300"
+                  className={styles.triangleCell}
                   style={{ animationDelay: `${(rowIndex * 50) + (colIndex * 20)}ms` }}
                 >
-                  <span className="text-[8px] text-accent-cyan opacity-40">{rowIndex + 1}</span>
+                  <span className={styles.triangleCellText}>{rowIndex + 1}</span>
                 </div>
               ))}
             </div>
           ))}
         </div>
-        <div className="mt-6 text-sm font-mono text-accent-cyan">
-          Total Boxes: <span className="text-white">{total}</span>
+        <div className={styles.mathTotal}>
+          Total Boxes: <span className={styles.mathTotalValue}>{total}</span>
         </div>
       </div>
     </VisualStage>
@@ -107,34 +107,34 @@ export const RecursiveCallStackDemo = ({ style }) => {
       title="Recursive Call Stack"
       description={current.desc}
       actions={
-        <div className="flex items-center gap-2">
-          <button className="btn btn-xs btn-outline" onClick={() => { setStep(0); setIsPlaying(true); }}>Reset & Play</button>
-          <button className="btn btn-xs btn-outline" onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Resume'}</button>
-          <div className="divider divider-horizontal mx-0"></div>
-          <button className="btn btn-xs btn-outline" onClick={() => setStep(Math.max(0, step - 1))}>Prev</button>
-          <button className="btn btn-xs btn-outline" onClick={() => setStep(Math.min(steps.length - 1, step + 1))}>Next</button>
+        <div className={styles.tracerActions}>
+          <button className={styles.btnOutline} onClick={() => { setStep(0); setIsPlaying(true); }}>Reset & Play</button>
+          <button className={styles.btnOutline} onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Resume'}</button>
+          <div className={styles.divider}></div>
+          <button className={styles.btnOutline} onClick={() => setStep(Math.max(0, step - 1))}>Prev</button>
+          <button className={styles.btnOutline} onClick={() => setStep(Math.min(steps.length - 1, step + 1))}>Next</button>
         </div>
       }
     >
-      <div className="flex flex-col items-center justify-end p-8 min-h-[300px] w-full relative">
-        <div className="flex flex-col-reverse gap-2 w-48 border-x-2 border-b-2 border-white/10 p-2 min-h-[200px]">
+      <div className={styles.stackContainer}>
+        <div className={styles.stackVisual}>
           {current.stack.map((val, idx) => (
             <div 
               key={idx} 
-              className={`h-10 rounded border flex items-center justify-center transition-all duration-300 ${idx === current.stack.length - 1 ? 'border-accent-cyan bg-accent-cyan/20 scale-105' : 'border-white/10 bg-white/5 opacity-40'}`}
+              className={`${styles.stackFrame} ${idx === current.stack.length - 1 ? styles.stackFrameActive : ''}`}
             >
-              <span className="text-xs font-mono">T({val})</span>
+              <span className={styles.halvingLabel}>T({val})</span>
             </div>
           ))}
         </div>
-        <div className="absolute top-10 right-10 flex flex-col gap-2 p-4 bg-white/5 rounded border border-white/10 backdrop-blur-sm">
-           <span className="text-[10px] uppercase tracking-widest text-white/40">Status</span>
-           <span className={`text-sm font-bold ${current.phase === 'down' ? 'text-accent-cyan' : 'text-green-400'}`}>
+        <div className={styles.stackStatus}>
+           <span className={styles.statusLabel}>Status</span>
+           <span className={`${styles.statusValue} ${current.phase === 'down' ? styles.statusValueDown : styles.statusValueUp}`}>
               {current.phase === 'down' ? 'Descending (Winding)' : 'Returning (Unwinding)'}
            </span>
            {current.phase === 'up' && (
-             <div className="mt-2 text-xs">
-                Result: <span className="text-white font-mono">{current.result}</span>
+             <div className={styles.halvingStep}>
+                Result: <span className={styles.mathTotalValue}>{current.result}</span>
              </div>
            )}
         </div>
@@ -164,22 +164,22 @@ export const HalvingBarChartDemo = ({ style }) => {
       title="Logarithmic Halving"
       description="Visualizing O(log n) where the problem size halves at each step."
       actions={
-        <div className="flex items-center gap-4">
-          <button className="btn btn-xs btn-outline" onClick={() => setInitialSize(128)}>128</button>
-          <button className="btn btn-xs btn-outline" onClick={() => setInitialSize(256)}>256</button>
-          <button className="btn btn-xs btn-outline" onClick={() => setInitialSize(512)}>512</button>
+        <div className={styles.tracerActions}>
+          <button className={styles.btnOutline} onClick={() => setInitialSize(128)}>128</button>
+          <button className={styles.btnOutline} onClick={() => setInitialSize(256)}>256</button>
+          <button className={styles.btnOutline} onClick={() => setInitialSize(512)}>512</button>
         </div>
       }
     >
-      <div className="flex items-end justify-center gap-2 p-8 min-h-[200px] w-full">
+      <div className={styles.halvingContainer}>
         {points.map((val, idx) => (
-          <div key={idx} className="flex flex-col items-center gap-2">
+          <div key={idx} className={styles.halvingBarWrapper}>
              <div 
-               className="w-8 bg-accent-cyan/20 border-t-2 border-accent-cyan transition-all duration-500" 
+               className={styles.halvingBar} 
                style={{ height: `${(val / initialSize) * 150}px` }}
              ></div>
-             <span className="text-[10px] font-mono opacity-60">{Math.round(val)}</span>
-             <span className="text-[8px] text-white/20">Step {idx}</span>
+             <span className={styles.halvingLabel}>{Math.round(val)}</span>
+             <span className={styles.halvingStep}>Step {idx}</span>
           </div>
         ))}
       </div>
@@ -221,9 +221,9 @@ export const EmpiricalDashboardDemo = ({ style }) => {
       title="Empirical Measurement Lab"
       description="Observe how hardware latency and noise affect real-world execution time compared to asymptotic curves."
       actions={
-        <div className="flex items-center gap-2">
+        <div className={styles.tracerActions}>
            <button 
-             className={`btn btn-xs ${isRunning ? 'btn-error' : 'btn-primary'}`} 
+             className={`${styles.btnPrimary} ${isRunning ? styles.btnError : ''}`} 
              onClick={() => {
                if (!isRunning) { setData([]); setN(0); }
                setIsRunning(!isRunning);
@@ -234,9 +234,9 @@ export const EmpiricalDashboardDemo = ({ style }) => {
         </div>
       }
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 w-full h-full">
-         <div className="col-span-2 relative h-48 border border-white/10 rounded bg-black/20 p-2">
-            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <div className={styles.empiricalGrid}>
+         <div className={styles.graphContainer}>
+            <svg className={styles.svgContainer} viewBox="0 0 100 100" preserveAspectRatio="none">
                {/* Grid */}
                <line x1="0" y1="25" x2="100" y2="25" stroke="white" strokeWidth="0.1" opacity="0.1" />
                <line x1="0" y1="50" x2="100" y2="50" stroke="white" strokeWidth="0.1" opacity="0.1" />
@@ -253,27 +253,27 @@ export const EmpiricalDashboardDemo = ({ style }) => {
                  fill="none" stroke="var(--color-error)" strokeWidth="1"
                />
             </svg>
-            <div className="absolute top-2 right-2 flex flex-col gap-1 text-[8px] font-bold">
-               <span className="text-blue-400">--- Algorithm A (Linear)</span>
-               <span className="text-pink-400">--- Algorithm B (Quadratic)</span>
+            <div className={styles.graphLegend}>
+               <span className={styles.legendLinear}>--- Algorithm A (Linear)</span>
+               <span className={styles.legendQuadratic}>--- Algorithm B (Quadratic)</span>
             </div>
          </div>
 
-         <div className="flex flex-col gap-2">
-            <div className="p-3 rounded bg-white/5 border border-white/10">
-               <span className="text-[10px] text-white/40 uppercase">Current N</span>
-               <div className="text-xl font-mono text-white">{n}</div>
+         <div className={styles.statsContainer}>
+            <div className={styles.statBox}>
+               <span className={styles.statLabel}>Current N</span>
+               <div className={styles.statValue}>{n}</div>
             </div>
-            <div className="p-3 rounded bg-white/5 border border-white/10">
-               <span className="text-[10px] text-white/40 uppercase">Samples Recorded</span>
-               <div className="text-xl font-mono text-white">{data.length}</div>
+            <div className={styles.statBox}>
+               <span className={styles.statLabel}>Samples Recorded</span>
+               <div className={styles.statValue}>{data.length}</div>
             </div>
-            <div className="flex-1 p-2 overflow-y-auto max-h-24 bg-black/40 rounded border border-white/5 font-mono text-[8px]">
+            <div className={styles.logContainer}>
                {data.slice(-5).reverse().map((d, i) => (
-                 <div key={i} className="flex justify-between border-b border-white/5 py-1">
+                 <div key={i} className={styles.logRow}>
                     <span>n={d.n}</span>
-                    <span className="text-blue-400">{d.t1.toFixed(1)}ms</span>
-                    <span className="text-pink-400">{d.t2.toFixed(1)}ms</span>
+                    <span className={styles.logT1}>{d.t1.toFixed(1)}ms</span>
+                    <span className={styles.logT2}>{d.t2.toFixed(1)}ms</span>
                  </div>
                ))}
             </div>

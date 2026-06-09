@@ -112,14 +112,14 @@ const Lec09 = () => {
           <MergeSortTracer style={{ margin: '2.5rem 0' }} />
 
           <div id="merge-sort-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Merge Sort Time Complexity Analysis</h4>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Complexity Analysis</h4>
             <p className={styles.editorialText}>
-              Each level of the recursion tree merges all <MathBlock math="n" /> elements once. Since the array halves at every divide step, the tree has <MathBlock math="\\log_2 n" /> merge levels.
+              Each level of the recursion tree merges all <MathBlock math="n" /> elements once. Since the array halves at every divide step, the tree has <MathBlock math="\log_2 n" /> merge levels.
             </p>
-            <MathBlock block math="T(n) = 2T(n/2) + \\Theta(n)" />
-            <MathBlock block math="T(n) = \\sum_{i=0}^{\\log_2 n - 1} n + \\Theta(n) = \\Theta(n \\log n)" />
+            <MathBlock block math="T(n) = 2T(n/2) + \Theta(n)" />
+            <MathBlock block math="T(n) = \sum_{i=0}^{\log_2 n - 1} n + \Theta(n) = \Theta(n \log n)" />
             <p className={styles.editorialText}>
-              The auxiliary array used during merging stores up to <MathBlock math="n" /> elements, so the extra space is <MathBlock math="\\Theta(n)" />.
+              The auxiliary array used during merging stores up to <MathBlock math="n" /> elements, so the extra space is <MathBlock math="\Theta(n)" />.
             </p>
           </div>
         </section>
@@ -150,7 +150,7 @@ const Lec09 = () => {
             <p className={styles.editorialText}>
               Smaller elements walk to the left of the pivot, and larger elements walk to the right. The pivot then finds its permanent final sorted position.
             </p>
-            <MathBlock block math="T(n) = T(s) + T(n-s-1) + \\Theta(n)" />
+            <MathBlock block math="T(n) = T(s) + T(n-s-1) + \Theta(n)" />
           </div>
 
           <QuickSortTracer style={{ margin: '2.5rem 0' }} />
@@ -158,21 +158,21 @@ const Lec09 = () => {
           <div className={styles.infoCard} style={{ marginTop: '2rem' }}>
              <h4>Average vs. Worst Case</h4>
              <p className={styles.editorialText}>
-                Balanced partitions produce <MathBlock math="\\Theta(n \\log n)" />, while highly unbalanced partitions (e.g., already sorted array) lead to <MathBlock math="\\Theta(n^2)" />.
+                Balanced partitions produce <MathBlock math="\Theta(n \log n)" />, while highly unbalanced partitions (e.g., already sorted array) lead to <MathBlock math="\Theta(n^2)" />.
              </p>
              <QuickSortWorstCase style={{ margin: '2.5rem 0' }} />
           </div>
 
           <div id="quick-sort-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Quick Sort Time Complexity Analysis</h4>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Complexity Analysis</h4>
             <p className={styles.editorialText}>
               Partitioning scans the current subarray once. The total cost depends on how evenly the pivot splits the input.
             </p>
-            <MathBlock block math="T(n) = T(s) + T(n-s-1) + \\Theta(n)" />
-            <MathBlock block math="T_{avg}(n) = 2T(n/2) + \\Theta(n) = \\Theta(n \\log n)" />
-            <MathBlock block math="T_{worst}(n) = T(n-1) + \\Theta(n) = \\sum_{k=1}^{n} k = \\Theta(n^2)" />
+            <MathBlock block math="T(n) = T(s) + T(n-s-1) + \Theta(n)" />
+            <MathBlock block math="T_{avg}(n) = 2T(n/2) + \Theta(n) = \Theta(n \log n)" />
+            <MathBlock block math="T_{worst}(n) = T(n-1) + \Theta(n) = \sum_{k=1}^{n} k = \Theta(n^2)" />
             <p className={styles.editorialText}>
-              With balanced partitions, the recursion stack has height <MathBlock math="\\Theta(\\log n)" />; the worst case can grow to <MathBlock math="\\Theta(n)" /> stack frames.
+              With balanced partitions, the recursion stack has height <MathBlock math="\Theta(\log n)" />; the worst case can grow to <MathBlock math="\Theta(n)" /> stack frames.
             </p>
           </div>
         </section>
@@ -200,29 +200,29 @@ const Lec09 = () => {
           <div className={styles.gridThreeCol}>
             <div className={styles.comparisonCard}>
               <h3>Preorder</h3>
-              <MathBlock math="\\text{Root} \\to \\text{L} \\to \\text{R}" />
+              <MathBlock math="\text{Root} \to \text{L} \to \text{R}" />
             </div>
             <div className={styles.comparisonCard}>
               <h3>Inorder</h3>
-              <MathBlock math="\\text{L} \\to \\text{Root} \\to \\text{R}" />
+              <MathBlock math="\text{L} \to \text{Root} \to \text{R}" />
             </div>
             <div className={styles.comparisonCard}>
               <h3>Postorder</h3>
-              <MathBlock math="\\text{L} \\to \\text{R} \\to \\text{Root}" />
+              <MathBlock math="\text{L} \to \text{R} \to \text{Root}" />
             </div>
           </div>
 
           <TreeTraversalTracer style={{ margin: '2.5rem 0' }} />
 
           <div id="tree-traversal-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
-            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Binary Tree Traversal Time Complexity Analysis</h4>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Complexity Analysis</h4>
             <p className={styles.editorialText}>
               Preorder, inorder, and postorder differ only in when the root is visited. All three recursively process the left subtree, the right subtree, and the root exactly once.
             </p>
             <MathBlock block math="T(n) = T(n_L) + T(n_R) + 1" />
-            <MathBlock block math="\\sum_{v \\in V} 1 = n \\in \\Theta(n)" />
+            <MathBlock block math="\sum_{v \in V} 1 = n \in \Theta(n)" />
             <p className={styles.editorialText}>
-              The recursion stack stores one root-to-leaf path at a time, so the auxiliary space is <MathBlock math="\\Theta(h)" />, where <MathBlock math="h" /> is tree height.
+              The recursion stack stores one root-to-leaf path at a time, so the auxiliary space is <MathBlock math="\Theta(h)" />, where <MathBlock math="h" /> is tree height.
             </p>
           </div>
         </section>

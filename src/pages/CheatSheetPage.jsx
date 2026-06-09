@@ -5,6 +5,18 @@ import styles from './CheatSheetPage.module.css'
 const ALGORITHMS = [
   // ── Lec 01 ──────────────────────────────────────────────────
   {
+    name: "Euclid's Algorithm",
+    category: 'Number Theory (Decrease & Conquer)',
+    best: 'O(1)',
+    avg: 'O(\\log n)',
+    worst: 'O(\\log n)',
+    space: 'O(1)',
+    stable: 'N/A',
+    lecture: 'Lec 01',
+    steps: ['1. If n = 0, return m as the GCD and stop.', '2. Calculate r = m mod n.', '3. Set m = n and n = r.', '4. Repeat the process from step 1.'],
+    link: '/lecture/01#euclid-complexity',
+  },
+  {
     name: 'Sieve of Eratosthenes',
     category: 'Number Theory (Brute Force)',
     best: '\\Theta(n \\log \\log n)',
@@ -17,6 +29,18 @@ const ALGORITHMS = [
     link: '/lecture/01#sieve-complexity',
   },
   // ── Lec 04 ──────────────────────────────────────────────────
+  {
+    name: 'Maximum Element',
+    category: 'Search (Brute Force)',
+    best: '\\Theta(n)',
+    avg: '\\Theta(n)',
+    worst: '\\Theta(n)',
+    space: '\\Theta(1)',
+    stable: 'N/A',
+    lecture: 'Lec 04',
+    steps: ["1. Initialize 'max' with the first element of the array.", '2. Iterate through the remaining n-1 elements.', '3. For each element, compare it with the current \'max\'.', '4. If the element is larger, update \'max\'.', '5. Return \'max\' after the loop finishes.'],
+    link: '/lecture/04#max-element-complexity',
+  },
   {
     name: 'Selection Sort',
     category: 'Sorting (Brute Force)',
@@ -52,6 +76,18 @@ const ALGORITHMS = [
     lecture: 'Lec 04',
     steps: ['1. Start from first element', '2. Compare with target', '3. Return index if found', '4. Move to next element'],
     link: '/lecture/04#sequential-search-complexity',
+  },
+  {
+    name: 'Assignment Problem (Brute Force)',
+    category: 'Combinatorial (Brute Force)',
+    best: '\\Theta(n!)',
+    avg: '\\Theta(n!)',
+    worst: '\\Theta(n!)',
+    space: '\\Theta(n)',
+    stable: 'N/A',
+    lecture: 'Lec 04',
+    steps: ['1. Generate all n! permutations of assigning people to jobs.', '2. Calculate the total cost for each permutation.', '3. Compare costs to find the global minimum.', '4. Return the optimal assignment and the minimum cost.'],
+    link: '/lecture/04#assignment-complexity',
   },
   // ── Lec 05 ──────────────────────────────────────────────────
   {

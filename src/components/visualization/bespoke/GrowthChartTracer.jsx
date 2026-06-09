@@ -32,17 +32,17 @@ const GrowthChartTracer = ({ style }) => {
       title="Order of Growth Comparison"
       description="Adjust 'n' to see how basic efficiency classes grow relative to each other."
     >
-      <div className="flex flex-col gap-6 w-full p-4">
-        <div className="flex items-center gap-4">
-          <span className="text-sm font-bold">Input size (n):</span>
-          <input type="range" min="1" max="50" value={n} onChange={e => setN(Number(e.target.value))} className="range range-xs range-primary" />
-          <span className="text-sm font-mono font-bold w-8">{n}</span>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%', padding: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'bold' }}>Input size (n):</span>
+          <input type="range" min="1" max="50" value={n} onChange={e => setN(Number(e.target.value))} className={styles.rangeInput} />
+          <span style={{ fontSize: 'var(--text-sm)', fontFamily: 'var(--font-code)', fontWeight: 'bold', width: '2rem' }}>{n}</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[300px]">
+        <div className={styles.gridTwoCol} style={{ height: '300px', margin: 0 }}>
            {/* Chart Area */}
-           <div className="relative border-l-2 border-b-2 border-white/10 p-2">
-              <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+           <div style={{ position: 'relative', borderLeft: '2px solid var(--border-subtle)', borderBottom: '2px solid var(--border-subtle)', padding: '0.5rem' }}>
+              <svg style={{ width: '100%', height: '100%' }} viewBox="0 0 100 100" preserveAspectRatio="none">
                  {functions.map(f => {
                    const path = chartData.map(p => {
                       const x = (p.n / 50) * 100;
@@ -52,23 +52,23 @@ const GrowthChartTracer = ({ style }) => {
                    return <polyline key={f.id} points={path} fill="none" stroke={f.color} strokeWidth="1" strokeDasharray={f.id === 'nlogn' ? '1,1' : ''} />
                  })}
                  {/* Current N cursor */}
-                 <line x1={(n / 50) * 100} y1="0" x2={(n / 50) * 100} y2="100" stroke="white" strokeWidth="0.5" strokeDasharray="2,2" opacity="0.5" />
+                 <line x1={(n / 50) * 100} y1="0" x2={(n / 50) * 100} y2="100" stroke="var(--text-muted)" strokeWidth="0.5" strokeDasharray="2,2" opacity="0.5" />
               </svg>
-              <div className="absolute top-0 left-0 text-[8px] text-muted-foreground">Operations</div>
-              <div className="absolute bottom-[-15px] right-0 text-[8px] text-muted-foreground">Input Size (n)</div>
+              <div style={{ position: 'absolute', top: 0, left: 0, fontSize: '8px', color: 'var(--text-muted)' }}>Operations</div>
+              <div style={{ position: 'absolute', bottom: '-15px', right: 0, fontSize: '8px', color: 'var(--text-muted)' }}>Input Size (n)</div>
            </div>
 
            {/* Stats Area */}
-           <div className="flex flex-col gap-2 overflow-y-auto">
+           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', overflowY: 'auto' }}>
               {functions.map(f => {
                 const val = f.calc(n);
                 return (
-                  <div key={f.id} className="flex items-center justify-between p-2 rounded bg-white/5 border border-white/5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full" style={{ background: f.color }} />
-                      <span className="text-xs font-medium">{f.label}</span>
+                  <div key={f.id} className={styles.infoCardMini} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <div style={{ width: '0.5rem', height: '0.5rem', borderRadius: '50%', background: f.color }} />
+                      <span style={{ fontSize: 'var(--text-xs)', fontWeight: '500' }}>{f.label}</span>
                     </div>
-                    <span className="text-xs font-mono">{val.toFixed(1)}</span>
+                    <span style={{ fontSize: 'var(--text-xs)', fontFamily: 'var(--font-code)' }}>{val.toFixed(1)}</span>
                   </div>
                 );
               })}

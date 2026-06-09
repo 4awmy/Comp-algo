@@ -81,11 +81,11 @@ const StringMatchTracer = ({ style }) => {
   ];
 
   const actions = (
-    <div className={styles.controls}>
-      <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => { setCurrentStepIdx(0); setIsPlaying(false); }}>Reset</button>
-      <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(prev => Math.max(0, prev - 1))}>Prev</button>
-      <button className={`${styles.btnPrimary} ${styles.btnSm}`} onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Play'}</button>
-      <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1))}>Next</button>
+    <div className={styles.tracerActions}>
+      <button className={styles.btnOutline} onClick={() => { setCurrentStepIdx(0); setIsPlaying(false); }}>Reset</button>
+      <button className={styles.btnOutline} onClick={() => setCurrentStepIdx(prev => Math.max(0, prev - 1))}>Prev</button>
+      <button className={styles.btnPrimary} onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Play'}</button>
+      <button className={styles.btnOutline} onClick={() => setCurrentStepIdx(prev => Math.min(steps.length - 1, prev + 1))}>Next</button>
     </div>
   );
 

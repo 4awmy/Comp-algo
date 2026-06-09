@@ -14,20 +14,20 @@ const ComplexityCounterTracer = ({ style }) => {
     const s = [];
     if (mode === 'single') {
       let count = 0;
-      s.push({ count: 0, active: -1, desc: `Initialize loop. n=${n}` });
+      s.push({ count: 0, active: -1, desc: <span>Initialize loop. <MathBlock math="n" />={n}</span> });
       for (let i = 0; i < n; i++) {
         count++;
         s.push({ count, active: i, desc: `Iteration ${i+1}: x ← x + 4 executed.` });
       }
-      s.push({ count, active: -1, desc: `Final count: ${count} basic operations (exactly n).` });
+      s.push({ count, active: -1, desc: <span>Final count: {count} basic operations (exactly <MathBlock math="n" />).</span> });
     } else if (mode === 'multiple') {
       let count = 0;
-      s.push({ count: 0, active: -1, desc: `3 operations per loop. n=${n}` });
+      s.push({ count: 0, active: -1, desc: <span>3 operations per loop. <MathBlock math="n" />={n}</span> });
       for (let i = 0; i < n; i++) {
         count += 3;
         s.push({ count, active: i, desc: `Iteration ${i+1}: 3 assignments executed (+3).` });
       }
-      s.push({ count, active: -1, desc: `Final count: ${count} operations (exactly 3n).` });
+      s.push({ count, active: -1, desc: <span>Final count: {count} operations (exactly <MathBlock math="3n" />).</span> });
     } else if (mode === 'conditional') {
       const arr = [10, 20, 5, 30, 15];
       let count = 0;
@@ -43,14 +43,14 @@ const ComplexityCounterTracer = ({ style }) => {
       s.push({ count, arr, active: -1, desc: `Final count: ${count} operations executed.` });
     } else if (mode === 'nested') {
       let count = 0;
-      s.push({ count: 0, i: -1, j: -1, desc: `n x n grid execution. n=${n}` });
+      s.push({ count: 0, i: -1, j: -1, desc: <span><MathBlock math="n \times n" /> grid execution. <MathBlock math="n" />={n}</span> });
       for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
           count++;
           s.push({ count, i, j, desc: `Inner loop (${i}, ${j}): operation executed.` });
         }
       }
-      s.push({ count, i: -1, j: -1, desc: `Final count: ${count} operations (exactly n²).` });
+      s.push({ count, i: -1, j: -1, desc: <span>Final count: {count} operations (exactly <MathBlock math="n^2" />).</span> });
     }
     return s;
   }, [mode, n]);
@@ -73,55 +73,80 @@ const ComplexityCounterTracer = ({ style }) => {
       description={current.desc}
       actions={
         <div className={styles.tracerActions}>
-           <select className="select select-xs select-bordered" value={mode} onChange={e => {setMode(e.target.value); setCurrentStepIdx(0);}}>
+           <select className={styles.tracerSelect} value={mode} onChange={e => {setMode(e.target.value); setCurrentStepIdx(0);}}>
              <option value="single">Simple Loop (n)</option>
              <option value="multiple">3 Ops per Loop (3n)</option>
              <option value="conditional">Conditional Op</option>
              <option value="nested">Nested Loop (n²)</option>
            </select>
            <div className={styles.stepControls}>
-             <button className="btn btn-outline btn-sm" onClick={() => setCurrentStepIdx(Math.max(0, currentStepIdx - 1))}>Prev</button>
-             <button className="btn btn-primary btn-sm" onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Play'}</button>
-             <button className="btn btn-outline btn-sm" onClick={() => setCurrentStepIdx(Math.min(steps.length - 1, currentStepIdx + 1))}>Next</button>
+             <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(Math.max(0, currentStepIdx - 1))}>Prev</button>
+             <button className={`${styles.btnPrimary} ${styles.btnSm}`} onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? 'Pause' : 'Play'}</button>
+             <button className={`${styles.btnOutline} ${styles.btnSm}`} onClick={() => setCurrentStepIdx(Math.min(steps.length - 1, currentStepIdx + 1))}>Next</button>
            </div>
         </div>
       }
     >
-      <div className="flex flex-col items-center gap-6 w-full p-4">
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', width: '100%', padding: '1rem' }}>
         {/* Visual representation */}
-        <div className="flex gap-2 h-20 items-end">
+        <div style={{ display: 'flex', gap: '0.5rem', height: '5rem', alignItems: 'flex-end' }}>
            {mode === 'nested' ? (
-             <div className="grid gap-1" style={{ gridTemplateColumns: `repeat(${n}, 20px)` }}>
+             <div style={{ display: 'grid', gap: '4px', gridTemplateColumns: `repeat(${n}, 20px)` }}>
                 {Array.from({ length: n * n }).map((_, idx) => {
                    const row = Math.floor(idx / n);
                    const col = idx % n;
                    const isPast = row < current.i || (row === current.i && col <= current.j);
                    const isCurrent = row === current.i && col === current.j;
-                   return <div key={idx} className={`w-5 h-5 rounded ${isCurrent ? 'bg-accent-cyan shadow-[0_0_10px_var(--accent-cyan)]' : isPast ? 'bg-accent-blue/40' : 'bg-white/5'}`} />
+                   return <div key={idx} style={{ 
+                     width: '20px', 
+                     height: '20px', 
+                     borderRadius: '4px',
+                     background: isCurrent ? 'var(--accent-purple)' : isPast ? 'var(--accent-blue)' : 'var(--bg-elevated)',
+                     opacity: isCurrent ? 1 : isPast ? 0.4 : 1,
+                     boxShadow: isCurrent ? '0 0 10px var(--accent-purple)' : 'none',
+                     transition: 'all 0.3s'
+                   }} />
                 })}
              </div>
            ) : mode === 'conditional' ? (
-             <div className="flex gap-2">
+             <div style={{ display: 'flex', gap: '0.5rem' }}>
                 {current.arr?.map((v, idx) => (
-                  <div key={idx} className={`w-12 h-12 flex flex-col items-center justify-center rounded-lg border-2 transition-all ${idx === current.active ? 'border-accent-yellow scale-110' : 'border-white/10'}`}>
-                    <span className="text-lg font-bold">{v}</span>
-                    {idx === current.active && current.cond && <span className="text-[8px] text-green-400 font-bold">COUNT!</span>}
+                  <div key={idx} className={styles.infoCard} style={{ 
+                    width: '3rem', 
+                    height: '3rem', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    border: idx === current.active ? '2px solid var(--accent-purple)' : '1px solid var(--border-subtle)',
+                    transform: idx === current.active ? 'scale(1.1)' : 'scale(1)',
+                    transition: 'all 0.3s',
+                    padding: 0
+                  }}>
+                    <span style={{ fontSize: 'var(--text-lg)', fontWeight: 'bold' }}>{v}</span>
+                    {idx === current.active && current.cond && <span style={{ fontSize: '8px', color: 'var(--color-success)', fontWeight: 'bold', position: 'absolute', top: '-15px' }}>COUNT!</span>}
                   </div>
                 ))}
              </div>
            ) : (
-             <div className="flex gap-1">
+             <div style={{ display: 'flex', gap: '4px' }}>
                 {Array.from({ length: n }).map((_, idx) => (
-                  <div key={idx} className={`w-8 h-8 rounded-md transition-all ${idx === current.active ? 'bg-accent-cyan shadow-[0_0_15px_var(--accent-cyan)] scale-110' : idx < current.active ? 'bg-accent-blue/40' : 'bg-white/5'}`} />
+                  <div key={idx} style={{ 
+                    width: '2rem', 
+                    height: '2rem', 
+                    borderRadius: '4px',
+                    background: idx === current.active ? 'var(--accent-purple)' : idx < current.active ? 'var(--accent-blue)' : 'var(--bg-elevated)',
+                    opacity: idx === current.active ? 1 : idx < current.active ? 0.4 : 1,
+                    transform: idx === current.active ? 'scale(1.1)' : 'scale(1)',
+                    transition: 'all 0.3s'
+                  }} />
                 ))}
              </div>
            )}
         </div>
 
         {/* Counter Display */}
-        <div className="flex flex-col items-center p-4 rounded-xl bg-black/40 border border-white/10 min-w-[200px]">
-           <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Total Basic Operations</span>
-           <span className="text-4xl font-black text-accent-cyan">{current.count}</span>
+        <div className={styles.infoCard} style={{ alignItems: 'center', minWidth: '200px' }}>
+           <span style={{ fontSize: 'var(--text-xs)', fontWeight: 'bold', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Total Basic Operations</span>
+           <span className={styles.resultValue} style={{ fontSize: 'var(--text-4xl)' }}>{current.count}</span>
         </div>
       </div>
     </VisualStage>
