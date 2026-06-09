@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import styles from './Bespoke.module.css';
 
 export const JohnsonTrotterTracer = ({ style }) => {
-  const [n, setN] = useState(3);
+  const [n] = useState(3);
   const [step, setStep] = useState(0);
 
   const permutations = {
@@ -47,7 +47,7 @@ export const JohnsonTrotterTracer = ({ style }) => {
                   {directions[n]?.[step][i] || '←'}
                 </div>
                 <div className={styles.permItem} style={{ 
-                  background: val === '3' ? 'rgba(59, 130, 246, 0.1)' : 'white',
+                  background: val === '3' ? 'var(--bg-elevated)' : 'var(--bg-surface)',
                   borderColor: val === '3' ? 'var(--accent-blue)' : 'var(--border-subtle)'
                 }}>
                   {val}
@@ -67,7 +67,6 @@ export const JohnsonTrotterTracer = ({ style }) => {
 
 export const LexicographicTracer = ({ style }) => {
   const [step, setStep] = useState(0);
-  const sequence = ['1', '2', '3'];
   const steps = [
     { label: "Find largest i such that a[i] < a[i+1]", highlight: [0], val: "a[0]=1 < a[1]=2" },
     { label: "Find largest j such that a[i] < a[j]", highlight: [2], val: "a[0]=1 < a[2]=3" },
@@ -129,7 +128,7 @@ export const BottomUpSubsetTracer = ({ style }) => {
             <line x1="200" y1="40" x2="260" y2="70" className={styles.treeLink} />
             <rect x="120" y="70" width="40" height="20" rx="4" className={styles.nodeBox} />
             <text x="140" y="83" textAnchor="middle" className={styles.nodeText}>∅</text>
-            <rect x="240" y="70" width="40" height="20" rx="4" className={styles.nodeBox} style={{ fill: 'rgba(59, 130, 246, 0.2)' }} />
+            <rect x="240" y="70" width="40" height="20" rx="4" className={styles.nodeBox} style={{ fill: 'var(--accent-blue)', fillOpacity: 0.2 }} />
             <text x="260" y="83" textAnchor="middle" className={styles.nodeText}>{1}</text>
           </>
         )}
@@ -144,12 +143,12 @@ export const BottomUpSubsetTracer = ({ style }) => {
             
             <rect x="80" y="120" width="40" height="20" rx="4" className={styles.nodeBox} />
             <text x="100" y="133" textAnchor="middle" className={styles.nodeText}>∅</text>
-            <rect x="160" y="120" width="40" height="20" rx="4" className={styles.nodeBox} style={{ fill: 'rgba(59, 130, 246, 0.1)' }} />
+            <rect x="160" y="120" width="40" height="20" rx="4" className={styles.nodeBox} style={{ fill: 'var(--accent-blue)', fillOpacity: 0.1 }} />
             <text x="180" y="133" textAnchor="middle" className={styles.nodeText}>{2}</text>
             
             <rect x="200" y="120" width="40" height="20" rx="4" className={styles.nodeBox} />
             <text x="220" y="133" textAnchor="middle" className={styles.nodeText}>{1}</text>
-            <rect x="280" y="120" width="40" height="20" rx="4" className={styles.nodeBox} style={{ fill: 'rgba(59, 130, 246, 0.1)' }} />
+            <rect x="280" y="120" width="40" height="20" rx="4" className={styles.nodeBox} style={{ fill: 'var(--accent-blue)', fillOpacity: 0.1 }} />
             <text x="300" y="133" textAnchor="middle" className={styles.nodeText}>1,2</text>
           </>
         )}
@@ -294,12 +293,11 @@ export const BinarySearchRace = ({ style }) => {
 };
 
 export const RussianPeasantTracer = ({ style }) => {
-  const [rows, setRows] = useState([]);
   const [n, setN] = useState(50);
   const [m, setM] = useState(65);
   const [step, setStep] = useState(0);
 
-  const calculate = () => {
+  const rows = useMemo(() => {
     let currN = n;
     let currM = m;
     const newRows = [];
@@ -308,10 +306,8 @@ export const RussianPeasantTracer = ({ style }) => {
       currN = Math.floor(currN / 2);
       currM = currM * 2;
     }
-    setRows(newRows);
-  };
-
-  useEffect(calculate, [n, m]);
+    return newRows;
+  }, [n, m]);
 
   return (
     <div className={styles.peasantContainer} style={style}>
@@ -334,7 +330,7 @@ export const RussianPeasantTracer = ({ style }) => {
                 style={{ transition: 'all 0.5s', transform: row.odd && step > 0 ? 'translateX(20px)' : 'none' }}>
               <td style={{ textDecoration: !row.odd ? 'line-through' : 'none' }}>{row.n}</td>
               <td style={{ textDecoration: !row.odd ? 'line-through' : 'none' }}>{row.m}</td>
-              <td>{row.odd ? <span style={{ color: 'var(--accent-green)', fontWeight: 800 }}>KEEP</span> : 'DISCARD'}</td>
+              <td>{row.odd ? <span style={{ color: 'var(--color-success)', fontWeight: 800 }}>KEEP</span> : 'DISCARD'}</td>
             </tr>
           ))}
         </tbody>
@@ -357,7 +353,6 @@ export const RussianPeasantTracer = ({ style }) => {
 
 export const JosephusCircle = ({ style }) => {
   const [count, setCount] = useState(10);
-  const [step, setStep] = useState(0);
   const [eliminated, setEliminated] = useState([]);
   const [active, setActive] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -365,7 +360,6 @@ export const JosephusCircle = ({ style }) => {
   const startElimination = () => {
     setEliminated([]);
     setIsRunning(true);
-    setStep(0);
   };
 
   useEffect(() => {

@@ -37,18 +37,18 @@ const Lec06 = () => {
               <ul className={styles.editorialList}>
                 <li>
                   <b>Decrease by a Constant:</b> The size of an instance is reduced by the same constant (typically 1) on each iteration.
-                  <MathBlock math="n \to n-1" />
+                  <MathBlock math="n \\to n-1" />
                   <em>Example: Insertion Sort, DFS/BFS.</em>
                 </li>
                 <li>
                   <b>Decrease by a Constant Factor:</b> The size is reduced by the same constant factor (typically 2) on each iteration.
-                  <MathBlock math="n \to n/2" />
+                  <MathBlock math="n \\to n/2" />
                   <em>Example: Binary Search, Exponentiation by Squaring.</em>
                 </li>
                 <li>
                   <b>Variable Size Decrease:</b> The size-reduction pattern varies from one iteration to another.
                   <em>Example: Euclid's Algorithm for GCD.</em>
-                  <MathBlock math="\text{gcd}(m, n) = \text{gcd}(n, m \pmod n)" />
+                  <MathBlock math="\\text{gcd}(m, n) = \\text{gcd}(n, m \\pmod n)" />
                 </li>
               </ul>
             </div>
@@ -71,7 +71,7 @@ const Lec06 = () => {
               "Shift elements to the right until the correct insertion point is found.",
               "Insert the element and repeat for all remaining items."
             ]}
-            complexity={{ time: "O(n^2)", space: "O(1)" }}
+            complexity={{ time: "O(n^2), \\Omega(n)", space: "\\Theta(1)" }}
           />
 
           <PremiumImage 
@@ -93,6 +93,14 @@ const Lec06 = () => {
           </div>
 
           <InsertionSortTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="insertion-sort-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Insertion Sort Complexity Analysis</h4>
+            <p className={styles.editorialText}>The basic operation is the key comparison. In the worst case (strictly decreasing array), every element is compared to all preceding ones.</p>
+            <MathBlock block math="C_{worst}(n) = \\sum_{i=1}^{n-1} i = \\frac{n(n-1)}{2} \\in \\Theta(n^2)" />
+            <p className={styles.editorialText} style={{ marginTop: '1rem' }}>In the best case (already sorted array), only one comparison is made per element.</p>
+            <MathBlock block math="C_{best}(n) = \\sum_{i=1}^{n-1} 1 = n - 1 \\in \\Omega(n)" />
+          </div>
         </section>
 
         <section id="graph-traversals" className={styles.lessonSection}>
@@ -111,7 +119,7 @@ const Lec06 = () => {
                 "If a vertex has no unvisited neighbors, backtrack to the previous vertex.",
                 "Continue until all reachable vertices are visited."
               ]}
-              complexity={{ time: "\\Theta(V + E)", space: "O(V)" }}
+              complexity={{ time: "\\Theta(V + E)", space: "\\Theta(V)" }}
             />
             <AlgorithmCard 
               title="Breadth-First Search (BFS)"
@@ -122,7 +130,7 @@ const Lec06 = () => {
                 "Visit all its unvisited neighbors, mark them visited, and enqueue them.",
                 "Repeat until the queue is empty."
               ]}
-              complexity={{ time: "\\Theta(V + E)", space: "O(V)" }}
+              complexity={{ time: "\\Theta(V + E)", space: "\\Theta(V)" }}
             />
           </div>
 
@@ -136,13 +144,17 @@ const Lec06 = () => {
           />
 
           <div className={styles.comparisonGrid} style={{ margin: '2.5rem 0' }}>
-            <div id="dfs" className={styles.comparisonCard}>
-              <h3>DFS Characteristics</h3>
+            <div id="dfs-complexity" className={styles.comparisonCard}>
+              <h3>DFS Characteristics & Complexity</h3>
               <p>Uses a <b>Stack</b> (often via recursion). Perfect for finding cycles, connectivity, and strongly connected components.</p>
+              <MathBlock block math="T(n) \\in \\Theta(V + E)" />
+              <p className={styles.editorialText} style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Where <MathBlock math="V" /> is vertices and <MathBlock math="E" /> is edges.</p>
             </div>
-            <div id="bfs" className={styles.comparisonCard}>
-              <h3>BFS Characteristics</h3>
+            <div id="bfs-complexity" className={styles.comparisonCard}>
+              <h3>BFS Characteristics & Complexity</h3>
               <p>Uses a <b>Queue</b>. Optimal for finding the shortest path in unweighted graphs and exploring concentric layers.</p>
+              <MathBlock block math="T(n) \\in \\Theta(V + E)" />
+              <p className={styles.editorialText} style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Traverses each vertex once and each edge twice (in undirected graphs).</p>
             </div>
           </div>
         </section>
@@ -150,7 +162,7 @@ const Lec06 = () => {
         <section id="topological-sort" className={styles.lessonSection}>
           <h2 className={styles.sectionTitle}>3. Topological Sorting</h2>
           <p className={styles.editorialText}>
-            Topological sorting is a linear ordering of vertices in a <b>Directed Acyclic Graph (DAG)</b> such that for every directed edge <MathBlock math="u \to v" />, vertex <MathBlock math="u" /> comes before <MathBlock math="v" />.
+            Topological sorting is a linear ordering of vertices in a <b>Directed Acyclic Graph (DAG)</b> such that for every directed edge <MathBlock math="u \\to v" />, vertex <MathBlock math="u" /> comes before <MathBlock math="v" />.
           </p>
 
           <AlgorithmCard 
@@ -163,7 +175,7 @@ const Lec06 = () => {
               "Update the in-degrees of the neighbors. If any becomes 0, it is a new source.",
               "Repeat until no vertices remain or a cycle is detected."
             ]}
-            complexity={{ time: "\\Theta(V + E)", space: "O(V)" }}
+            complexity={{ time: "\\Theta(V + E)", space: "\\Theta(V)" }}
           />
 
           <PremiumImage 
@@ -181,6 +193,13 @@ const Lec06 = () => {
           </div>
 
           <TopologicalSortTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="topological-sort-complexity" className={styles.infoCard} style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-success)' }}>
+            <h4 style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>Topological Sort Complexity Analysis</h4>
+            <p className={styles.editorialText}>Both the Source Removal (Kahn's) and the DFS-based methods process each vertex and each edge exactly once when using an adjacency list.</p>
+            <MathBlock block math="T(n) = \\Theta(V + E)" />
+            <p className={styles.editorialText} style={{ marginTop: '1rem' }}>Space complexity requires <MathBlock math="\\Theta(V)" /> for maintaining the in-degree array, queue/stack, or recursion frames.</p>
+          </div>
 
           <div className={styles.methodBox}>
             <h3>Alternate Method: DFS-based</h3>

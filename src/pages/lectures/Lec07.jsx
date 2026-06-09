@@ -70,6 +70,24 @@ const Lec07 = () => {
 
           <JohnsonTrotterTracer style={{ margin: '2.5rem 0' }} />
 
+          <div id="permutations-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The Johnson-Trotter algorithm generates each permutation by a single swap of adjacent elements.
+            </p>
+            <MathBlock math="T(n) = n! \\text{ swaps}" block />
+            <div className={styles.statsBar}>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Time Complexity</span>
+                <MathBlock math="\\Theta(n!)" />
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Space Complexity</span>
+                <MathBlock math="\\Theta(n)" />
+              </div>
+            </div>
+          </div>
+
           <div className={styles.gridTwoCol}>
             <div className={styles.methodBox}>
               <h3>Minimal-Change Property</h3>
@@ -110,6 +128,24 @@ const Lec07 = () => {
           />
 
           <BottomUpSubsetTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="subsets-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The Binary Reflected Gray Code generates all possible subsets of an n-element set.
+            </p>
+            <MathBlock math="T(n) = 2^n \\text{ strings}" block />
+            <div className={styles.statsBar}>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Time Complexity</span>
+                <MathBlock math="\\Theta(2^n)" />
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Space Complexity</span>
+                <MathBlock math="\\Theta(2^n)" />
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="binary-search" className={styles.lessonSection}>
@@ -132,6 +168,24 @@ const Lec07 = () => {
           />
 
           <BinarySearchRace style={{ margin: '2.5rem 0' }} />
+
+          <div id="binary-search-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              Binary search reduces the problem size by half in each step, leading to a logarithmic recurrence.
+            </p>
+            <MathBlock math="T(n) = T(n/2) + 1" block />
+            <div className={styles.statsBar}>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Time Complexity</span>
+                <MathBlock math="\\Theta(\\log_2 n)" />
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Space Complexity</span>
+                <MathBlock math="\\Theta(1)" />
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="fake-coin" className={styles.lessonSection}>
@@ -153,6 +207,24 @@ const Lec07 = () => {
           />
 
           <FakeCoinTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="fake-coin-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              By dividing into three groups, we reduce the problem size by a factor of 3 in each weighing.
+            </p>
+            <MathBlock math="T(n) = T(n/3) + 1" block />
+            <div className={styles.statsBar}>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Time Complexity</span>
+                <MathBlock math="\\Theta(\\log_3 n)" />
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Space Complexity</span>
+                <MathBlock math="\\Theta(1)" />
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="russian-peasant" className={styles.lessonSection}>
@@ -181,6 +253,24 @@ const Lec07 = () => {
           />
 
           <RussianPeasantTracer style={{ margin: '2.5rem 0' }} />
+
+          <div id="russian-peasant-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The number of halving steps determines the complexity, which is proportional to the number of bits in n.
+            </p>
+            <MathBlock math="T(n) = T(n/2) + 1 \\text{ additions}" block />
+            <div className={styles.statsBar}>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Time Complexity</span>
+                <MathBlock math="\\Theta(\\log_2 n)" />
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Space Complexity</span>
+                <MathBlock math="\\Theta(1)" />
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="josephus" className={styles.lessonSection}>
@@ -202,6 +292,24 @@ const Lec07 = () => {
           />
 
           <JosephusCircle style={{ margin: '2.5rem 0' }} />
+
+          <div id="josephus-complexity" className={styles.infoCard}>
+            <h4>Complexity Analysis</h4>
+            <p className={styles.editorialText}>
+              The winning position can be found using the binary representation of n.
+            </p>
+            <MathBlock math="J(n) = 2l + 1" block />
+            <div className={styles.statsBar}>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Time Complexity</span>
+                <MathBlock math="\\Theta(\\log n)" />
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statLabel}>Space Complexity</span>
+                <MathBlock math="\\Theta(1)" />
+              </div>
+            </div>
+          </div>
 
           <div className={styles.gridTwoCol}>
             <div className={styles.comparisonCard}>

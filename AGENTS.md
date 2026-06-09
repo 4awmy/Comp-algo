@@ -452,7 +452,7 @@ After editing any lecture file, verify:
 
 ## 15. Deployment Instructions
 
-> ⚠️ **Only the project maintainer should deploy.** Agents should only edit source files.
+> ⚠️ **Default: Maintainer deploys.** Agents should only build or deploy when explicitly instructed by the maintainer.
 
 ### Prerequisites
 - Node.js installed
@@ -528,3 +528,4 @@ git push origin master
 |---|---|
 | `master` | Source code — what you edit |
 | `gh-pages` | Built output — what the live site serves |
+lt output — what the live site serves |
