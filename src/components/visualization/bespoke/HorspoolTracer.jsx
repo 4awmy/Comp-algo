@@ -274,7 +274,7 @@ const HorspoolTracer = ({ style }) => {
           ) : (
             <div className={styles.horspoolContainer} style={{ width: '100%' }}>
               <div className={styles.searchStage}>
-                <div className={styles.textRow} style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                <div className={styles.textRow} style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', paddingTop: '22px' }}>
                   {TEXT.split("").map((char, idx) => {
                     let status = '';
                     const isUnderPattern = idx > step.i - PATTERN.length && idx <= step.i;
@@ -286,9 +286,9 @@ const HorspoolTracer = ({ style }) => {
                     }
                     
                     return (
-                      <div key={idx} className={`${styles.charBox} ${styles.textChar} ${status} relative`}>
+                      <div key={idx} className={`${styles.charBox} ${styles.textChar} ${status}`} style={{ position: 'relative' }}>
                         {char === '_' ? '␣' : char}
-                        <span className="absolute -top-6 text-[9px] text-muted-foreground">[{idx}]</span>
+                        <span style={{ position: 'absolute', top: '-18px', left: '50%', transform: 'translateX(-50%)', fontSize: '9px', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>[{idx}]</span>
                       </div>
                     );
                   })}

@@ -178,19 +178,19 @@ const ComparisonCountingSortTracer = ({ style }) => {
 
         {/* Visual Stage Pane */}
         <div className={styles.vizPane} style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', padding: '1.5rem' }}>
-          <div className="w-full space-y-8">
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {/* Input Array */}
             <div>
               <span className={styles.label}>Input Array (A)</span>
-              <div className="flex gap-2 mt-2">
+              <div style={{ display: 'flex', gap: '6px', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                 {step.array.map((val, idx) => {
                   let status = '';
                   if (idx === step.i) status = styles.active;
                   else if (idx === step.j) status = styles.patternChar;
                   return (
-                    <div key={idx} className={`${styles.charBox} ${status} relative`}>
+                    <div key={idx} className={`${styles.charBox} ${status}`} style={{ position: 'relative' }}>
                       {val}
-                      <span className="absolute -top-6 text-[10px] text-muted-foreground">[{idx}]</span>
+                      <span style={{ position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)', fontSize: '9px', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>[{idx}]</span>
                     </div>
                   );
                 })}
@@ -200,16 +200,16 @@ const ComparisonCountingSortTracer = ({ style }) => {
             {/* Count Array */}
             <div>
               <span className={styles.label}>Count Array (C)</span>
-              <div className="flex gap-2 mt-2">
+              <div style={{ display: 'flex', gap: '6px', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                 {step.count.map((val, idx) => {
                   let status = '';
                   if (idx === step.i) status = styles.active;
                   else if (idx === step.j) status = styles.active;
                   if (idx === step.placedIdx) status = styles.match;
                   return (
-                    <div key={idx} className={`${styles.charBox} ${status} relative`}>
+                    <div key={idx} className={`${styles.charBox} ${status}`} style={{ position: 'relative' }}>
                       {val}
-                      <span className="absolute -top-6 text-[10px] text-muted-foreground">[{idx}]</span>
+                      <span style={{ position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)', fontSize: '9px', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>[{idx}]</span>
                     </div>
                   );
                 })}
@@ -219,11 +219,11 @@ const ComparisonCountingSortTracer = ({ style }) => {
             {/* Sorted Array */}
             <div>
               <span className={styles.label}>Sorted Array (S)</span>
-              <div className="flex gap-2 mt-2">
+              <div style={{ display: 'flex', gap: '6px', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                 {step.sorted.map((val, idx) => (
-                  <div key={idx} className={`${styles.charBox} ${val !== null ? styles.match : ''} relative`}>
+                  <div key={idx} className={`${styles.charBox} ${val !== null ? styles.match : ''}`} style={{ position: 'relative' }}>
                     {val ?? ''}
-                    <span className="absolute -top-6 text-[10px] text-muted-foreground">[{idx}]</span>
+                    <span style={{ position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)', fontSize: '9px', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>[{idx}]</span>
                   </div>
                 ))}
               </div>
