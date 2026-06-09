@@ -227,7 +227,58 @@ export default MyAlgorithmTracer;
 - **String matching:** `searchStage`, `textRow`, `patternRow`, `textChar`, `patternChar`
 - **Styling states:** `active`, `match`, `mismatch`, `sorted`
 
-### Index labels above character boxes (NO TAILWIND):
+### The Dual-Pane (Split Pane) Layout
+
+Every tracer must use the **dual-pane layout** — pseudocode on the left, visualization on the right. This is the core UX pattern that lets students follow along line-by-line as the algorithm executes.
+
+```
+┌─────────────────────┬──────────────────────────────┐
+│   CODE PANE (1fr)   │   VISUALIZATION PANE (1.5fr) │
+│                     │                              │
+│  function Sort(A)   │   [ 3 ][ 1 ][ 4 ][ 1 ][ 5 ] │
+│ ▶ i ← 0            │         ↑ comparing           │
+│   while i < n do   │                              │
+│     j ← i + 1      │   Count: [ 0 ][ 2 ][ 0 ]     │
+│     ...             │                              │
+└─────────────────────┴──────────────────────────────┘
+```
+
+**Implementation:**
+
+```jsx
+<VisualStage style={style} title="My Algorithm" description={step.description} actions={actions}>
+  <div className={styles.dualPane}>           {/* Grid: 1fr 1.5fr */}
+
+    {/* LEFT: Code pane — always present */}
+    <div className={styles.codePane}>
+      <div className={styles.codeHeader}>Pseudocode</div>
+      {CODE_LINES.map((line, idx) => (
+        <span
+          key={idx}
+          className={`${styles.codeLine} ${step.line === idx ? styles.codeLineActive : ''}`}
+        >
+          {line}
+        </span>
+      ))}
+    </div>
+
+    {/* RIGHT: Visualization pane — array boxes, SVGs, hash tables, etc. */}
+    <div className={styles.vizPane} style={{ padding: '1.5rem', minHeight: '300px' }}>
+      {/* Your visualization here */}
+    </div>
+
+  </div>
+</VisualStage>
+```
+
+**Key rules for the dual pane:**
+- The `step.line` integer in each step snapshot must match a 0-based index in `CODE_LINES` — this is what drives the line highlight
+- The code pane should show ALL lines of pseudocode, not just the active one
+- Inactive lines use reduced opacity (handled by `.codeLine`), active line gets a cyan highlight (`.codeLineActive`)
+- The viz pane should use `minHeight` to prevent layout collapse when content is sparse
+- On mobile (`max-width: 700px`) the panes stack vertically automatically
+
+
 ```jsx
 // ✅ CORRECT
 <div className={styles.charBox} style={{ position: 'relative' }}>
